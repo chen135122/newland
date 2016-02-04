@@ -12,7 +12,15 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
+});
+
+Route::get('/property', function () {
+    return view('property.index');
+});
+
+Route::get('/property/{id}', function () {
+    return view('property.show');
 });
 
 /*

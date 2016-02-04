@@ -16,13 +16,13 @@ $('#collapseMap').on('shown.bs.collapse', function(e){
 		markersData = {
 			'Single_hotel': [
 			{
-				name: 'Hotel Mariott',
-				location_latitude: 48.873792, 
-				location_longitude: 2.295028,
+				name: 'AUCKLAND CENTRAL 1房 全新精装公寓',
+				location_latitude: 36.8483157,
+				location_longitude: 174.7637243,
 				map_image_url: 'img/thumb_map_1.jpg',
-				name_point: 'Hotel Mariott',
+				name_point: 'AUCKLAND CENTRAL 1房 全新精装公寓',
 				description_point: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard.',
-				url_point: 'single_hotel.html'
+				url_point: '/property/1'
 			}
 			],
 			'Sightseeing': [
@@ -151,7 +151,7 @@ $('#collapseMap').on('shown.bs.collapse', function(e){
 
 			var mapOptions = {
 				zoom: 14,
-				center: new google.maps.LatLng(48.865633, 2.321236),
+				center: new google.maps.LatLng(-36.8483247, 174.7636383),
 				mapTypeId: google.maps.MapTypeId.ROADMAP,
 
 				mapTypeControl: false,
@@ -333,8 +333,5 @@ $('#collapseMap').on('shown.bs.collapse', function(e){
 				pane: 'floatPane',
 				enableEventPropagation: true
 			});
-
-
 		};
-
     });
