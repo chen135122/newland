@@ -318,31 +318,20 @@
 
 @endsection
 
-
 @push('style')
 <style>
     .tour_title > h3, .hotel_title > h3 {
         line-height: 19px !important;
         font-size: 15px !important;
     }
-
-    .main_title p{
-        font-size: 14px !important;
-        margin-top: 5px;
-    }
-
-    .main-menu a {
-        font-size: 16px !important;
-    }
 </style>
 <!-- REVOLUTION SLIDER CSS -->
 <link href="/rs-plugin/css/settings.css" rel="stylesheet">
 <link href="/css/extralayers.css" rel="stylesheet">
-
 @endpush
 
 @push('script')
-        <!-- SLIDER REVOLUTION 4.x SCRIPTS  -->
+<!-- SLIDER REVOLUTION 4.x SCRIPTS  -->
 <script src="/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
 <script src="/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
 <script src="/js/revolution_func.js"></script>

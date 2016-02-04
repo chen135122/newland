@@ -27,6 +27,17 @@
     <script src="/js/html5shiv.min.js"></script>
     <script src="/js/respond.min.js"></script>
     <![endif]-->
+    <style>
+
+        .main_title p{
+            font-size: 14px !important;
+            margin-top: 5px;
+        }
+
+        .main-menu a {
+            font-size: 16px !important;
+        }
+    </style>
 
     @stack('style')
 </head>
@@ -275,8 +286,6 @@
 <script src="/js/jquery-1.11.2.min.js"></script>
 <script src="/js/common_scripts_min.js"></script>
 <script src="/js/functions.js"></script>
-
-
 
 @stack('script')
 </body>
