@@ -402,7 +402,7 @@
     $('input.date-pick').datepicker('setDate', 'today');
 </script>
 <!-- Map -->
-<script src="http://maps.googleapis.com/maps/api/js"></script>
+<script src="http://maps.google.cn/maps/api/js"></script>
 <script src="/js/map.js"></script>
 <script src="/js/infobox.js"></script>
 <!-- Carousel -->
