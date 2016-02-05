@@ -173,7 +173,7 @@
                             </div><!-- End menu-wrapper -->
                         </li>
                         <li class="submenu">
-                            <a href="javascript:void(0);" class="show-submenu"><i class="icon_set_1_icon-8"></i> 旅游 <i class="icon-down-open-mini"></i></i></a>
+                            <a href="/tour" class="show-submenu"><i class="icon_set_1_icon-8"></i> 旅游 <i class="icon-down-open-mini"></i></i></a>
                             <ul>
                                 <li><a href="#">最热路线</a></li>
                                 <li><a href="#">经典线路</a></li>
