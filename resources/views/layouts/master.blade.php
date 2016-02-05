@@ -175,9 +175,9 @@
                         <li class="submenu">
                             <a href="/tour" class="show-submenu"><i class="icon_set_1_icon-8"></i> 旅游 <i class="icon-down-open-mini"></i></i></a>
                             <ul>
-                                <li><a href="#">最热路线</a></li>
-                                <li><a href="#">经典线路</a></li>
-                                <li><a href="#">私人定制</a></li>
+                                <li><a href="/tour">最热路线</a></li>
+                                <li><a href="/tour">经典线路</a></li>
+                                <li><a href="/tour">私人定制</a></li>
                             </ul>
                         </li>
                         <li class="submenu">

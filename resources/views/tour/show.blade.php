@@ -6,7 +6,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-sm-8">
-                    <h1>Arc de Triomphe</h1>
+                    <h1>【南北岛精华游】奥克兰+怀托摩萤火虫洞+罗托鲁瓦+蒂卡波湖+基督城+箭镇+皇后镇10天</h1>
                     <span>Champ de Mars, 5 Avenue Anatole, 75007 Paris.</span>
                     <span class="rating"><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><small>(75)</small></span>
                 </div>

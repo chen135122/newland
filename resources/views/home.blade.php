@@ -104,7 +104,7 @@
         <div class="col-md-4 col-sm-6 wow zoomIn" data-wow-delay="0.1s">
             <div class="tour_container">
                 <div class="img_container">
-                    <a href="#">
+                    <a href="/tour/1">
                         <img src="img/tour_box_1.jpg" class="img-responsive" alt="">
                         <div class="ribbon top_rated"></div>
                         <div class="short_info">
@@ -124,7 +124,7 @@
         <div class="col-md-4 col-sm-6 wow zoomIn" data-wow-delay="0.2s">
             <div class="tour_container">
                 <div class="img_container">
-                    <a href="#">
+                    <a href="/tour/1">
                         <img src="img/tour_box_2.jpg" width="800" height="533" class="img-responsive" alt="">
                         <div class="ribbon top_rated"></div>
                         <div class="short_info">
@@ -144,7 +144,7 @@
         <div class="col-md-4 col-sm-6 wow zoomIn" data-wow-delay="0.3s">
             <div class="tour_container">
                 <div class="img_container">
-                    <a href="#">
+                    <a href="/tour/1">
                         <img src="img/tour_box_3.jpg" width="800" height="533" class="img-responsive" alt="">
                         <div class="ribbon popular"></div>
                         <div class="badge_save">Save<strong>30%</strong></div>
@@ -165,7 +165,7 @@
         <div class="col-md-4 col-sm-6 wow zoomIn" data-wow-delay="0.4s">
             <div class="tour_container">
                 <div class="img_container">
-                    <a href="#">
+                    <a href="/tour/1">
                         <img src="img/tour_box_4.jpg" width="800" height="533" class="img-responsive" alt="">
                         <div class="ribbon popular"></div>
                         <div class="badge_save">Save<strong>20%</strong></div>
@@ -186,7 +186,7 @@
         <div class="col-md-4 col-sm-6 wow zoomIn" data-wow-delay="0.5s">
             <div class="tour_container">
                 <div class="img_container">
-                    <a href="#">
+                    <a href="/tour/1">
                         <img src="img/tour_box_14.jpg" width="800" height="533" class="img-responsive" alt="">
                         <div class="ribbon popular"></div>
                         <div class="short_info">
@@ -206,7 +206,7 @@
         <div class="col-md-4 col-sm-6 wow zoomIn" data-wow-delay="0.6s">
             <div class="tour_container">
                 <div class="img_container">
-                    <a href="#">
+                    <a href="/tour/1">
                         <img src="img/tour_box_5.jpg" width="800" height="533" class="img-responsive" alt="">
                         <div class="ribbon top_rated"></div>
                         <div class="short_info">
@@ -240,7 +240,7 @@
         <div class="col-md-4 col-sm-6 wow zoomIn" data-wow-delay="0.1s">
             <div class="hotel_container">
                 <div class="img_container">
-                    <a href="#">
+                    <a href="/property/562857">
                         <img src="img/hotel_1.jpg" width="800" height="533" class="img-responsive" alt="">
                         <div class="ribbon top_rated"></div>
                         <div class="short_info hotel">
@@ -260,7 +260,7 @@
         <div class="col-md-4 col-sm-6 wow zoomIn" data-wow-delay="0.2s">
             <div class="hotel_container">
                 <div class="img_container">
-                    <a href="#">
+                    <a href="/property/562857">
                         <img src="img/hotel_2.jpg"  width="800" height="533" class="img-responsive" alt="">
                         <div class="ribbon top_rated"></div>
                         <div class="short_info hotel">
@@ -280,7 +280,7 @@
         <div class="col-md-4 col-sm-6 wow zoomIn" data-wow-delay="0.3s">
             <div class="hotel_container">
                 <div class="img_container">
-                    <a href="#">
+                    <a href="/property/562857">
                         <img src="img/hotel_3.jpg"  width="800" height="533" class="img-responsive" alt="">
                         <div class="ribbon top_rated"></div>
                         <div class="short_info hotel">

@@ -65,7 +65,7 @@
                 <div class="strip_all_tour_list wow fadeIn" data-wow-delay="0.1s">
                     <div class="row">
                         <div class="col-lg-4 col-md-4 col-sm-4">
-                            <div class="img_list"><a href="single_tour.html"><div class="ribbon popular" ></div><img src="img/tour_box_1.jpg" alt="">
+                            <div class="img_list"><a href="/tour/1"><div class="ribbon popular" ></div><img src="img/tour_box_1.jpg" alt="">
                                     <div class="short_info"><i class="icon_set_1_icon-4"></i>名胜古迹 </div></a>
                             </div>
                         </div>
@@ -115,7 +115,7 @@
                         </div>
                         <div class="col-lg-2 col-md-2 col-sm-2">
                             <div class="price_list"><div>45800<span class="normal_price_list"></span><small >*每人</small>
-                                    <p><a href="single_tour.html" class="btn_1">详情</a></p>
+                                    <p><a href="/tour/1" class="btn_1">详情</a></p>
                                 </div>
 
                             </div>
@@ -126,10 +126,7 @@
                 <div class="strip_all_tour_list wow fadeIn" data-wow-delay="0.2s">
                     <div class="row">
                         <div class="col-lg-4 col-md-4 col-sm-4">
-                            <div class="wishlist">
-                                <a class="tooltip_flip tooltip-effect-1" href="javascript:void(0);">+<span class="tooltip-content-flip"><span class="tooltip-back">Add to wishlist</span></span></a>
-                            </div>
-                            <div class="img_list"><a href="single_tour.html"><div class="ribbon top_rated" ></div><img src="img/tour_box_2.jpg" alt="">
+                            <div class="img_list"><a href="/tour/1"><div class="ribbon top_rated" ></div><img src="img/tour_box_2.jpg" alt="">
                                     <div class="short_info"><i class="icon_set_1_icon-44"></i>Churches</div></a>
                             </div>
                         </div>
@@ -190,7 +187,7 @@
                         </div>
                         <div class="col-lg-2 col-md-2 col-sm-2">
                             <div class="price_list"><div><sup>$</sup>42*<span class="normal_price_list">$99</span><small >*Per person</small>
-                                    <p><a href="single_tour.html" class="btn_1">Details</a></p>
+                                    <p><a href="/tour/1" class="btn_1">Details</a></p>
                                 </div>
 
                             </div>
@@ -204,7 +201,7 @@
                             <div class="wishlist">
                                 <a class="tooltip_flip tooltip-effect-1" href="javascript:void(0);">+<span class="tooltip-content-flip"><span class="tooltip-back">Add to wishlist</span></span></a>
                             </div>
-                            <div class="img_list"><a href="single_tour.html"><div class="ribbon top_rated" ></div><img src="img/tour_box_3.jpg" alt="">
+                            <div class="img_list"><a href="/tour/1"><div class="ribbon top_rated" ></div><img src="img/tour_box_3.jpg" alt="">
                                     <div class="short_info"><i class="icon_set_1_icon-44"></i>Historic Buildings</div></a>
                             </div>
                         </div>
@@ -265,7 +262,7 @@
                         </div>
                         <div class="col-lg-2 col-md-2 col-sm-2">
                             <div class="price_list"><div><sup>$</sup>39*<span class="normal_price_list">$99</span><small >*Per person</small>
-                                    <p><a href="single_tour.html" class="btn_1">Details</a></p>
+                                    <p><a href="/tour/1" class="btn_1">Details</a></p>
                                 </div>
 
                             </div>
@@ -279,7 +276,7 @@
                             <div class="wishlist">
                                 <a class="tooltip_flip tooltip-effect-1" href="javascript:void(0);">+<span class="tooltip-content-flip"><span class="tooltip-back">Add to wishlist</span></span></a>
                             </div>
-                            <div class="img_list"><a href="single_tour.html"><div class="ribbon top_rated" ></div><img src="img/tour_box_4.jpg" alt="">
+                            <div class="img_list"><a href="/tour/1"><div class="ribbon top_rated" ></div><img src="img/tour_box_4.jpg" alt="">
                                     <div class="short_info"><i class="icon_set_1_icon-37"></i>Walking tour</div></a>
                             </div>
                         </div>
@@ -340,7 +337,7 @@
                         </div>
                         <div class="col-lg-2 col-md-2 col-sm-2">
                             <div class="price_list"><div><sup>$</sup>69*<span class="normal_price_list">$59</span><small >*Per person</small>
-                                    <p><a href="single_tour.html" class="btn_1">Details</a></p>
+                                    <p><a href="/tour/1" class="btn_1">Details</a></p>
                                 </div>
 
                             </div>
@@ -354,7 +351,7 @@
                             <div class="wishlist">
                                 <a class="tooltip_flip tooltip-effect-1" href="javascript:void(0);">+<span class="tooltip-content-flip"><span class="tooltip-back">Add to wishlist</span></span></a>
                             </div>
-                            <div class="img_list"><a href="single_tour.html"><div class="ribbon top_rated" ></div><img src="img/tour_box_14.jpg" alt="">
+                            <div class="img_list"><a href="/tour/1"><div class="ribbon top_rated" ></div><img src="img/tour_box_14.jpg" alt="">
                                     <div class="short_info"><i class="icon_set_1_icon-28"></i>Skyline tour</div></a>
                             </div>
                         </div>
@@ -415,7 +412,7 @@
                         </div>
                         <div class="col-lg-2 col-md-2 col-sm-2">
                             <div class="price_list"><div><sup>$</sup>49*<span class="normal_price_list">$59</span><small >*Per person</small>
-                                    <p><a href="single_tour.html" class="btn_1">Details</a></p>
+                                    <p><a href="/tour/1" class="btn_1">Details</a></p>
                                 </div>
 
                             </div>
@@ -429,7 +426,7 @@
                             <div class="wishlist">
                                 <a class="tooltip_flip tooltip-effect-1" href="javascript:void(0);">+<span class="tooltip-content-flip"><span class="tooltip-back">Add to wishlist</span></span></a>
                             </div>
-                            <div class="img_list"><a href="single_tour.html"><div class="ribbon top_rated" ></div><img src="img/tour_box_5.jpg" alt="">
+                            <div class="img_list"><a href="/tour/1"><div class="ribbon top_rated" ></div><img src="img/tour_box_5.jpg" alt="">
                                     <div class="short_info"><i class="icon_set_1_icon-44"></i>Historic Building</div></a>
                             </div>
                         </div>
@@ -490,7 +487,7 @@
                         </div>
                         <div class="col-lg-2 col-md-2 col-sm-2">
                             <div class="price_list"><div><sup>$</sup>49*<span class="normal_price_list">$59</span><small >*Per person</small>
-                                    <p><a href="single_tour.html" class="btn_1">Details</a></p>
+                                    <p><a href="/tour/1" class="btn_1">Details</a></p>
                                 </div>
 
                             </div>
