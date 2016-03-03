@@ -12,7 +12,11 @@ class PropertyController extends Controller
 {
     public function index()
     {
-        $properties = Property::where('status', 1)->orderBy('created_at', 'desc')->paginate(5);
+        $properties = Property::where('status', 1);
+        if($title = request()->get('title')){
+            $properties = $properties->where('title', 'LIKE', '%'.$title.'%');
+        }
+        $properties = $properties->orderBy('created_at', 'desc')->paginate(5);
         return view('property.index')->with(compact('properties'));
     }
 

@@ -145,7 +145,7 @@
                     </div><!--End strip -->
                 @endforeach
                 <hr>
-
+                <!--
                 <div class="text-center">
                     <ul class="pagination">
                         <li><a href="#">上一页</a></li>
@@ -156,11 +156,17 @@
                         <li><a href="#">5</a></li>
                         <li><a href="#">下一页</li>
                     </ul>
-                </div><!-- end pagination-->
+                </div>
+                end pagination-->
+                <div class="text-center">
+                {{$properties->render()}}
+                </div>
 
             </div><!-- End col lg-9 -->
         </div><!-- End row -->
     </div><!-- End container -->
+
+
 @endsection
 
 @push('style')
