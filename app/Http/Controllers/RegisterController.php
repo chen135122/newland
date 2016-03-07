@@ -131,6 +131,32 @@ class RegisterController extends Controller
         $txtMobile = $request->input('txtMobile');
         $txtPassword= $request->input('userpassword');
         $code= $request->input('txtCode');
+
+        if (empty($txtUserName)){
+            return response()->json([
+                'status' => 0,
+                'msg' => "请输入用户名！"
+            ]);
+        }
+        if (empty($txtMobile)){
+            return response()->json([
+                'status' => 0,
+                'msg' => "请输入手机号码！"
+            ]);
+        }
+        if (empty($code)){
+            return response()->json([
+                'status' => 0,
+                'msg' => "请输入收到的验证码！"
+            ]);
+        }
+        if (empty($txtPassword)){
+            return response()->json([
+                'status' => 0,
+                'msg' => "请输入密码！"
+            ]);
+        }
+
         $msg=$this->verify_sms_code($code);
        if($msg=="ok")
        {

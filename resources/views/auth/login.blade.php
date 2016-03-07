@@ -59,4 +59,7 @@
     @endpush
     @push('style')
     <link href="/js/artdialog/ui-dialog.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        .form-group{ margin-bottom: 5px;}
+    </style>
     @endpush
