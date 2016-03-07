@@ -41,13 +41,26 @@ class AuthController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(array $data)
+    protected function validator($username,$password)
     {
-        return Validator::make($data, [
-            'username' => 'required|max:255',
-//            'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|confirmed|min:6',
-        ]);
+        if (!isset($username)){
+            return response()->json([
+                'status' => 0,
+                'msg' => "请输入用户名！"
+            ]);
+        }
+        if (!isset($password)){
+            return response()->json([
+                'status' => 0,
+                'msg' => "请输入密码！"
+            ]);
+        }
+
+//        return Validator::make($data, [
+//            'username' => 'required|max:255',
+////            'email' => 'required|email|max:255|unique:users',
+//            'password' => 'required|confirmed|min:6',
+//        ]);
     }
 
     /**
@@ -60,32 +73,60 @@ class AuthController extends Controller
     {
         return User::create([
             'username' => $data['username'],
-//            'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
     }
 
     public function postLogin(Request $request)
     {
-        $this->validate($request, [
-            'username' => 'required', 'password' => 'required',
-        ]);
+        $username=$request->get('username');
+        $password=$request->get('password');
+        if (!isset($username)){
+            return response()->json([
+                'status' => 0,
+                'msg' => "请输入用户名！"
+            ]);
+        }
+        if (!isset($password)){
+            return response()->json([
+                'status' => 0,
+                'msg' => "请输入密码！"
+            ]);
+        }
+
+//        $this->validate($username,$password);
+//        $this->validate($request, [
+//            'username' => 'required', 'password' => 'required',
+//        ]);
 
         $throttles = $this->isUsingThrottlesLoginsTrait();
         $credentials = $this->getCredentials($request);
 
         if (Auth::guard($this->getGuard())->attempt($credentials, $request->has('remember'))) {
-            return $this->handleUserWasAuthenticated($request, $throttles);
-        }
-
-
-        return view('auth.login')
-            ->withInput($request->only($this->loginUsername(), 'remember'))
-            ->withErrors([
-                $this->loginUsername() => $this->getFailedLoginMessage(),
+            return response()->json([
+                'status' => 1,
+                'msg' => "登录成功！"
             ]);
-    }
+//            return $this->handleUserWasAuthenticated($request, $throttles);
+        }
+       // return view('auth.login')->withErrors('zzzzz');
+        $errors=$this->getFailedLoginMessage();
+        return response()->json([
+            'status' => 0,
+            'msg' => "错误提示：".$errors
+        ]);
+//        foreach($errors as $key=>$error)
+//        {
+//            $errors_SUM.=$error;
+//        }
 
+//        return view('auth.login')
+//            ->withInput($request->only($this->loginUsername(), 'remember'))
+//            ->withErrors([
+//                $this->loginUsername() => $this->getFailedLoginMessage(),
+//            ]);
+       // return $this->sendFailedLoginResponse($request);
+    }
     protected function getCredentials(Request $request)
     {
         return $request->only($this->loginUsername(), 'password');

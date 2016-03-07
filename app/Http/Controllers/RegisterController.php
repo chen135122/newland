@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-use Hash;
 use Cookie;
 use Session;
 use Illuminate\Http\Request;
@@ -16,15 +15,15 @@ class RegisterController extends Controller
     }
     public function validate_username(Request $request)
     {
-       $username=$request->get('param');
-        if (!isset($username)){
+        $param=$request->get('param');
+        if (empty($param)){
             return response()->json([
                 'status' => "n",
                 'info' => "用户名不可为空！"
             ]);
         }
-        $usercount = User::where('username', '=',$username)->count();
-        if($usercount>0)
+        $paramcount = User::where('username', '=',$param)->count();
+        if($paramcount>0)
         {
             return response()->json([
                 'status' => "n",
@@ -40,27 +39,45 @@ class RegisterController extends Controller
         }
 
     }
+
+    public function validate_mobile(Request $request)
+    {
+        $param=$request->get('param');
+        if (empty($param)){
+            return response()->json([
+                'status' => "n",
+                'info' => "手机号不可为空！"
+            ]);
+        }
+        $paramcount = User::where('mobile', '=',$param)->count();
+        if($paramcount>0)
+        {
+            return response()->json([
+                'status' => "n",
+                'info' => "该手机号已被注册"
+            ]);
+        }
+        else
+        {
+            return response()->json([
+                'status' => "y",
+                'info' => "该手机号可用"
+            ]);
+        }
+
+    }
     public function sendsms(Request $request)
     {
-          //  $token= $this->wrongTokenAjax();
-          //  $jsonencode = json_encode($token);
-          //  if($jsonencode->success==false)
-          //  {
-           //     return response()->json([
-           //         'success' => false,
-           //         'msg' => $jsonencode->msg
-           //     ]);
-           // }
             $txtMobile= $request->get('mobile');
             $mobilecookie = Cookie::get("mobile");
-            if (!isset($txtMobile)){
+            if (empty($txtMobile)){
                 return response()->json([
                     'status' => 0,
                     'msg' => "请输入手机号码！"
                 ]);
             }
 
-            if(isset($mobilecookie)) {
+            if(!empty($mobilecookie)) {
                if($mobilecookie==$txtMobile){
                    return response()->json([
                        'status' => 0,
@@ -110,28 +127,32 @@ class RegisterController extends Controller
     //用户注册
     public function postUser_Register(Request $request){
         $user=new User();
+        $txtUserName = $request->input('txtUserName');
         $txtMobile = $request->input('txtMobile');
         $txtPassword= $request->input('userpassword');
         $code= $request->input('txtCode');
         $msg=$this->verify_sms_code($code);
        if($msg=="ok")
        {
-           $Passwords= Hash::make($txtPassword);
-           $user->username=$txtMobile;
+          // $Passwords= Hash::make($txtPassword);
+           $Passwords=bcrypt($txtPassword);
+           $user->username=$txtUserName;
            $user->password_hash=$Passwords;
            $user->auth_key='test';
            $user->status=0;
            $user->score=0;
+           $user->mobile=$txtMobile;
            $user->save();
            return response()->json([
-               'success' => true,
-               'msg' => "您已注册成功，欢迎登录"
+               'status' => 1,
+               'msg' => "您已注册成功，欢迎登录",
+               'url'=>"/auth/login"
            ]);
        }
         else
         {
             return response()->json([
-                'success' => false,
+                'status' => 0,
                 'msg' =>$msg
             ]);
 
@@ -168,16 +189,5 @@ class RegisterController extends Controller
         return $key;
     }
 
-
-    public function wrongTokenAjax()
-    {
-       // if ( Session::token() !== Request::get('csrf-token') ) {
-            $response = [
-                'success' => true,
-                'msg' => 'Wrong Token',
-            ];
-            return Response::json($response);
-       // }
-    }
 
 }

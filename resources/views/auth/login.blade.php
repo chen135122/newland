@@ -7,24 +7,27 @@
                 <div class="col-md-5 col-md-offset-3 col-sm-5 col-sm-offset-3">
                     <div id="login">
                         <h3>登录
-                            @if(isset($errors))
-                                @foreach($errors as $key=>$error)
-                                   {{$key}}: {{$error}}
-                                @endforeach
-                            @endif
+                            {{--@if(isset($errors))--}}
+
+                                {{--{{var_dump($errors)}}--}}
+                                {{--@foreach($errors as $key=>$error)--}}
+                                   {{--{{$key}}: {{$error}}--}}
+                                {{--@endforeach--}}
+                            {{--@endif--}}
                         </h3>
 
                         <hr>
-                        <form class="form-horizontal" action="/auth/login" method="post">
+                        <form class="form-horizontal" action="/auth/login" method="post" id="loginform" name="loginform">
                             <div class="form-group">
                                 <label for="name" class="col-sm-3 control-label">用户名</label>
-                                <div class="col-sm-9"><input type="text" class=" form-control"  placeholder="请输入用户名"  nullmsg="请输入用户名" sucmsg=" " id="username"  name="username">
+                                <div class="col-sm-9"><input type="text" class=" form-control"  placeholder="请输入用户名" datatype="*" nullmsg="请输入用户名" sucmsg=" " errormsg="请输入用户名" id="username"  name="username">
                                     <span class="Validform_checktip"></span></div>
                             </div>
 
                             <div class="form-group">
                                 <label for="userpassword" class="col-sm-3 control-label">密码</label>
-                                <div class="col-sm-9"><input type="password" class=" form-control" id="password" name="password" sucmsg=" "  placeholder="密码" datatype="*6-16" nullmsg="请输入密码！" errormsg="密码范围在6~16位之间！"></div>
+                                <div class="col-sm-9"><input type="password" class="form-control" id="password" name="password" sucmsg=" "  placeholder="密码" datatype="*6-16" nullmsg="请输入密码！" errormsg="密码范围在6~16位之间！"></div>
+                                <div style="float: right"><a href="/password/reset" target="_blank">忘记密码</a></div>
                             </div>
 
                             <div class="form-group">
@@ -50,7 +53,7 @@
     <script src="/js/Validform.js"></script>
     <script>
         $(function() {
-            //AjaxInitForm('#loginform', '#btnSubmit', 1);
+            AjaxInitForm('#loginform', '#btnSubmit', 1);
         });
     </script>
     @endpush

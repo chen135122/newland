@@ -127,9 +127,10 @@ trait AuthenticatesUsers
      */
     protected function getFailedLoginMessage()
     {
-        return Lang::has('auth.failed')
-                ? Lang::get('auth.failed')
-                : 'These credentials do not match our records.';
+        return "用户名或密码错误，请重试！";
+//        return Lang::has('auth.failed')
+//                ? Lang::get('auth.failed')
+//                :'用户名或密码错误，请重试！';
     }
 
     /**

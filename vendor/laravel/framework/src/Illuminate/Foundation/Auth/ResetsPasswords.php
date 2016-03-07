@@ -7,7 +7,8 @@ use Illuminate\Mail\Message;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Password;
 
-trait ResetsPasswords
+trait
+ResetsPasswords
 {
     use RedirectsUsers;
 
