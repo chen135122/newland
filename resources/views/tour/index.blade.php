@@ -24,18 +24,43 @@
 
         <div class="row">
             <aside class="col-lg-3 col-md-3">
-                <div class="box_style_cat">
-                    <ul id="cat_nav">
-                        <li><a href="#" id="active"><i class="icon_set_1_icon-51"></i>所有路线 <span>(141)</span></a></li>
-                        <li><a href="#"><i class="icon_set_1_icon-3"></i>城市风光 <span>(20)</span></a></li>
-                        <li><a href="#"><i class="icon_set_1_icon-4"></i>博物馆 <span>(16)</span></a></li>
-                        <li><a href="#"><i class="icon_set_1_icon-44"></i>历史名胜 <span>(12)</span></a></li>
-                        <li><a href="#"><i class="icon_set_1_icon-37"></i>徒步之乐 <span>(11)</span></a></li>
-                        <li><a href="#"><i class="icon_set_1_icon-14"></i>吃喝玩乐 <span>(20)</span></a></li>
-                    </ul>
+                <div id="filters_col">
+                    <a data-toggle="collapse" href="#collapseFilters" aria-expanded="false" aria-controls="collapseFilters" id="filters_col_bt"><i class="icon_set_1_icon-65"></i>筛选 <i class="icon-plus-1 pull-right"></i></a>
+                    <div class="collapse" id="collapseFilters">
+                        <div class="filter_type">
+                            <h6>价格</h6>
+                            <input type="text" id="range" name="range" value="">
+                        </div>
+                        <div class="filter_type">
+                            <h6>分类</h6>
+                            <ul>
+                                <li><label><input type="checkbox">分类测试1</label></li>
+                                <li><label><input type="checkbox">分类测试2</label></li>
+                                <li><label><input type="checkbox">分类测试3</label></li>
+                                <li><label><input type="checkbox">分类测试4</label></li>
+                            </ul>
+                        </div>
+
+                        <div class="filter_type">
+                            <h6>评价</h6>
+                            <ul>
+                                <li><label><input type="radio" name="bedroom">1星</label></li>
+                                <li><label><input type="radio" name="bedroom">2星</label></li>
+                                <li><label><input type="radio" name="bedroom">3星</label></li>
+                                <li><label><input type="radio" name="bedroom">4星</label></li>
+                                <li><label><input type="radio" name="bedroom">5星</label></li>
+                            </ul>
+                        </div>
+                        <a class="btn_full" href="###">确定</a>
+                    </div>
                 </div>
-               @include('layouts.side_contact')
-            </aside><!--End aside -->
+                <div class="box_style_2">
+                    <i class="icon_set_1_icon-57"></i>
+                    <h4>需要 <span>帮助?</span></h4>
+                    <a href="tel://025-58761818" class="phone">+025-58761818</a>
+                    <small>周一 至 周五 9.00am - 7.30pm</small>
+                </div>
+            </aside>
             <div class="col-lg-9 col-md-9">
 
                 <div id="tools">
@@ -84,7 +109,7 @@
                             <div class="price_list">
                                 <div>
                                     <span class="price">${{$travel->oprice}}</span><span class="normal_price_list"></span><small>每人</small>
-                                    <p><a href="/tour_detail.html" class="btn_1">详情</a></p>
+                                    <p><a href="/tour/{{$travel->id}}" class="btn_1">详情</a></p>
                                 </div>
 
                             </div>
@@ -223,8 +248,20 @@
                     newPrice = cutStr(newPrice);
                     $(this).text("$" + newPrice);
                 }
-               
-               
+            })
+            $("#sort_price").change(function(){
+                var $option=$(this).children('option:selected');
+                if($option.index()!=0)
+                {
+                    window.location="/tour?sortPrice="+$option.val();
+                }
+            })
+            $("#sort_rating").change(function(){
+                var $option=$(this).children('option:selected');
+                if($option.index()!=0)
+                {
+                    window.location=location.href+"&sortRating="+$option.val();
+                }
             })
         })
 </script>
