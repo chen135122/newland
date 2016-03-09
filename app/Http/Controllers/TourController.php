@@ -11,13 +11,29 @@ class TourController extends Controller
 {
     public function index()
     {
-        $travels = Travel::where('recommend', 1);
-		$travels=$travels->paginate(5);
+
+        $travels=Travel::where("id",">",0);
+
+       if($sortprice = request()->get('sortPrice'))
+       {
+           if($sortprice=="higher")
+           {
+               $travels= $travels->orderBy("created_at","desc")->paginate(5)->appends(['sortPrice' => 'higher']);
+           }
+           else{
+               $travels = $travels->orderBy("created_at","asc")->paginate(5)->appends(['sortPrice' => 'lower']);
+           }
+       }
+        else
+        {
+        $travels=$travels->orderBy("created_at","desc")->paginate(5);
+        }
         return view('tour.index')->with(compact('travels'));
     }
 
-    public function show($sn)
+    public function show($id)
     {
-        return view('tour.show');
+        $travel = Travel::where('id', $id)->first();
+        return view('tour.show')->with(compact('travel'));
     }
 }
