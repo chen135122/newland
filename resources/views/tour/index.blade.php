@@ -26,33 +26,39 @@
             <aside class="col-lg-3 col-md-3">
                 <div id="filters_col">
                     <a data-toggle="collapse" href="#collapseFilters" aria-expanded="false" aria-controls="collapseFilters" id="filters_col_bt"><i class="icon_set_1_icon-65"></i>筛选 <i class="icon-plus-1 pull-right"></i></a>
+                    <form id="form1" name="form1">
                     <div class="collapse" id="collapseFilters">
                         <div class="filter_type">
                             <h6>价格</h6>
-                            <input type="text" id="range" name="range" value="">
+                            <input type="text" id="range" value="">
                         </div>
                         <div class="filter_type">
                             <h6>分类</h6>
                             <ul>
-                                <li><label><input type="checkbox">分类测试1</label></li>
-                                <li><label><input type="checkbox">分类测试2</label></li>
-                                <li><label><input type="checkbox">分类测试3</label></li>
-                                <li><label><input type="checkbox">分类测试4</label></li>
+
+                                @foreach($travelCategorys as $travelCategory)
+                                <?php $vs=false   ?>
+                                    @if(count($category)>0)
+                                        @foreach($category as $key=>$value)
+                                          @if($value==$travelCategory->id)
+                                                <?php $vs=true   ?>
+                                            @endif
+                                        @endforeach
+                                    @endif
+                                  @if($vs==true)
+                                        <li> <label> <input name="category[]" type="checkbox" checked="checked" value="{{$travelCategory->id}}"> {{$travelCategory->name}}</label></li>
+                                   @else
+                                        <li> <label> <input name="category[]" type="checkbox"  value="{{$travelCategory->id}}"> {{$travelCategory->name}}</label></li>
+                                    @endif
+                                @endforeach
                             </ul>
                         </div>
 
-                        <div class="filter_type">
-                            <h6>评价</h6>
-                            <ul>
-                                <li><label><input type="radio" name="bedroom">1星</label></li>
-                                <li><label><input type="radio" name="bedroom">2星</label></li>
-                                <li><label><input type="radio" name="bedroom">3星</label></li>
-                                <li><label><input type="radio" name="bedroom">4星</label></li>
-                                <li><label><input type="radio" name="bedroom">5星</label></li>
-                            </ul>
-                        </div>
-                        <a class="btn_full" href="###">确定</a>
+                        <input type="hidden" value="{{$minprice}}" name="price[]" id="min_price" >
+                        <input type="hidden" value="{{$maxprice}}" name="price[]" id="max_price">
+                        <input type="button" onclick="su()" value="确定" class="btn_full">
                     </div>
+                    </form>
                 </div>
                 <div class="box_style_2">
                     <i class="icon_set_1_icon-57"></i>
@@ -75,15 +81,6 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-md-3 col-sm-3 col-xs-6">
-                            <div class="styled-select-filters">
-                                <select name="sort_rating" id="sort_rating">
-                                    <option value="" selected>评价排序</option>
-                                    <option value="lower">从低到高</option>
-                                    <option value="higher">从高到低</option>
-                                </select>
-                            </div>
-                        </div>
                     </div>
                 </div><!--/tools -->
 
@@ -91,6 +88,9 @@
                 <div class="strip_all_tour_list wow fadeIn" data-wow-delay="0.1s">
                     <div class="row">
                         <div class="col-lg-4 col-md-4 col-sm-4">
+                            <div class="wishlist">
+                                <a class="tooltip_flip tooltip-effect-1" href="javascript:void(0);">+<span class="tooltip-content-flip"><span class="tooltip-back">添加到收藏</span></span></a>
+                            </div>
                             <div class="img_list">
                                 <a href="/tour/{{$travel->id}}">
                                     <div class="ribbon popular"></div><img src="{{$travel->picurl}}" alt="">
@@ -101,8 +101,8 @@
                         <div class="clearfix visible-xs-block"></div>
                         <div class="col-lg-6 col-md-6 col-sm-6">
                             <div class="tour_list_desc">
-                                <div class="rating"><i class="icon-smile voted"></i><i class="icon-smile  voted"></i><i class="icon-smile  voted"></i><i class="icon-smile  voted"></i><i class="icon-smile"></i><small>(75)</small></div>
-                                <h3><strong>【南北岛精华游】</strong> {{$travel->title}}</h3><p>{{$travel->description}}</p>
+                                <div class="rating">{{--<i class="icon-smile voted"></i><i class="icon-smile  voted"></i><i class="icon-smile  voted"></i><i class="icon-smile  voted"></i><i class="icon-smile"></i><small>(75)</small>--}}</div>
+                                <h3><strong>【南北岛精华游】</strong> {{$travel->title}}</h3><p>{!! $travel->description !!}</p>
                             </div>
                         </div>
                         <div class="col-lg-2 col-md-2 col-sm-2">
@@ -256,14 +256,30 @@
                     window.location="/tour?sortPrice="+$option.val();
                 }
             })
-            $("#sort_rating").change(function(){
-                var $option=$(this).children('option:selected');
-                if($option.index()!=0)
-                {
-                    window.location=location.href+"&sortRating="+$option.val();
-                }
-            })
         })
+    function su()
+    {
+
+        $("#min_price").val($(".irs-from").text().split('$')[1].replace(" ",""));
+        $("#max_price").val($(".irs-to").text().split('$')[1].trim().replace(" ",""));
+        form1.submit();
+    }
+    $(function () {
+        'use strict';
+        $("#range").ionRangeSlider({
+            hide_min_max: true,
+            keyboard: true,
+            min: 0,
+            max:'{{$maxprice}}',
+            from: '{{$minprice}}',
+            to: '{{$toprice}}',
+            type: 'double',
+            step: 1,
+            prefix: "$",
+            grid: true
+        });
+
+    });
 </script>
 
 <script src="/js/vue.min.js"></script>

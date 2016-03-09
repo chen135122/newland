@@ -21,7 +21,9 @@
     Route::get('property/{sn}', '\App\Http\Controllers\PropertyController@show');
 
     Route::get('tour', '\App\Http\Controllers\TourController@index');
+    Route::post('tour', '\App\Http\Controllers\RegisterController@postUser_Register');
     Route::get('tour/{id}', '\App\Http\Controllers\TourController@show');
+
 
 	Route::get('study', '\App\Http\Controllers\StudyController@index');
 	Route::get('study/{id}', '\App\Http\Controllers\StudyController@show');
