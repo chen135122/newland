@@ -5,7 +5,6 @@
     Route::get('/', function () {
         return view('home');
     });
-   // Route::controller('password','\App\Http\Controllers\Auth\PasswordController');
 
     //Route::post('password/reset','\App\Http\Controllers\Auth\PasswordController@postReset');
     Route::get('password/reset','\App\Http\Controllers\Auth\PasswordController@getReset');
@@ -23,15 +22,15 @@
     Route::get('tour', '\App\Http\Controllers\TourController@index');
     Route::get('tour/{id}', '\App\Http\Controllers\TourController@show');
 
-<<<<<<< HEAD
+
     Route::get('news', '\App\Http\Controllers\ArticleController@index');
     Route::get('news/{id}', '\App\Http\Controllers\ArticleController@show');
 
-=======
+
 	Route::get('study', '\App\Http\Controllers\StudyController@index');
 	Route::get('study/{id}', '\App\Http\Controllers\StudyController@show');
 	
->>>>>>> 2621ca0d3d0a9638d3eedd5b55d31e15bf213af4
+
     Route::get('register', '\App\Http\Controllers\RegisterController@index');
     Route::post('register', '\App\Http\Controllers\RegisterController@postUser_Register');
     Route::post('register/sendsms','\App\Http\Controllers\RegisterController@sendsms');
@@ -46,6 +45,4 @@ Route::get('debug', function(){
     return $properties->regions->name;
 });
 
-//Route::get('news/{id}', function ($id) {
-//    return \App\Models\Article::findOrFail($id);
-//});
+
