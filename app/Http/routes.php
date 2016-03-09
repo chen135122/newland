@@ -23,6 +23,9 @@
     Route::get('tour', '\App\Http\Controllers\TourController@index');
     Route::get('tour/{sn}', '\App\Http\Controllers\TourController@show');
 
+    Route::get('news', '\App\Http\Controllers\ArticleController@index');
+    Route::get('news/{id}', '\App\Http\Controllers\ArticleController@show');
+
     Route::get('register', '\App\Http\Controllers\RegisterController@index');
     Route::post('register', '\App\Http\Controllers\RegisterController@postUser_Register');
     Route::post('register/sendsms','\App\Http\Controllers\RegisterController@sendsms');
@@ -36,3 +39,7 @@ Route::get('debug', function(){
     $properties = \App\Models\Property::first();
     return $properties->regions->name;
 });
+
+//Route::get('news/{id}', function ($id) {
+//    return \App\Models\Article::findOrFail($id);
+//});
