@@ -20,8 +20,11 @@
     Route::get('property/{sn}', '\App\Http\Controllers\PropertyController@show');
 
     Route::get('tour', '\App\Http\Controllers\TourController@index');
-    Route::post('tour', '\App\Http\Controllers\RegisterController@postUser_Register');
+//    Route::post('tour', '\App\Http\Controllers\RegisterController@postUser_Register');
     Route::get('tour/{id}', '\App\Http\Controllers\TourController@show');
+
+    Route::get('tour/{id}', '\App\Http\Controllers\TourController@order');
+
     Route::get('news', '\App\Http\Controllers\ArticleController@index');
     Route::get('news/{id}', '\App\Http\Controllers\ArticleController@show');
 
