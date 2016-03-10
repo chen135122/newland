@@ -77,24 +77,8 @@
                         <ul id="top_links">
                             <li>
                                 <div class="dropdown dropdown-access">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="access_link">登录</a>
+                                    {{(auth()->user()?auth()->user()->username:'<a href="/auth/login" class="dropdown-toggle" data-toggle="dropdown" id="access_link">登录</a>')}}
                                     <div class="dropdown-menu">
-                                        <div class="row">
-                                            <div class="col-md-6 col-sm-6 col-xs-6">
-                                                <a href="#" class="bt_facebook">
-                                                    <i class="icon-facebook"></i>Facebook
-                                                </a>
-                                            </div>
-                                            <div class="col-md-6 col-sm-6 col-xs-6">
-                                                <a href="#" class="bt_paypal">
-                                                    <i class="icon-paypal"></i>Paypal
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="login-or">
-                                            <hr class="hr-or">
-                                            <span class="span-or">or</span>
-                                        </div>
                                         <div class="form-group">
                                             <input type="text" class="form-control" id="inputUsernameEmail" placeholder="Email">
                                         </div>
@@ -107,8 +91,12 @@
                                     </div>
                                 </div><!-- End Dropdown access -->
                             </li>
-                            <li><a href="wishlist.html" id="wishlist_link">收藏</a></li>
-                            <li><a href="###"></a></li>
+                            <form action="" method="post">
+                                <input type="text" name="username">
+                                <input type="text" name="password">
+                                <input type="submit">
+                            </form>
+                            <li><a href="wishlist.html" id="wishlist_link">收藏<span class="wishlist-num">0</span></a></li>
                         </ul>
                     </div>
                 </div><!-- End row -->
@@ -126,7 +114,7 @@
                     <a class="cmn-toggle-switch cmn-toggle-switch__htx open_close" href="javascript:void(0);"><span>Menu mobile</span></a>
                     <div class="main-menu">
                         <div id="header_menu">
-                            <img src="img/logo_sticky.png" width="160" height="34" alt="City tours" data-retina="true">
+                            <img src="/img/logo_sticky.png" width="160" height="34" alt="City tours" data-retina="true">
                         </div>
                         <a href="#" class="open_close" id="close_in"><i class="icon_set_1_icon-77"></i></a>
                         <ul class="head_type">

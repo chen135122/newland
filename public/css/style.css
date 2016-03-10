@@ -4042,3 +4042,4 @@ ul.plan-features {
     font-family:'Microsoft YaHei';
 }
 .img_wrapper img{ display: block; margin: 0 auto;}
+#floatOrder{width:50px;height:50px;padding:2px;overflow:hidden;position:absolute;z-index:890;}

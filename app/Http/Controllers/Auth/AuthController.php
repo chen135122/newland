@@ -93,21 +93,16 @@ class AuthController extends Controller
                 'msg' => "请输入密码！"
             ]);
         }
-
-//        $this->validate($username,$password);
-//        $this->validate($request, [
-//            'username' => 'required', 'password' => 'required',
-//        ]);
-
         $throttles = $this->isUsingThrottlesLoginsTrait();
         $credentials = $this->getCredentials($request);
 
         if (Auth::guard($this->getGuard())->attempt($credentials, $request->has('remember'))) {
+           // dd(auth()->user());
+            return redirect('/');
             return response()->json([
                 'status' => 1,
-                'msg' => "登录成功！"
+                'msg' => "登录成功！".auth()->user()->id
             ]);
-//            return $this->handleUserWasAuthenticated($request, $throttles);
         }
        // return view('auth.login')->withErrors('zzzzz');
         $errors=$this->getFailedLoginMessage();
@@ -115,17 +110,6 @@ class AuthController extends Controller
             'status' => 0,
             'msg' => "错误提示：".$errors
         ]);
-//        foreach($errors as $key=>$error)
-//        {
-//            $errors_SUM.=$error;
-//        }
-
-//        return view('auth.login')
-//            ->withInput($request->only($this->loginUsername(), 'remember'))
-//            ->withErrors([
-//                $this->loginUsername() => $this->getFailedLoginMessage(),
-//            ]);
-       // return $this->sendFailedLoginResponse($request);
     }
     protected function getCredentials(Request $request)
     {

@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-    <section class="parallax-window" data-parallax="scroll" data-image-src="img/hotels_bg.jpg" data-natural-width="1400" data-natural-height="470">
+    <section class="parallax-window" data-parallax="scroll" data-image-src="/img/hotels_bg.jpg" data-natural-width="1400" data-natural-height="470">
         <div class="parallax-content-1">
             <div class="animated fadeInDown">
                 <h1>新西兰房产</h1>
@@ -27,7 +27,7 @@
                         <div class="row">
                             <div class="col-lg-4 col-md-4 col-sm-4">
                                 <div class="wishlist">
-                                    <a class="tooltip_flip tooltip-effect-1" href="javascript:void(0);">+<span class="tooltip-content-flip"><span class="tooltip-back">添加到收藏</span></span></a>
+                                    <a class="tooltip_flip tooltip-effect-1" href="javascript:void(0);" articleId="{{$article->id}}" typeid="4">+<span class="tooltip-content-flip"><span class="tooltip-back">添加到收藏</span></span></a>
                                 </div>
                                 <div class="img_list">
                                     <a href="/news/{{$article->id}}">
@@ -193,6 +193,7 @@
         .hold_room small {
             font-family:'Microsoft YaHei';
         }
+
     </style>
 @endpush
 
@@ -208,7 +209,10 @@
 </script>
 
 <script src="/js/vue.min.js"></script>
-<script>
-
+<script type="text/javascript" src="/js/jQuery-Add-Favorites.js"></script>
+<script type="text/javascript">
+        $(function () {
+            $('.tooltip_flip').Add();
+        });
 </script>
 @endpush
