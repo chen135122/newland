@@ -1,7 +1,6 @@
 <?php
     Route::controller('auth', '\App\Http\Controllers\Auth\AuthController');
 
-    Route::group(['middleware' => ['web']], function () {
     Route::get('/', function () {
         return view('home');
     });
@@ -31,7 +30,6 @@
 
 	Route::get('study', '\App\Http\Controllers\StudyController@index');
 	Route::get('study/{id}', '\App\Http\Controllers\StudyController@show');
-	
 
     Route::get('register', '\App\Http\Controllers\RegisterController@index');
     Route::post('register', '\App\Http\Controllers\RegisterController@postUser_Register');
@@ -39,10 +37,12 @@
     Route::post('register/validate_username','\App\Http\Controllers\RegisterController@validate_username');
     Route::post('register/validate_mobile','\App\Http\Controllers\RegisterController@validate_mobile');
 
-});
 
 Route::get('debug', function(){
    //  phpinfo();
+    $user = \App\User::find(1);
+    \Auth::login($user);
+    return 'ok';
     $properties = \App\Models\Property::first();
     return $properties->regions->name;
 });
