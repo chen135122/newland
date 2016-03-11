@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Models\User;
+use App\User;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
@@ -96,6 +96,7 @@ class AuthController extends Controller
         $throttles = $this->isUsingThrottlesLoginsTrait();
         $credentials = $this->getCredentials($request);
 
+<<<<<<< HEAD
         if (Auth::guard($this->getGuard())->attempt($credentials, $request->has('remember'))) {
            // dd(auth()->user());
             return redirect('/');
@@ -103,7 +104,24 @@ class AuthController extends Controller
                 'status' => 1,
                 'msg' => "登录成功！".auth()->user()->id
             ]);
+=======
+//        if (Auth::guard($this->getGuard())->attempt($credentials, $request->has('remember'))) {
+//            return response()->json([
+//                'status' => 1,
+//                'msg' => "登录成功！"
+//            ]);
+////            return $this->handleUserWasAuthenticated($request, $throttles);
+//        }
+
+        if (Auth::attempt($credentials, $request->has('remember'))) {
+            return response()->json([
+                'status' => 1,
+                'msg' => "登录成功了！"
+            ]);
+            return redirect()->intended($this->redirectPath());
+>>>>>>> 78e391b8e550b99baa36ac4125e7a39dd5a3806a
         }
+
        // return view('auth.login')->withErrors('zzzzz');
         $errors=$this->getFailedLoginMessage();
         return response()->json([

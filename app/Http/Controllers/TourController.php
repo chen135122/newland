@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Travel;
+use App\Models\TravelDay;
 use App\Models\TravelCategory;
 use Illuminate\Http\Request;
 
@@ -58,6 +59,15 @@ class TourController extends Controller
     public function show($id)
     {
         $travel = Travel::where('id', $id)->first();
-        return view('tour.show')->with(compact('travel'));
+        $travelDay=$travel->day()->get(); //TravelDay::where("route_id",$travel->id);
+        $pic=explode(',',$travel->picurl);
+        return view('tour.show')->with(compact('travel'))->with(compact('pic'))->with(compact("travelDay",$travelDay));
+    }
+    public function order($id)
+    {
+        $travel = Travel::where('id', $id)->first();
+        $travelDay=$travel->day()->get(); //TravelDay::where("route_id",$travel->id);
+        $pic=explode(',',$travel->picurl);
+        return view('tour.show')->with(compact('travel'))->with(compact('pic'))->with(compact("travelDay",$travelDay));
     }
 }
