@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Models\User;
+use App\User;
 use Session;
 class FavouriteController extends Controller
 {
@@ -14,21 +14,22 @@ class FavouriteController extends Controller
 
     public function postFavourite_add(Request $request)
     {
-        $username=$this->GetUserInfo();
-        if(empty($username))
+
+        if(auth()->check()==false)
         {
             return response()->json([
                 'status' => 0,
-                'msg' => "对不起，用户尚未登录或已超时！"
+                'msg' => "您尚未登录，请登录之后添加收藏！"
             ]);
         }
-        $article_id= $request->get('articleId');
+        $userid=auth()->user()->id;
+        $article_id= $request->get('article_id');
         $article_type= $request->get('typeid');
 
         if (empty($article_id)||empty($article_type)){
             return response()->json([
                 'status' => 0,
-                'msg' => "您提交的商品参数有误！"
+                'msg' => "您提交的参数有误！"
             ]);
         }
 
@@ -37,41 +38,26 @@ class FavouriteController extends Controller
         if ($article_id==0||$article_type==0){
             return response()->json([
                 'status' => 0,
-                'msg' => "您提交的商品参数有误！"
+                'msg' => "您提交的参数有误！"
             ]);
         }
-        $user= User::where('username', $username)->first();
-        $useid=$user->id;
-        $favouritecount=Favourity_detail::where('uid',$useid)->where('articleId',$article_id)->where('typeid',$article_type)->count();
+        $favouritecount=Favourity_detail::where('uid',$userid)->where('articleId',$article_id)->where('typeid',$article_type)->count();
         if($favouritecount>0)
         {
             return response()->json([
                 'status' => 0,
-                'msg' => "已存在！"
+                'msg' => "此收藏已存在！"
             ]);
         }
         $favourite=new Favourity_detail();
-        $favourite->uid=$useid;
+        $favourite->uid=$userid;
         $favourite->articleId=$article_id;
         $favourite->typeid=$article_type;
-        $favourite->created_at=time();
         $favourite->save();
         return response()->json([
             'status' => 1,
-            'msg' => "您已添加成功"
+            'msg' => "成功添加收藏"
         ]);
 
-    }
-   protected function  GetUserInfo()
-    {
-//        $username2=Session::get("SESSION_USER_INFO", 'default');
-//        var_dump($username2);
-
-        if(!Session::has("SESSION_USER_INFO"))
-        {
-            var_dump("aa1");
-            return null;
-        }
-        return Session::get("SESSION_USER_INFO", 'default');
     }
 }

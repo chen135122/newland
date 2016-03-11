@@ -30,4 +30,8 @@ class User extends Authenticatable
     {
         return $this->password_hash;
     }
+
+    public function articles(){
+        return $this->belongsToMany('App\Model\Article','nz_favourity_detail','uid','articleId');
+    }
 }

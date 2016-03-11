@@ -26,9 +26,14 @@
                     <div class="strip_all_tour_list wow fadeIn" data-wow-delay="0.1s">
                         <div class="row">
                             <div class="col-lg-4 col-md-4 col-sm-4">
-                                <div class="wishlist">
-                                    <a class="tooltip_flip tooltip-effect-1" href="javascript:void(0);" articleId="{{$article->id}}" typeid="4">+<span class="tooltip-content-flip"><span class="tooltip-back">添加到收藏</span></span></a>
-                                </div>
+                                    @if (auth()->check())
+                                        @if($article->users->count()==0)
+                                        <div class="wishlist"><a class="tooltip_flip tooltip-effect-1" href="javascript:void(0);" articleId="{{$article->id}}" typeid="4" title="添加到收藏">+</a></div>
+                                        @endif
+                                    @else
+                                        <div class="wishlist"><a class="tooltip_flip tooltip-effect-1" href="javascript:void(0);" articleId="{{$article->id}}" typeid="4" title="添加到收藏">+</a></div>
+                                    @endif
+
                                 <div class="img_list">
                                     <a href="/news/{{$article->id}}">
                                         <img src="{{$article->picurl}}" alt="">
@@ -147,7 +152,7 @@
 @push('style')
         <!-- Radio and check inputs -->
 <link href="/css/skins/square/grey.css" rel="stylesheet">
-
+<link href="/js/artdialog/ui-dialog.css" rel="stylesheet" type="text/css" />
 <!-- Range slider -->
 <link href="/css/ion.rangeSlider.css" rel="stylesheet" >
 <link href="/css/ion.rangeSlider.skinFlat.css" rel="stylesheet">
@@ -209,6 +214,7 @@
 </script>
 
 <script src="/js/vue.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="/js/artdialog/dialog-plus-min.js"></script>
 <script type="text/javascript" src="/js/jQuery-Add-Favorites.js"></script>
 <script type="text/javascript">
         $(function () {

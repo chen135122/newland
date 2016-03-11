@@ -1,10 +1,10 @@
 <?php
     Route::controller('auth', '\App\Http\Controllers\Auth\AuthController');
 
-<<<<<<< HEAD
-Route::group([ 'middleware' => ['auth','language','database']], function () {
-=======
->>>>>>> 78e391b8e550b99baa36ac4125e7a39dd5a3806a
+
+Route::group([ 'middleware' => ['web']], function () {
+
+
     Route::get('/', function () {
         return view('auth');
     });
@@ -45,22 +45,20 @@ Route::group([ 'middleware' => ['auth','language','database']], function () {
     Route::post('register/validate_username','\App\Http\Controllers\RegisterController@validate_username');
     Route::post('register/validate_mobile','\App\Http\Controllers\RegisterController@validate_mobile');
 
-<<<<<<< HEAD
 
 
 Route::get('debug', function(){
 
-   return auth()->user();
-=======
-
-Route::get('debug', function(){
-   //  phpinfo();
-    $user = \App\User::find(1);
-    \Auth::login($user);
-    return 'ok';
->>>>>>> 78e391b8e550b99baa36ac4125e7a39dd5a3806a
-    $properties = \App\Models\Property::first();
-    return $properties->regions->name;
+  // return auth()->user();
+//
+//Route::get('debug', function(){
+//   //  phpinfo();
+//    $user = \App\User::find(1);
+//    \Auth::login($user);
+//    return 'ok';
+//
+//    $properties = \App\Models\Property::first();
+//    return $properties->regions->name;
 });
 
 

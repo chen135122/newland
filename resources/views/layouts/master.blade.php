@@ -77,7 +77,12 @@
                         <ul id="top_links">
                             <li>
                                 <div class="dropdown dropdown-access">
-                                    {{(auth()->user()?auth()->user()->username:'<a href="/auth/login" class="dropdown-toggle" data-toggle="dropdown" id="access_link">登录</a>')}}
+                                    @if (auth()->user())
+                                     {{auth()->user()->username}}
+                                    @else
+                                     <a href="/auth/login" class="dropdown-toggle" data-toggle="dropdown" id="access_link">登录</a>
+                                    @endif
+                                    {{--{{(auth()->user()?auth()->user()->username:'')}}--}}
                                     <div class="dropdown-menu">
                                         <div class="form-group">
                                             <input type="text" class="form-control" id="inputUsernameEmail" placeholder="Email">
@@ -91,11 +96,6 @@
                                     </div>
                                 </div><!-- End Dropdown access -->
                             </li>
-                            <form action="" method="post">
-                                <input type="text" name="username">
-                                <input type="text" name="password">
-                                <input type="submit">
-                            </form>
                             <li><a href="wishlist.html" id="wishlist_link">收藏<span class="wishlist-num">0</span></a></li>
                         </ul>
                     </div>

@@ -96,30 +96,13 @@ class AuthController extends Controller
         $throttles = $this->isUsingThrottlesLoginsTrait();
         $credentials = $this->getCredentials($request);
 
-<<<<<<< HEAD
+
         if (Auth::guard($this->getGuard())->attempt($credentials, $request->has('remember'))) {
            // dd(auth()->user());
-            return redirect('/');
             return response()->json([
                 'status' => 1,
-                'msg' => "登录成功！".auth()->user()->id
+                'msg' => "登录成功！"
             ]);
-=======
-//        if (Auth::guard($this->getGuard())->attempt($credentials, $request->has('remember'))) {
-//            return response()->json([
-//                'status' => 1,
-//                'msg' => "登录成功！"
-//            ]);
-////            return $this->handleUserWasAuthenticated($request, $throttles);
-//        }
-
-        if (Auth::attempt($credentials, $request->has('remember'))) {
-            return response()->json([
-                'status' => 1,
-                'msg' => "登录成功了！"
-            ]);
-            return redirect()->intended($this->redirectPath());
->>>>>>> 78e391b8e550b99baa36ac4125e7a39dd5a3806a
         }
 
        // return view('auth.login')->withErrors('zzzzz');

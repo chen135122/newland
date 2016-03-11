@@ -30,14 +30,13 @@
 									$obj.fadeOut(300,function(){
 										$obj.remove();	
 										$target.data('click', false).addClass('disabled');
-											num=Number($num.text());
+										num=Number($num.text());
 										$num.text(num+1);
 									});
 								});
 							});	
 						};
 						//ajax添加到收藏夹 开始
-
 							$.ajax({
 								type: "post",
 								url:  "/tools/Favourite_add",
@@ -48,36 +47,20 @@
 								dataType: "json",
 								beforeSend: function(XMLHttpRequest) {
 									//发送前动作
-									$(self).prop("disabled",true).text("请稍候...");
+									$target.prop("disabled",true).text("...");
 								},
 								success: function(data, textStatus) {
 									if (data.status == 1) {
-										$("#cartInfoHint").remove();
-										var HintHtml = '<div id="cartInfoHint" class="msg-tips cart-info">'
-											+ '<div class="ico"></div>'
-											+ '<div class="msg">'
-											+ '<strong>文章已成功添加到收藏夹！</strong>'
-											+ '</div>'
-											+ '</div>'
-
+										var d = dialog({content:data.msg}).show();
+										setTimeout(function () {
+											d.close().remove();
+										}, 2000);
 									} else {
-
-										var HintHtml = '<div id="cartInfoHint" class="msg-tips cart-info">'
-											+ '<div class="ico error"></div>'
-											+ '<div class="msg">'
-											+ '<strong>文章添加到收藏夹失败！</strong>'
-											+ '<p>' + data.msg + '</p>'
-											+ '<i class="close" title="关闭" onclick="hintRemove(\'#cartInfoHint\');"><span>关闭</span></i>'
-											+ '</div>'
-											+ '</div>'
-										$(self).after(HintHtml); //添加节点
+										dialog({title:'提示', content:data.msg, okValue:'确定', ok:function (){}}).showModal();
 									}
 								},
 								error: function (XMLHttpRequest, textStatus, errorThrown) {
-									alert("状态：" + textStatus + "；出错提示：" + errorThrown);
-								},
-								complete: function (XMLHttpRequest, textStatus) {
-									$(self).prop("disabled",false).text('ok');
+									dialog({title:'提示', content:"状态：" + textStatus + "；出错提示：" + errorThrown, okValue:'确定', ok:function (){}}).showModal();
 								},
 								timeout: 20000
 							});

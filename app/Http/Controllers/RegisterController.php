@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use Cookie;
 use Session;
 use Illuminate\Http\Request;
-use App\Models\User;
+use App\User;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 class RegisterController extends Controller
