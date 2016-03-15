@@ -7,8 +7,7 @@ use Illuminate\Mail\Message;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Password;
 
-trait
-ResetsPasswords
+trait ResetsPasswords
 {
     use RedirectsUsers;
 
@@ -170,11 +169,7 @@ ResetsPasswords
      */
     public function reset(Request $request)
     {
-        $this->validate($request, [
-            'token' => 'required',
-            'email' => 'required|email',
-            'password' => 'required|confirmed|min:6',
-        ]);
+        $this->validate($request, $this->getResetValidationRules());
 
         $credentials = $request->only(
             'email', 'password', 'password_confirmation', 'token'
@@ -193,6 +188,20 @@ ResetsPasswords
             default:
                 return $this->getResetFailureResponse($request, $response);
         }
+    }
+
+    /**
+     * Get the password reset validation rules.
+     *
+     * @return array
+     */
+    protected function getResetValidationRules()
+    {
+        return [
+            'token' => 'required',
+            'email' => 'required|email',
+            'password' => 'required|confirmed|min:6',
+        ];
     }
 
     /**

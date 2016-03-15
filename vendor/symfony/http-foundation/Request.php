@@ -700,30 +700,43 @@ class Request
     }
 
     /**
-     * Gets a "parameter" value from any bag.
+     * Gets a "parameter" value.
      *
-     * This method is mainly useful for libraries that want to provide some flexibility. If you don't need the
-     * flexibility in controllers, it is better to explicitly get request parameters from the appropriate
-     * public property instead (attributes, query, request).
+     * This method is mainly useful for libraries that want to provide some flexibility.
      *
-     * Order of precedence: PATH (routing placeholders or custom attributes), GET, BODY
+     * Order of precedence: GET, PATH, POST
+     *
+     * Avoid using this method in controllers:
+     *
+     *  * slow
+     *  * prefer to get from a "named" source
+     *
+     * It is better to explicitly get request parameters from the appropriate
+     * public property instead (query, attributes, request).
+     *
+     * Note: Finding deep items is deprecated since version 2.8, to be removed in 3.0.
      *
      * @param string $key     the key
      * @param mixed  $default the default value
+     * @param bool   $deep    is parameter deep in multidimensional array
      *
      * @return mixed
      */
-    public function get($key, $default = null)
+    public function get($key, $default = null, $deep = false)
     {
-        if ($this !== $result = $this->attributes->get($key, $this)) {
+        if ($deep) {
+            @trigger_error('Using paths to find deeper items in '.__METHOD__.' is deprecated since version 2.8 and will be removed in 3.0. Filter the returned value in your own code instead.', E_USER_DEPRECATED);
+        }
+
+        if ($this !== $result = $this->query->get($key, $this, $deep)) {
             return $result;
         }
 
-        if ($this !== $result = $this->query->get($key, $this)) {
+        if ($this !== $result = $this->attributes->get($key, $this, $deep)) {
             return $result;
         }
 
-        if ($this !== $result = $this->request->get($key, $this)) {
+        if ($this !== $result = $this->request->get($key, $this, $deep)) {
             return $result;
         }
 
@@ -807,7 +820,7 @@ class Request
         }
 
         $clientIps[] = $ip; // Complete the IP chain with the IP the request actually came from
-        $ip = $clientIps[0]; // Fallback to this when the client IP falls into the range of trusted proxies
+        $firstTrustedIp = null;
 
         foreach ($clientIps as $key => $clientIp) {
             // Remove port (unfortunately, it does happen)
@@ -815,13 +828,22 @@ class Request
                 $clientIps[$key] = $clientIp = $match[1];
             }
 
+            if (!filter_var($clientIp, FILTER_VALIDATE_IP)) {
+                unset($clientIps[$key]);
+            }
+
             if (IpUtils::checkIp($clientIp, self::$trustedProxies)) {
                 unset($clientIps[$key]);
+
+                // Fallback to this when the client IP falls into the range of trusted proxies
+                if (null ===  $firstTrustedIp) {
+                    $firstTrustedIp = $clientIp;
+                }
             }
         }
 
         // Now the IP chain contains only untrusted proxies and the client IP
-        return $clientIps ? array_reverse($clientIps) : array($ip);
+        return $clientIps ? array_reverse($clientIps) : array($firstTrustedIp);
     }
 
     /**
@@ -1365,7 +1387,7 @@ class Request
     public function getRequestFormat($default = 'html')
     {
         if (null === $this->format) {
-            $this->format = $this->attributes->get('_format', $default);
+            $this->format = $this->get('_format', $default);
         }
 
         return $this->format;
@@ -1811,8 +1833,6 @@ class Request
         if (null === ($requestUri = $this->getRequestUri())) {
             return '/';
         }
-
-        $pathInfo = '/';
 
         // Remove the query string from REQUEST_URI
         if ($pos = strpos($requestUri, '?')) {
