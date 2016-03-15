@@ -95,11 +95,11 @@ class TourController extends Controller
             $order-> oprice=0.0;
             $order->status=1;
             $order-> created_at=Carbon::now();
-            $order->adults=strval($request->get("perNum"));
-            $order->username=strval($request->get("username")) ;
-            $order->phone=strval($request->get("userPhone"));
-            $order->email=strval($request->get("userEmail"));
-            $order->remark=strval($request->get("content"));
+            $order->adults=1;//strval($request->get("perNum"));
+            $order->username=1;//strval($request->get("username")) ;
+            $order->phone=2;//strval($request->get("userPhone"));
+            $order->email=1;//strval($request->get("userEmail"));
+            $order->remark=1;//strval($request->get("content"));
 //            $order->updated_at=Carbon::now();
 //            $order->paytime=null;
 //            $order->transid="12";

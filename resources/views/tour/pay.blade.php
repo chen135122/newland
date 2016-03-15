@@ -45,9 +45,9 @@ $subject = $_POST['WIDsubject'];
 $total_fee = $_POST['WIDtotal_fee'];
 //必填
 //订单描述
-//$body = $_POST['WIDbody'];
+$body = $_POST['WIDbody'];
 ////商品展示地址
-//$show_url = $_POST['WIDshow_url'];
+$show_url = $_POST['WIDshow_url'];
 //需以http://开头的完整路径，例如：http://www.商户网址.com/myorder.html
 //防钓鱼时间戳
 $anti_phishing_key = "";

@@ -457,10 +457,10 @@
         $("#subOrder").click(function(){
 
              validate();
-            $("#orderform").submit();
-            {{--if($(".popover").length<=0&&result==true)--}}
-            {{--{--}}
-               {{--// $("#orderform").submit();--}}
+            //$("#orderform").submit();
+            if($(".popover").length<=0&&result==true)
+            {
+               // $("#orderform").submit();
                 {{--$.post('{{ action('TourController@create') }}',--}}
                 {{--{ 'rout': $("#rout").val(),"perNum":$("#perNum").text().trim(),"username":$("#username").val(),"userPhone":$("#userPhone").val(),"userEmail":$("#userEmail").val(),"content":$("#txt_content").val()  },--}}
                 {{--function(data){--}}
@@ -469,7 +469,16 @@
                       {{--$("#orderform").submit();--}}
                 {{--}--}}
                 {{--});--}}
-            {{--}--}}
+                $.ajax({
+                    type: "post",
+                    url: "/create",
+                    dataType: "json",
+                    data: { 'rout': $("#rout").val(),"perNum":$("#perNum").text().trim(),"username":$("#username").val(),"userPhone":$("#userPhone").val(),"userEmail":$("#userEmail").val(),"content":$("#txt_content").val()  },
+                    success: function(msg){
+                        $("#orderform").submit();
+                    }
+                });
+            }
 
         })
 
@@ -487,11 +496,12 @@
         {{--<input  name="WIDsubject" type="hidden" value="{{$name}}">--}}
         {{--<input  name="WIDtotal_fee" type="hidden" value="2000">--}}
     {{--</form>--}}
-        <form id="orderform" name=orderform action=/spay method=post target="_blank">
-                        <input  name="WIDout_trade_no" type="hidden" value="10000">
+        <form id="orderform" name=orderform action=/spay method=post  target="_blank">
+                     <input  name="rout" id="rout" type="hidden" value="{{$route}}">
+                    <input  name="WIDout_trade_no" type="hidden" value="10000">
                     <input  name="WIDsubject" type="hidden" value="{{$name}}">
                     <input  name="WIDtotal_fee" type="hidden" value="2000">
-                    <input  name="WIDtotal_fee" type="hidden" value="2000">
+                    <input  name="WIDshow_url" type="hidden" value="2000">
                     <input  name="WIDbody" type="hidden" value="2000">
         </form>
 
