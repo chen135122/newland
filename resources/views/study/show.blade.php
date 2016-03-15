@@ -1,388 +1,415 @@
 @extends('layouts.master')
 
 @section('content')
-<section class="parallax-window" data-parallax="scroll" data-image-src="/img/single_tour_bg_1.jpg" data-natural-width="1400" data-natural-height="470">
-    <div class="parallax-content-2">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 col-sm-8">
-                    <h1>【南北岛精华游】奥克兰+怀托摩萤火虫洞+罗托鲁瓦+蒂卡波湖+基督城+箭镇+皇后镇10天</h1>
-                    <span>Champ de Mars, 5 Avenue Anatole, 75007 Paris.</span>
-                    <span class="rating"><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><small>(75)</small></span>
-                </div>
-                <div class="col-md-4 col-sm-4">
-                    <div id="price_single_main">
-                        每人 <span><sup></sup>48000</span>
+
+    <section class="parallax-window" data-parallax="scroll" data-image-src="/img/single_hotel_bg_1.jpg" data-natural-width="1400" data-natural-height="470">
+        <div class="parallax-content-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-sm-8">
+                        <span class="rating"><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class=" icon-star-empty"></i></span>
+                        <h1>{{$study->cn_name}}</h1>
+                        <span>{{$study->country}}-{{ $study->city}}</span>
+                    </div>
+                    <div class="col-md-4 col-sm-4">
+                        <div id="price_single_main" class="hotel">
+                            <span><sup>$</sup>150000</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section><!-- End section -->
+    </section><!-- End section -->
 
-<div id="position">
-    <div class="container">
-        <ul>
-            <li><a href="/">首页</a></li>
-            <li><a href="/tour">新西兰旅游</a></li>
-            <li>详情</li>
-        </ul>
-    </div>
-</div><!-- End Position -->
+    <div id="position">
+        <div class="container">
+            <ul>
+                <li><a href="/">首页</a></li>
+                <li><a href="/study">留学</a></li>
+                <li>{{$study->cn_name}}</li>
+            </ul>
+        </div>
+    </div><!-- End Position -->
 
-<div class="collapse" id="collapseMap">
-    <div id="map" class="map"></div>
-</div><!-- End Map -->
 
-<div class="container margin_60">
-    <div class="row">
-        <div class="col-md-8" id="single_tour_desc">
+    <div class="collapse" id="collapseMap">
+        <div id="map" class="map"></div>
+    </div><!-- End Map -->
 
-            <p class="visible-sm visible-xs"><a class="btn_map" data-toggle="collapse" href="#collapseMap" aria-expanded="false" aria-controls="collapseMap">查看地图</a></p><!-- Map button for tablets/mobiles -->
+    <div class="container margin_60">
+        <div class="row">
+            <div class="col-md-8" id="single_tour_desc">
 
-            <div class="row">
-                <div class="col-md-3">
-                    <h3>行程简介</h3>
+                <p class="visible-sm visible-xs"><a class="btn_map" data-toggle="collapse" href="#collapseMap" aria-expanded="false" aria-controls="collapseMap">查看地图</a></p>
+                <div id="img_carousel" class="slider-pro">
+                    <div class="sp-slides">
+                        <div class="sp-slide">
+                            <img alt="" class="sp-image" src="/css/images/blank.gif"
+                                 data-src="/img/slider_single_tour/1_medium.jpg"
+                                 data-small="/img/slider_single_tour/1_small.jpg"
+                                 data-medium="/img/slider_single_tour/1_medium.jpg"
+                                 data-large="/img/slider_single_tour/1_large.jpg"
+                                 data-retina="/img/slider_single_tour/1_large.jpg">
+                        </div>
+                        <div class="sp-slide">
+                            <img alt="" class="sp-image" src="/css/images/blank.gif"
+                                 data-src="/img/slider_single_tour/2_medium.jpg"
+                                 data-small="/img/slider_single_tour/2_small.jpg"
+                                 data-medium="/img/slider_single_tour/2_medium.jpg"
+                                 data-large="/img/slider_single_tour/2_large.jpg"
+                                 data-retina="/img/slider_single_tour/2_large.jpg">
+                            <h3 class="sp-layer sp-black sp-padding" data-horizontal="40" data-vertical="40" data-show-transition="left">
+                                Lorem ipsum dolor sit amet
+                            </h3>
+                            <p class="sp-layer sp-white sp-padding" data-horizontal="40" data-vertical="100" data-show-transition="left" data-show-delay="200">
+                                consectetur adipisicing elit
+                            </p>
+                            <p class="sp-layer sp-black sp-padding" data-horizontal="40" data-vertical="160" data-width="350" data-show-transition="left" data-show-delay="400">
+                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                            </p>
+                        </div>
+
+                        <div class="sp-slide">
+                            <img alt="" class="sp-image" src="/css/images/blank.gif"
+                                 data-src="/img/slider_single_tour/3_medium.jpg"
+                                 data-small="/img/slider_single_tour/3_small.jpg"
+                                 data-medium="/img/slider_single_tour/3_medium.jpg"
+                                 data-large="/img/slider_single_tour/3_large.jpg"
+                                 data-retina="/img/slider_single_tour/3_large.jpg">
+                            <p class="sp-layer sp-white sp-padding" data-position="centerCenter" data-vertical="-50" data-show-transition="right" data-show-delay="500">
+                                Lorem ipsum dolor sit amet
+                            </p>
+                            <p class="sp-layer sp-black sp-padding" data-position="centerCenter" data-vertical="50" data-show-transition="left" data-show-delay="700">
+                                consectetur adipisicing elit
+                            </p>
+                        </div>
+
+                        <div class="sp-slide">
+                            <img alt="" class="sp-image" src="/css/images/blank.gif"
+                                 data-src="/img/slider_single_tour/4_medium.jpg"
+                                 data-small="/img/slider_single_tour/4_small.jpg"
+                                 data-medium="/img/slider_single_tour/4_medium.jpg"
+                                 data-large="/img/slider_single_tour/4_large.jpg"
+                                 data-retina="/img/slider_single_tour/4_large.jpg">
+                            <p class="sp-layer sp-black sp-padding" data-position="bottomLeft" data-vertical="0" data-width="100%" data-show-transition="up">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                            </p>
+                        </div>
+
+                        <div class="sp-slide">
+                            <img alt="" class="sp-image" src="/css/images/blank.gif"
+                                 data-src="/img/slider_single_tour/5_medium.jpg"
+                                 data-small="/img/slider_single_tour/5_small.jpg"
+                                 data-medium="/img/slider_single_tour/5_medium.jpg"
+                                 data-large="/img/slider_single_tour/5_large.jpg"
+                                 data-retina="/img/slider_single_tour/5_large.jpg">
+                            <p class="sp-layer sp-white sp-padding" data-vertical="5%" data-horizontal="5%" data-width="90%" data-show-transition="down" data-show-delay="400">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                            </p>
+                        </div>
+
+                        <div class="sp-slide">
+                            <img alt="" class="sp-image" src="/css/images/blank.gif"
+                                 data-src="/img/slider_single_tour/6_medium.jpg"
+                                 data-small="/img/slider_single_tour/6_small.jpg"
+                                 data-medium="/img/slider_single_tour/6_medium.jpg"
+                                 data-large="/img/slider_single_tour/6_large.jpg"
+                                 data-retina="/img/slider_single_tour/6_large.jpg">
+                            <p class="sp-layer sp-white sp-padding" data-horizontal="10" data-vertical="10" data-width="300">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                            </p>
+                        </div>
+
+                        <div class="sp-slide">
+                            <img alt="" class="sp-image" src="/css/images/blank.gif"
+                                 data-src="/img/slider_single_tour/7_medium.jpg"
+                                 data-small="/img/slider_single_tour/7_small.jpg"
+                                 data-medium="/img/slider_single_tour/7_medium.jpg"
+                                 data-large="/img/slider_single_tour/7_large.jpg"
+                                 data-retina="/img/slider_single_tour/7_large.jpg">
+                            <p class="sp-layer sp-black sp-padding" data-position="bottomLeft" data-horizontal="5%" data-vertical="5%" data-width="90%" data-show-transition="up" data-show-delay="400">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                            </p>
+                        </div>
+
+                        <div class="sp-slide">
+                            <img alt="" class="sp-image" src="/css/images/blank.gif"
+                                 data-src="/img/slider_single_tour/8_medium.jpg"
+                                 data-small="/img/slider_single_tour/8_small.jpg"
+                                 data-medium="/img/slider_single_tour/8_medium.jpg"
+                                 data-large="/img/slider_single_tour/8_large.jpg"
+                                 data-retina="/img/slider_single_tour/8_large.jpg">
+                            <p class="sp-layer sp-black sp-padding" data-horizontal="50" data-vertical="50" data-show-transition="down" data-show-delay="500">
+                                Lorem ipsum dolor sit amet
+                            </p>
+                            <p class="sp-layer sp-white sp-padding" data-horizontal="50" data-vertical="100" data-show-transition="up" data-show-delay="500">
+                                consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            </p>
+                        </div>
+
+                        <div class="sp-slide">
+                            <img alt="" class="sp-image" src="/css/images/blank.gif"
+                                 data-src="/img/slider_single_tour/9_medium.jpg"
+                                 data-small="/img/slider_single_tour/9_small.jpg"
+                                 data-medium="/img/slider_single_tour/9_medium.jpg"
+                                 data-large="/img/slider_single_tour/9_large.jpg"
+                                 data-retina="/img/slider_single_tour/9_large.jpg">
+                        </div>
+                    </div>
+                    <div class="sp-thumbnails">
+                        <img alt="" class="sp-thumbnail" src="/img/slider_single_tour/1_medium.jpg">
+                        <img alt="" class="sp-thumbnail" src="/img/slider_single_tour/2_medium.jpg">
+                        <img alt="" class="sp-thumbnail" src="/img/slider_single_tour/3_medium.jpg">
+                        <img alt="" class="sp-thumbnail" src="/img/slider_single_tour/4_medium.jpg">
+                        <img alt="" class="sp-thumbnail" src="/img/slider_single_tour/5_medium.jpg">
+                        <img alt="" class="sp-thumbnail" src="/img/slider_single_tour/6_medium.jpg">
+                        <img alt="" class="sp-thumbnail" src="/img/slider_single_tour/7_medium.jpg">
+                        <img alt="" class="sp-thumbnail" src="/img/slider_single_tour/8_medium.jpg">
+                        <img alt="" class="sp-thumbnail" src="/img/slider_single_tour/9_medium.jpg">
+                    </div>
                 </div>
-                <div class="col-md-9">
-                    <h4>关于此行程</h4>
-                    <p>
-                        美亚境外旅游保险，乐悠游计划二（最高保额30万）
-                        旅行礼包：万能电源转换插头、航班拖鞋、睡眠眼罩、充气护颈枕
-                        1、导游：当地全程中文导游兼司机服务（每天10小时）
-                        2、国内全程客服一对一服务、全程质量跟踪
-                        以上报价仅供参考，可能会因为不同的出发城市及时间会有所浮动
-                        如果你对以上方案不满意，我们非常乐意为你重新定制方案，欢迎致电我们400-888-8888
-                    </p>
-                    <h4>行程特色</h4>
-                    <p>
-                        以上报价仅供参考，可能会因为不同的出发城市及时间会有所浮动
-                    </p>
+                <div class="row">
+                    <div id="ml" style="background-color: #333;font-size: 11px;margin-top:32px;">
+                        <div style="width:100%;margin-right: auto;margin-left: auto;">
+                            <ul class="c_ul" style="margin: 0;padding: 0;color: #888;">
+                                <li class="new_a"><a onclick="removeClass('xxxx', this)" href="#xxxx">学校信息</a></li>
+                                <li class="new_a"><a onclick="removeClass('xxjj', this)" href="#xxjj">学校简介</a></li>
+                                <li><a href="#xxls" onclick="removeClass('xxls', this)">学校历史</a></li>
+                                <li><a href="#xxts" onclick="removeClass('xxts', this)">学校特色</a></li>
+                                <li><a href="#yxts" onclick="removeClass('yxts', this)">院校特色</a></li>
+                                <li><a href="#xxss" onclick="removeClass('xxss', this)">学校设施</a></li>
+                                <li><a href="#xxsu" onclick="removeClass('xxsu', this)">学校宿舍</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" style="margin-top:20px;">
+                    <div class="col-md-3" id="xxxx">
+                        <h3>学校信息</h3>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="row">
+                            <div class="table-responsive">
+                                <table class="table table-condensed">
+                                    <tbody>
+                                    <tr>
+                                        <td>英文名称</td>
+
+                                        <td class="text-center">{{$study->en_name}} </td>
+                                    </tr>
+                                    <tr>
+                                        <td>中文名称</td>
+
+                                        <td class="text-center">{{$study->cn_name}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>雅思</td>
+                                        <td class="text-center">{{$study->fee_min}} 至 {{$study->fee_max}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>位置</td>
+                                        <td class="text-center">{{$study->country}}-{{ $study->city}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>offer发放速度(几周)</td>
+                                        <td class="text-center">{{$study->offer_release_rate}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>海外学生比例（百分比）</td>
+                                        <td class="text-center">{{$study->overseas_stu_rate}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>位置</td>
+                                        <td class="text-center">{{$study->country}}-{{ $study->city}}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div><!-- End row  -->
+                    </div>
+                </div><!-- End row  -->
+                <hr>
+                <div class="row">
+                    <div class="col-md-3" id="xxjj">
+                        <h3>学校简介</h3>
+                    </div>
+                    <div class="col-md-9">
+                        <p>
+                            {!! $study->intro !!}
+                        </p>
+                    </div><!-- End col-md-9  -->
+                </div><!-- End row  -->
+                <hr>
+                <div class="row">
+                    <div class="col-md-3" id="xxls">
+                        <h3>学校历史</h3>
+                    </div>
+                    <div class="col-md-9">
+                        <p>
+                            {!! $study->history !!}
+                        </p>
+                    </div><!-- End col-md-9  -->
+                </div><!-- End row  -->
+                <hr>
+                <div class="row">
+                    <div class="col-md-3" id="xxts">
+                        <h3>学校特色</h3>
+                    </div>
+                    <div class="col-md-9">
+                        <p>
+                            {!! $study->school_feature !!}
+                        </p>
+                    </div><!-- End col-md-9  -->
+                </div><!-- End row  -->
+                <hr>
+                <div class="row">
+                    <div class="col-md-3" id="yxts">
+                        <h3>院校特色</h3>
+                    </div>
+                    <div class="col-md-9">
+                        <p> {!!$study->college_feature  !!}  </p>
+                    </div><!-- End col-md-9  -->
+                </div><!-- End row  -->
+                <hr>
+                <div class="row">
+                    <div class="col-md-3" id="xxss">
+                        <h3>学校设施</h3>
+                    </div>
+                    <div class="col-md-9">
+                        <p>{!! $study->facility !!}</p>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-md-3" id="xxsu">
+                        <h3>学校宿舍</h3>
+                    </div>
+                    <div class="col-md-9">
+                        <p>{!! $study->dormitory !!}</p>
+                    </div><!-- End col-md-9  -->
+                </div><!-- End row  -->
+
+                <hr>
+            </div>
+
+            <aside class="col-md-4">
+                <p class="hidden-sm hidden-xs">
+                    <a class="btn_map" data-toggle="collapse" href="#collapseMap" aria-expanded="false" aria-controls="collapseMap">查看地图</a>
+                </p>
+
+
+                <div class="box_style_1 expose">
+                    <h3 class="inner">热门房产</h3>
                     <div class="row">
-                        <div class="col-md-6 col-sm-6">
-                            <ul class="list_ok">
-                                <li>美亚境外旅游保险，乐悠游计划二（最高保额30万）</li>
-                                <li>国内全程客服一对一服务、全程质量跟踪</li>
-                                <li>导游：当地全程中文导游兼司机服务（每天10小时）</li>
-                                <li>国内全程客服一对一服务、全程质量跟踪</li>
-                                <li>美亚境外旅游保险，乐悠游计划二（最高保额30万）</li>
-                                <li>旅行礼包：万能电源转换插头、航班拖鞋、睡眠眼罩、充气护颈枕</li>
-                            </ul>
-                        </div>
-                        <div class="col-md-6 col-sm-6">
-                            <ul class="list_ok">
-                                <li>导游：当地全程中文导游兼司机服务（每天10小时）</li>
-                                <li>旅行礼包：万能电源转换插头、航班拖鞋、睡眠眼罩、充气护颈枕</li>
-                                <li>导游：当地全程中文导游兼司机服务（每天10小时）</li>
-                                <li>国内全程客服一对一服务、全程质量跟踪</li>
-                            </ul>
-                        </div>
-                    </div><!-- End row  -->
-                </div>
-            </div>
-
-            <hr>
-
-            <div class="row">
-                <div class="col-md-3">
-                    <h3>日程安排</h3>
-                </div>
-                <div class="col-md-9">
-                    <div class=" table-responsive">
-                        <table class="table table-striped">
-                            <thead>
-                            <tr>
-                                <th colspan="2">
-                                    第一天: 中国——奥克兰
-                                </th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td style="width: 50px;">
-                                    上午
-                                </td>
-                                <td>
-                                    VIP中文接机, 于始发城市机场乘坐国际航班前往南半球美丽国度新西兰，开启新西兰南北岛纯净之旅！
-                                    <ul class="time_photo">
-                                        <li>
-                                            <img src="http://www.8stour.com/Uploads/Photo/cover/201509/55efdd96101b5.jpg">
-                                        </li>
-                                        <li>
-                                            <img src="http://www.8stour.com/Uploads/Photo/cover/201509/55efdd9f5a94a.jpg">
-                                        </li>
-                                    </ul>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    中午
-                                </td>
-                                <td>
-                                    接下来在奥克兰市区观光，前往【高架桥海港】，位于奥克兰市中心的海滨区，这里聚集着各种酒吧餐馆、国际知名酒店和高级公寓，当然最多的还是停泊在港口中的各种游艇，是拍照的好去处。
-                                    <ul class="time_photo">
-                                        <li>
-                                            <img src="http://www.8stour.com/Uploads/Photo/cover/201509/55efee6d79ef3.jpg">
-                                        </li>
-                                        <li>
-                                            <img src="http://www.8stour.com/Uploads/Photo/cover/201509/55efee729ef00.jpg">
-                                        </li>
-                                    </ul>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    下午
-                                </td>
-                                <td>
-                                    【皇后街】，带一点傲慢和一点世俗，各式19世纪末至20世纪中叶的那些老建筑，充满了奥克兰某种刻板又时尚的气息。【皇后街】又是新西兰的最佳商业区，它汇集了市内所有购物商店及大型百货公司。礼品商店和羊毛制品店出售手工羊毛袍、毛利族人雕刻品、翡翠、饰品、贝壳首饰、由美洲负鼠皮制成的皮衣以及羊毛汽车座套等等商品琳琅满目，令人目不暇接。
-                                    <ul class="time_photo">
-                                        <li>
-                                            <img src="http://www.8stour.com/Uploads/Photo/cover/201509/55eff461a3882.jpg">
-                                        </li>
-                                        <li>
-                                            <img src="http://www.8stour.com/Uploads/Photo/cover/201509/55eff464f2f4d.jpg">
-                                        </li>
-                                    </ul>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class=" table-responsive">
-                        <table class="table table-striped">
-                            <thead>
-                            <tr>
-                                <th colspan="2">
-                                    第一天: 奥克兰【海港大桥】+【皇后街】+【天空塔】
-                                </th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td style="width: 50px;">
-                                    上午
-                                </td>
-                                <td>
-                                    VIP中文接机, 于始发城市机场乘坐国际航班前往南半球美丽国度新西兰，开启新西兰南北岛纯净之旅！
-                                    <ul class="time_photo">
-                                        <li>
-                                            <img src="http://www.8stour.com/Uploads/Photo/cover/201509/55efdd96101b5.jpg">
-                                        </li>
-                                        <li>
-                                            <img src="http://www.8stour.com/Uploads/Photo/cover/201509/55efdd9f5a94a.jpg">
-                                        </li>
-                                    </ul>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    中午
-                                </td>
-                                <td>
-                                    接下来在奥克兰市区观光，前往【高架桥海港】，位于奥克兰市中心的海滨区，这里聚集着各种酒吧餐馆、国际知名酒店和高级公寓，当然最多的还是停泊在港口中的各种游艇，是拍照的好去处。
-                                    <ul class="time_photo">
-                                        <li>
-                                            <img src="http://www.8stour.com/Uploads/Photo/cover/201509/55efee6d79ef3.jpg">
-                                        </li>
-                                        <li>
-                                            <img src="http://www.8stour.com/Uploads/Photo/cover/201509/55efee729ef00.jpg">
-                                        </li>
-                                    </ul>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    下午
-                                </td>
-                                <td>
-                                    【皇后街】，带一点傲慢和一点世俗，各式19世纪末至20世纪中叶的那些老建筑，充满了奥克兰某种刻板又时尚的气息。【皇后街】又是新西兰的最佳商业区，它汇集了市内所有购物商店及大型百货公司。礼品商店和羊毛制品店出售手工羊毛袍、毛利族人雕刻品、翡翠、饰品、贝壳首饰、由美洲负鼠皮制成的皮衣以及羊毛汽车座套等等商品琳琅满目，令人目不暇接。
-                                    <ul class="time_photo">
-                                        <li>
-                                            <img src="http://www.8stour.com/Uploads/Photo/cover/201509/55eff461a3882.jpg">
-                                        </li>
-                                        <li>
-                                            <img src="http://www.8stour.com/Uploads/Photo/cover/201509/55eff464f2f4d.jpg">
-                                        </li>
-                                    </ul>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-
-            <hr>
-
-            <div class="row">
-                <div class="col-md-3">
-                    <a href="#" class="btn_1 add_bottom_30" data-toggle="modal" data-target="#myReview">撰写评论</a>
-                </div>
-                <div class="col-md-9">
-                    <div id="general_rating">11条评论
-                        <div class="rating">
-                            <i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><i class="icon-smile"></i>
-                        </div>
-                    </div><!-- End general_rating -->
-                    <div class="row" id="rating_summary">
-                        <div class="col-md-6">
-                            <ul>
-                                <li>目的地
-                                    <div class="rating">
-                                        <i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><i class="icon-smile"></i>
-                                    </div>
-                                </li>
-                                <li>导游
-                                    <div class="rating">
-                                        <i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-md-6">
-                            <ul>
-                                <li>价格
-                                    <div class="rating">
-                                        <i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><i class="icon-smile"></i>
-                                    </div>
-                                </li>
-                                <li>质量
-                                    <div class="rating">
-                                        <i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div><!-- End row -->
-                    <hr>
-                    <div class="review_strip_single">
-                        <img src="/img/avatar1.jpg" alt="" class="img-circle">
-                        <small> - 10 March 2015 -</small>
-                        <h4>Jhon Doe</h4>
-                        <p>
-                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a lorem quis neque interdum consequat ut sed sem. Duis quis tempor nunc. Interdum et malesuada fames ac ante ipsum primis in faucibus."
-                        </p>
-                        <div class="rating">
-                            <i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><i class="icon-smile"></i>
-                        </div>
-                    </div><!-- End review strip -->
-
-                    <div class="review_strip_single">
-                        <img src="/img/avatar3.jpg" alt="" class="img-circle">
-                        <small> - 10 March 2015 -</small>
-                        <h4>Jhon Doe</h4>
-                        <p>
-                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a lorem quis neque interdum consequat ut sed sem. Duis quis tempor nunc. Interdum et malesuada fames ac ante ipsum primis in faucibus."
-                        </p>
-                        <div class="rating">
-                            <i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><i class="icon-smile"></i>
-                        </div>
-                    </div><!-- End review strip -->
-
-                    <div class="review_strip_single last">
-                        <img src="/img/avatar2.jpg" alt="" class="img-circle">
-                        <small> - 10 March 2015 -</small>
-                        <h4>Jhon Doe</h4>
-                        <p>
-                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a lorem quis neque interdum consequat ut sed sem. Duis quis tempor nunc. Interdum et malesuada fames ac ante ipsum primis in faucibus."
-                        </p>
-                        <div class="rating">
-                            <i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><i class="icon-smile"></i>
-                        </div>
-                    </div><!-- End review strip -->
-                </div>
-            </div>
-        </div><!--End  single_tour_desc-->
-
-        <aside class="col-md-4">
-            <p class="hidden-sm hidden-xs">
-                <a class="btn_map" data-toggle="collapse" href="#collapseMap" aria-expanded="false" aria-controls="collapseMap">查看地图</a>
-            </p>
-            <div class="box_style_1 expose">
-                <h3 class="inner">- 预定 -</h3>
-                <div class="row">
-                    <div class="col-md-6 col-sm-6">
-                        <div class="form-group">
-                            <label><i class="icon-calendar-7"></i> 选择日期</label>
-                            <input class="date-pick form-control" data-date-format="M d, D" type="text">
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-sm-6">
-                        <div class="form-group">
-                            <label><i class=" icon-clock"></i> 时间</label>
-                            <input class="time-pick form-control" value="12:00 AM" type="text">
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6 col-sm-6">
-                        <div class="form-group">
-                            <label>成人</label>
-                            <div class="numbers-row">
-                                <input type="text" value="1" id="adults" class="qty2 form-control" name="quantity">
+                        <div class="col-md-6 col-sm-6 room">
+                            <div>
+                                <img src="/img/slider_single_tour/1_medium.jpg" alt="" width="68" height="68" class="/img-circle">
+                            </div>
+                            <div class="hold_room">
+                                <h4>新西兰天马镇</h4>
+                                <small>宽敞舒适精美靓宅 绝佳地段双校网 必售房源速来抢购 </small>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-sm-6">
-                        <div class="form-group">
-                            <label>儿童</label>
-                            <div class="numbers-row">
-                                <input type="text" value="0" id="children" class="qty2 form-control" name="quantity">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 room">
+                            <div>
+                                <img src="/img/slider_single_tour/1_medium.jpg" alt="" width="68" height="68" class="/img-circle">
+                            </div>
+                            <div class="hold_room">
+                                <h4>新西兰天马镇</h4>
+                                <small>宽敞舒适精美靓宅 绝佳地段双校网 必售房源速来抢购 </small>
                             </div>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 room">
+                            <div>
+                                <img src="/img/slider_single_tour/1_medium.jpg" alt="" width="68" height="68" class="/img-circle">
+                            </div>
+                            <div class="hold_room">
+                                <h4>新西兰天马镇</h4>
+                                <small>宽敞舒适精美靓宅 绝佳地段双校网 必售房源速来抢购 </small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 room">
+                            <div>
+                                <img src="/img/slider_single_tour/1_medium.jpg" alt="" width="68" height="68" class="/img-circle">
+                            </div>
+                            <div class="hold_room">
+                                <h4>新西兰天马镇</h4>
+                                <small>宽敞舒适精美靓宅 绝佳地段双校网 必售房源速来抢购 </small>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+
+                    <a class="btn_full" href="cart_hotel.html">更多</a>
                 </div>
-                <br>
-                <table class="table table_summary">
-                    <tbody>
-                    <tr>
-                        <td>
-                            成人
-                        </td>
-                        <td class="text-right">
-                            2
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            儿童
-                        </td>
-                        <td class="text-right">
-                            0
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            小计
-                        </td>
-                        <td class="text-right">
-                            3x $52
-                        </td>
-                    </tr>
-                    <tr class="total">
-                        <td>
-                            总价
-                        </td>
-                        <td class="text-right">
-                            $154
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-                <a class="btn_full" href="cart.html">马上预定</a>
-            </div><!--/box_style_1 -->
 
-            <div class="box_style_4">
-                <i class="icon_set_1_icon-90"></i>
-                <h4><span>电话</span>预定</h4>
-                <a href="tel://004512388888" class="phone">+45 123 888 99</a>
-                <small>周一 至 周五 9.00am - 7.30pm</small>
-            </div>
+                <div class="box_style_1 expose">
+                    <h3 class="inner">热门资讯</h3>
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 room">
+                            <div>
+                                <img src="/img/slider_single_tour/1_medium.jpg" alt="" width="68" height="68" class="/img-circle">
+                            </div>
+                            <div class="hold_room">
+                                <h4>新西兰天马镇</h4>
+                                <small>宽敞舒适精美靓宅 绝佳地段双校网 必售房源速来抢购 </small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 room">
+                            <div>
+                                <img src="/img/slider_single_tour/1_medium.jpg" width="68" height="68" alt="" class="/img-circle">
+                            </div>
+                            <div class="hold_room">
+                                <h4>新西兰天马镇</h4>
+                                <small>宽敞舒适精美靓宅 绝佳地段双校网 必售房源速来抢购 </small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 room">
+                            <div>
+                                <img src="/img/avatar1.jpg" alt="" width="68" height="68" class="/img-circle">
+                            </div>
+                            <div class="hold_room">
+                                <h4>新西兰天马镇</h4>
+                                <small>宽敞舒适精美靓宅 绝佳地段双校网 必售房源速来抢购 </small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 room">
+                            <div>
+                                <img src="/img/slider_single_tour/1_medium.jpg" alt="" width="68" height="68" class="/img-circle">
+                            </div>
+                            <div class="hold_room">
+                                <h4>新西兰天马镇</h4>
+                                <small>宽敞舒适精美靓宅 绝佳地段双校网 必售房源速来抢购 </small>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
 
-        </aside>
-    </div><!--End row -->
-</div><!--End container -->
+                    <a class="btn_full" href="cart_hotel.html">更多</a>
+                </div>
+                <div class="box_style_4">
+                    <i class="icon_set_1_icon-90"></i>
+                    <h4>联系我们</h4>
+                    <a href="tel://004542344599" class="phone">+025-58761818</a>
+                    <small>周一 至 周日 9.00am - 7.30pm</small>
+                </div>
+            </aside>
+        </div><!--End row -->
+    </div><!--End container -->
+
 @endsection
 
 

@@ -1,29 +1,31 @@
 @extends('layouts.master')
 
 @section('content')
-<section class="parallax-window" data-parallax="scroll" data-image-src="img/hotels_bg.jpg" data-natural-width="1400" data-natural-height="470">
-    <div class="parallax-content-1">
-        <div class="animated fadeInDown">
-            <h1>新西兰房产</h1>
-            <br>
-            <p>我们提供新西兰最新的居民住宅，商业地产和农场买卖信息</p>
+    <section class="parallax-window" data-parallax="scroll" data-image-src="/img/hotels_bg.jpg" data-natural-width="1400" data-natural-height="470">
+        <div class="parallax-content-1">
+            <div class="animated fadeInDown">
+                <h1>新西兰房产</h1>
+                <br>
+                <p>我们提供新西兰最新的居民住宅，商业地产和农场买卖信息</p>
+            </div>
         </div>
-    </div>
-</section><!-- End section -->
+    </section><!-- End section -->
 
-<div id="position">
-    <div class="container">
-        <ul>
-            <li><a href="#">首页</a></li>
-            <li><a href="#">新西兰房产</a></li>
-        </ul>
-    </div>
-</div><!-- Position -->
+    <div id="position">
+        <div class="container">
+            <ul>
+                <li><a href="/">首页</a></li>
+                <li><a href="#">新西兰房产</a></li>
+            </ul>
+        </div>
+    </div><!-- Position -->
 
-<div  class="container margin_60">
+
+
+    <div class="container margin_60">
 
         <div class="row">
-            <aside class="col-lg-3 col-md-3">
+            <div class="col-lg-12 col-md-12">
                 <div id="filters_col">
                     <a data-toggle="collapse" href="#collapseFilters" aria-expanded="false" aria-controls="collapseFilters" id="filters_col_bt"><i class="icon_set_1_icon-65"></i>筛选 <i class="icon-plus-1 pull-right"></i></a>
                     <div class="collapse" id="collapseFilters">
@@ -31,60 +33,57 @@
                             <h6>价格</h6>
                             <input type="text" id="range" name="range" value="">
                         </div>
-
+                        <input type="hidden" value="{{$minprice}}" name="price[]" id="min_price" >
+                        <input type="hidden" value="{{$maxprice}}" name="price[]" id="max_price">
                         <div class="filter_type">
                             <h6>地区</h6>
                             <ul>
-                                <li><label><input type="checkbox">陶波</label></li>
-                                <li><label><input type="checkbox">陶朗加</label></li>
-                                <li><label><input type="checkbox">皇后镇</label></li>
-                                <li><label><input type="checkbox">基督城</label></li>
+                                <li><label><a href="###" class="btn_1" style="padding:3px 10px;">北部地区</a></label></li>
+                                <li><label><a href="###">奥克兰</a></label></li>
+                                <li><label><a href="###">汉密尔顿</a></label></li>
+                                <li><label><a href="###">丰盛湾</a></label></li>
+                                <li><label><a href="###">吉斯伯恩</a></label></li>
+                                <li><label><a href="###">霍克斯湾</a></label></li>
+                                <li><label><a href="###">塔拉纳基</a></label></li>
+                                <li><label><a href="###">皇后镇</a></label></li>
+                                <li><label><a href="###">科罗曼德</a></label></li>
                             </ul>
                         </div>
-
+                        <div class="filter_type">
+                            <h6>城市</h6>
+                            <ul>
+                                <li><label><a href="###" class="btn_1" style="padding:3px 10px;">Far North</a></label></li>
+                                <li><label><a href="###">Kaipara</a></label></li>
+                                <li><label><a href="###">Whangarei</a></label></li>
+                            </ul>
+                        </div>
+                        <div class="filter_type">
+                            <h6>城镇</h6>
+                            <ul>
+                                <li><label><a href="###">One Tree Point</a></label></li>
+                                <li><label><a href="###">Kensington</a></label></li>
+                                <li><label><a href="###">Kiripaka</a></label></li>
+                                <li><label><a href="###">Tamaterau</a></label></li>
+                                <li><label><a href="###">Poroti</a></label></li>
+                                <li><label><a href="###">Tikipunga</a></label></li>
+                            </ul>
+                        </div>
                         <div class="filter_type">
                             <h6>类型</h6>
                             <ul>
-                                <li><label><input type="checkbox">独立别墅</label></li>
-                                <li><label><input type="checkbox">公寓</label></li>
-                                <li><label><input type="checkbox">单元房</label></li>
-                                <li><label><input type="checkbox">城市屋</label></li>
-                            </ul>
-                        </div>
-
-                        <div class="filter_type">
-                            <h6>卧室</h6>
-                            <ul>
-                                <li><label><input type="radio" name="bedroom">1室</label></li>
-                                <li><label><input type="radio" name="bedroom">2室</label></li>
-                                <li><label><input type="radio" name="bedroom">3室</label></li>
-                                <li><label><input type="radio" name="bedroom">4室</label></li>
-                                <li><label><input type="radio" name="bedroom">5室以上</label></li>
-                            </ul>
-                        </div>
-
-                        <div class="filter_type">
-                            <h6>浴室</h6>
-                            <ul>
-                                <li><label><input type="radio" name="bashroom">1室</label></li>
-                                <li><label><input type="radio" name="bashroom">2室</label></li>
-                                <li><label><input type="radio" name="bashroom">3室</label></li>
-                                <li><label><input type="radio" name="bashroom">4室</label></li>
-                                <li><label><input type="radio" name="bashroom">5室以上</label></li>
+                                <li><label><a href="###">独立别墅</a></label></li>
+                                <li><label><a href="###">公寓</a></label></li>
+                                <li><label><a href="###">单元房</a></label></li>
+                                <li><label><a href="###">城市屋</a></label></li>
                             </ul>
                         </div>
                     </div><!--End collapse -->
                 </div><!--End filters col-->
-                <div class="box_style_2">
-                    <i class="icon_set_1_icon-57"></i>
-                    <h4>需要 <span>帮助?</span></h4>
-                    <a href="tel://004512388888" class="phone">+45 123 888 88</a>
-                    <small>周一 至 周日 9.00am - 7.30pm</small>
-                </div>
-            </aside><!--End aside -->
 
-            <div class="col-lg-9 col-md-9">
-
+            </div><!--End aside -->
+        </div>
+        <div class="row">
+            <div class="col-md-8">
                 <div id="tools">
                     <div class="row">
                         <div class="col-md-3 col-sm-3 col-xs-6">
@@ -98,7 +97,7 @@
                         </div>
                         <div class="col-md-3 col-sm-3 col-xs-6">
                             <div class="styled-select-filters">
-                                <select  name="sort_rating" id="sort_rating">
+                                <select name="sort_rating" id="sort_rating">
                                     <option value="" selected>评价排序</option>
                                     <option value="lower">从高到低</option>
                                     <option value="higher">从低到高</option>
@@ -107,13 +106,13 @@
                         </div>
                     </div>
                 </div><!--/tools -->
-
                 @foreach($properties as $property)
                     <div class="strip_all_tour_list wow fadeIn" data-wow-delay="0.1s">
                         <div class="row">
                             <div class="col-lg-4 col-md-4 col-sm-4">
                                 <div class="img_list">
-                                    <a href="/property/{{$property->sn}}"><div class="ribbon popular" ></div><img src="{{$property->picurl}}" alt="">
+                                    <a href="/property/{{$property->id}}">
+                                        <div class="ribbon popular"></div><img src="{{$property->picurl}}" alt="">
                                         <div class="short_info"></div>
                                     </a>
                                 </div>
@@ -126,18 +125,21 @@
                                     <p>{{$property->address}}</p>
                                     <ul class="add_info">
                                         <li>
-                                            <a href="javascript:void(0);" class="tooltip-1" data-placement="top" title="" data-original-title="Free Wifi"> <i class="icon_set_2_icon-104"></i> 2
+                                            <a href="javascript:void(0);" class="tooltip-1" data-placement="top" title="" data-original-title="{{$property->bedroom}}个卧室">
+                                                <i class="icon_set_2_icon-104"></i> {{$property->bedroom}}
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="javascript:void(0);" class="tooltip-1" data-placement="top" title="" data-original-title="Restaurant"><i class="icon_set_1_icon-58"></i> 3</a>
+                                            <a href="javascript:void(0);" class="tooltip-1" data-placement="top" title="" data-original-title="餐馆"><i class="icon_set_1_icon-58"></i> 3</a>
                                         </li>
                                     </ul>
                                 </div>
                             </div>
                             <div class="col-lg-2 col-md-2 col-sm-2">
-                                <div class="price_list"><div>${{$property->total_price}}<span class="normal_price_list"></span><small >总价</small>
-                                        <p><a href="/property/{{$property->sn}}" class="btn_1">详情</a></p>
+                                <div class="price_list">
+                                    <div>
+                                        <span class="price">{{$property->total_price}}</span><span class="normal_price_list"></span><small>总价</small>
+                                        <p><a href="/property/{{$property->id}}" class="btn_1">详情</a></p>
                                     </div>
                                 </div>
                             </div>
@@ -145,25 +147,122 @@
                     </div><!--End strip -->
                 @endforeach
                 <hr>
-                <!--
+
                 <div class="text-center">
-                    <ul class="pagination">
-                        <li><a href="#">上一页</a></li>
-                        <li class="active"><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">下一页</li>
-                    </ul>
+                    {{$properties->render()}}
+                </div><!-- end pagination-->
+            </div>
+            <aside class="col-md-4">
+                <div class="box_style_1 expose">
+                    <h3 class="inner">热门旅游</h3>
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 room">
+                            <div>
+                                <img src="/img/slider_single_tour/1_medium.jpg" alt="" width="68" height="68" class="/img-circle">
+                            </div>
+                            <div class="hold_room">
+                                <h4>新西兰天马镇</h4>
+                                <small>宽敞舒适精美靓宅 绝佳地段双校网 必售房源速来抢购 </small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 room">
+                            <div>
+                                <img src="/img/slider_single_tour/1_medium.jpg" width="68" height="68" alt="" class="/img-circle">
+                            </div>
+                            <div class="hold_room">
+                                <h4>新西兰天马镇</h4>
+                                <small>宽敞舒适精美靓宅 绝佳地段双校网 必售房源速来抢购 </small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 room">
+                            <div>
+                                <img src="/img/avatar1.jpg" alt="" width="68" height="68" class="/img-circle">
+                            </div>
+                            <div class="hold_room">
+                                <h4>新西兰天马镇</h4>
+                                <small>宽敞舒适精美靓宅 绝佳地段双校网 必售房源速来抢购 </small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 room">
+                            <div>
+                                <img src="/img/slider_single_tour/1_medium.jpg" alt="" width="68" height="68" class="/img-circle">
+                            </div>
+                            <div class="hold_room">
+                                <h4>新西兰天马镇</h4>
+                                <small>宽敞舒适精美靓宅 绝佳地段双校网 必售房源速来抢购 </small>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+
+                    <a class="btn_full" href="cart_hotel.html">更多</a>
                 </div>
-                end pagination-->
-                <div class="text-center">
-                {{$properties->render()}}
+                <div class="box_style_1 expose">
+                    <h3 class="inner">热门资讯</h3>
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 room">
+                            <div>
+                                <img src="/img/slider_single_tour/1_medium.jpg" alt="" width="68" height="68" class="/img-circle">
+                            </div>
+                            <div class="hold_room">
+                                <h4>新西兰天马镇</h4>
+                                <small>宽敞舒适精美靓宅 绝佳地段双校网 必售房源速来抢购 </small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 room">
+                            <div>
+                                <img src="/img/slider_single_tour/1_medium.jpg" width="68" height="68" alt="" class="/img-circle">
+                            </div>
+                            <div class="hold_room">
+                                <h4>新西兰天马镇</h4>
+                                <small>宽敞舒适精美靓宅 绝佳地段双校网 必售房源速来抢购 </small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 room">
+                            <div>
+                                <img src="/img/avatar1.jpg" alt="" width="68" height="68" class="/img-circle">
+                            </div>
+                            <div class="hold_room">
+                                <h4>新西兰天马镇</h4>
+                                <small>宽敞舒适精美靓宅 绝佳地段双校网 必售房源速来抢购 </small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 room">
+                            <div>
+                                <img src="/img/slider_single_tour/1_medium.jpg" alt="" width="68" height="68" class="/img-circle">
+                            </div>
+                            <div class="hold_room">
+                                <h4>新西兰天马镇</h4>
+                                <small>宽敞舒适精美靓宅 绝佳地段双校网 必售房源速来抢购 </small>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+
+                    <a class="btn_full" href="cart_hotel.html">更多</a>
+                </div>
+                <div class="box_style_4">
+                    <i class="icon_set_1_icon-90"></i>
+                    <h4>联系我们</h4>
+                    <a href="tel://004542344599" class="phone">+025-58761818</a>
+                    <small>周一 至 周日 9.00am - 7.30pm</small>
                 </div>
 
-            </div><!-- End col lg-9 -->
-        </div><!-- End row -->
+            </aside>
+        </div><!-- End col lg-9 -->
+        <!-- End row -->
     </div><!-- End container -->
 
 
@@ -176,34 +275,133 @@
 <!-- Range slider -->
 <link href="/css/ion.rangeSlider.css" rel="stylesheet" >
 <link href="/css/ion.rangeSlider.skinFlat.css" rel="stylesheet">
-<style>
-    .tour_list_desc h3 {
-        line-height: 25px !important;
-        font-size: 17px;
-        overflow : hidden;
-        text-overflow: ellipsis;
-        height:3em;
-    }
-
-    .price_list{
-        font-size: 23px !important;
-    }
-</style>
+    <style>
+        .main_title p {
+            font-size: 14px !important;
+            margin-top: 5px;
+        }
+        .col-md-4 ul {
+            float:left;
+        }
+        .price {
+            display:block;
+            text-align:center;
+        }
+        .col-lg-2 {
+            width:18.66666667%;
+        }
+        .col-lg-6 {
+            width:48%;
+        }
+        .filter_type { clear:both;border-bottom:#dedede solid 1px; padding:7px 0 7px 80px; width:100%; line-height:24px;
+        }
+        .filter_type h6{display:inline; margin-right:20px; border:none;
+        }
+        .filter_type ul {display:inline;
+        }
+        .filter_type li { display:inline; margin-right:20px;
+        }
+        .filter_type:last-child {border-bottom:none;
+        }
+        .room {
+            width:100%;
+            margin-bottom:20px;
+        }
+        .room div {
+            float:left;
+        }
+        .hold_room {
+            width:65%;
+            margin:-10px 0 0 10px;
+        }
+        .hold_room small {
+            font-family:'Microsoft YaHei';
+        }
+    </style>
 @endpush
 
 @push('script')
-<!-- Specific scripts -->
-<!-- Check and radio inputs -->
-<script src="/js/icheck.js"></script>
-<script>
-    $('input').iCheck({
-        checkboxClass: 'icheckbox_square-grey',
-        radioClass: 'iradio_square-grey'
-    });
-</script>
+        <!-- Specific scripts -->
+    <!-- Check and radio inputs -->
+    <script src="/js/icheck.js"></script>
+    <script>
+        $('input').iCheck({
+            checkboxClass: 'icheckbox_square-grey',
+            radioClass: 'iradio_square-grey'
+        });
+        var cutStr= function (str) {
+            var newStr = new Array(str.length + parseInt(str.length / 3));
+            var strArray = str.split("");
+            newStr[newStr.length - 1] = strArray[strArray.length - 1];
+            var currentIndex = strArray.length - 1;
+            for (var i = newStr.length - 1; i >= 0; i--) {
+                if ((newStr.length - i) % 4 == 0) {
+                    if (i == 0)
+                    {
+                        if ((str.length % 3) != 0)
+                            newStr[i] = ",";
+                        else
+                            continue;
+                    }
+                    newStr[i] = ",";
+                }
+                else {
+                    newStr[i] = strArray[currentIndex--];
+                }
+            }
+            //$(".price").val(newStr.join(""));
+            return newStr.join("")
+        }
+        $(function () {
+            $(".price").each(function () {
+                var price = $(this).text();//.split('¥')[0];
+                var newPrice;
+                if (price.length == 1) {
+                    newPrice = price;
+                    newPrice = cutStr(newPrice);
+                    $(this).text(newPrice);
+                }
+                else {
+                    newPrice = price;
+                    newPrice = cutStr(newPrice);
+                    $(this).text(newPrice);
+                }
+            })
+            $("#sort_price").change(function(){
+                var $option=$(this).children('option:selected');
+                if($option.index()!=0)
+                {
+                    window.location="/property?sortPrice="+$option.val();
+                }
+            })
+        })
+        function su()
+        {
 
-<script src="/js/vue.min.js"></script>
-<script>
+            $("#min_price").val($(".irs-from").text().split('$')[1].replace(" ",""));
+            $("#max_price").val($(".irs-to").text().split('$')[1].trim().replace(" ",""));
+            form1.submit();
+        }
+        $(function () {
+            'use strict';
+            $("#range").ionRangeSlider({
+                hide_min_max: true,
+                keyboard: true,
+                min: 0,
+                max:'{{$maxprice}}',
+                from: '{{$minprice}}',
+                to: '{{$toprice}}',
+                type: 'double',
+                step: 1,
+                prefix: "$",
+                grid: true
+            });
 
-</script>
-@endpush
+        });
+    </script>
+
+    <script src="/js/vue.min.js"></script>
+    <script>
+
+    </script>
+    @endpush

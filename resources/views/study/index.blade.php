@@ -268,135 +268,47 @@
                      </div>
               <div class="row">
                   <div class="col-lg-8 col-md-8">
-				 
-				  
-                      <div id="page_1">
+
 					   @foreach($studys as $study)
-                          <div class="strip_all_tour_list wow fadeIn" data-wow-delay="0.1s">
+                          <div class="strip_all_tour_list wow fadeIn" >
                               <div class="row">
                                   <div class="col-lg-4 col-md-4 col-sm-4">
                                       <div class="img_list">
-                                          <a href="/property/562857">
-                                              <div class="ribbon popular"></div><img src="/img/study_1.jpg" alt="">
-                                              <div class="short_info"></div>
+                                          <a href="/study/{{$study->id}}">
+                                             <img src="{{$study->logo}}" alt="">
+                                              <div class="short_info">{{ isset($study->world_ranking) ? '世界排名第'.$study->world_ranking."位": '' }}</div>
                                           </a>
                                       </div>
                                   </div>
                                   <div class="clearfix visible-xs-block"></div>
                                   <div class="col-lg-6 col-md-6 col-sm-6">
-                                      <div class="tour_list_desc">
+                                      <div class="style_list_desc">
                                           <div class="rating"></div>
-                                          <h3>Sunnynook 3房 Sunnynook 宽敞舒适精美靓宅 绝佳地段双校网 必售房源速来抢购 Double Westlake Zone Home Has It All</h3>
-                                          <p>4 Datura Place, Sunnynook, North Shore City, Auckland, Sunnynook , 奥克兰北岸 , 奥克兰</p>
+                                          <h3>{{$study->cn_name}}</h3>
+                                          <ul>
+                                              <li>英文名： {{$study->en_name}}</li>
+                                              <li>地区： {{$study->country}}-{{ $study->city}}</li>
+                                              <li>费用： {{$study->fee_min}}-{{$study->fee_max}}</li>
+                                              <li>ielts： {{$study->ielts_min}}-{{$study->ielts_max}}</li>
+                                          </ul>
                                       </div>
                                   </div>
                                   <div class="col-lg-2 col-md-2 col-sm-2">
                                       <div class="price_list">
                                           <div>
                                               
-                                              <p><a href="/study_detail.html" class="btn_1">详情</a></p>
+                                              <p><a href="/study/{{$study->id}}" class="btn_1">详情</a></p>
                                           </div>
                                       </div>
                                   </div>
                               </div>
                           </div><!--End strip -->
-                          <div class="strip_all_tour_list wow fadeIn" data-wow-delay="0.1s">
-                              <div class="row">
-                                  <div class="col-lg-4 col-md-4 col-sm-4">
-                                      <div class="img_list">
-                                          <a href="/property/T14676">
-                                              <div class="ribbon popular"></div><img src="/img/study_2.jpg" alt="">
-                                              <div class="short_info"></div>
-                                          </a>
-                                      </div>
-                                  </div>
-                                  <div class="clearfix visible-xs-block"></div>
-                                  <div class="col-lg-6 col-md-6 col-sm-6">
-                                      <div class="tour_list_desc">
-                                          <div class="rating"></div>
-                                          <h3>Thorndon 3房 MINT CONDITION, PRIME LOCATION!</h3>
-                                          <p>314/107 Thorndon Quay, Pipitea, Wellington City, Wellington, Thorndon , Wellington City , 惠灵顿</p>
-                                      </div>
-                                  </div>
-                                  <div class="col-lg-2 col-md-2 col-sm-2">
-                                      <div class="price_list">
-                                          <div>
-                                              <p><a href="/property_detail.html" class="btn_1">详情</a></p>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div><!--End strip -->
-                          <div class="strip_all_tour_list wow fadeIn" data-wow-delay="0.1s">
-                              <div class="row">
-                                  <div class="col-lg-4 col-md-4 col-sm-4">
-                                      <div class="img_list">
-                                          <a href="/property/T14676">
-                                              <div class="ribbon popular"></div><img src="/img/study_3.jpg" alt="">
-                                              <div class="short_info"></div>
-                                          </a>
-                                      </div>
-                                  </div>
-                                  <div class="clearfix visible-xs-block"></div>
-                                  <div class="col-lg-6 col-md-6 col-sm-6">
-                                      <div class="tour_list_desc">
-                                          <div class="rating"></div>
-                                          <h3>Thorndon 3房 MINT CONDITION, PRIME LOCATION!</h3>
-                                          <p>314/107 Thorndon Quay, Pipitea, Wellington City, Wellington, Thorndon , Wellington City , 惠灵顿</p>
-                                      </div>
-                                  </div>
-                                  <div class="col-lg-2 col-md-2 col-sm-2">
-                                      <div class="price_list">
-                                          <div>
-                                              <p><a href="/property/T14676" class="btn_1">详情</a></p>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="strip_all_tour_list wow fadeIn" data-wow-delay="0.1s">
-                              <div class="row">
-                                  <div class="col-lg-4 col-md-4 col-sm-4">
-                                      <div class="img_list">
-                                          <a href="/property/T14676">
-                                              <div class="ribbon popular"></div><img src="/img/study_3.jpg" alt="">
-                                              <div class="short_info"></div>
-                                          </a>
-                                      </div>
-                                  </div>
-                                  <div class="clearfix visible-xs-block"></div>
-                                  <div class="col-lg-6 col-md-6 col-sm-6">
-                                      <div class="tour_list_desc">
-                                          <div class="rating"></div>
-                                          <h3>Thorndon 3房 MINT CONDITION, PRIME LOCATION!</h3>
-                                          <p>314/107 Thorndon Quay, Pipitea, Wellington City, Wellington, Thorndon , Wellington City , 惠灵顿</p>
-                                      </div>
-                                  </div>
-                                  <div class="col-lg-2 col-md-2 col-sm-2">
-                                      <div class="price_list">
-                                          <div>
-                                              <p><a href="/property/T14676" class="btn_1">详情</a></p>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
                       @endforeach
-					  </div>
 
                       <hr>
-
                       <div class="text-center">
-                          <ul id="pageClick" class="pagination">
-                              <li><a href="">上一页</a></li>
-                              <li class="active"><a href="###">1</a></li>
-                              <li><a href="###">2</a></li>
-                              <li><a href="###">3</a></li>
-                              <li><a href="###">4</a></li>
-                              <li><a href="###">5</a></li>
-                              <li><a href="###">下一页</a></li>
-                          </ul>
-                      </div><!-- end pagination-->
+                          {{$studys->render()}}
+                      </div>
                   </div>
                   <aside class="col-md-4">
                       <div class="box_style_1 expose">
