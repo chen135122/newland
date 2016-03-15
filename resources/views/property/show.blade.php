@@ -1,359 +1,641 @@
 @extends('layouts.master')
 
 @section('content')
-<section class="parallax-window" data-parallax="scroll" data-image-src="/img/single_hotel_bg_1.jpg" data-natural-width="1400" data-natural-height="470">
-    <div class="parallax-content-2">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 col-sm-8">
-                    <span class="rating"><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class=" icon-star-empty"></i></span>
-                    <h1>{{$property->title}}</h1>
-                    <span>{{$property->address}}</span>
-                </div>
-                <div class="col-md-4 col-sm-4">
-                    <div id="price_single_main" class="hotel">
-                        <span><sup>$</sup>{{$property->total_price}}</span>
+    <section class="parallax-window" data-parallax="scroll" data-image-src="/img/single_hotel_bg_1.jpg" data-natural-width="1400" data-natural-height="470">
+        <div class="parallax-content-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-sm-8">
+                        <span class="rating"><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class=" icon-star-empty"></i></span>
+                        <h1>{{$property ->title}}</h1>
+                        <span>{{$property ->address}}</span>
+                    </div>
+                    <div class="col-md-4 col-sm-4">
+                        <div id="price_single_main" class="hotel">
+                            <span><sup>$</sup>{{$property ->total_price}}</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section><!-- End section -->
+    </section><!-- End section -->
 
-<div id="position">
-    <div class="container">
-        <ul>
-            <li><a href="#">首页</a></li>
-            <li><a href="#">房产</a></li>
-            <li>详情</li>
-        </ul>
-    </div>
-</div><!-- End Position -->
+    <div id="position">
+        <div class="container">
+            <ul>
+                <li><a href="/">首页</a></li>
+                <li><a href="/property">房产</a></li>
+                <li>详情</li>
+            </ul>
+        </div>
+    </div><!-- End Position -->
 
 
-<div class="collapse" id="collapseMap">
-    <div id="map" class="map"></div>
-</div><!-- End Map -->
+    <div class="collapse" id="collapseMap">
+        <div id="map"></div>
+    </div><!-- End Map -->
 
-<div class="container margin_60">
-    <div class="row">
-        <div class="col-md-8" id="single_tour_desc">
+    <div class="container margin_60">
+        <div class="row">
+            <div class="col-md-8" id="single_tour_desc">
 
-            <p class="visible-sm visible-xs"><a class="btn_map" data-toggle="collapse" href="#collapseMap" aria-expanded="false" aria-controls="collapseMap">查看地图</a></p><!-- Map button for tablets/mobiles -->
-            <div id="img_carousel" class="slider-pro">
-                <div class="sp-slides">
-                    <div class="sp-slide">
-                        <img alt="" class="sp-image" src="/css/images/blank.gif"
-                             data-src="/img/slider_single_tour/1_medium.jpg"
-                             data-small="/img/slider_single_tour/1_small.jpg"
-                             data-medium="/img/slider_single_tour/1_medium.jpg"
-                             data-large="/img/slider_single_tour/1_large.jpg"
-                             data-retina="/img/slider_single_tour/1_large.jpg">
+                <p class="visible-sm visible-xs"><a class="btn_map" data-toggle="collapse" href="#collapseMap" aria-expanded="false" aria-controls="collapseMap">查看地图</a></p><!-- Map button for tablets/mobiles -->
+                <div id="img_carousel" class="slider-pro">
+                    <div class="sp-slides">
+                        <div class="sp-slide">
+                            <img alt="" class="sp-image" src="/css/images/blank.gif"
+                                 data-src="/img/slider_single_tour/1_medium.jpg"
+                                 data-small="/img/slider_single_tour/1_small.jpg"
+                                 data-medium="/img/slider_single_tour/1_medium.jpg"
+                                 data-large="/img/slider_single_tour/1_large.jpg"
+                                 data-retina="/img/slider_single_tour/1_large.jpg">
+                        </div>
+                        <div class="sp-slide">
+                            <img alt="" class="sp-image" src="/css/images/blank.gif"
+                                 data-src="/img/slider_single_tour/2_medium.jpg"
+                                 data-small="/img/slider_single_tour/2_small.jpg"
+                                 data-medium="/img/slider_single_tour/2_medium.jpg"
+                                 data-large="/img/slider_single_tour/2_large.jpg"
+                                 data-retina="/img/slider_single_tour/2_large.jpg">
+                            <h3 class="sp-layer sp-black sp-padding" data-horizontal="40" data-vertical="40" data-show-transition="left">
+                                Lorem ipsum dolor sit amet
+                            </h3>
+                            <p class="sp-layer sp-white sp-padding" data-horizontal="40" data-vertical="100" data-show-transition="left" data-show-delay="200">
+                                consectetur adipisicing elit
+                            </p>
+                            <p class="sp-layer sp-black sp-padding" data-horizontal="40" data-vertical="160" data-width="350" data-show-transition="left" data-show-delay="400">
+                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                            </p>
+                        </div>
+
+                        <div class="sp-slide">
+                            <img alt="" class="sp-image" src="/css/images/blank.gif"
+                                 data-src="/img/slider_single_tour/3_medium.jpg"
+                                 data-small="/img/slider_single_tour/3_small.jpg"
+                                 data-medium="/img/slider_single_tour/3_medium.jpg"
+                                 data-large="/img/slider_single_tour/3_large.jpg"
+                                 data-retina="/img/slider_single_tour/3_large.jpg">
+                            <p class="sp-layer sp-white sp-padding" data-position="centerCenter" data-vertical="-50" data-show-transition="right" data-show-delay="500">
+                                Lorem ipsum dolor sit amet
+                            </p>
+                            <p class="sp-layer sp-black sp-padding" data-position="centerCenter" data-vertical="50" data-show-transition="left" data-show-delay="700">
+                                consectetur adipisicing elit
+                            </p>
+                        </div>
+
+                        <div class="sp-slide">
+                            <img alt="" class="sp-image" src="/css/images/blank.gif"
+                                 data-src="/img/slider_single_tour/4_medium.jpg"
+                                 data-small="/img/slider_single_tour/4_small.jpg"
+                                 data-medium="/img/slider_single_tour/4_medium.jpg"
+                                 data-large="/img/slider_single_tour/4_large.jpg"
+                                 data-retina="/img/slider_single_tour/4_large.jpg">
+                            <p class="sp-layer sp-black sp-padding" data-position="bottomLeft" data-vertical="0" data-width="100%" data-show-transition="up">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                            </p>
+                        </div>
+
+                        <div class="sp-slide">
+                            <img alt="" class="sp-image" src="/css/images/blank.gif"
+                                 data-src="/img/slider_single_tour/5_medium.jpg"
+                                 data-small="/img/slider_single_tour/5_small.jpg"
+                                 data-medium="/img/slider_single_tour/5_medium.jpg"
+                                 data-large="/img/slider_single_tour/5_large.jpg"
+                                 data-retina="/img/slider_single_tour/5_large.jpg">
+                            <p class="sp-layer sp-white sp-padding" data-vertical="5%" data-horizontal="5%" data-width="90%" data-show-transition="down" data-show-delay="400">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                            </p>
+                        </div>
+
+                        <div class="sp-slide">
+                            <img alt="" class="sp-image" src="/css/images/blank.gif"
+                                 data-src="/img/slider_single_tour/6_medium.jpg"
+                                 data-small="/img/slider_single_tour/6_small.jpg"
+                                 data-medium="/img/slider_single_tour/6_medium.jpg"
+                                 data-large="/img/slider_single_tour/6_large.jpg"
+                                 data-retina="/img/slider_single_tour/6_large.jpg">
+                            <p class="sp-layer sp-white sp-padding" data-horizontal="10" data-vertical="10" data-width="300">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                            </p>
+                        </div>
+
+                        <div class="sp-slide">
+                            <img alt="" class="sp-image" src="/css/images/blank.gif"
+                                 data-src="/img/slider_single_tour/7_medium.jpg"
+                                 data-small="/img/slider_single_tour/7_small.jpg"
+                                 data-medium="/img/slider_single_tour/7_medium.jpg"
+                                 data-large="/img/slider_single_tour/7_large.jpg"
+                                 data-retina="/img/slider_single_tour/7_large.jpg">
+                            <p class="sp-layer sp-black sp-padding" data-position="bottomLeft" data-horizontal="5%" data-vertical="5%" data-width="90%" data-show-transition="up" data-show-delay="400">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                            </p>
+                        </div>
+
+                        <div class="sp-slide">
+                            <img alt="" class="sp-image" src="/css/images/blank.gif"
+                                 data-src="/img/slider_single_tour/8_medium.jpg"
+                                 data-small="/img/slider_single_tour/8_small.jpg"
+                                 data-medium="/img/slider_single_tour/8_medium.jpg"
+                                 data-large="/img/slider_single_tour/8_large.jpg"
+                                 data-retina="/img/slider_single_tour/8_large.jpg">
+                            <p class="sp-layer sp-black sp-padding" data-horizontal="50" data-vertical="50" data-show-transition="down" data-show-delay="500">
+                                Lorem ipsum dolor sit amet
+                            </p>
+                            <p class="sp-layer sp-white sp-padding" data-horizontal="50" data-vertical="100" data-show-transition="up" data-show-delay="500">
+                                consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            </p>
+                        </div>
+
+                        <div class="sp-slide">
+                            <img alt="" class="sp-image" src="/css/images/blank.gif"
+                                 data-src="/img/slider_single_tour/9_medium.jpg"
+                                 data-small="/img/slider_single_tour/9_small.jpg"
+                                 data-medium="/img/slider_single_tour/9_medium.jpg"
+                                 data-large="/img/slider_single_tour/9_large.jpg"
+                                 data-retina="/img/slider_single_tour/9_large.jpg">
+                        </div>
                     </div>
-                    <div class="sp-slide">
-                        <img alt="" class="sp-image" src="/css/images/blank.gif"
-                             data-src="/img/slider_single_tour/2_medium.jpg"
-                             data-small="/img/slider_single_tour/2_small.jpg"
-                             data-medium="/img/slider_single_tour/2_medium.jpg"
-                             data-large="/img/slider_single_tour/2_large.jpg"
-                             data-retina="/img/slider_single_tour/2_large.jpg">
-                        <h3 class="sp-layer sp-black sp-padding" data-horizontal="40" data-vertical="40" data-show-transition="left">
-                            Lorem ipsum dolor sit amet </h3>
-                        <p class="sp-layer sp-white sp-padding" data-horizontal="40" data-vertical="100" data-show-transition="left" data-show-delay="200">
-                            consectetur adipisicing elit
-                        </p>
-                        <p class="sp-layer sp-black sp-padding" data-horizontal="40" data-vertical="160" data-width="350" data-show-transition="left" data-show-delay="400">
-                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        </p>
-                    </div>
-
-                    <div class="sp-slide">
-                        <img alt="" class="sp-image" src="/css/images/blank.gif"
-                             data-src="/img/slider_single_tour/3_medium.jpg"
-                             data-small="/img/slider_single_tour/3_small.jpg"
-                             data-medium="/img/slider_single_tour/3_medium.jpg"
-                             data-large="/img/slider_single_tour/3_large.jpg"
-                             data-retina="/img/slider_single_tour/3_large.jpg">
-                        <p class="sp-layer sp-white sp-padding" data-position="centerCenter" data-vertical="-50" data-show-transition="right" data-show-delay="500">
-                            Lorem ipsum dolor sit amet
-                        </p>
-                        <p class="sp-layer sp-black sp-padding" data-position="centerCenter" data-vertical="50" data-show-transition="left" data-show-delay="700">
-                            consectetur adipisicing elit
-                        </p>
-                    </div>
-
-                    <div class="sp-slide">
-                        <img alt="" class="sp-image" src="/css/images/blank.gif"
-                             data-src="/img/slider_single_tour/4_medium.jpg"
-                             data-small="/img/slider_single_tour/4_small.jpg"
-                             data-medium="/img/slider_single_tour/4_medium.jpg"
-                             data-large="/img/slider_single_tour/4_large.jpg"
-                             data-retina="/img/slider_single_tour/4_large.jpg">
-                        <p class="sp-layer sp-black sp-padding" data-position="bottomLeft" data-vertical="0" data-width="100%" data-show-transition="up">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        </p>
-                    </div>
-
-                    <div class="sp-slide">
-                        <img alt="" class="sp-image" src="/css/images/blank.gif"
-                             data-src="/img/slider_single_tour/5_medium.jpg"
-                             data-small="/img/slider_single_tour/5_small.jpg"
-                             data-medium="/img/slider_single_tour/5_medium.jpg"
-                             data-large="/img/slider_single_tour/5_large.jpg"
-                             data-retina="/img/slider_single_tour/5_large.jpg">
-                        <p class="sp-layer sp-white sp-padding" data-vertical="5%" data-horizontal="5%" data-width="90%" data-show-transition="down" data-show-delay="400">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        </p>
-                    </div>
-
-                    <div class="sp-slide">
-                        <img alt="" class="sp-image" src="/css/images/blank.gif"
-                             data-src="/img/slider_single_tour/6_medium.jpg"
-                             data-small="/img/slider_single_tour/6_small.jpg"
-                             data-medium="/img/slider_single_tour/6_medium.jpg"
-                             data-large="/img/slider_single_tour/6_large.jpg"
-                             data-retina="/img/slider_single_tour/6_large.jpg">
-                        <p class="sp-layer sp-white sp-padding" data-horizontal="10" data-vertical="10" data-width="300">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        </p>
-                    </div>
-
-                    <div class="sp-slide">
-                        <img alt="" class="sp-image" src="/css/images/blank.gif"
-                             data-src="/img/slider_single_tour/7_medium.jpg"
-                             data-small="/img/slider_single_tour/7_small.jpg"
-                             data-medium="/img/slider_single_tour/7_medium.jpg"
-                             data-large="/img/slider_single_tour/7_large.jpg"
-                             data-retina="/img/slider_single_tour/7_large.jpg">
-                        <p class="sp-layer sp-black sp-padding" data-position="bottomLeft" data-horizontal="5%" data-vertical="5%" data-width="90%" data-show-transition="up" data-show-delay="400">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        </p>
-                    </div>
-
-                    <div class="sp-slide">
-                        <img alt="" class="sp-image" src="/css/images/blank.gif"
-                             data-src="/img/slider_single_tour/8_medium.jpg"
-                             data-small="/img/slider_single_tour/8_small.jpg"
-                             data-medium="/img/slider_single_tour/8_medium.jpg"
-                             data-large="/img/slider_single_tour/8_large.jpg"
-                             data-retina="/img/slider_single_tour/8_large.jpg">
-                        <p class="sp-layer sp-black sp-padding" data-horizontal="50" data-vertical="50" data-show-transition="down" data-show-delay="500">
-                            Lorem ipsum dolor sit amet
-                        </p>
-                        <p class="sp-layer sp-white sp-padding" data-horizontal="50" data-vertical="100" data-show-transition="up" data-show-delay="500">
-                            consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        </p>
-                    </div>
-
-                    <div class="sp-slide">
-                        <img alt="" class="sp-image" src="/css/images/blank.gif"
-                             data-src="/img/slider_single_tour/9_medium.jpg"
-                             data-small="/img/slider_single_tour/9_small.jpg"
-                             data-medium="/img/slider_single_tour/9_medium.jpg"
-                             data-large="/img/slider_single_tour/9_large.jpg"
-                             data-retina="/img/slider_single_tour/9_large.jpg">
+                    <div class="sp-thumbnails">
+                        <img alt="" class="sp-thumbnail" src="/img/slider_single_tour/1_medium.jpg">
+                        <img alt="" class="sp-thumbnail" src="/img/slider_single_tour/2_medium.jpg">
+                        <img alt="" class="sp-thumbnail" src="/img/slider_single_tour/3_medium.jpg">
+                        <img alt="" class="sp-thumbnail" src="/img/slider_single_tour/4_medium.jpg">
+                        <img alt="" class="sp-thumbnail" src="/img/slider_single_tour/5_medium.jpg">
+                        <img alt="" class="sp-thumbnail" src="/img/slider_single_tour/6_medium.jpg">
+                        <img alt="" class="sp-thumbnail" src="/img/slider_single_tour/7_medium.jpg">
+                        <img alt="" class="sp-thumbnail" src="/img/slider_single_tour/8_medium.jpg">
+                        <img alt="" class="sp-thumbnail" src="/img/slider_single_tour/9_medium.jpg">
                     </div>
                 </div>
-                <div class="sp-thumbnails">
-                    <img alt="" class="sp-thumbnail" src="/img/slider_single_tour/1_medium.jpg">
-                    <img alt="" class="sp-thumbnail" src="/img/slider_single_tour/2_medium.jpg">
-                    <img alt="" class="sp-thumbnail" src="/img/slider_single_tour/3_medium.jpg">
-                    <img alt="" class="sp-thumbnail" src="/img/slider_single_tour/4_medium.jpg">
-                    <img alt="" class="sp-thumbnail" src="/img/slider_single_tour/5_medium.jpg">
-                    <img alt="" class="sp-thumbnail" src="/img/slider_single_tour/6_medium.jpg">
-                    <img alt="" class="sp-thumbnail" src="/img/slider_single_tour/7_medium.jpg">
-                    <img alt="" class="sp-thumbnail" src="/img/slider_single_tour/8_medium.jpg">
-                    <img alt="" class="sp-thumbnail" src="/img/slider_single_tour/9_medium.jpg">
+
+
+                <div class="row">
+                    <div id="ml" style="background-color: #333;font-size: 11px;margin-top:32px;">
+                        <div style="width:100%;margin-right: auto;margin-left: auto;">
+                            <ul class="c_ul" style="margin: 0;padding: 0;color: #888;">
+                                <li class="new_a"><a onclick="removeClass('info', this)" href="#info">房源信息</a></li>
+                                <li class="new_a"><a onclick="removeClass('intro', this)" href="#intro">房源介绍</a></li>
+                                <li><a href="#cates" onclick="removeClass('cates', this)">周边配套</a></li>
+                                <li><a href="#xmmd" onclick="removeClass('xmmd', this)">项目卖点</a></li>
+                                <li><a href="#ldbz" onclick="removeClass('ldbz', this)">六大保证</a></li>
+                                <li><a href="#hyzx" onclick="removeClass('hyzx', this)">会员尊享</a></li>
+                                <li><a href="#gfyh" onclick="removeClass('gfyh', this)">购房优惠</a></li>
+                                <li><a href="#tzys" onclick="removeClass('tzys', this)">投资优势</a></li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
+
+                <div class="row" style="margin-top:20px;">
+                    <div class="col-md-3" id="info">
+                        <h3 >房源信息</h3>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="row">
+                            <div class="table-responsive">
+                                <table class="table table-condensed">
+                                    <tbody>
+                                    <tr>
+                                        <td>开发商</td>
+
+                                        <td class="text-center">{{$property ->developers->name}}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>年收益（%）</td>
+
+                                        <td class="text-center">{{ $property ->annual_yield }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>售价</td>
+
+                                        <td class="text-center">{{ $property ->total_price }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>居住面积</td>
+
+                                        <td class="text-center">{{$property ->floor_area}}㎡</td>
+                                    </tr>
+                                    <tr>
+                                        <td>占地面积</td>
+
+                                        <td class="text-center">{{$property ->living_area}}㎡</td>
+                                    </tr>
+                                    <tr>
+                                        <td>状态</td>
+                                        <td class="text-center">
+                                            <?php
+                                            switch($property->status)
+                                            {
+                                                case 0 :echo "未上架"; break;
+                                                case 1 :echo "出售中"; break;
+                                                case 2 :echo "已预订"; break;
+                                                case 3 :echo "已售出"; break;
+                                                case 4 :echo "已删除"; break;
+                                            }
+                                            ?>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>户型</td>
+                                        <td class="text-center">{{$property ->bedroom}}室{{$property ->living_room}}厅{{$property ->bathroom}}卫</td>
+                                    </tr>
+                                    <tr>
+                                        <td>类型</td>
+                                        <td class="text-center">
+                                            <?php
+                                                switch($property->type)
+                                                    {
+                                                    case 1 :echo "独立别墅"; break;
+                                                    case 2 :echo "公寓"; break;
+                                                    case 3 :echo "单元房Studio"; break;
+                                                    case 4 :echo "城市屋Townhouse"; break;
+                                                    case 5 :echo "排房Unit"; break;
+                                                    case 6 :echo "建地Section"; break;
+                                                    case 7 :echo "Home&amp;Income"; break;
+                                                    case 8 :echo "乡村别墅Lifestyle Property"; break;
+                                                    case 9 :echo "乡村住宅建地Lifestyle Section"; break;
+                                                }
+                                            ?>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>位置</td>
+                                        {{--<td class="text-center">{{$property->regions->name}}-{{$property->regions_city->name}}-{{$property->regions_district->name}}</td>--}}
+                                    </tr>
+                                    <tr>
+                                        <td>地址</td>
+                                        <td class="text-center">{{ $property ->address }}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div><!-- End row  -->
+                    </div>
+                </div><!-- End row  -->
+                <hr>
+                <div class="row">
+                    <div class="col-md-3" id="intro">
+                        <h3>房源介绍</h3>
+                    </div>
+                    <div class="col-md-9">
+                        <p>
+                            {!! $property ->description !!}
+                        </p>
+                    </div><!-- End col-md-9  -->
+                </div><!-- End row  -->
+                <hr>
+                <div class="row">
+                    <div class="col-md-3" id="cates">
+                        <h3>周边配套</h3>
+                    </div>
+                    <div class="col-md-9">
+                        <h4>高尔夫球场</h4>
+                        <p>
+                            项目距离基督城市中心仅20公里，成熟的商业配套设施，世界名校学区房，超市，酒吧，购物中心，最美沙滩，享受无限快乐的生活方式。24小时的管家保安服务为您提供持续安全保护。
+                        </p>
+
+                        <div class="row">
+                        </div><!-- End row  -->
+                        <div class="carousel magnific-gallery">
+                            <div class="item">
+                                <a href="/img/gef1.jpg"><img src="/img/gef1.jpg" alt="Image"></a>
+                            </div>
+                            <div class="item">
+                                <a href="/img/gef2.jpg"><img src="/img/gef2.jpg" alt="Image"></a>
+                            </div>
+                        </div><!-- End photo carousel  -->
+
+                        <hr>
+
+                        <h4>海滩</h4>
+                        <p>
+                            毗邻全球前100名的高尔夫球场，步行1公里到达新西兰The Kohaga最美沙滩，无论是您在高尔夫球场中寻找更多的体验方式，还是携手爱人漫步在The Kohaga细沙安静的海滩上，陪孩子一起成长，自由呼吸着纯净空气，顷刻间俘获您的心，让您流年忘返，天马镇都是您最佳的选择。
+                        </p>
+
+                        <div class="row">
+                        </div><!-- End row  -->
+                        <div class="carousel magnific-gallery">
+                            <div class="item">
+                                <a href="/img/ht1.jpg"><img src="/img/ht1.jpg" alt="Image"></a>
+                            </div>
+                            <div class="item">
+                                <a href="/img/ht2.jpg"><img src="/img/ht2.jpg" alt="Image"></a>
+                            </div>
+                        </div><!-- End photo carousel  -->
+                    </div><!-- End col-md-9  -->
+                </div><!-- End row  -->
+                <hr>
+                <div class="row">
+                    <div class="col-md-3" id="xmmd">
+                        <h3>项目卖点</h3>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="row">
+                            <div class="table-responsive">
+                                <ul class="xmmd">
+                                    <li>
+                                        <td> <a>√</a> 无印花税;</td>
+                                    </li>
+                                    <li>
+                                        <td><a>√</a>基督城是新西兰第二大城市，人口增长最快，长期房屋供应不足;</td>
+                                    </li>
+                                    <li>
+                                        <td><a>√</a> 租房市场需求强劲，租金回报率平均高达5%-7%，前三年内保证回报率在6%;</td>
+                                    </li>
+                                    <li>
+                                        <td><a>√</a> 利率低;</td>
+                                    </li>
+                                    <li>
+                                        <td><a>√</a> 周边高校多，空置率低，提供代租服务;</td>
+                                    </li>
+                                    <li>
+                                        <td><a>√</a> 房屋质量有任何问题，三年内无条件退还;</td>
+                                    </li>
+                                    <li>
+                                        <td><a>√</a> 海量车位，免费，无限制;</td>
+                                    </li>
+                                    <li>
+                                        <td><a>√</a> 房屋产权为永久产权，999年;</td>
+                                    </li>
+                                    <li>
+                                        <td><a>√</a> 交付时间短，仅6-9月。</td>
+                                    </li>
+                                    <li>
+                                        <td><a>√</a> 两年内转售住宅房产，无增值税;</td>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div><!-- End row  -->
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-md-3" id="ldbz">
+                        <h3>六大保证</h3>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="row">
+                            <div class="table-responsive">
+                                <ul class="xmmd">
+                                    <li>
+                                        <a>√</a> 全程海外律师团无缝对接;
+                                    </li>
+                                    <li>
+                                        <a>√</a>学区首选，择校无忧;
+                                    </li>
+                                    <li>
+                                        <a>√</a>三年无条件退房承若;
+                                    </li>
+                                    <li>
+                                        <a>√</a> 精装交付，价享优惠;
+                                    </li>
+                                    <li>
+                                        <a>√</a> 旅游看房一站式服务。
+                                    </li>
+                                </ul>
+                            </div>
+                        </div><!-- End row  -->
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-md-3" id="hyzx">
+                        <h3>会员尊享</h3>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="row">
+                            <div class="table-responsive">
+                                <ul class="xmmd">
+                                    <li>
+                                        <a>√</a> 积分兑换活动;
+                                    </li>
+                                    <li>
+                                        <a>√</a>房屋里面的卫生定期会有物业公司人上门进行打扫，打扫后通过照片或视频形式发送给客户以便查看(半个月打扫一次);
+                                    </li>
+                                    <li>
+                                        <a>√</a>为了让客户无后顾之忧，我们还为客户提供租赁服务，免费为客户找租客，减少空置率;
+                                    </li>
+                                    <li>
+                                        <a>√</a> 花园草坪的清理，花的维护;
+                                    </li>
+                                    <li>
+                                        <a>√</a> 在安保上物业公司也会提供房屋监管的服务;
+                                    </li>
+                                    <li>
+                                        <a>√</a> 内部大家电有1-3年的保证。
+                                    </li>
+                                </ul>
+                            </div>
+                        </div><!-- End row  -->
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-md-3" id="gfyh">
+                        <h3>购房优惠</h3>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="row">
+                            <div class="table-responsive">
+                                <ul class="xmmd">
+                                    <li>
+                                        <a>√</a> 买房免费畅游新西兰;
+                                    </li>
+                                    <li>
+                                        <a>√</a>送一年物业费(综合费一年在2000纽币左右);
+                                    </li>
+                                    <li>
+                                        <a>√</a>送一年高尔夫球场会员卡;
+                                    </li>
+                                    <li>
+                                        <a>√</a> 送床，床上四件套及洗漱用品。
+                                    </li>
+                                </ul>
+                            </div>
+                        </div><!-- End row  -->
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-md-3" id="tzys">
+                        <h3>投资优势</h3>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="row">
+                            <div class="table-responsive">
+                                <ul class="xmmd">
+                                    <li>
+                                        <a>√</a> 法律健全：购房手续规范，保障投资者的利益，全权由新西兰最权威的律师事务所戴维森律师事务所办理;
+                                    </li>
+                                    <li>
+                                        <a>√</a>产权优势：永久产权，无遗产税，无持有税;
+                                    </li>
+                                    <li>
+                                        <a>√</a>物业优势：房屋租赁市场强劲，空置率极低，增值稳定;
+                                    </li>
+                                    <li>
+                                        <a>√</a> 物业优势：房屋租赁市场强劲，空置率极低，增值稳定;
+                                    </li>
+                                    <li>
+                                        <a>√</a> 贷款优势：海外人士也可以申请贷款，且贷款利率跟本地人相同，手续也相对简单。海外人士买房可申请60-70%的银行贷款，拥有本地身份的人士最高可申请到80%的银行贷款;
+                                    </li>
+                                    <li>
+                                        <a>√</a> 供房优势：高租金收益;
+                                    </li>
+                                    <li>
+                                        <a>√</a> 地域优势：新西兰是移民国家之一，房产长期供不应求。
+                                    </li>
+                                    <li>
+                                        <a>√</a> 交易成本低：无任何交易税费(如印花税、契约税等);
+                                    </li>
+                                    <li>
+                                        <a>√</a> 房产市场健全，增值迅速，回报稳定;
+                                    </li>
+                                    <li>
+                                        <a>√</a> 海外人士购房无任何限制;
+                                    </li>
+                                    <li>
+                                        <a>√</a> 租金回报高，做到以房养房、以房养学;
+                                    </li>
+                                </ul>
+                            </div>
+                        </div><!-- End row  -->
+                    </div>
+                </div>
+                <hr>
+
             </div>
 
-            <hr>
-
-            <div class="row">
-                <div class="col-md-3">
-                    <h3>房源介绍</h3>
-                </div>
-                <div class="col-md-9">
-                    {!! $property->description !!}
-                </div><!-- End col-md-9  -->
-            </div><!-- End row  -->
-
-            <hr>
-
-            <div class="row">
-                <div class="col-md-3">
-                    <h3>Rooms Types</h3>
-                </div>
-                <div class="col-md-9">
-                    <h4>Single Room</h4>
-                    <p>
-                        Lorem ipsum dolor sit amet, at omnes deseruisse pri. Quo aeterno legimus insolens ad. Sit cu detraxit constituam, an mel iudico constituto efficiendi.
-                    </p>
-
+            <aside class="col-md-4">
+                <p class="hidden-sm hidden-xs">
+                    <a class="btn_map" data-toggle="collapse" href="#collapseMap" aria-expanded="false" aria-controls="collapseMap">查看地图</a>
+                </p>
+                <div class="box_style_1 expose">
+                    <h3 class="inner">开发商介绍</h3>
                     <div class="row">
-                        <div class="col-md-6 col-sm-6">
-                            <ul class="list_icons">
-                                <li><i class="icon_set_1_icon-86"></i> Free wifi</li>
-                                <li><i class="icon_set_2_icon-116"></i> Plasma Tv</li>
-                                <li><i class="icon_set_2_icon-106"></i> Safety  box</li>
-                            </ul>
-                        </div>
-                        <div class="col-md-6 col-sm-6">
-                            <ul class="list_ok">
-                                <li>Lorem ipsum dolor sit amet</li>
-                                <li>No scripta electram necessitatibus sit</li>
-                                <li>Quidam percipitur instructior an eum</li>
-                            </ul>
-                        </div>
-                    </div><!-- End row  -->
-                    <div class="carousel magnific-gallery">
-                        <div class="item">
-                            <a href="/img/carousel/1.jpg"><img src="/img/carousel/1.jpg" alt="Image"></a>
-                        </div>
-                        <div class="item">
-                            <a href="/img/carousel/2.jpg"><img src="/img/carousel/2.jpg" alt="Image"></a>
-                        </div>
-                        <div class="item">
-                            <a href="/img/carousel/3.jpg"><img src="/img/carousel/3.jpg" alt="Image"></a>
-                        </div>
-                        <div class="item">
-                            <a href="/img/carousel/4.jpg"><img src="/img/carousel/4.jpg" alt="Image"></a>
-                        </div>
-                    </div><!-- End photo carousel  -->
+                        <small>
+                            地处Westlake学区、舒适安逸、宽敞明亮、绝佳地段、富有风格，如此完美，您还想要什么呢？ 这幢weatherboard外墙的坚固靓宅是所有家庭的绝佳选择。
+                        </small>
+                    </div>
 
-                    <hr>
+                </div>
+                <p class="hidden-sm hidden-xs">
+                    <a class="btn_map" href="orderdetail.html" >立即预订</a>
+                </p>
 
-                    <h4>Double Room</h4>
-                    <p>
-                        Lorem ipsum dolor sit amet, at omnes deseruisse pri. Quo aeterno legimus insolens ad. Sit cu detraxit constituam, an mel iudico constituto efficiendi.
-                    </p>
 
+                <div class="box_style_1 expose">
+                    <h3 class="inner">热门房产</h3>
                     <div class="row">
-                        <div class="col-md-6 col-sm-6">
-                            <ul class="list_icons">
-                                <li><i class="icon_set_1_icon-86"></i> Free wifi</li>
-                                <li><i class="icon_set_2_icon-116"></i> Plasma Tv</li>
-                                <li><i class="icon_set_2_icon-106"></i> Safety  box</li>
-                            </ul>
-                        </div>
-                        <div class="col-md-6 col-sm-6">
-                            <ul class="list_ok">
-                                <li>Lorem ipsum dolor sit amet</li>
-                                <li>No scripta electram necessitatibus sit</li>
-                                <li>Quidam percipitur instructior an eum</li>
-                            </ul>
-                        </div>
-                    </div><!-- End row  -->
-                    <div class="carousel magnific-gallery">
-                        <div class="item">
-                            <a href="/img/carousel/1.jpg"><img src="/img/carousel/1.jpg" alt="Image"></a>
-                        </div>
-                        <div class="item">
-                            <a href="/img/carousel/2.jpg"><img src="/img/carousel/2.jpg" alt="Image"></a>
-                        </div>
-                        <div class="item">
-                            <a href="/img/carousel/3.jpg"><img src="/img/carousel/3.jpg" alt="Image"></a>
-                        </div>
-                        <div class="item">
-                            <a href="/img/carousel/4.jpg"><img src="/img/carousel/4.jpg" alt="Image"></a>
-                        </div>
-                    </div><!-- End photo carousel  -->
-                </div><!-- End col-md-9  -->
-            </div><!-- End row  -->
-
-            <hr>
-
-            <div class="row">
-                <div class="col-md-3">
-                    <h3>评论</h3>
-                    <a href="#" class="btn_1 add_bottom_30" data-toggle="modal" data-target="#myReview">写评论</a>
-                </div>
-                <div class="col-md-9">
-                    <div class="review_strip_single">
-                        <img src="/img/avatar1.jpg" alt="" class="/img-circle">
-                        <small> - 10 March 2015 -</small>
-                        <h4>Jhon Doe</h4>
-                        <p>
-                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a lorem quis neque interdum consequat ut sed sem. Duis quis tempor nunc. Interdum et malesuada fames ac ante ipsum primis in faucibus."
-                        </p>
-                        <div class="rating">
-                            <i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><i class="icon-smile"></i>
-                        </div>
-                    </div><!-- End review strip -->
-
-                    <div class="review_strip_single">
-                        <img src="/img/avatar2.jpg" alt="" class="/img-circle">
-                        <small> - 10 March 2015 -</small>
-                        <h4>Jhon Doe</h4>
-                        <p>
-                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a lorem quis neque interdum consequat ut sed sem. Duis quis tempor nunc. Interdum et malesuada fames ac ante ipsum primis in faucibus."
-                        </p>
-                        <div class="rating">
-                            <i class="icon-smile voted"></i>
-                            <i class="icon-smile voted"></i>
-                            <i class="icon-smile voted"></i>
-                            <i class="icon-smile voted"></i>
-                            <i class="icon-smile"></i>
-                        </div>
-                    </div><!-- End review strip -->
-
-                </div>
-            </div>
-        </div><!--End  single_tour_desc-->
-
-        <aside class="col-md-4">
-            <p class="hidden-sm hidden-xs">
-                <a class="btn_map" data-toggle="collapse" href="#collapseMap" aria-expanded="false" aria-controls="collapseMap">查看地图</a>
-            </p>
-            <div class="box_style_1 expose">
-                <h3 class="inner">Check Availability</h3>
-                <div class="row">
-                    <div class="col-md-6 col-sm-6">
-                        <div class="form-group">
-                            <label><i class="icon-calendar-7"></i> Check in</label>
-                            <input class="form-control" data-date-format="M d, D" type="text" id="check_in" placeholder="Check in">
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-sm-6">
-                        <div class="form-group">
-                            <label><i class="icon-calendar-7"></i> Check out</label>
-                            <input class="form-control" data-date-format="M d, D" type="text" id="check_out" placeholder="Check out">
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6 col-sm-6">
-                        <div class="form-group">
-                            <label>Adults</label>
-                            <div class="numbers-row">
-                                <input type="text" value="1" id="adults" class="qty2 form-control" name="quantity">
+                        <div class="col-md-6 col-sm-6 room">
+                            <div>
+                                <img src="/img/slider_single_tour/1_medium.jpg" alt="" width="68" height="68" class="/img-circle">
+                            </div>
+                            <div class="hold_room">
+                                <h4>新西兰天马镇</h4>
+                                <small>宽敞舒适精美靓宅 绝佳地段双校网 必售房源速来抢购 </small>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-sm-6">
-                        <div class="form-group">
-                            <label>Children</label>
-                            <div class="numbers-row">
-                                <input type="text" value="0" id="children" class="qty2 form-control" name="quantity">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 room">
+                            <div>
+                                <img src="/img/slider_single_tour/1_medium.jpg" alt="" width="68" height="68" class="/img-circle">
+                            </div>
+                            <div class="hold_room">
+                                <h4>新西兰天马镇</h4>
+                                <small>宽敞舒适精美靓宅 绝佳地段双校网 必售房源速来抢购 </small>
                             </div>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 room">
+                            <div>
+                                <img src="/img/slider_single_tour/1_medium.jpg" alt="" width="68" height="68" class="/img-circle">
+                            </div>
+                            <div class="hold_room">
+                                <h4>新西兰天马镇</h4>
+                                <small>宽敞舒适精美靓宅 绝佳地段双校网 必售房源速来抢购 </small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 room">
+                            <div>
+                                <img src="/img/slider_single_tour/1_medium.jpg" alt="" width="68" height="68" class="/img-circle">
+                            </div>
+                            <div class="hold_room">
+                                <h4>新西兰天马镇</h4>
+                                <small>宽敞舒适精美靓宅 绝佳地段双校网 必售房源速来抢购 </small>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+
+                    <a class="btn_full" href="cart_hotel.html">更多</a>
                 </div>
-                <br>
 
-                <a class="btn_full" href="cart_hotel.html">Check now</a>
-            </div><!--/box_style_1 -->
+                <div class="box_style_1 expose">
+                    <h3 class="inner">热门资讯</h3>
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 room">
+                            <div>
+                                <img src="/img/slider_single_tour/1_medium.jpg" alt="" width="68" height="68" class="/img-circle">
+                            </div>
+                            <div class="hold_room">
+                                <h4>新西兰天马镇</h4>
+                                <small>宽敞舒适精美靓宅 绝佳地段双校网 必售房源速来抢购 </small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 room">
+                            <div>
+                                <img src="/img/slider_single_tour/1_medium.jpg" width="68" height="68" alt="" class="/img-circle">
+                            </div>
+                            <div class="hold_room">
+                                <h4>新西兰天马镇</h4>
+                                <small>宽敞舒适精美靓宅 绝佳地段双校网 必售房源速来抢购 </small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 room">
+                            <div>
+                                <img src="/img/avatar1.jpg" alt="" width="68" height="68" class="/img-circle">
+                            </div>
+                            <div class="hold_room">
+                                <h4>新西兰天马镇</h4>
+                                <small>宽敞舒适精美靓宅 绝佳地段双校网 必售房源速来抢购 </small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 room">
+                            <div>
+                                <img src="/img/slider_single_tour/1_medium.jpg" alt="" width="68" height="68" class="/img-circle">
+                            </div>
+                            <div class="hold_room">
+                                <h4>新西兰天马镇</h4>
+                                <small>宽敞舒适精美靓宅 绝佳地段双校网 必售房源速来抢购 </small>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
 
-            <div class="box_style_4">
-                <i class="icon_set_1_icon-90"></i>
-                <h4>联系我们</h4>
-                <a href="tel://004542344599" class="phone">+45 123 888 88</a>
-                <small>周一 至 周日 9.00am - 7.30pm</small>
-            </div>
+                    <a class="btn_full" href="cart_hotel.html">更多</a>
+                </div>
+                <div class="box_style_4">
+                    <i class="icon_set_1_icon-90"></i>
+                    <h4>联系我们</h4>
+                    <a href="tel://004542344599" class="phone">+025-58761818</a>
+                    <small>周一 至 周日 9.00am - 7.30pm</small>
+                </div>
+            </aside>
+        </div><!--End row -->
+    </div><!--End container -->
 
-        </aside>
-    </div><!--End row -->
-</div><!--End container -->
 @endsection
 
 
@@ -363,6 +645,112 @@
 <link href="/css/date_time_picker.css" rel="stylesheet">
 <link href="/css/owl.carousel.css" rel="stylesheet">
 <link href="/css/owl.theme.css" rel="stylesheet">
+    <style>
+        .main_title p {
+            font-size: 14px !important;
+            margin-top: 5px;
+        }
+        .main_title p {
+            /*font-size: 14px !important;*/
+            margin-top: 5px;
+        }
+
+        .main-menu a {
+            font-size: 16px;
+            /*font-weight: 700;*/
+        }
+
+        .col-md-4 ul li a {
+            font-weight: normal;
+        }
+
+        #top_links li a {
+            /*font-weight: 600;*/
+            font-family: 'Microsoft YaHei';
+        }
+
+
+        .col-md-4 ul {
+            float: left;
+        }
+
+        .tp_d {
+            color: #ffffff;
+            font-size: 16px;
+            text-transform: uppercase;
+            font-family: 'Microsoft YaHei';
+            /*font-weight: bold;*/
+        }
+
+        .tp_detail {
+            font-family: 'Microsoft YaHei';
+            height: 36px;
+            overflow: hidden;
+        }
+
+        .col-md-4 p {
+            font-size: 14px;
+            color: coral;
+        }
+
+        .col-md-3 > h4 span {
+            color: lightcoral;
+        }
+        .room {
+            width:100%;
+            margin-bottom:20px;
+        }
+        .room div {
+            float:left;
+        }
+        .hold_room {
+            width:65%;
+            margin:-10px 0 0 10px;
+        }
+        .hold_room small {
+            font-family:'Microsoft YaHei';
+        }
+        #single_tour_desc h3 {
+            font-size:14px;
+            /*height:30px;*/
+            margin-top:0;
+        }
+        .c_ul li{
+            display: inline-block;
+            padding-right: 8px;
+            margin-right: 3px;
+            position: relative;
+            font-family: 'Microsoft YaHei';
+            padding-left:30px;
+            width:11.5%;
+            padding:10px 0 10px 0;
+            text-align:center;
+        }
+        .c_ul li a{
+            color:#fff;
+        }
+        .strip_all_tour_list { padding:10px;
+        }
+        .table-condensed tbody tr:first-child td{
+            border:none;
+
+        }
+        .table-condensed tbody tr td:first-child {
+            width:20%;
+            text-align:center;
+            vertical-align:middle;
+        }
+        .table1 tbody tr td {
+            border:none;
+        }
+        .xmmd li{
+            list-style:none;
+            line-height:25px;
+        }
+        .col-md-9 p{
+            font-family:inherit;
+        }
+    </style>
 @endpush
 
 @push('script')
@@ -396,30 +784,37 @@
 </script>
 
 
-<!-- Date and time pickers -->
-<script src="/js/bootstrap-datepicker.js"></script>
-<script>
-    $('input.date-pick').datepicker('setDate', 'today');
-</script>
 <!-- Map -->
-<script src="http://maps.google.cn/maps/api/js"></script>
-<script src="/js/map.js"></script>
-<script src="/js/infobox.js"></script>
+
+{{--<script src="/js/infobox.js"></script>--}}
 <!-- Carousel -->
 <script src="/js/owl.carousel.min.js"></script>
 <script>
-    $(document).ready(function(){
-        $(".carousel").owlCarousel({
-            items : 4,
-            itemsDesktop : [1199,3],
-            itemsDesktopSmall : [979,3]
+    var map;
+{{--var locationX=parseFloat({{$locationX}});--}}
+{{--var locationY=parseFloat({{$locationY}});--}}
+//alert(typeof(locationX));
+//    alert(locationX);
+//
+//    alert(locationY);
+    function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+//            center: {lat:locationX, lng:locationY},
+            center: {lat: -45.023564, lng: 168.9689589},
+            zoom: 8
         });
-        console.debug($(".carousel"));
-    });
+    }
+//    $(document).ready(function(){
+//        $(".carousel").owlCarousel({
+//            items : 4,
+//            itemsDesktop : [1199,3],
+//            itemsDesktopSmall : [979,3]
+//        });
+//        console.debug($(".carousel"));
+//    });
 </script>
-
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&callback=initMap"
+            async defer></script>
 <!--Review modal validation -->
-<script src="/assets/validate.js"></script>
 
-<script src="/js/datepicker_advanced.js"></script>
 @endpush

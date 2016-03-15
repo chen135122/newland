@@ -10,13 +10,13 @@ class StudyController extends Controller
 {
     public function index()
     {
-        $studys = Study::all();
-		//$study=$study->paginate(1);
-        return view('study.index',compact('studys'));//->with(compact('study'));
+        $studys = Study::paginate(10);
+        return view('study.index',compact('studys'));
     }
 
-    public function show($sn)
+    public function show($id)
     {
-        return view('tour.show');
+        $study = Study::where('id', $id)->first();
+        return view('study.show')->with(compact('study'));
     }
 }

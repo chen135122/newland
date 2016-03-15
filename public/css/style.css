@@ -1298,7 +1298,28 @@ ul#cat_nav {
         margin-top: 0;
         margin-bottom: 10px;
     }
+.style_list_desc {
+    padding: 10px 20px 0 0;
+    border-right: 1px solid #ededed;
+    height: 180px;
+    line-height: 17px;
+}
 
+.style_list_desc h3 {
+    font-size: 18px;
+    line-height: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.style_list_desc ul{
+    margin-left: 0;
+    margin-top: 20px;
+    padding-left: 0;
+}
+.style_list_desc ul li{
+    list-style: none;
+    line-height: 20px;
+}
 .price_list {
     display: table;
     height: 220px;
@@ -4043,3 +4064,19 @@ ul.plan-features {
 }
 .img_wrapper img{ display: block; margin: 0 auto;}
 #floatOrder{width:50px;height:50px;padding:2px;overflow:hidden;position:absolute;z-index:890;}
+.c_ul li {
+    display: inline-block;
+    padding-right: 8px;
+    margin-right: 3px;
+    position: relative;
+    font-family: 'Microsoft YaHei';
+    padding-left: 30px;
+    width: 13.5%;
+    padding: 10px 0 10px 0;
+    text-align: center;
+}
+
+.c_ul li a {
+    color: #fff;
+}
+.price_list .price{ font-size: 23px;}

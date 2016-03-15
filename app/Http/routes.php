@@ -24,7 +24,7 @@ Route::group([ 'middleware' => ['web']], function () {
 //    Route::post('password/reset','\App\Http\Controllers\Auth\PasswordController@postReset');
     // xxx.com/property
     Route::get('property', '\App\Http\Controllers\PropertyController@index');
-    Route::get('property/{sn}', '\App\Http\Controllers\PropertyController@show');
+    Route::get('property/{id}', '\App\Http\Controllers\PropertyController@show');
 
     Route::get('tour', '\App\Http\Controllers\TourController@index');
 //    Route::post('tour', '\App\Http\Controllers\RegisterController@postUser_Register');
@@ -57,8 +57,8 @@ Route::get('debug', function(){
 //    \Auth::login($user);
 //    return 'ok';
 //
-//    $properties = \App\Models\Property::first();
-//    return $properties->regions->name;
+    $properties = \App\Models\Property::first();
+    return $properties->developers->name;
 });
 
 
