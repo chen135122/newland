@@ -89,7 +89,23 @@
                         <p>
                             以上报价仅供参考，可能会因为不同的出发城市及时间会有所浮动
                         </p>
-                        {!!$travel->tfeature!!}
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <ul class="list_ok">
+                                    @for($i=0;$i<count($travelFeature->where("type",0))/2;$i++)
+                                    <li>{{$travelFeature[$i]->content}}</li>
+                                    @endfor
+                                </ul>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <ul class="list_ok">
+                                    @for($i=count($travelFeature->where("type",0))/2;$i<count($travelFeature->where("type",0));$i++)
+                                        <li>{{$travelFeature[$i]->content}}</li>
+                                    @endfor
+                                </ul>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
                 <div class="row">
@@ -121,7 +137,22 @@
                         <p>
                             以上报价仅供参考，可能会因为不同的出发城市及时间会有所浮动
                         </p>
-                        {!!$travel->ffeature!!}
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <ul class="list_ok">
+                                    @for($i=0;$i<count($travelFeature->where("type",1))/2;$i++)
+                                        <li>{{$travelFeature[$i]->content}}</li>
+                                    @endfor
+                                </ul>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <ul class="list_ok">
+                                    @for($i=count($travelFeature->where("type",1))/2;$i<count($travelFeature->where("type",1));$i++)
+                                        <li>{{$travelFeature[$i]->content}}</li>
+                                    @endfor
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -133,87 +164,6 @@
                         <aside id="xingc" class="col-lg-3 col-md-3" style="width:10%;">
                             <div class="box_style_cat">
                                 <ul id="cat_nav">
-                                    <?php
-                                    function del0($num){
-                                        return "".intval($num);
-                                    }
-                                    //单个数字变汉字
-                                    function n2c($x){
-                                        $arr_n = array("零","一","二","三","四","五","六","七","八","九","十");
-                                        return $arr_n[$x];
-                                    }
-                                    //读取数值（4位）
-                                    function num_r($abcd)
-                                    {
-                                        $arr= array();
-                                        $str = ""; //读取后的汉字数值
-                                        $flag = 0; //该位是否为零
-                                        $flag_end = 1; //是否以“零”结尾
-                                        $size_r = strlen($abcd);
-                                        for($i=0; $i<$size_r; $i++){
-                                            $arr[$i] = $abcd{$i};
-                                        }
-                                        $arrlen = count($arr);
-                                        for($j=0; $j<$arrlen; $j++){
-                                            $ch = n2c($arr[$arrlen-1-$j]); //从后向前转汉字
-                                            if($ch == "零" && $flag == 0){ //如果是第一个零
-                                                $flag = 1; //该位为零
-                                                $str = $ch.$str; //加入汉字数值字符串
-                                                continue;
-                                            }elseif($ch == "零"){ //如果不是第一个零了
-                                                continue;
-                                            }
-                                            $flag = 0; //该位不是零
-                                            switch($j) {
-                                                case 0: $str = $ch; $flag_end = 0; break; //第一位（末尾），没有以“零”结尾
-                                                case 1: $str = $ch."十".$str; break; //第二位
-                                                case 2: $str = $ch."百".$str; break; //第三位
-                                                case 3: $str = $ch."千".$str; break; //第四位
-                                                case 4: $str = $ch."万".$str; break; //第五位
-                                                case 5: $str = $ch."十".$str; break; //第六位
-                                                case 6: $str = $ch."百".$str; break; //第七位
-                                                case 7: $str = $ch."千".$str; break; //第八位
-                                            }
-                                        }
-                                        //如果以“零”结尾
-                                        if($flag_end == 1) {
-                                            mb_internal_encoding("UTF-8");
-                                            $str = mb_substr($str, 0, mb_strlen($str)-1); //把“零”去掉
-                                        }
-                                        return $str;
-                                    }
-                                    function num2ch($num) //整体读取转换
-                                    {
-                                        $num_real = del0($num);//去掉前面的“0”
-                                        $numlen = strlen($num_real);
-                                        echo "numlen=".$numlen."";
-                                        if($numlen >= 9)//如果满九位，读取“亿”位
-                                        {
-                                            $y=substr($num_real, -9, 1);
-                                            //echo $y;
-                                            $wsbq = substr($num_real, -8, 4);
-                                            $gsbq = substr($num_real, -4);
-                                            $a = num_r(del0($gsbq));
-                                            $b = num_r(del0($wsbq))."万";
-                                            $c = num_r(del0($y))."亿";
-                                        }elseif($numlen <= 8 && $numlen >= 5) //如果大于等于“万”
-                                        {
-                                            $wsbq = substr($num_real, 0, $numlen-4);
-                                            $gsbq = substr($num_real, -4);
-                                            $a = num_r(del0($gsbq));
-                                            $b = num_r(del0($wsbq))."万";
-                                            $c="";
-                                        }elseif($numlen <= 4) //如果小于等于“千”
-                                        {
-                                            $gsbq = substr( $num_real, -$numlen);
-                                            $a = num_r(del0($gsbq));
-                                            $b="";
-                                            $c="";
-                                        }
-                                        $ch_num = $c.$b.$a;
-                                        return $ch_num;
-                                    }
-                                    ?>
                                     @for($i=0;$i<count($travelDay);$i++)
                                         <li><a href="#travelInfo_{{$i}}">
                                               第  {{$i+1}}  天
@@ -256,12 +206,12 @@
                                                             @if(empty($sight->picurl))
                                                                 @else
                                                                     <ul class="time_photo">
-                                                                @foreach(explode(',',$sight->picurl) as $key=>$value)
+                                                                        @foreach(($sight->hasimg()->get()) as $img)
                                                                             <li>
-                                                                                <img src="{{$value}}">
-                                                                                <p style="text-align:center;padding-top:10px">{{empty($sight->img_remark)?$sight->name:$sight->img_remark}}</p>
+                                                                                <img src="{{$img->picurl}}">
+                                                                                <p style="text-align:center;padding-top:10px">{{empty($img->title)?$sight->name:$img->title}}</p>
                                                                             </li>
-                                                                    @endforeach
+                                                                            @endforeach
                                                                     </ul>
                                                                 @endif
 
@@ -306,6 +256,7 @@
                                         <td>
                                             {{$cate->introduction}}
                                             <ul class="time_photo">
+
                                                 @foreach(explode(',',$cate->picurl) as $key=>$value)
                                                     <li>
                                                         <img src="{{$value}}">
@@ -322,169 +273,169 @@
                 </div>
 
                 <hr>
-                {{--<div class="row">--}}
-                    {{--<div class="col-md-3" id="zxpl">--}}
-                        {{--<div class="mockup-content">--}}
+                <div class="row">
+                    <div class="col-md-3" id="zxpl">
+                        <div class="mockup-content">
 
-                            {{--<div class="morph-button morph-button-modal morph-button-modal-2 morph-button-fixed" >--}}
-                                {{--<button type="button" class="btn_1 add_bottom_30" data-toggle="modal" data-target="#myReview">撰写评论</button>--}}
-                                {{--<div class="morph-content" style="background-color:#fff;">--}}
-                                    {{--<div>--}}
-                                        {{--<div class="content-style-form content-style-form-1" id="comment">--}}
-                                            {{--<span class="icon icon-close">Close the dialog</span>--}}
-                                            {{--<form>--}}
-                                                {{--<p><a style="color:#000;font-family:'Microsoft YaHei';">评论内容:</a><textarea id="txt_comment" style="width:100%;height:80px;"></textarea></p>--}}
+                            <div class="morph-button morph-button-modal morph-button-modal-2 morph-button-fixed" >
+                                <button type="button" class="btn_1 add_bottom_30" data-toggle="modal" data-target="#myReview">撰写评论</button>
+                                <div class="morph-content" style="background-color:#fff;">
+                                    <div>
+                                        <div class="content-style-form content-style-form-1" id="comment">
+                                            <span class="icon icon-close">Close the dialog</span>
+                                            <form>
+                                                <p><a style="color:#000;font-family:'Microsoft YaHei';">评论内容:</a><textarea id="txt_comment" style="width:100%;height:80px;"></textarea></p>
 
 
-                                                {{--<div class="star_comment" id="mstar_comment">--}}
-                                                    {{--<a>景点评分:</a>--}}
-                                                    {{--<span></span>--}}
-                                                    {{--<ul>--}}
-                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">1</a></li>--}}
-                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">2</a></li>--}}
-                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">3</a></li>--}}
-                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">4</a></li>--}}
-                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">5</a></li>--}}
-                                                    {{--</ul>--}}
-                                                    {{--<span></span>--}}
-                                                    {{--<p></p>--}}
-                                                    {{--<input name="grade" id="mstar_grade" type="hidden" value="" />--}}
-                                                {{--</div>--}}
-                                                {{--<br />--}}
+                                                <div class="star_comment" id="mstar_comment">
+                                                    <a>景点评分:</a>
+                                                    <span></span>
+                                                    <ul>
+                                                        <li><i class="icon-smile voted"></i><a href="javascript:;">1</a></li>
+                                                        <li><i class="icon-smile voted"></i><a href="javascript:;">2</a></li>
+                                                        <li><i class="icon-smile voted"></i><a href="javascript:;">3</a></li>
+                                                        <li><i class="icon-smile voted"></i><a href="javascript:;">4</a></li>
+                                                        <li><i class="icon-smile voted"></i><a href="javascript:;">5</a></li>
+                                                    </ul>
+                                                    <span></span>
+                                                    <p></p>
+                                                    <input name="grade" id="mstar_grade" type="hidden" value="" />
+                                                </div>
+                                                <br />
 
-                                                {{--<div class="star_comment" id="jstar_comment">--}}
-                                                    {{--<a>价格评分:</a>--}}
-                                                    {{--<span></span>--}}
-                                                    {{--<ul>--}}
-                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">1</a></li>--}}
-                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">2</a></li>--}}
-                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">3</a></li>--}}
-                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">4</a></li>--}}
-                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">5</a></li>--}}
-                                                    {{--</ul>--}}
-                                                    {{--<span></span>--}}
-                                                    {{--<p></p>--}}
-                                                    {{--<input name="grade" id="jstar_grade" type="hidden" value="" />--}}
-                                                {{--</div>--}}
-                                                {{--<br />--}}
-                                                {{--<div class="star_comment" id="dstar_comment">--}}
-                                                    {{--<a>导游评分:</a>--}}
-                                                    {{--<span></span>--}}
-                                                    {{--<ul>--}}
-                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">1</a></li>--}}
-                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">2</a></li>--}}
-                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">3</a></li>--}}
-                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">4</a></li>--}}
-                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">5</a></li>--}}
-                                                    {{--</ul>--}}
-                                                    {{--<span></span>--}}
-                                                    {{--<p></p>--}}
-                                                    {{--<input name="grade" id="dstar_grade" type="hidden" value="" />--}}
-                                                {{--</div>--}}
-                                                {{--<br/>--}}
-                                                {{--<div class="star_comment" id="zstar_comment">--}}
-                                                    {{--<a>质量评分:</a>--}}
-                                                    {{--<span></span>--}}
-                                                    {{--<ul>--}}
-                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">1</a></li>--}}
-                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">2</a></li>--}}
-                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">3</a></li>--}}
-                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">4</a></li>--}}
-                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">5</a></li>--}}
-                                                    {{--</ul>--}}
-                                                    {{--<span></span>--}}
-                                                    {{--<p></p>--}}
-                                                    {{--<input name="grade" id="zstar_grade" type="hidden" value="" />--}}
-                                                {{--</div>--}}
+                                                <div class="star_comment" id="jstar_comment">
+                                                    <a>价格评分:</a>
+                                                    <span></span>
+                                                    <ul>
+                                                        <li><i class="icon-smile voted"></i><a href="javascript:;">1</a></li>
+                                                        <li><i class="icon-smile voted"></i><a href="javascript:;">2</a></li>
+                                                        <li><i class="icon-smile voted"></i><a href="javascript:;">3</a></li>
+                                                        <li><i class="icon-smile voted"></i><a href="javascript:;">4</a></li>
+                                                        <li><i class="icon-smile voted"></i><a href="javascript:;">5</a></li>
+                                                    </ul>
+                                                    <span></span>
+                                                    <p></p>
+                                                    <input name="grade" id="jstar_grade" type="hidden" value="" />
+                                                </div>
+                                                <br />
+                                                <div class="star_comment" id="dstar_comment">
+                                                    <a>导游评分:</a>
+                                                    <span></span>
+                                                    <ul>
+                                                        <li><i class="icon-smile voted"></i><a href="javascript:;">1</a></li>
+                                                        <li><i class="icon-smile voted"></i><a href="javascript:;">2</a></li>
+                                                        <li><i class="icon-smile voted"></i><a href="javascript:;">3</a></li>
+                                                        <li><i class="icon-smile voted"></i><a href="javascript:;">4</a></li>
+                                                        <li><i class="icon-smile voted"></i><a href="javascript:;">5</a></li>
+                                                    </ul>
+                                                    <span></span>
+                                                    <p></p>
+                                                    <input name="grade" id="dstar_grade" type="hidden" value="" />
+                                                </div>
+                                                <br/>
+                                                <div class="star_comment" id="zstar_comment">
+                                                    <a>质量评分:</a>
+                                                    <span></span>
+                                                    <ul>
+                                                        <li><i class="icon-smile voted"></i><a href="javascript:;">1</a></li>
+                                                        <li><i class="icon-smile voted"></i><a href="javascript:;">2</a></li>
+                                                        <li><i class="icon-smile voted"></i><a href="javascript:;">3</a></li>
+                                                        <li><i class="icon-smile voted"></i><a href="javascript:;">4</a></li>
+                                                        <li><i class="icon-smile voted"></i><a href="javascript:;">5</a></li>
+                                                    </ul>
+                                                    <span></span>
+                                                    <p></p>
+                                                    <input name="grade" id="zstar_grade" type="hidden" value="" />
+                                                </div>
 
-                                                {{--<p><button id="btn_comment">提交</button></p>--}}
-                                            {{--</form>--}}
-                                        {{--</div>--}}
-                                    {{--</div>--}}
-                                {{--</div>--}}
-                            {{--</div><!-- morph-button -->--}}
-                        {{--</div>--}}
+                                                <p><button id="btn_comment">提交</button></p>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-                    {{--</div>--}}
-                    {{--<div class="col-md-9" id="all_comment">--}}
-                        {{--<div id="general_rating">--}}
-                            {{--11条评论--}}
-                            {{--<div class="rating">--}}
-                                {{--<i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><i class="icon-smile"></i>--}}
-                            {{--</div>--}}
-                        {{--</div><!-- End general_rating -->--}}
-                        {{--<div class="row" id="rating_summary">--}}
-                            {{--<div class="col-md-6">--}}
-                                {{--<ul>--}}
-                                    {{--<li>--}}
-                                        {{--目的地--}}
-                                        {{--<div class="rating">--}}
-                                            {{--<i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><i class="icon-smile"></i>--}}
-                                        {{--</div>--}}
-                                    {{--</li>--}}
-                                    {{--<li>--}}
-                                        {{--导游--}}
-                                        {{--<div class="rating">--}}
-                                            {{--<i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i>--}}
-                                        {{--</div>--}}
-                                    {{--</li>--}}
-                                {{--</ul>--}}
-                            {{--</div>--}}
-                            {{--<div class="col-md-6">--}}
-                                {{--<ul>--}}
-                                    {{--<li>--}}
-                                        {{--价格--}}
-                                        {{--<div class="rating">--}}
-                                            {{--<i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><i class="icon-smile"></i>--}}
-                                        {{--</div>--}}
-                                    {{--</li>--}}
-                                    {{--<li>--}}
-                                        {{--质量--}}
-                                        {{--<div class="rating">--}}
-                                            {{--<i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i>--}}
-                                        {{--</div>--}}
-                                    {{--</li>--}}
-                                {{--</ul>--}}
-                            {{--</div>--}}
-                        {{--</div><!-- End row -->--}}
-                        {{--<hr>--}}
-                        {{--<div class="review_strip_single">--}}
-                            {{--<img src="/img/avatar1.jpg" alt="" class="img-circle">--}}
-                            {{--<small> - 10 March 2015 -</small>--}}
-                            {{--<h4>Jhon Doe</h4>--}}
-                            {{--<p>--}}
-                                {{--"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a lorem quis neque interdum consequat ut sed sem. Duis quis tempor nunc. Interdum et malesuada fames ac ante ipsum primis in faucibus."--}}
-                            {{--</p>--}}
-                            {{--<div class="rating">--}}
-                                {{--<i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><i class="icon-smile"></i>--}}
-                            {{--</div>--}}
-                        {{--</div><!-- End review strip -->--}}
+                    </div>
+                    <div class="col-md-9" id="all_comment">
+                        <div id="general_rating">
+                            11条评论
+                            <div class="rating">
+                                <i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><i class="icon-smile"></i>
+                            </div>
+                        </div><!-- End general_rating -->
+                        <div class="row" id="rating_summary">
+                            <div class="col-md-6">
+                                <ul>
+                                    <li>
+                                        目的地
+                                        <div class="rating">
+                                            <i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><i class="icon-smile"></i>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        导游
+                                        <div class="rating">
+                                            <i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul>
+                                    <li>
+                                        价格
+                                        <div class="rating">
+                                            <i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><i class="icon-smile"></i>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        质量
+                                        <div class="rating">
+                                            <i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div><!-- End row -->
+                        <hr>
+                        <div class="review_strip_single">
+                            <img src="/img/avatar1.jpg" alt="" class="img-circle">
+                            <small> - 10 March 2015 -</small>
+                            <h4>Jhon Doe</h4>
+                            <p>
+                                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a lorem quis neque interdum consequat ut sed sem. Duis quis tempor nunc. Interdum et malesuada fames ac ante ipsum primis in faucibus."
+                            </p>
+                            <div class="rating">
+                                <i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><i class="icon-smile"></i>
+                            </div>
+                        </div><!-- End review strip -->
 
-                        {{--<div class="review_strip_single">--}}
-                            {{--<img src="/img/avatar3.jpg" alt="" class="img-circle">--}}
-                            {{--<small> - 10 March 2015 -</small>--}}
-                            {{--<h4>Jhon Doe</h4>--}}
-                            {{--<p>--}}
-                                {{--"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a lorem quis neque interdum consequat ut sed sem. Duis quis tempor nunc. Interdum et malesuada fames ac ante ipsum primis in faucibus."--}}
-                            {{--</p>--}}
-                            {{--<div class="rating">--}}
-                                {{--<i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><i class="icon-smile"></i>--}}
-                            {{--</div>--}}
-                        {{--</div><!-- End review strip -->--}}
+                        <div class="review_strip_single">
+                            <img src="/img/avatar3.jpg" alt="" class="img-circle">
+                            <small> - 10 March 2015 -</small>
+                            <h4>Jhon Doe</h4>
+                            <p>
+                                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a lorem quis neque interdum consequat ut sed sem. Duis quis tempor nunc. Interdum et malesuada fames ac ante ipsum primis in faucibus."
+                            </p>
+                            <div class="rating">
+                                <i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><i class="icon-smile"></i>
+                            </div>
+                        </div><!-- End review strip -->
 
-                        {{--<div class="review_strip_single last">--}}
-                            {{--<img src="/img/avatar2.jpg" alt="" class="img-circle">--}}
-                            {{--<small> - 10 March 2015 -</small>--}}
-                            {{--<h4>Jhon Doe</h4>--}}
-                            {{--<p>--}}
-                                {{--"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a lorem quis neque interdum consequat ut sed sem. Duis quis tempor nunc. Interdum et malesuada fames ac ante ipsum primis in faucibus."--}}
-                            {{--</p>--}}
-                            {{--<div class="rating">--}}
-                                {{--<i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><i class="icon-smile"></i>--}}
-                            {{--</div>--}}
-                        {{--</div><!-- End review strip -->--}}
-                    {{--</div>--}}
-                {{--</div>--}}
+                        <div class="review_strip_single last">
+                            <img src="/img/avatar2.jpg" alt="" class="img-circle">
+                            <small> - 10 March 2015 -</small>
+                            <h4>Jhon Doe</h4>
+                            <p>
+                                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a lorem quis neque interdum consequat ut sed sem. Duis quis tempor nunc. Interdum et malesuada fames ac ante ipsum primis in faucibus."
+                            </p>
+                            <div class="rating">
+                                <i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><i class="icon-smile"></i>
+                            </div>
+                        </div><!-- End review strip -->
+                    </div>
+                </div>
             </div><!--End  single_tour_desc-->
 
             <aside class="col-md-4">
@@ -519,7 +470,7 @@
                         </tr>
                         </tbody>
                     </table>
-                    <a class="btn_full" href="/order">马上预定</a>
+                    <a class="btn_full" onclick="linkto()">马上预定</a>
                 </div><!--/box_style_1 -->
                 <div class="box_style_1 expose">
                     <h3 class="inner">热门旅游</h3>
@@ -804,6 +755,7 @@
 <script type="text/javascript" src="/js/classie.js"></script>
 <script type="text/javascript" src="/js/uiMorphingButton_fixed.js"></script>
 <script>
+    var perNum=2;
     $('input.date-pick').datepicker('setDate', 'today');
     $(document).ready(function ($) {
         $('#img_carousel').sliderPro({
@@ -830,7 +782,11 @@
         }
         else {
             $("#perNum").text( $(obj).val());
+            perNum=$(obj).val();
         }
+    }
+    function linkto(){
+       window.location="/order?num="+perNum+"&routid="+'{{$travel->id}}';
     }
     function removeClass(id,obj)
     {
@@ -1067,7 +1023,8 @@
     })();
     $(function () {
         $('.numbers-row div').on("click",function(e){
-           $("#perNum").text( $("#adults").val());
+            $("#perNum").text( $("#adults").val());
+            perNum=$("#adults").val();
         });
         $("#comment div.star_comment").each(function () {
             s($(this).attr("id"), $(this).find("input[name='grade']").attr("id"));

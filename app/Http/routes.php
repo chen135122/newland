@@ -20,10 +20,12 @@
     Route::get('property/{sn}', '\App\Http\Controllers\PropertyController@show');
 
     Route::get('tour', '\App\Http\Controllers\TourController@index');
-//    Route::post('tour', '\App\Http\Controllers\RegisterController@postUser_Register');
     Route::get('tour/{id}', '\App\Http\Controllers\TourController@show');
+    Route::get('order', '\App\Http\Controllers\TourController@order');
+    Route::get('result', '\App\Http\Controllers\TourController@result');
+    Route::post('create', '\App\Http\Controllers\TourController@create');
+    Route::post('spay', '\App\Http\Controllers\TourController@pay');
 
-    Route::get('tour/{id}', '\App\Http\Controllers\TourController@order');
 
     Route::get('news', '\App\Http\Controllers\ArticleController@index');
     Route::get('news/{id}', '\App\Http\Controllers\ArticleController@show');
@@ -42,7 +44,9 @@
 });
 
 Route::get('debug', function(){
-   //  phpinfo();
+   //  phpinfo();()
+
+    return strval(Session::get('users'));
     $properties = \App\Models\Property::first();
     return $properties->regions->name;
 });
