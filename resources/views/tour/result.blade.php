@@ -112,7 +112,7 @@
             <div class="col-xs-4 bs-wizard-step complete">
                 <div class="text-center bs-wizard-stepnum">订单</div>
                 <div class="progress"><div class="progress-bar" style="background-color:#e04f67;"></div></div>
-                <a href="cart.html" class="bs-wizard-dot"></a>
+                <a href="#" class="bs-wizard-dot"></a>
             </div>
             <!--style="background-color:#82ca9c;"-->
             <div class="col-xs-4 bs-wizard-step active">
@@ -138,19 +138,19 @@
             <div class="form_title">
                 <h3><strong><i class="icon-ok"></i></strong>感谢您! </h3>
                 <p>
-                    南北岛精华游.
+                    {{$travel->hugetitle}}
                 </p>
             </div>
             <div class="step">
                 <p>
-                    奥克兰+怀托摩萤火虫洞+罗托鲁瓦+蒂卡波湖+基督城+箭镇+皇后镇10天
+                    {{$travel->title}}
                 </p>
             </div><!--End step -->
 
             <div class="form_title">
                 <h3><strong><i class="icon-tag-1"></i></strong>订单信息</h3>
                 <p>
-                    南北岛精华游
+                    {{$travel->hugetitle}}
                 </p>
             </div>
             <div class="step">
@@ -168,7 +168,7 @@
                             <strong>订单号</strong>
                         </td>
                         <td>
-                            201610232123
+                            {{$order->sn}}
                         </td>
                     </tr>
                     <tr>
@@ -176,15 +176,7 @@
                             <strong>出发地</strong>
                         </td>
                         <td>
-                            北京
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <strong>出发地</strong>
-                        </td>
-                        <td>
-                            北京
+                            {{$travel->start_place}}
                         </td>
                     </tr>
                     <tr>
@@ -209,6 +201,14 @@
                         </td>
                         <td>
                             2015年12月1号
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>支付状态</strong>
+                        </td>
+                        <td>
+                            {{$msg}}
                         </td>
                     </tr>
                     <tr>
@@ -252,42 +252,20 @@
                 <a href="#" id="phone">+025-58761818</a>
                 <a href="#" id="email_footer">services@allinnewzealand.com</a>
             </div>
-            <div class="col-md-3 col-sm-3">
+            <div class="col-md-2 col-sm-3" style="margin-left:10%;">
                 <h3>关于我们</h3>
                 <ul>
                     <li><a href="#">我们是谁</a></li>
-                    <li><a href="#">常见问题</a></li>
-                    <li><a href="#">登录</a></li>
-                    <li><a href="#">注册</a></li>
+                    <li><a href="/faq.html">常见问题</a></li>
                     <li><a href="#">使用条款</a></li>
                 </ul>
             </div>
-            <div class="col-md-3 col-sm-3">
+            <div class="col-md-2 col-sm-3" style="margin-left:10%;">
                 <h3>其他内容</h3>
                 <ul>
-                    <li><a href="#">最新新闻</a></li>
-                    <li><a href="#">旅游指南</a></li>
-                    <li><a href="#">画册</a></li>
+                    <li><a href="#">最新资讯</a></li>
+                    <li><a href="#">热门房产</a></li>
                 </ul>
-            </div>
-            <div class="col-md-2 col-sm-3">
-                <h3>设置</h3>
-                <div class="styled-select">
-                    <select class="form-control" name="lang" id="lang">
-                        <option value="Russian" selected>简体中文</option>
-                        <option value="English">English</option>
-                        <option value="French">French</option>
-                        <option value="Spanish">Spanish</option>
-                    </select>
-                </div>
-                <div class="styled-select">
-                    <select class="form-control" name="currency" id="currency">
-                        <option value="CNY" selected>CNY</option>
-                        <option value="USD">USD</option>
-                        <option value="EUR">EUR</option>
-                        <option value="GBP">GBP</option>
-                    </select>
-                </div>
             </div>
         </div><!-- End row -->
         <div class="row">

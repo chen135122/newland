@@ -12,4 +12,8 @@ use Illuminate\Database\Eloquent\Model;
 class newOrder extends BaseModel
 {
     protected $table = 'nz_travel_order';
+    public function travel()
+    {
+        return $this->belongsTo('App\Models\Travel','route_id','id');
+    }
 }

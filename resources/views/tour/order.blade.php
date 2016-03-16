@@ -127,7 +127,7 @@
             <div class="col-xs-4 bs-wizard-step complete">
                 <div class="text-center bs-wizard-stepnum">订单</div>
                 <div class="progress"><div class="progress-bar" style="background-color:#e04f67;"></div></div>
-                <a href="cart.html" class="bs-wizard-dot newc"></a>
+                <a href="#" class="bs-wizard-dot newc"></a>
             </div>
 
             <div class="col-xs-4 bs-wizard-step active">
@@ -322,42 +322,20 @@
                 <a href="#" id="phone">+025-58761818</a>
                 <a href="#" id="email_footer">services@allinnewzealand.com</a>
             </div>
-            <div class="col-md-3 col-sm-3">
+            <div class="col-md-2 col-sm-3" style="margin-left:10%;">
                 <h3>关于我们</h3>
                 <ul>
                     <li><a href="#">我们是谁</a></li>
-                    <li><a href="#">常见问题</a></li>
-                    <li><a href="#">登录</a></li>
-                    <li><a href="#">注册</a></li>
+                    <li><a href="/faq.html">常见问题</a></li>
                     <li><a href="#">使用条款</a></li>
                 </ul>
             </div>
-            <div class="col-md-3 col-sm-3">
+            <div class="col-md-2 col-sm-3" style="margin-left:10%;">
                 <h3>其他内容</h3>
                 <ul>
-                    <li><a href="#">最新新闻</a></li>
-                    <li><a href="#">旅游指南</a></li>
-                    <li><a href="#">画册</a></li>
+                    <li><a href="#">最新资讯</a></li>
+                    <li><a href="#">热门房产</a></li>
                 </ul>
-            </div>
-            <div class="col-md-2 col-sm-3">
-                <h3>设置</h3>
-                <div class="styled-select">
-                    <select class="form-control" name="lang" id="lang">
-                        <option value="Russian" selected>简体中文</option>
-                        <option value="English">English</option>
-                        <option value="French">French</option>
-                        <option value="Spanish">Spanish</option>
-                    </select>
-                </div>
-                <div class="styled-select">
-                    <select class="form-control" name="currency" id="currency">
-                        <option value="CNY" selected>CNY</option>
-                        <option value="USD">USD</option>
-                        <option value="EUR">EUR</option>
-                        <option value="GBP">GBP</option>
-                    </select>
-                </div>
             </div>
         </div><!-- End row -->
         <div class="row">
@@ -378,7 +356,7 @@
             </div>
         </div><!-- End row -->
     </div><!-- End container -->
-</footer>
+</footer><!-- End footer -->
 
 
 
@@ -485,10 +463,18 @@
     })
 
 </script>
+<script type="text/javascript" charset="utf-8" src="/js/jquery.form.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="/js/artdialog/dialog-plus-min.js"></script>
+<script src="/js/common.js"></script>
+<script src="/js/Validform.js"></script>
+<link href="/js/artdialog/ui-dialog.css" rel="stylesheet" type="text/css" />
+
 <div id="ceng" style="position:fixed;z-index:1000;left:0;top:0;right:0;background-color:#000;opacity: 0.5; filter:alpha(opacity=50);margin:1px 1px;display:none;width:100%;height:100%;text-align:center;">
 </div>
-<div id="close" style="position:fixed ;left:30%;top:0px;z-index:1001;background-color:#fff;margin:100px auto;padding:0px;display:none;width:341px;text-align:right">
-    <a style="color:#000;padding:3px 3px 0 0;cursor:pointer;" onclick="closeCeng()">关闭</a>
+<div id="close" style="position:fixed ;left:30%;top:0px;z-index:1001;background-color:#fff;margin:5% 0 0 0;padding:0px;display:none;width:361px;text-align:right">
+    <i class="icon-cancel" onclick="closeCeng()"></i>
+    <h3 style="text-align:-webkit-auto;padding-left: 10px;">填写联系人信息</h3>
+    <hr>
     <div style="text-align:center;"><br>
     {{--<form id="orderform" name="orderform" action="/spay" method="post">--}}
         {{--<input  name="rout" id="rout" type="hidden" value="{{$route}}">--}}
@@ -496,82 +482,108 @@
         {{--<input  name="WIDsubject" type="hidden" value="{{$name}}">--}}
         {{--<input  name="WIDtotal_fee" type="hidden" value="2000">--}}
     {{--</form>--}}
-        <form id="orderform" name=orderform action=/spay method=post  target="_blank">
+
+        <form id="orderform" name=orderform action=/pay method=post  target="_blank">
                      <input  name="rout" id="rout" type="hidden" value="{{$route}}">
-                    <input  name="WIDout_trade_no" type="hidden" value="10000">
-                    <input  name="WIDsubject" type="hidden" value="{{$name}}">
-                    <input  name="WIDtotal_fee" type="hidden" value="2000">
-                    <input  name="WIDshow_url" type="hidden" value="2000">
-                    <input  name="WIDbody" type="hidden" value="2000">
+                    <input  name="subject" type="hidden" value="{{$name}}">
+                    <input  name="total_fee" type="hidden" value="2000">
+                    <input  name="url" id="url" type="hidden" value="">
+
+            <div class="form-group">
+                <label for="txtUserName" class="col-sm-3 control-label" >联系人姓名</label>
+                    <div class="col-sm-9" ><input  name="username" id="username" class="date-pick form-control" style="width:90%;" placeholder="用户名不能为空"  datatype="s3-50"  nullmsg="用户名不能为空" sucmsg=" " id="txtUserName"  name="txtUserName" >
+                    <span class="Validform_checktip" ></span></div>
+            </div>
+            <div class="form-group">
+                <label for="txtUserName" class="col-sm-3 control-label" >联系人电话</label>
+                <div class="col-sm-9" ><input  name="userPhone" id="userPhone" class="date-pick form-control" style="width:90%;" datatype="/^(((1[1-9]{1}[0-9]{1}))+\d{8})$/" placeholder="联系人电话不能为空" errormsg="联系人电话格式有误"    nullmsg="联系人电话不能为空" sucmsg=" " >
+                    <span class="Validform_checktip"></span></div>
+            </div>
+            <div class="form-group">
+                <label for="txtUserName" class="col-sm-3 control-label" >联系人邮箱</label>
+                <div class="col-sm-9" ><input  name="userEmail" id="userEmail" class="date-pick form-control" style="width:90%;" datatype="/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/" placeholder="请填写邮箱"  errormsg="联系人邮箱格式有误" nullmsg="请填写邮箱"     sucmsg=" " >
+                    <span class="Validform_checktip"></span></div>
+            </div>
+            <div class="form-group">
+                <label for="txtUserName" class="col-sm-3 control-label" >备注</label>
+                <div class="col-sm-9" style="height:102px;"><textarea name="content" class="date-pick form-control" id="txt_content" style="width:90%;height:80px;"></textarea>
+                    <span class="Validform_checktip"></span></div>
+            </div>
+        <input class="btn_full" type="submit" id="subOrder" style="width:80%;margin:0 0 40px 10%;" value="确定">
         </form>
-
-        <p style="text-align:left;margin:0 0 10px 10%;">
-            <a style="color:#000;font-family:'Microsoft YaHei';">联系人姓名:</a>
-            <input onkeyup="validate()" name="username" id="username" class="date-pick form-control" style="width:90%;" data-toggle="popover" data-container="body"  data-trigger="manual" data-placement="right" data-content="" >
-        </p>
-        <p style="text-align:left;margin:0 0 10px 10%;">
-            <a style="color:#000;font-family:'Microsoft YaHei';">联系人电话:</a>
-            <input onkeyup="validate()" name="userPhone"  id="userPhone" class="date-pick form-control" style="width:90%;" data-toggle="popover" data-container="body" data-trigger="manual"  data-placement="right" data-content="" >
-        </p>
-        <p style="text-align:left;margin:0 0 10px 10%;">
-            <a style="color:#000;font-family:'Microsoft YaHei';">联系人邮箱:</a>
-            <input onkeyup="validate()" name="userEmail" id="userEmail" class="date-pick form-control" style="width:90%;" data-toggle="popover" data-container="body" data-trigger="manual" data-placement="right" data-content="" >
-        </p>
-        <p style="text-align:left;margin:0 0 20px 10%;">
-            <a style="color:#000;font-family:'Microsoft YaHei';">备注:</a>
-            <textarea name="content" class="date-pick form-control" id="txt_content" style="width:90%;height:80px;"></textarea>
-        </p>
-        <a class="btn_full" id="subOrder" style="width:80%;margin:0 0 40px 10%;">确定</a>
-
     </div>
 </div>
+<style>
+    .form-group{height: 45px;}
+    .form-group label{
+        width: 27%;
+    }
+    .form-group div.col-sm-9{
+        width: 73%;
+    }
+    .icon-cancel:before{
+        content: '\e81e';
+        cursor:pointer;
+        font-size: 20px;
+        padding: 2px 2px;
+    }
+    /*.form-group div.col-sm-9{*/
+        /*margin-bottom: 20px;*/
+    /*}*/
+</style>
 <script>
+    $("#orderform").Validform({
+        tiptype:3,
+        label:".label",
+        showAllError:true
+    });
+$("#url").val(window.location.href);
     var result=true;
-function  validate()
-{
-            var $username=$("#username");
-            var $userPhone=$("#userPhone");
-            var $userEmail= $("#userEmail");
-            $("#phone").popover("show");
-            if($username.val()=="")
-            {
-            $username.attr("data-content","用户名不能为空");
-            $username.popover('show');
-                result=false;
-            }
-            else {
-                $username.popover('destroy');
-                result=true;
-            }
-            if( $userPhone.val()=="")
-            {
-                $userPhone.attr("data-content","手机号码不能为空");
-                $userPhone.popover("show");
-                result=false;
-            }
-            else {
-                $userPhone.popover('destroy');
-                result=true;
-            }
-            var phonereg = /^(((1[1-9]{1}[0-9]{1}))+\d{8})$/;
-            if(!phonereg.test($userPhone.val()))
-            {
-                $userPhone.attr("data-content","手机号填写有误");
-                $userPhone.popover("show");
-                result=false;
-            }
-            var emailreg= /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/;
-            if( !emailreg.test($userEmail.val()))
-            {
-                $userEmail.attr("data-content","邮箱格式有误");
-                $userEmail.popover("show");
-                result=false;
-            }
-            else {
-                $userEmail.popover('destroy');
-                result=true;
-            }
-}
+{{--function  validate()--}}
+{{--{--}}
+            {{--var $username=$("#username");--}}
+            {{--var $userPhone=$("#userPhone");--}}
+            {{--var $userEmail= $("#userEmail");--}}
+            {{--$("#phone").popover("show");--}}
+            {{--if($username.val()=="")--}}
+            {{--{--}}
+            {{--$username.attr("data-content","用户名不能为空");--}}
+            {{--$username.popover('show');--}}
+                {{--result=false;--}}
+            {{--}--}}
+            {{--else {--}}
+                {{--$username.popover('destroy');--}}
+                {{--result=true;--}}
+            {{--}--}}
+            {{--if( $userPhone.val()=="")--}}
+            {{--{--}}
+                {{--$userPhone.attr("data-content","手机号码不能为空");--}}
+                {{--$userPhone.popover("show");--}}
+                {{--result=false;--}}
+            {{--}--}}
+            {{--else {--}}
+                {{--$userPhone.popover('destroy');--}}
+                {{--result=true;--}}
+            {{--}--}}
+            {{--var phonereg = /^(((1[1-9]{1}[0-9]{1}))+\d{8})$/;--}}
+            {{--if(!phonereg.test($userPhone.val()))--}}
+            {{--{--}}
+                {{--$userPhone.attr("data-content","手机号填写有误");--}}
+                {{--$userPhone.popover("show");--}}
+                {{--result=false;--}}
+            {{--}--}}
+            {{--var emailreg= /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/;--}}
+            {{--if( !emailreg.test($userEmail.val()))--}}
+            {{--{--}}
+                {{--$userEmail.attr("data-content","邮箱格式有误");--}}
+                {{--$userEmail.popover("show");--}}
+                {{--result=false;--}}
+            {{--}--}}
+            {{--else {--}}
+                {{--$userEmail.popover('destroy');--}}
+                {{--result=true;--}}
+            {{--}--}}
+{{--}--}}
 </script>
 </body>
 </html>

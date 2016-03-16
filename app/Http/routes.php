@@ -33,9 +33,6 @@ Route::group([ 'middleware' => ['web']], function () {
     Route::post('spay', '\App\Http\Controllers\TourController@pay');
     Route::post('create', '\App\Http\Controllers\TourController@create');
 
-
-    Route::get('pay', '\App\Http\Controllers\PayController@index');
-    Route::post('show', '\App\Http\Controllers\PayController@show');
     Route::get('news', '\App\Http\Controllers\ArticleController@index');
     Route::get('news/{id}', '\App\Http\Controllers\ArticleController@show');
 
@@ -49,7 +46,10 @@ Route::group([ 'middleware' => ['web']], function () {
     Route::post('register/validate_username','\App\Http\Controllers\RegisterController@validate_username');
     Route::post('register/validate_mobile','\App\Http\Controllers\RegisterController@validate_mobile');
 
-
+    //支付宝支付处理
+    Route::post('pay','AlipayController@pay');
+    //支付后跳转页面
+    Route::post('result','AlipayController@result');
 
 Route::get('debug', function(){
    //  phpinfo();()

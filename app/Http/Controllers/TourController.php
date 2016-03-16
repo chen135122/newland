@@ -6,6 +6,7 @@ use App\Models\TravelDay;
 use App\Models\TravelCategory;
 use App\Models\newOrder;
 use Carbon\Carbon;
+use Omnipay;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -95,11 +96,11 @@ class TourController extends Controller
             $order-> oprice=0.0;
             $order->status=1;
             $order-> created_at=Carbon::now();
-            $order->adults=1;//strval($request->get("perNum"));
-            $order->username=1;//strval($request->get("username")) ;
-            $order->phone=2;//strval($request->get("userPhone"));
-            $order->email=1;//strval($request->get("userEmail"));
-            $order->remark=1;//strval($request->get("content"));
+            $order->adults=strval($request->get("perNum"));
+            $order->username=strval($request->get("username")) ;
+            $order->phone=strval($request->get("userPhone"));
+            $order->email=strval($request->get("userEmail"));
+            $order->remark=strval($request->get("content"));
 //            $order->updated_at=Carbon::now();
 //            $order->paytime=null;
 //            $order->transid="12";
@@ -117,9 +118,26 @@ class TourController extends Controller
     {
         return view('tour.pay');
     }
-    public function result()
+    public function result(Request $request)
     {
-        return view('tour.result');
+        $gateway = Omnipay::gateway();
+
+        $options = [
+            'request_params'=> $_REQUEST,
+        ];
+
+        $response = $gateway->completePurchase($options)->send();
+
+        if ($response->isSuccessful() && $response->isTradeStatusOk()) {
+            //支付成功后操作
+            $msg="支付成功";
+        } else {
+            //支付失败通知.
+            $msg="失败";
+        }
+        $order=newOrder::where("sn","201603160217463574")->first();
+        $travel=$order->travel()->get()->first();
+        return view('tour.result')->with(compact("order",$order))->with(compact("travel",$travel))->with("msg",$msg);
     }
 
 
