@@ -1,826 +1,388 @@
-@extends('layouts.master')
 
-@section('content')
-    <section class="parallax-window" data-parallax="scroll" data-image-src="/img/single_tour_bg_1.jpg" data-natural-width="1400" data-natural-height="470">
-        <div class="parallax-content-2">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8 col-sm-8">
-                        <h1>【{{$travel->hugetitle}}】{{$travel->title}}</h1>
-                        <span></span>
-                        {{--<i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><small>(75)</small>--}}
-                        <span class="rating"></span>
-                    </div>
-                    <div class="col-md-4 col-sm-4">
-                        <div id="price_single_main">
-                            每人 <span class="price">{{$travel->oprice}}</span>
+<!DOCTYPE html>
+<!--[if IE 8]><html class="ie ie8"> <![endif]-->
+<!--[if IE 9]><html class="ie ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->
+<html>
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="template, tour template, city tours, city tour, tours tickets, transfers, travel, travel template" />
+    <meta name="description" content="Citytours - Premium site template for city tours agencies, transfers and tickets.">
+    <meta name="author" content="Ansonika">
+    <title>CITY TOURS - City tours and travel site template by Ansonika</title>
+
+    <!-- Favicons-->
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" type="image/x-icon" href="img/apple-touch-icon-57x57-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="img/apple-touch-icon-72x72-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="img/apple-touch-icon-114x114-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="img/apple-touch-icon-144x144-precomposed.png">
+
+    <!-- CSS -->
+    <link href="/css/base.css" rel="stylesheet">
+
+    <!-- CSS -->
+    <link href="css/jquery.switch.css" rel="stylesheet">
+
+    <style>
+        .bs-wizard > .bs-wizard-step > .bs-wizard-dot:after {
+            background-color:#e04f67;
+        }
+        .add_bottom_15 a{
+            float:left;
+            width:15%;
+            margin-left:15%;
+        }
+        #access_link:before ,#wishlist_link:before{
+            color:#999;
+        }
+        .main-menu ul ul, .main-menu ul .menu-wrapper {
+            border-top:1px solid #ddd;
+        }
+        .main-menu ul ul:before {
+            border-bottom-color:#ddd;
+            z-index:999;
+        }
+        .main-menu ul ul {
+            z-index:999;
+        }
+        .main-menu > ul > li > a {
+            color:#565a5c;
+            font-size:12px;
+            padding:0 0 15px;
+        }
+    </style>
+</head>
+<body>
+
+<!--[if lte IE 8]>
+<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a>.</p>
+<![endif]-->
+
+<div id="preloader">
+    <div class="sk-spinner sk-spinner-wave">
+        <div class="sk-rect1"></div>
+        <div class="sk-rect2"></div>
+        <div class="sk-rect3"></div>
+        <div class="sk-rect4"></div>
+        <div class="sk-rect5"></div>
+    </div>
+</div>
+<!-- End Preload -->
+
+<div class="layer"></div>
+<div class="row" style="height:150px;">
+    <div class="col-md-6 col-sm-6 col-xs-6" style="width:50%;">
+        <div id="logo" style="margin-top:0;">
+            <a href="index.html"><img src="img/logo.png" width="160" height="54" alt="City tours" data-retina="true" class="logo_normal"></a>
+        </div>
+    </div>
+    <div class="col-md-6 col-sm-6 col-xs-6" style="width:50%;padding-top:10px;">
+        <ul id="top_links">
+            <li>
+                <div class="dropdown dropdown-access">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:#000;font-family:'Microsoft YaHei';" id="access_link">登录</a>
+                    <div class="dropdown-menu">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                <a href="#" class="bt_facebook">
+                                    <i class="icon-facebook"></i>Facebook
+                                </a>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                <a href="#" class="bt_paypal">
+                                    <i class="icon-paypal"></i>Paypal
+                                </a>
+                            </div>
                         </div>
+                        <div class="login-or">
+                            <hr class="hr-or">
+                            <span class="span-or">or</span>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="inputUsernameEmail" placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                        </div>
+                        <a id="forgot_pw" href="#">Forgot password?</a>
+                        <input type="submit" name="Sign_in" value="Sign in" id="Sign_in" class="button_drop">
+                        <input type="submit" name="Sign_up" value="Sign up" id="Sign_up" class="button_drop outline">
                     </div>
+                </div>
+            </li>
+            <li><a href="wishlist.html" id="wishlist_link" style="color:#000;font-family:'Microsoft YaHei';">收藏</a></li>
+        </ul>
+    </div>
+</div>
+
+<section id="hero_2">
+    <div class="intro_title animated fadeInDown">
+
+        <div class="bs-wizard">
+
+            <div class="col-xs-4 bs-wizard-step complete">
+                <div class="text-center bs-wizard-stepnum">订单</div>
+                <div class="progress"><div class="progress-bar" style="background-color:#e04f67;"></div></div>
+                <a href="#" class="bs-wizard-dot newc"></a>
+            </div>
+
+            <div class="col-xs-4 bs-wizard-step active">
+                <div class="text-center bs-wizard-stepnum">定金支付</div>
+                <div class="progress" style="background-color:#82ca9c;"><div class="progress-bar" style="background-color:#e04f67;"></div></div>
+                <a href="#" class="bs-wizard-dot"></a>
+            </div>
+
+            <div class="col-xs-4 bs-wizard-step disabled">
+                <div class="text-center bs-wizard-stepnum">完成</div>
+                <div class="progress" style="background-color:#82ca9c;"><div class="progress-bar"></div></div>
+                <a href="confirmation.html" class="bs-wizard-dot" ></a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<div class="container margin_60">
+    <div class="row">
+        <div class="col-md-8">
+
+            <table id="sel_table" class="table table-striped options_cart">
+                <thead>
+                <tr>
+                    <th colspan="4">
+                        项目清单
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td style="width:10%">
+                        <i class="icon_set_1_icon-16"></i>
+                    </td>
+                    <td style="width:30%">
+                        <nav class="col-md-9 col-sm-9 col-xs-9" style="padding-left:0px;z-index:3;">
+                            <div class="main-menu">
+                                <ul>
+                                    <li class="submenu">
+                                        <a class="show-submenu">航班</a>
+                                        <ul>
+                                            <li><p style="word-break:break-all;word-wrap:break-word;padding:5px;">航班价格会随时间变动航班价格会随时间变动航班价格会随时间变动</p></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div><!-- End main-menu -->
+
+                        </nav>
+                        <strong></strong>
+                    </td>
+                    <td style="width:25%">
+                        <a id="sm" style="color:red;display:none;">航班价格会随时间变动</a>
+                    </td>
+                    <td style="width:35%">
+                        <label class="switch-light switch-ios pull-right">
+                            <input type="checkbox" name="option_1" id="option_1"  checked value="">
+                                    <span>
+                                        <span>No</span>
+                                        <span>Yes</span>
+                                    </span>
+                            <a></a>
+                        </label>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <i class="icon_set_1_icon-26"></i>
+                    </td>
+                    <td>
+                        <nav class="col-md-9 col-sm-9 col-xs-9" style="padding-left:0px;z-index:2;">
+                            <div class="main-menu">
+                                <ul>
+                                    <li class="submenu">
+                                        <a>签证</a>
+                                        <ul>
+                                            <li><p style="word-break:break-all;word-wrap:break-word;padding:5px;">航班价格会随时间变动航班价格会随时间变动航班价格会随时间变动</p></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div><!-- End main-menu -->
+
+                        </nav>
+                    </td>
+                    <td>
+                        <a style="color:red;display:none;">航班价格会随时间变动</a>
+                    </td>
+                    <td>
+                        <label class="switch-light switch-ios pull-right">
+                            <input type="checkbox" name="option_2" id="option_2" checked value="">
+                                    <span>
+                                        <span>No</span>
+                                        <span>Yes</span>
+                                    </span>
+                            <a></a>
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <i class="icon_set_1_icon-71"></i>
+                    </td>
+                    <td>
+                        <nav class="col-md-9 col-sm-9 col-xs-9" style="padding-left:0px;z-index:1;">
+                            <div class="main-menu">
+                                <ul>
+                                    <li class="submenu">
+                                        <a>保险</a>
+                                        <ul>
+                                            <li><p style="word-break:break-all;word-wrap:break-word;padding:5px;">航班价格会随时间变动航班价格会随时间变动航班价格会随时间变动</p></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div><!-- End main-menu -->
+
+                        </nav>
+                    </td>
+                    <td>
+                        <a style="color:red;display:none;">航班价格会随时间变动</a>
+                    </td>
+                    <td>
+                        <label class="switch-light switch-ios pull-right">
+                            <input type="checkbox" name="option_3" id="option_3"  value="" checked>
+                                    <span>
+                                        <span>No</span>
+                                        <span>Yes</span>
+                                    </span>
+                            <a></a>
+                        </label>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div><!-- End col-md-8 -->
+
+        <aside class="col-md-4">
+            <div class="box_style_1">
+                <h3 class="inner">- 合计 -</h3>
+                <table class="table table_summary">
+                    <tbody>
+                    <tr>
+                        <td>
+                            人数
+                        </td>
+                        <td id="perNum" class="text-right">
+                            {{$perNum}}
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            地点
+                        </td>
+                        <td class="text-right">
+                            新西兰
+                        </td>
+                    </tr>
+
+                    <tr class="total">
+                        <td>
+                            定金
+                        </td>
+                        <td class="text-right">
+                            ¥2000
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <a class="btn_full" onclick="Ceng()">支付宝</a>
+                <a class="btn_full" onclick="Ceng()">微信</a>
+
+                <!--<a class="btn_full_outline" href="#"><i class="icon-right"></i> Continue shopping</a>-->
+            </div>
+            <div class="box_style_4">
+                <i class="icon_set_1_icon-90"></i>
+                <h4>联系我们</h4>
+                <a href="tel://004542344599" class="phone">+025-58761818</a>
+                <small>周一 至 周日 9.00am - 7.30pm</small>
+            </div>
+        </aside><!-- End aside -->
+
+    </div><!--End row -->
+</div><!--End container -->
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-sm-3">
+                <h3>需要帮助?</h3>
+                <a href="#" id="phone">+025-58761818</a>
+                <a href="#" id="email_footer">services@allinnewzealand.com</a>
+            </div>
+            <div class="col-md-2 col-sm-3" style="margin-left:10%;">
+                <h3>关于我们</h3>
+                <ul>
+                    <li><a href="#">我们是谁</a></li>
+                    <li><a href="/faq.html">常见问题</a></li>
+                    <li><a href="#">使用条款</a></li>
+                </ul>
+            </div>
+            <div class="col-md-2 col-sm-3" style="margin-left:10%;">
+                <h3>其他内容</h3>
+                <ul>
+                    <li><a href="#">最新资讯</a></li>
+                    <li><a href="#">热门房产</a></li>
+                </ul>
+            </div>
+        </div><!-- End row -->
+        <div class="row">
+            <div class="col-md-12">
+                <div id="social_footer">
+                    <ul>
+                        <li><a href="#"><i class="icon-facebook"></i></a></li>
+                        <li><a href="#"><i class="icon-twitter"></i></a></li>
+                        <li><a href="#"><i class="icon-google"></i></a></li>
+                        <li><a href="#"><i class="icon-instagram"></i></a></li>
+                        <li><a href="#"><i class="icon-pinterest"></i></a></li>
+                        <li><a href="#"><i class="icon-vimeo"></i></a></li>
+                        <li><a href="#"><i class="icon-youtube-play"></i></a></li>
+                        <li><a href="#"><i class="icon-linkedin"></i></a></li>
+                    </ul>
+                    <p>© All New Zealand 2016</p>
                 </div>
             </div>
-        </div>
-    </section><!-- End section -->
-
-    <div id="position">
-        <div class="container">
-            <ul>
-                <li><a href="/">首页</a></li>
-                <li><a href="/tour">新西兰旅游</a></li>
-                <li>详情</li>
-            </ul>
-        </div>
-    </div><!-- End Position -->
-
-    <div class="collapse" id="collapseMap">
-        <div id="map" class="map"></div>
-    </div><!-- End Map -->
-
-    <div class="container margin_60">
-        <div class="row">
-            <div class="col-md-8" id="single_tour_desc">
-
-                <p class="visible-sm visible-xs"><a class="btn_map" data-toggle="collapse" href="#collapseMap" aria-expanded="false" aria-controls="collapseMap">查看地图</a></p><!-- Map button for tablets/mobiles -->
-
-                <div id="img_carousel" class="slider-pro">
-                    <div class="sp-slides">
-                        @foreach($pic as $key=>$value)
-                            <div class="sp-slide">
-                                <img alt="" class="sp-image" src="/css/images/blank.gif"
-                                     data-src="{{$value}}"
-                                     data-small="{{$value}}"
-                                     data-medium="{{$value}}"
-                                     data-large="{{$value}}"
-                                     data-retina="{{$value}}">
-                            </div>
-                        @endforeach
-
-                    </div>
-                    <div class="sp-thumbnails">
-                        @foreach($pic as $key=>$value)
-                            <img alt="" class="sp-thumbnail" src="{{$value}}">
-                        @endforeach
-                    </div>
-                </div>
-
-                <hr>
-                <div id="ml" style="background-color: #333;font-size: 11px;margin-top:32px;">
-                    <div  style="width:100%;margin-right: auto;margin-left: auto;">
-                        <ul class="c_ul" style="margin: 0;padding: 0;color: #888;">
-                            <li class="new_a" ><a href="#xcjj" onclick="removeClass('xcjj', this)">行程简介</a></li>
-                            <li><a href="#cpts" onclick="removeClass('cpts',this)">产品特色</a></li>
-                            <li><a href="#hbxx" onclick="removeClass('hbxx',this)">航班信息</a></li>
-                            <li><a href="#xcjs" onclick="removeClass('xcjs', this)">行程介绍</a></li>
-                            <li><a href="#mstj" onclick="removeClass('mstj', this)">美食推荐</a></li>
-                            {{--<li><a href="#zxpl" onclick="removeClass('zxpl', this)">评论区域</a></li>--}}
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-3" id="xcjj">
-                        <h3>行程简介</h3>
-                    </div>
-                    <div class="col-md-9">
-                        <h4>关于此行程</h4>
-                        <p>
-                        {!!$travel->description !!}
-                        </p>
-                        <h4>行程特色</h4>
-                        <p>
-                            以上报价仅供参考，可能会因为不同的出发城市及时间会有所浮动
-                        </p>
-                        {!!$travel->tfeature!!}
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-3" id="cpts">
-                        <h3>产品特色</h3>
-                    </div>
-                    <div class="col-md-9">
-                        <h4>关于此产品</h4>
-                        <p>
-                            {!!$travel->description !!}
-                        </p>
-                        <h4>行程特色</h4>
-                        <p>
-                            以上报价仅供参考，可能会因为不同的出发城市及时间会有所浮动
-                        </p>
-                    </div>
-                </div>
-                <hr>
-                <div class="row">
-                    <div class="col-md-3" id="hbxx">
-                        <h3>航班信息</h3>
-                    </div>
-                    <div class="col-md-9">
-                        <h4>关于此航班</h4>
-                        <p>
-                            {!!$travel->fdescription!!}
-                        </p>
-                        <h4>行程特色</h4>
-                        <p>
-                            以上报价仅供参考，可能会因为不同的出发城市及时间会有所浮动
-                        </p>
-                        {!!$travel->ffeature!!}
-                    </div>
-                </div>
-
-                <hr>
-
-                <div class="container margin_60">
-
-                    <div class="row" id="tour_xc">
-                        <aside id="xingc" class="col-lg-3 col-md-3" style="width:10%;">
-                            <div class="box_style_cat">
-                                <ul id="cat_nav">
-                                    <?php
-                                    function del0($num){
-                                        return "".intval($num);
-                                    }
-                                    //单个数字变汉字
-                                    function n2c($x){
-                                        $arr_n = array("零","一","二","三","四","五","六","七","八","九","十");
-                                        return $arr_n[$x];
-                                    }
-                                    //读取数值（4位）
-                                    function num_r($abcd)
-                                    {
-                                        $arr= array();
-                                        $str = ""; //读取后的汉字数值
-                                        $flag = 0; //该位是否为零
-                                        $flag_end = 1; //是否以“零”结尾
-                                        $size_r = strlen($abcd);
-                                        for($i=0; $i<$size_r; $i++){
-                                            $arr[$i] = $abcd{$i};
-                                        }
-                                        $arrlen = count($arr);
-                                        for($j=0; $j<$arrlen; $j++){
-                                            $ch = n2c($arr[$arrlen-1-$j]); //从后向前转汉字
-                                            if($ch == "零" && $flag == 0){ //如果是第一个零
-                                                $flag = 1; //该位为零
-                                                $str = $ch.$str; //加入汉字数值字符串
-                                                continue;
-                                            }elseif($ch == "零"){ //如果不是第一个零了
-                                                continue;
-                                            }
-                                            $flag = 0; //该位不是零
-                                            switch($j) {
-                                                case 0: $str = $ch; $flag_end = 0; break; //第一位（末尾），没有以“零”结尾
-                                                case 1: $str = $ch."十".$str; break; //第二位
-                                                case 2: $str = $ch."百".$str; break; //第三位
-                                                case 3: $str = $ch."千".$str; break; //第四位
-                                                case 4: $str = $ch."万".$str; break; //第五位
-                                                case 5: $str = $ch."十".$str; break; //第六位
-                                                case 6: $str = $ch."百".$str; break; //第七位
-                                                case 7: $str = $ch."千".$str; break; //第八位
-                                            }
-                                        }
-                                        //如果以“零”结尾
-                                        if($flag_end == 1) {
-                                            mb_internal_encoding("UTF-8");
-                                            $str = mb_substr($str, 0, mb_strlen($str)-1); //把“零”去掉
-                                        }
-                                        return $str;
-                                    }
-                                    function num2ch($num) //整体读取转换
-                                    {
-                                        $num_real = del0($num);//去掉前面的“0”
-                                        $numlen = strlen($num_real);
-                                        echo "numlen=".$numlen."";
-                                        if($numlen >= 9)//如果满九位，读取“亿”位
-                                        {
-                                            $y=substr($num_real, -9, 1);
-                                            //echo $y;
-                                            $wsbq = substr($num_real, -8, 4);
-                                            $gsbq = substr($num_real, -4);
-                                            $a = num_r(del0($gsbq));
-                                            $b = num_r(del0($wsbq))."万";
-                                            $c = num_r(del0($y))."亿";
-                                        }elseif($numlen <= 8 && $numlen >= 5) //如果大于等于“万”
-                                        {
-                                            $wsbq = substr($num_real, 0, $numlen-4);
-                                            $gsbq = substr($num_real, -4);
-                                            $a = num_r(del0($gsbq));
-                                            $b = num_r(del0($wsbq))."万";
-                                            $c="";
-                                        }elseif($numlen <= 4) //如果小于等于“千”
-                                        {
-                                            $gsbq = substr( $num_real, -$numlen);
-                                            $a = num_r(del0($gsbq));
-                                            $b="";
-                                            $c="";
-                                        }
-                                        $ch_num = $c.$b.$a;
-                                        return $ch_num;
-                                    }
-                                    ?>
-                                    @for($i=0;$i<count($travelDay);$i++)
-                                        <li><a href="#travelInfo_{{$i}}">
-                                              第  {{$i+1}}  天
-                                            </a></li>
-                                     @endfor
-                                </ul>
-                            </div>
-                        </aside>
-                        <div class="col-md-3" id="xcjs">
-                            <h3>行程介绍</h3>
-                        </div>
-                        <div class="col-md-8 add_bottom_15" id="tour_d" style="">
-                            @for($i=0;$i<count($travelDay);$i++)
-                            <div class="form_title" id="travelInfo_1">
-                                <h3><strong>{{$i+1}}</strong>DAY{{$i+1}}</h3>
-                            </div>
-                                <div class="step">
-                                    <div class="row">
-                                        <div class=" table-responsive">
-                                            <table class="table table-striped">
-                                                <thead>
-                                                <tr>
-                                                    <th colspan="2">
-                                                        第{{$i+1}}天:{{$travelDay[$i]->title}}
-                                                    </th>
-                                                </tr>
-                                                </thead>
-                                                <tbody>
-                                                @foreach(($travelDay[$i]->sightspot()->get()) as $sight)
-                                                    <tr>
-                                                        <td style="width: 100px;">
-                                                            {{$sight->name}}
-                                                        </td>
-                                                        <td>
-                                                            @if(!empty($sight->introduction))
-                                                                {{$sight->introduction}}
-                                                                @else
-                                                                {{$sight->name}}
-                                                                @endif
-                                                            @if(empty($sight->picurl))
-                                                                @else
-                                                                    <ul class="time_photo">
-                                                                @foreach(explode(',',$sight->picurl) as $key=>$value)
-                                                                            <li>
-                                                                                <img src="{{$value}}">
-                                                                                <p style="text-align:center;padding-top:10px">{{empty($sight->img_remark)?$sight->name:$sight->img_remark}}</p>
-                                                                            </li>
-                                                                    @endforeach
-                                                                    </ul>
-                                                                @endif
+        </div><!-- End row -->
+    </div><!-- End container -->
+</footer><!-- End footer -->
 
 
 
-                                                        </td>
-                                                    </tr>
-                                                @endforeach
-
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endfor
-                        </div>
-                    </div><!--End row -->
-                </div>
-
-                <hr>
-
-                <div class="row">
-                    <div class="col-md-3" id="mstj">
-                        <h3>美食推荐</h3>
-                    </div>
-                    <div class="col-md-9">
-                        <div class=" table-responsive">
-                            <table class="table table-striped">
-                                <thead>
-                                <tr>
-                                    <th colspan="2">
-                                        美食推荐
-                                    </th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                @foreach($travel->cate()->get() as $cate)
-                                    <tr>
-                                        <td style="width: 50px;">
-                                            {{$cate->title}}
-                                        </td>
-                                        <td>
-                                            {{$cate->introduction}}
-                                            <ul class="time_photo">
-                                                @foreach(explode(',',$cate->picurl) as $key=>$value)
-                                                    <li>
-                                                        <img src="{{$value}}">
-                                                    </li>
-                                                @endforeach
-                                            </ul>
-                                        </td>
-                                    </tr>
-                                @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-
-                <hr>
-                {{--<div class="row">--}}
-                    {{--<div class="col-md-3" id="zxpl">--}}
-                        {{--<div class="mockup-content">--}}
-
-                            {{--<div class="morph-button morph-button-modal morph-button-modal-2 morph-button-fixed" >--}}
-                                {{--<button type="button" class="btn_1 add_bottom_30" data-toggle="modal" data-target="#myReview">撰写评论</button>--}}
-                                {{--<div class="morph-content" style="background-color:#fff;">--}}
-                                    {{--<div>--}}
-                                        {{--<div class="content-style-form content-style-form-1" id="comment">--}}
-                                            {{--<span class="icon icon-close">Close the dialog</span>--}}
-                                            {{--<form>--}}
-                                                {{--<p><a style="color:#000;font-family:'Microsoft YaHei';">评论内容:</a><textarea id="txt_comment" style="width:100%;height:80px;"></textarea></p>--}}
-
-
-                                                {{--<div class="star_comment" id="mstar_comment">--}}
-                                                    {{--<a>景点评分:</a>--}}
-                                                    {{--<span></span>--}}
-                                                    {{--<ul>--}}
-                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">1</a></li>--}}
-                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">2</a></li>--}}
-                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">3</a></li>--}}
-                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">4</a></li>--}}
-                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">5</a></li>--}}
-                                                    {{--</ul>--}}
-                                                    {{--<span></span>--}}
-                                                    {{--<p></p>--}}
-                                                    {{--<input name="grade" id="mstar_grade" type="hidden" value="" />--}}
-                                                {{--</div>--}}
-                                                {{--<br />--}}
-
-                                                {{--<div class="star_comment" id="jstar_comment">--}}
-                                                    {{--<a>价格评分:</a>--}}
-                                                    {{--<span></span>--}}
-                                                    {{--<ul>--}}
-                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">1</a></li>--}}
-                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">2</a></li>--}}
-                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">3</a></li>--}}
-                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">4</a></li>--}}
-                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">5</a></li>--}}
-                                                    {{--</ul>--}}
-                                                    {{--<span></span>--}}
-                                                    {{--<p></p>--}}
-                                                    {{--<input name="grade" id="jstar_grade" type="hidden" value="" />--}}
-                                                {{--</div>--}}
-                                                {{--<br />--}}
-                                                {{--<div class="star_comment" id="dstar_comment">--}}
-                                                    {{--<a>导游评分:</a>--}}
-                                                    {{--<span></span>--}}
-                                                    {{--<ul>--}}
-                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">1</a></li>--}}
-                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">2</a></li>--}}
-                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">3</a></li>--}}
-                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">4</a></li>--}}
-                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">5</a></li>--}}
-                                                    {{--</ul>--}}
-                                                    {{--<span></span>--}}
-                                                    {{--<p></p>--}}
-                                                    {{--<input name="grade" id="dstar_grade" type="hidden" value="" />--}}
-                                                {{--</div>--}}
-                                                {{--<br/>--}}
-                                                {{--<div class="star_comment" id="zstar_comment">--}}
-                                                    {{--<a>质量评分:</a>--}}
-                                                    {{--<span></span>--}}
-                                                    {{--<ul>--}}
-                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">1</a></li>--}}
-                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">2</a></li>--}}
-                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">3</a></li>--}}
-                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">4</a></li>--}}
-                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">5</a></li>--}}
-                                                    {{--</ul>--}}
-                                                    {{--<span></span>--}}
-                                                    {{--<p></p>--}}
-                                                    {{--<input name="grade" id="zstar_grade" type="hidden" value="" />--}}
-                                                {{--</div>--}}
-
-                                                {{--<p><button id="btn_comment">提交</button></p>--}}
-                                            {{--</form>--}}
-                                        {{--</div>--}}
-                                    {{--</div>--}}
-                                {{--</div>--}}
-                            {{--</div><!-- morph-button -->--}}
-                        {{--</div>--}}
-
-                    {{--</div>--}}
-                    {{--<div class="col-md-9" id="all_comment">--}}
-                        {{--<div id="general_rating">--}}
-                            {{--11条评论--}}
-                            {{--<div class="rating">--}}
-                                {{--<i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><i class="icon-smile"></i>--}}
-                            {{--</div>--}}
-                        {{--</div><!-- End general_rating -->--}}
-                        {{--<div class="row" id="rating_summary">--}}
-                            {{--<div class="col-md-6">--}}
-                                {{--<ul>--}}
-                                    {{--<li>--}}
-                                        {{--目的地--}}
-                                        {{--<div class="rating">--}}
-                                            {{--<i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><i class="icon-smile"></i>--}}
-                                        {{--</div>--}}
-                                    {{--</li>--}}
-                                    {{--<li>--}}
-                                        {{--导游--}}
-                                        {{--<div class="rating">--}}
-                                            {{--<i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i>--}}
-                                        {{--</div>--}}
-                                    {{--</li>--}}
-                                {{--</ul>--}}
-                            {{--</div>--}}
-                            {{--<div class="col-md-6">--}}
-                                {{--<ul>--}}
-                                    {{--<li>--}}
-                                        {{--价格--}}
-                                        {{--<div class="rating">--}}
-                                            {{--<i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><i class="icon-smile"></i>--}}
-                                        {{--</div>--}}
-                                    {{--</li>--}}
-                                    {{--<li>--}}
-                                        {{--质量--}}
-                                        {{--<div class="rating">--}}
-                                            {{--<i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i>--}}
-                                        {{--</div>--}}
-                                    {{--</li>--}}
-                                {{--</ul>--}}
-                            {{--</div>--}}
-                        {{--</div><!-- End row -->--}}
-                        {{--<hr>--}}
-                        {{--<div class="review_strip_single">--}}
-                            {{--<img src="/img/avatar1.jpg" alt="" class="img-circle">--}}
-                            {{--<small> - 10 March 2015 -</small>--}}
-                            {{--<h4>Jhon Doe</h4>--}}
-                            {{--<p>--}}
-                                {{--"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a lorem quis neque interdum consequat ut sed sem. Duis quis tempor nunc. Interdum et malesuada fames ac ante ipsum primis in faucibus."--}}
-                            {{--</p>--}}
-                            {{--<div class="rating">--}}
-                                {{--<i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><i class="icon-smile"></i>--}}
-                            {{--</div>--}}
-                        {{--</div><!-- End review strip -->--}}
-
-                        {{--<div class="review_strip_single">--}}
-                            {{--<img src="/img/avatar3.jpg" alt="" class="img-circle">--}}
-                            {{--<small> - 10 March 2015 -</small>--}}
-                            {{--<h4>Jhon Doe</h4>--}}
-                            {{--<p>--}}
-                                {{--"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a lorem quis neque interdum consequat ut sed sem. Duis quis tempor nunc. Interdum et malesuada fames ac ante ipsum primis in faucibus."--}}
-                            {{--</p>--}}
-                            {{--<div class="rating">--}}
-                                {{--<i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><i class="icon-smile"></i>--}}
-                            {{--</div>--}}
-                        {{--</div><!-- End review strip -->--}}
-
-                        {{--<div class="review_strip_single last">--}}
-                            {{--<img src="/img/avatar2.jpg" alt="" class="img-circle">--}}
-                            {{--<small> - 10 March 2015 -</small>--}}
-                            {{--<h4>Jhon Doe</h4>--}}
-                            {{--<p>--}}
-                                {{--"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a lorem quis neque interdum consequat ut sed sem. Duis quis tempor nunc. Interdum et malesuada fames ac ante ipsum primis in faucibus."--}}
-                            {{--</p>--}}
-                            {{--<div class="rating">--}}
-                                {{--<i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><i class="icon-smile"></i>--}}
-                            {{--</div>--}}
-                        {{--</div><!-- End review strip -->--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-            </div><!--End  single_tour_desc-->
-
-            <aside class="col-md-4">
-                <div class="box_style_1 expose">
-                    <h3 class="inner">- 预定 -</h3>
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6">
-                            <div class="form-group">
-                                <label><i class="icon-calendar-7"></i> 出发日期</label>
-                                <input class="date-pick form-control" data-date-format="M d" type="text">
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-sm-6">
-                            <div class="form-group">
-                                <label>人数</label>
-                                <div class="numbers-row">
-                                    <input type="text" onkeyup="changeNum(this)" value="2" id="adults" class="qty2 form-control" name="quantity">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <br>
-                    <table class="table table_summary" style="margin-top:-15px;">
-                        <tbody>
-                        <tr>
-                            <td>
-                                人数
-                            </td>
-                            <td id="perNum" class="text-right">
-                                2
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                    <a class="btn_full" href="/order">马上预定</a>
-                </div><!--/box_style_1 -->
-                <div class="box_style_1 expose">
-                    <h3 class="inner">热门旅游</h3>
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6 room">
-                            <div>
-                                <img src="/img/slider_single_tour/1_medium.jpg" alt="" width="68" height="68" class="/img-circle">
-                            </div>
-                            <div class="hold_room">
-                                <h4>新西兰天马镇</h4>
-                                <small>宽敞舒适精美靓宅 绝佳地段双校网 必售房源速来抢购 </small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6 room">
-                            <div>
-                                <img src="/img/slider_single_tour/1_medium.jpg" width="68" height="68" alt="" class="/img-circle">
-                            </div>
-                            <div class="hold_room">
-                                <h4>新西兰天马镇</h4>
-                                <small>宽敞舒适精美靓宅 绝佳地段双校网 必售房源速来抢购 </small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6 room">
-                            <div>
-                                <img src="/img/avatar1.jpg" alt="" width="68" height="68" class="/img-circle">
-                            </div>
-                            <div class="hold_room">
-                                <h4>新西兰天马镇</h4>
-                                <small>宽敞舒适精美靓宅 绝佳地段双校网 必售房源速来抢购 </small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6 room">
-                            <div>
-                                <img src="/img/slider_single_tour/1_medium.jpg" alt="" width="68" height="68" class="/img-circle">
-                            </div>
-                            <div class="hold_room">
-                                <h4>新西兰天马镇</h4>
-                                <small>宽敞舒适精美靓宅 绝佳地段双校网 必售房源速来抢购 </small>
-                            </div>
-                        </div>
-                    </div>
-                    <br>
-
-                    <a class="btn_full" href="cart_hotel.html">更多</a>
-                </div>
-                <div class="box_style_1 expose">
-                    <h3 class="inner">热门资讯</h3>
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6 room">
-                            <div>
-                                <img src="/img/slider_single_tour/1_medium.jpg" alt="" width="68" height="68" class="/img-circle">
-                            </div>
-                            <div class="hold_room">
-                                <h4>新西兰天马镇</h4>
-                                <small>宽敞舒适精美靓宅 绝佳地段双校网 必售房源速来抢购 </small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6 room">
-                            <div>
-                                <img src="/img/slider_single_tour/1_medium.jpg" width="68" height="68" alt="" class="/img-circle">
-                            </div>
-                            <div class="hold_room">
-                                <h4>新西兰天马镇</h4>
-                                <small>宽敞舒适精美靓宅 绝佳地段双校网 必售房源速来抢购 </small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6 room">
-                            <div>
-                                <img src="/img/avatar1.jpg" alt="" width="68" height="68" class="/img-circle">
-                            </div>
-                            <div class="hold_room">
-                                <h4>新西兰天马镇</h4>
-                                <small>宽敞舒适精美靓宅 绝佳地段双校网 必售房源速来抢购 </small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6 room">
-                            <div>
-                                <img src="/img/slider_single_tour/1_medium.jpg" alt="" width="68" height="68" class="/img-circle">
-                            </div>
-                            <div class="hold_room">
-                                <h4>新西兰天马镇</h4>
-                                <small>宽敞舒适精美靓宅 绝佳地段双校网 必售房源速来抢购 </small>
-                            </div>
-                        </div>
-                    </div>
-                    <br>
-
-                    <a class="btn_full" href="cart_hotel.html">更多</a>
-                </div>
-                <div class="box_style_4">
-                    <i class="icon_set_1_icon-90"></i>
-                    <h4>联系我们</h4>
-                    <a href="tel://004542344599" class="phone">+025-58761818</a>
-                    <small>周一 至 周日 9.00am - 7.30pm</small>
-                </div>
-
-            </aside>
-        </div><!--End row -->
-    </div><!--End container -->
-@endsection
-
-
-@push('style')
-        <style>
-            .main_title p {
-                margin-top: 5px;
-            }
-
-            .main-menu a {
-                font-size: 16px;
-            }
-
-            #top_links li a {
-                /*font-weight: 600;*/
-                font-family: 'Microsoft YaHei';
-            }
-
-            .star_comment { position: relative; margin: 0px auto 5px auto; height: 44px; float: left; z-index:100;}
-            .star_comment a {
-                float:left;
-                color:#000000;
-                font-family:'Microsoft YaHei';
-            }
-            .star_comment ul, #star_comment span { float: left; display: inline; }
-            .star_comment ul { margin: 0 10px; }
-            .star_comment ul li a {
-                display:none;
-            }
-            .star_comment ul li i {
-                font-size:20px;
-            }
-            .star_comment li { float: left; width: 29px; height: 27px; cursor: pointer;content:'\e93b';color:#ddd; /*text-indent: -9999px;*/ background-size: cover;list-style:none;}
-            .star_comment strong { color: #f60; padding-left: 10px; }
-            .star_comment li.on { background-position: 0 0px;content:'\e93b';color:#F90; /*background: url(/img/star_red.png) no-repeat;*/ background-size: cover; }
-            .star_comment p { position: absolute; top: 20px; width: 159px; height: 60px; color:#F90;display: none; padding: 7px 10px 0; }
-            .star_comment p em { color: #f60; display: block; font-style: normal; }
-             .time_photo {
-                 padding: 10px 0 20px 0;
-                 color: #999;
-                 overflow: hidden;
-             }
-
-            .time_photo li {
-                float: left;
-                width: 50%;
-                padding-left: 5px;
-            }
-
-            .time_photo li img {
-                width: 100%;
-                height: 130px;
-                margin-bottom: 4px;
-            }
-            ul#cat_nav li a {
-                font-family:'Microsoft YaHei';
-                padding:10px 5px;
-
-                text-align:center;
-            }
-            .room {
-                width:100%;
-                margin-bottom:20px;
-            }
-            .room div {
-                float:left;
-            }
-            .hold_room {
-                width:65%;
-                margin:-10px 0 0 10px;
-            }
-            .hold_room small {
-                font-family:'Microsoft YaHei';
-            }
-            ul#cat_nav li a:after {
-                content:"";
-                right:0;
-            }
-            ul#cat_nav li a {
-                color:#fff;
-                background-color:#82ca9c;
-            }
-
-            .step {
-                width: 75%;
-            }
-            #position ul li:after {
-                content:"";
-            }
-            .c_ul li{
-                display: inline-block;
-                padding-right: 8px;
-                margin-right: 3px;
-                position: relative;
-                font-family: 'Microsoft YaHei';
-                padding-left:30px;
-                width:19%;
-                padding:10px 0 10px 0;
-                text-align:center;
-            }
-            .c_ul li a{
-                color:#fff;
-            }
-            .new_a {
-                background-color:#666;
-            }
-            /*.form_title {
-                margin-left: 22.5%;
-            }*/
-        </style>
-<!-- CSS -->
-<link href="/css/slider-pro.min.css" rel="stylesheet">
-<link href="/css/date_time_picker.css" rel="stylesheet">
-<link href="/css/owl.carousel.css" rel="stylesheet">
-<link href="/css/owl.theme.css" rel="stylesheet">
-<link href="/css/component.css" rel="stylesheet">
-<link href="/css/content.css" rel="stylesheet">
-<style>
-    .time_photo {
-        padding: 10px 0 20px 0;
-        color: #999;
-        overflow: hidden;
-    }
-    .time_photo li {
-        float: left;
-        width: 50%;
-        padding-left: 5px;
-    }
-    .time_photo li img {
-        width: 100%;
-        height: 130px;
-        margin-bottom: 4px;
-    }
-</style>
-@endpush
-
-@push('script')
-<!-- Specific scripts -->
-<script src="/js/icheck.js"></script>
+<div id="toTop"></div><!-- Back to top button -->
+<!-- Jquery -->
+<script src="/js/jquery-1.11.2.min.js"></script>
+<script src="/js/common_scripts_min.js"></script>
+<script src="/js/functions.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+</div>
+{{--<script>$(function ()--}}
+    {{--{ $("[data-toggle='popover']").popover();--}}
+    {{--});--}}
+{{--</script>--}}
 <script>
-    $('input').iCheck({
-        checkboxClass: 'icheckbox_square-grey',
-        radioClass: 'iradio_square-grey'
-    });
-</script>
-<!-- Date and time pickers -->
-<script src="/js/jquery.sliderPro.min.js"></script>
-<script type="text/javascript">
-    $( document ).ready(function( $ ) {
-        $( '#img_carousel' ).sliderPro({
-            width: 960,
-            height: 500,
-            fade: true,
-            arrows: true,
-            buttons: false,
-            fullScreen: false,
-            smallSize: 500,
-            startSlide: 0,
-            mediumSize: 1000,
-            largeSize: 3000,
-            thumbnailArrows: true,
-            autoplay: false
-        });
-    });
-</script>
-
-
-<!-- Date and time pickers -->
-<script src="/js/bootstrap-datepicker.js"></script>
-<script src="/js/modernizr.custom.js"></script>
-<script type="text/javascript" src="/js/classie.js"></script>
-<script type="text/javascript" src="/js/uiMorphingButton_fixed.js"></script>
-<script>
-    $('input.date-pick').datepicker('setDate', 'today');
-    $(document).ready(function ($) {
-        $('#img_carousel').sliderPro({
-            width: 960,
-            height: 500,
-            fade: true,
-            arrows: true,
-            buttons: false,
-            fullScreen: false,
-            smallSize: 500,
-            startSlide: 0,
-            mediumSize: 1000,
-            largeSize: 3000,
-            thumbnailArrows: true,
-            autoplay: false
-        });
-    });
+    function Ceng() {
+        document.getElementById('ceng').style.display = 'block';
+        document.getElementById('close').style.display = 'block';
+        return false;
+    }
+    function closeCeng() {
+        document.getElementById('ceng').style.display = 'none';
+        document.getElementById('close').style.display = 'none';
+        $("[data-toggle='popover']").popover("destroy");
+        return false;
+    }
     function changeNum(obj)
     {
         var $obj = $(obj);
@@ -829,258 +391,199 @@
             $obj.val("");
         }
         else {
-            $("#perNum").text( $(obj).val());
-        }
-    }
-    function removeClass(id,obj)
-    {
-        var ev = ev || window.event;
-        var thisId = document.getElementById(id);
-        document.documentElement.scrollTop = document.body.scrollTop = $(thisId).offset().top-100-64;// - oBtn.offsetHeight;
-        ev.preventDefault();
-    }
-    function hide() {
-        $("#tour_d .form_title").each(function () {
-            if ($(this).index() > 2) {
-                $(this).hide();
-                $(this).next().hide();
-            }
-        })
-        $("#cat_nav li").each(function () {
-            if ($(this).index() > 1 && $(this).text() != "收起行程") {
-                //alert( $(this).index()+"_"+$("#cat_nav li").length);
-                $(this).hide();
-            }
-        })
-    }
-    var show = function (ulid) {
-        var text = $("#sh").text();
-        if (text == "展开行程") {
-            $("#cat_nav li").show();
-            $("#tour_d .form_title").show();
-            $("#tour_d .form_title").next().show();
-            $("#sh").text("收起行程")
-        }
-        else {
-            hide();
-            $("#sh").text("展开行程")
-        }
-
-    }
-    window.onresize = function () {
-        var $ml = $("#ml"), $xingc = $("#xingc"), mpos = $ml.css("position"), xpos = $xingc.css("position");
-        if (mpos != "fixed" && window.outerHeight === screen.availHeight || window.outerWidth === screen.availWidth) {
-            $ml.css("width", "58%");
-        }
-        else {
-            $ml.css("width", "90%");
-        }
-        if (xpos != "fixed" && window.outerHeight === screen.availHeight || window.outerWidth === screen.availWidth) {
-            $xingc.css("width", "8.5%");
-        }
-        else {
-            $xingc.css("width", "12.5%");
-        }
-    }
-    window.onscroll = function () {
-        var t = document.documentElement.scrollTop || document.body.scrollTop;
-        var top = $("#tour_xc").offset().top;
-        var pl_top = $("#zxpl").offset().top;
-        if (t > (top -60)) {
-            var $xingc = $("#xingc");
-            $xingc.css("position", "fixed").css("top", "105px").css("z-index", "9999");
-            if (window.outerHeight === screen.availHeight || window.outerWidth === screen.availWidth) {
-                $xingc.css("width", "8.5%");
-            }
-            else {
-                $xingc.css("width", "12.5%");
-            }
-
-            $("#tour_d,#xcjs").css("margin-left", "10%");
-        }
-
-        else {
-            $("#xingc").css("position", "relative").css("top", "").css("width", "10%");
-            $("#tour_d,#xcjs").css("margin-left", "0");
-        }
-        if (t > (pl_top - $("#xingc").height()-100))
-        {
-            $("#xingc").css("position", "relative").css("top", "").css("width", "10%");
-            $("#tour_d,#xcjs").css("margin-left", "0");
-        }
-        var ml_top = $("#xcjj").offset().top;
-        if (t > (ml_top - 43))
-        {
-            var $ml = $("#ml");
-            $ml.css("position", "fixed").css("top", "30px").css("z-index", "999");
-            if (window.outerHeight === screen.availHeight || window.outerWidth === screen.availWidth) {
-                $ml.css("width", "58%");
-            }
-            else {
-                $ml.css("width", "90%");
-            }
-            //$("#ml").css("position", "fixed").css("top", "30px").css("z-index", "999").css("width", "56%");
-        }
-        else {
-            $("#ml").css("position", "relative").css("top", "").css("width", "");
-            //$("#tour_d").css("margin-left", "0");
+            var p = $obj.parent().parent();
+            var dmon = p.next().text(), zmon = p.next().next();
+            zprice = parseFloat(dmon) * parseFloat($obj.val());
+            zmon.text(zprice);
         }
     }
     $(function () {
-        //$("#xingc").css("top", $("#tour_xc").offset().top+"px");
-        var $tour = $("#tour_d .form_title");
-        var $travel_d=$("#tour_d .form_title").length;
-        $("#cat_nav li").each(function(){
-          //$(this).find("a:first").text("第"+DX($(this).index()+1)+"天");
-        });
-        if ($travel_d > 2)
-        {
-            hide();
-            $("#cat_nav").append("<li><a href='###' onclick=\"show('sh')\" id=\"sh\">展开行程</a></li>")
-        }
-        $("#btn_comment").click(function () {
-            var txt_comment = $("#txt_comment").val();
-            var cmoment="<div class=\"review_strip_single\"> <img src=\"/img/avatar1.jpg\" alt=\"\" class=\"img-circle\"><small> - 10 March 2015 -</small>";
-            cmoment = cmoment + "<h4>Jhon Doe</h4><p>" + txt_comment + "</p><div class=\"rating\"><i class=\"icon-smile voted\"></i><i class=\"icon-smile voted\"></i><i class=\"icon-smile voted\"></i><i class=\"icon-smile\"></i><i class=\"icon-smile\"></i></div> </div>";
-            $("#all_comment").append(cmoment);
-            alert("评论成功");
-            $(".morph-content").hide();
-        })
-    })
-    function s (id,gradeId) {
-        //var eles = document.getElementsByClassName("star_comment");
-        var oStar = document.getElementById(id);
-        //var oStar = eles[i];
-        var aLi = oStar.getElementsByTagName("li");
-        var oUl = oStar.getElementsByTagName("ul")[0];
-        var oSpan = oStar.getElementsByTagName("span")[1];
-        var oP = oStar.getElementsByTagName("p")[0];
-        var i = iScore = iStar = 0;
-        var oH = document.getElementById(gradeId);
-        var aMsg = [
-            "很不满意|非常不满",
-            "不满意|不满意",
-            "一般|一般",
-            "满意|满意",
-            "非常满意|非常满意"
-        ]
+        //$("#sel_table").find("input[type='checkbox']").each(function () {
 
-        for (i = 1; i <= aLi.length; i++) {
-            aLi[i - 1].index = i;
+        //    $(this).change(function () {
+        //        var $checked=$(this).is(":checked");
+        //        var text, id = $(this).attr("id").split('_')[1];
 
-            //鼠标移过显示分数
-            aLi[i - 1].onmouseover = function () {
-                fnPoint(this.index);
-                //浮动层显示
-                // oP.style.display = "block";
-                //计算浮动层位置
-                //                oP.style.left = oUl.offsetLeft + this.index * this.offsetWidth - 104 + "px";
-                //                //匹配浮动层文字内容
-                //                oP.innerHTML = "<em><b>" + this.index + "</b> 分 " + aMsg[this.index - 1].match(/(.+)\|/)[1] + "</em>" + aMsg[this.index - 1].match(/\|(.+)/)[1]
-            };
+        //        var len = $("#order_tbody tr#tr_" + id).length;
+        //        if ($checked == true && len < 1) {
+        //            var typeText = $(this).parent().parent().prev().find("span").text(), mon = $(this).parent().parent().prev().find("strong").text();
+        //            var tr = "<tr id='tr_" + id + "'><td><span class=\"item_cart\">" + typeText + "</span></td><td><div class=\"numbers-row\"><input type=\"text\" onkeyup=\"changeNum(this)\" value=\"1\" id=\"quantity_1\" class=\"qty2 form-control\" name=\"quantity_1\"><div id='add_" + id + "' class=\"inc button_inc\" onclick=\"changeVal(this)\">+</div><div class=\"dec button_inc\" id='r_" + id + "' onclick=\"changeVal(this)\">-</div>"
+        //            tr = tr + "</div></td><td class=\"options\"><a href=\"#\"><i class=\"icon-trash\"></i></a><a href=\"#\"><i class=\"icon-ccw-2\"></i></a> </td></tr>";
+        //            $("#order_tbody").append(tr);
+        //        }
+        //        else {
+        //            $("#table").find("tr").each(function () {
+        //                var trId="tr_"+id;
+        //                if ($(this).attr("id") == trId)
+        //                {
+        //                    $(this).remove()
+        //                }
+        //            });
+        //        }
+        //    })
 
-            //鼠标离开后恢复上次评分
-            aLi[i - 1].onmouseout = function () {
-                fnPoint();
-                //关闭浮动层
-                oP.style.display = "none"
-            };
-
-            //点击后进行评分处理
-            aLi[i - 1].onclick = function () {
-                iStar = this.index;
-                oP.style.display = "none";
-                oH.setAttribute("value", iStar);
-                //oSpan.innerHTML = "<strong>" + (this.index) + " 分</strong> (" + aMsg[this.index - 1].match(/\|(.+)/)[1] + ")"
+        //})
+        $("#option_1").change(function () {
+            if ($(this).is(":checked")) {
+                $("#sm").show();
             }
-        }
-
-        //评分处理
-        function fnPoint(iArg) {
-            //分数赋值
-            iScore = iArg || iStar;
-            for (i = 0; i < aLi.length; i++) aLi[i].className = i < iScore ? "on" : "";
-        }
-    };
-    (function () {
-        var docElem = window.document.documentElement, didScroll, scrollPosition;
-
-        // trick to prevent scrolling when opening/closing button
-        function noScrollFn() {
-            window.scrollTo(scrollPosition ? scrollPosition.x : 0, scrollPosition ? scrollPosition.y : 0);
-        }
-
-        function noScroll() {
-            window.removeEventListener('scroll', scrollHandler);
-            window.addEventListener('scroll', noScrollFn);
-        }
-
-        function scrollFn() {
-            window.addEventListener('scroll', scrollHandler);
-        }
-
-        function canScroll() {
-            window.removeEventListener('scroll', noScrollFn);
-            scrollFn();
-        }
-
-        function scrollHandler() {
-            if (!didScroll) {
-                didScroll = true;
-                setTimeout(function () { scrollPage(); }, 60);
+            else {
+                $("#sm").hide();
             }
-        };
-
-        function scrollPage() {
-            scrollPosition = { x: window.pageXOffset || docElem.scrollLeft, y: window.pageYOffset || docElem.scrollTop };
-            didScroll = false;
-        };
-
-        scrollFn();
-
-        [].slice.call(document.querySelectorAll('.morph-button')).forEach(function (bttn) {
-            new UIMorphingButton(bttn, {
-                closeEl: '.icon-close',
-                onBeforeOpen: function () {
-                    // don't allow to scroll
-                    noScroll();
-                },
-                onAfterOpen: function () {
-                    // can scroll again
-                    canScroll();
-                },
-                onBeforeClose: function () {
-                    // don't allow to scroll
-                    noScroll();
-                },
-                onAfterClose: function () {
-                    // can scroll again
-                    canScroll();
-                }
-            });
         });
 
-        // for demo purposes only
-        [].slice.call(document.querySelectorAll('form button')).forEach(function (bttn) {
-            bttn.addEventListener('click', function (ev) { ev.preventDefault(); });
-        });
-    })();
-    $(function () {
-        $('.numbers-row div').on("click",function(e){
-           $("#perNum").text( $("#adults").val());
-        });
-        $("#comment div.star_comment").each(function () {
-            s($(this).attr("id"), $(this).find("input[name='grade']").attr("id"));
+        $("#subOrder").click(function(){
+
+             validate();
+            //$("#orderform").submit();
+            if($(".popover").length<=0&&result==true)
+            {
+               // $("#orderform").submit();
+                {{--$.post('{{ action('TourController@create') }}',--}}
+                {{--{ 'rout': $("#rout").val(),"perNum":$("#perNum").text().trim(),"username":$("#username").val(),"userPhone":$("#userPhone").val(),"userEmail":$("#userEmail").val(),"content":$("#txt_content").val()  },--}}
+                {{--function(data){--}}
+                {{--if(data!="0")--}}
+                {{--{--}}
+                      {{--$("#orderform").submit();--}}
+                {{--}--}}
+                {{--});--}}
+                $.ajax({
+                    type: "post",
+                    url: "/create",
+                    dataType: "json",
+                    data: { 'rout': $("#rout").val(),"perNum":$("#perNum").text().trim(),"username":$("#username").val(),"userPhone":$("#userPhone").val(),"userEmail":$("#userEmail").val(),"content":$("#txt_content").val()  },
+                    success: function(msg){
+                        $("#orderform").submit();
+                    }
+                });
+            }
+
         })
+
     })
+
 </script>
-<!-- Map -->
-<script src="http://maps.google.cn/maps/api/js"></script>
-<script src="/js/map.js"></script>
-<script src="/js/infobox.js"></script>
+<script type="text/javascript" charset="utf-8" src="/js/jquery.form.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="/js/artdialog/dialog-plus-min.js"></script>
+<script src="/js/common.js"></script>
+<script src="/js/Validform.js"></script>
+<link href="/js/artdialog/ui-dialog.css" rel="stylesheet" type="text/css" />
 
-<!--Review modal validation -->
-<script src="/assets/validate.js"></script>
+<div id="ceng" style="position:fixed;z-index:1000;left:0;top:0;right:0;background-color:#000;opacity: 0.5; filter:alpha(opacity=50);margin:1px 1px;display:none;width:100%;height:100%;text-align:center;">
+</div>
+<div id="close" style="position:fixed ;left:30%;top:0px;z-index:1001;background-color:#fff;margin:5% 0 0 0;padding:0px;display:none;width:361px;text-align:right">
+    <i class="icon-cancel" onclick="closeCeng()"></i>
+    <h3 style="text-align:-webkit-auto;padding-left: 10px;">填写联系人信息</h3>
+    <hr>
+    <div style="text-align:center;"><br>
+    {{--<form id="orderform" name="orderform" action="/spay" method="post">--}}
+        {{--<input  name="rout" id="rout" type="hidden" value="{{$route}}">--}}
+        {{--<input  name="WIDout_trade_no" type="hidden" value="10000">--}}
+        {{--<input  name="WIDsubject" type="hidden" value="{{$name}}">--}}
+        {{--<input  name="WIDtotal_fee" type="hidden" value="2000">--}}
+    {{--</form>--}}
 
-<script src="/js/datepicker_advanced.js"></script>
-@endpush
+        <form id="orderform" name=orderform action=/pay method=post  target="_blank">
+                     <input  name="rout" id="rout" type="hidden" value="{{$route}}">
+                    <input  name="subject" type="hidden" value="{{$name}}">
+                    <input  name="total_fee" type="hidden" value="2000">
+                    <input  name="url" id="url" type="hidden" value="">
+
+            <div class="form-group">
+                <label for="txtUserName" class="col-sm-3 control-label" >联系人姓名</label>
+                    <div class="col-sm-9" ><input  name="username" id="username" class="date-pick form-control" style="width:90%;" placeholder="用户名不能为空"  datatype="s3-50"  nullmsg="用户名不能为空" sucmsg=" " id="txtUserName"  name="txtUserName" >
+                    <span class="Validform_checktip" ></span></div>
+            </div>
+            <div class="form-group">
+                <label for="txtUserName" class="col-sm-3 control-label" >联系人电话</label>
+                <div class="col-sm-9" ><input  name="userPhone" id="userPhone" class="date-pick form-control" style="width:90%;" datatype="/^(((1[1-9]{1}[0-9]{1}))+\d{8})$/" placeholder="联系人电话不能为空" errormsg="联系人电话格式有误"    nullmsg="联系人电话不能为空" sucmsg=" " >
+                    <span class="Validform_checktip"></span></div>
+            </div>
+            <div class="form-group">
+                <label for="txtUserName" class="col-sm-3 control-label" >联系人邮箱</label>
+                <div class="col-sm-9" ><input  name="userEmail" id="userEmail" class="date-pick form-control" style="width:90%;" datatype="/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/" placeholder="请填写邮箱"  errormsg="联系人邮箱格式有误" nullmsg="请填写邮箱"     sucmsg=" " >
+                    <span class="Validform_checktip"></span></div>
+            </div>
+            <div class="form-group">
+                <label for="txtUserName" class="col-sm-3 control-label" >备注</label>
+                <div class="col-sm-9" style="height:102px;"><textarea name="content" class="date-pick form-control" id="txt_content" style="width:90%;height:80px;"></textarea>
+                    <span class="Validform_checktip"></span></div>
+            </div>
+        <input class="btn_full" type="submit" id="subOrder" style="width:80%;margin:0 0 40px 10%;" value="确定">
+        </form>
+    </div>
+</div>
+<style>
+    .form-group{height: 45px;}
+    .form-group label{
+        width: 27%;
+    }
+    .form-group div.col-sm-9{
+        width: 73%;
+    }
+    .icon-cancel:before{
+        content: '\e81e';
+        cursor:pointer;
+        font-size: 20px;
+        padding: 2px 2px;
+    }
+    /*.form-group div.col-sm-9{*/
+        /*margin-bottom: 20px;*/
+    /*}*/
+</style>
+<script>
+    $("#orderform").Validform({
+        tiptype:3,
+        label:".label",
+        showAllError:true
+    });
+$("#url").val(window.location.href);
+    var result=true;
+{{--function  validate()--}}
+{{--{--}}
+            {{--var $username=$("#username");--}}
+            {{--var $userPhone=$("#userPhone");--}}
+            {{--var $userEmail= $("#userEmail");--}}
+            {{--$("#phone").popover("show");--}}
+            {{--if($username.val()=="")--}}
+            {{--{--}}
+            {{--$username.attr("data-content","用户名不能为空");--}}
+            {{--$username.popover('show');--}}
+                {{--result=false;--}}
+            {{--}--}}
+            {{--else {--}}
+                {{--$username.popover('destroy');--}}
+                {{--result=true;--}}
+            {{--}--}}
+            {{--if( $userPhone.val()=="")--}}
+            {{--{--}}
+                {{--$userPhone.attr("data-content","手机号码不能为空");--}}
+                {{--$userPhone.popover("show");--}}
+                {{--result=false;--}}
+            {{--}--}}
+            {{--else {--}}
+                {{--$userPhone.popover('destroy');--}}
+                {{--result=true;--}}
+            {{--}--}}
+            {{--var phonereg = /^(((1[1-9]{1}[0-9]{1}))+\d{8})$/;--}}
+            {{--if(!phonereg.test($userPhone.val()))--}}
+            {{--{--}}
+                {{--$userPhone.attr("data-content","手机号填写有误");--}}
+                {{--$userPhone.popover("show");--}}
+                {{--result=false;--}}
+            {{--}--}}
+            {{--var emailreg= /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/;--}}
+            {{--if( !emailreg.test($userEmail.val()))--}}
+            {{--{--}}
+                {{--$userEmail.attr("data-content","邮箱格式有误");--}}
+                {{--$userEmail.popover("show");--}}
+                {{--result=false;--}}
+            {{--}--}}
+            {{--else {--}}
+                {{--$userEmail.popover('destroy');--}}
+                {{--result=true;--}}
+            {{--}--}}
+{{--}--}}
+</script>
+</body>
+</html>

@@ -27,10 +27,11 @@ Route::group([ 'middleware' => ['web']], function () {
     Route::get('property/{id}', '\App\Http\Controllers\PropertyController@show');
 
     Route::get('tour', '\App\Http\Controllers\TourController@index');
-//    Route::post('tour', '\App\Http\Controllers\RegisterController@postUser_Register');
     Route::get('tour/{id}', '\App\Http\Controllers\TourController@show');
-
-    Route::get('tour/{id}', '\App\Http\Controllers\TourController@order');
+    Route::get('order', '\App\Http\Controllers\TourController@order');
+    Route::get('result', '\App\Http\Controllers\TourController@result');
+    Route::post('spay', '\App\Http\Controllers\TourController@pay');
+    Route::post('create', '\App\Http\Controllers\TourController@create');
 
     Route::get('news', '\App\Http\Controllers\ArticleController@index');
     Route::get('news/{id}', '\App\Http\Controllers\ArticleController@show');
@@ -48,9 +49,15 @@ Route::group([ 'middleware' => ['web']], function () {
     Route::post('register/validate_username','\App\Http\Controllers\RegisterController@validate_username');
     Route::post('register/validate_mobile','\App\Http\Controllers\RegisterController@validate_mobile');
 
-
+    //支付宝支付处理
+    Route::post('pay','AlipayController@pay');
+    //支付后跳转页面
+    Route::post('result','AlipayController@result');
 
 Route::get('debug', function(){
+   //  phpinfo();()
+
+    return strval(Session::get('users'));
 
   // return auth()->user();
 //

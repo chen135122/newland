@@ -14,6 +14,11 @@ class Travel extends BaseModel
     {
         return $this->hasOne('App\Models\Cate', 'route_id','id');
     }
+    public function feature()
+    {
+        return $this->hasOne('App\Models\Feature', 'route_id','id');
+    }
+
 }
 class TravelDay extends BaseModel
 {
@@ -28,9 +33,23 @@ class TravelDay extends BaseModel
 class SightSpot extends BaseModel
 {
     protected $table = 'nz_travel_sightspot';
+    public function hasimg()
+    {
+        return $this->hasOne('App\Models\Imge', 'out_id','id')->where("type","1")->orderBy("sort_num","desc");
+    }
 }
 //美食model
 class Cate extends BaseModel
 {
     protected $table = 'nz_travel_cate';
 }
+class Imge extends BaseModel
+{
+    protected $table = 'nz_travel_img';
+}
+class Feature extends  BaseModel
+{
+    protected $table = 'nz_travel_feature';
+}
+
+
