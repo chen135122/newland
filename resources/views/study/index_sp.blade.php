@@ -187,8 +187,8 @@
     <div id="position">
         <div class="container">
             <ul>
-                <li><a href="/indexNew.html">首页</a></li>
-                <li><a href="#">新西兰留学</a></li>
+                <li><a href="/">首页</a></li>
+                <li><a href="/study-sp">新西兰留学</a></li>
             </ul>
         </div>
     </div><!-- Position -->
@@ -234,9 +234,38 @@
                                         </ul>
                                     </div>
                                 @endif
+                                    <div class="filter_type htype">
+                                        <h6>学校类型</h6>
+                                        <ul>
+                                            <li><label><a href="javascript:void(0);" rel="1" {!!($type==1) ?'class="btn_1" style="padding:3px 10px;"':"" !!}>小学</a></label></li>
+                                            <li><label><a href="javascript:void(0);" rel="2" {!!($type==2) ?'class="btn_1" style="padding:3px 10px;"':"" !!}>初中</a></label></li>
+                                            <li><label><a href="javascript:void(0);" rel="3" {!!($type==3) ?'class="btn_1" style="padding:3px 10px;"':"" !!}>高中</a></label></li>
+                                            <li><label><a href="javascript:void(0);" rel="4" {!!($type==4) ?'class="btn_1" style="padding:3px 10px;"':"" !!}>全年级</a></label></li>
+                                            <li><label><a href="javascript:void(0);" rel="5" {!!($type==5) ?'class="btn_1" style="padding:3px 10px;"':"" !!}>特殊学校</a></label></li>
+                                        </ul>
+                                    </div>
+                                    <div class="filter_type nature">
+                                        <h6>学校性质</h6>
+                                        <ul>
+                                            <li><label><a href="javascript:void(0);" rel="1" {!!($nature==1) ?'class="btn_1" style="padding:3px 10px;"':"" !!}>公立学校</a></label></li>
+                                            <li><label><a href="javascript:void(0);" rel="2" {!!($nature==2) ?'class="btn_1" style="padding:3px 10px;"':"" !!}>私立学校</a></label></li>
+                                            <li><label><a href="javascript:void(0);" rel="3" {!!($nature==3) ?'class="btn_1" style="padding:3px 10px;"':"" !!}>其他</a></label></li>
+                                        </ul>
+                                    </div>
+                                    <div class="filter_type gender">
+                                        <h6>学校性别</h6>
+                                        <ul>
+                                            <li><label><a href="javascript:void(0);" rel="1" {!!($gender==1) ?'class="btn_1" style="padding:3px 10px;"':"" !!}>男校</a></label></li>
+                                            <li><label><a href="javascript:void(0);" rel="1" {!!($gender==2) ?'class="btn_1" style="padding:3px 10px;"':"" !!}>女校</a></label></li>
+                                            <li><label><a href="javascript:void(0);" rel="1" {!!($gender==3) ?'class="btn_1" style="padding:3px 10px;"':"" !!}>男女混合校</a></label></li>
+                                        </ul>
+                                    </div>
                                     <input id="select_region" name="region" type="hidden" value="{{$rid}}">
                                     <input id="select_regionc" name="region" type="hidden" value="{{$cid}}">
                                     <input id="select_regiond" name="region" type="hidden" value="{{$did}}">
+                                    <input id="select_type" name="type" type="hidden" value="{{$type}}">
+                                    <input id="select_nature" name="type" type="hidden" value="{{$nature}}">
+                                    <input id="select_gender" name="type" type="hidden" value="{{$gender}}">
                             </div>
                         </div>
                         
@@ -250,9 +279,9 @@
                               <div class="row">
                                   <div class="col-lg-4 col-md-4 col-sm-4">
                                       <div class="img_list">
-                                          <a href="/study/{{$study->id}}">
-                                             <img src="{{$study->logo}}" alt="">
-                                              <div class="short_info">{{ isset($study->world_ranking) ? '世界排名第'.$study->world_ranking."位": '' }}</div>
+                                          <a href="/study-sp/{{$study->id}}">
+                                             <img src="{{$study->picurl}}" alt="">
+
                                           </a>
                                       </div>
                                   </div>
@@ -260,12 +289,43 @@
                                   <div class="col-lg-6 col-md-6 col-sm-6">
                                       <div class="style_list_desc">
                                           <div class="rating"></div>
-                                          <h3>{{$study->cn_name}}</h3>
+                                          <h3>{{$study->name}}</h3>
                                           <ul>
-                                              <li>英文名： {{$study->en_name}}</li>
-                                              <li>地区： {{$study->country}}-{{ $study->city}}</li>
-                                              <li>费用： {{$study->fee_min}}-{{$study->fee_max}}</li>
-                                              <li>ielts： {{$study->ielts_min}}-{{$study->ielts_max}}</li>
+                                              <li>学校类型：
+                                                  <?php
+                                                  switch($study->nature)
+                                                  {
+
+                                                  case 1 :echo "小学"; break;
+                                                  case 2 :echo "初中"; break;
+                                                  case 3 :echo "高中"; break;
+                                                  case 4 :echo "全年级"; break;
+                                                  case 5 :echo "特殊学校"; break;
+                                                  }
+                                                  ?>
+                                              </li>
+                                              <li>学校性质：  <?php
+                                                  switch($study->nature)
+                                                  {
+
+                                                      case 1 :echo "公立学校"; break;
+                                                      case 2 :echo "私立学校"; break;
+                                                      case 3 :echo "其他"; break;
+                                                  }
+                                                  ?>
+                                              </li>
+                                              <li>学校学生：  <?php
+                                                  switch($study->gender)
+                                                  {
+
+                                                      case 1 :echo "男校"; break;
+                                                      case 2 :echo "女校"; break;
+                                                      case 3 :echo "男女混合"; break;
+                                                  }
+                                                  ?>
+                                              </li>
+                                              <li>分制： {{$study->decile}}</li>
+
                                           </ul>
                                       </div>
                                   </div>
@@ -273,7 +333,7 @@
                                       <div class="price_list">
                                           <div>
                                               
-                                              <p><a href="/study/{{$study->id}}" class="btn_1">详情</a></p>
+                                              <p><a href="/study-sp/{{$study->id}}" class="btn_1">详情</a></p>
                                           </div>
                                       </div>
                                   </div>
@@ -573,6 +633,7 @@
     <script src="/js/common_scripts_min.js"></script>
     <script src="/js/functions.js"></script>
     <script src="/js/select.js"></script>
+
 </body>
 
 </html>

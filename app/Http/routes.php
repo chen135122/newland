@@ -39,6 +39,9 @@ Route::group([ 'middleware' => ['web']], function () {
 	Route::get('study', '\App\Http\Controllers\StudyController@index');
 	Route::get('study/{id}', '\App\Http\Controllers\StudyController@show');
 
+    Route::get('study-sp', '\App\Http\Controllers\StudyController@index_sp');
+    Route::get('study-sp/{id}', '\App\Http\Controllers\StudyController@show_sp');
+
     Route::get('register', '\App\Http\Controllers\RegisterController@index');
     Route::post('register', '\App\Http\Controllers\RegisterController@postUser_Register');
     Route::post('register/sendsms','\App\Http\Controllers\RegisterController@sendsms');

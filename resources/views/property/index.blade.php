@@ -15,7 +15,7 @@
         <div class="container">
             <ul>
                 <li><a href="/">首页</a></li>
-                <li><a href="#">新西兰房产</a></li>
+                <li><a href="/property">新西兰房产</a></li>
             </ul>
         </div>
     </div><!-- Position -->
@@ -33,54 +33,62 @@
                             <h6>价格</h6>
                             <input type="text" id="range" name="range" value="">
                         </div>
-                        <input type="hidden" value="{{$minprice}}" name="price[]" id="min_price" >
-                        <input type="hidden" value="{{$maxprice}}" name="price[]" id="max_price">
-                        <div class="filter_type">
+                        <input type="hidden" value="{{$minprice}}" name="price[]" id="min_price" class="rangeSlider" >
+                        <input type="hidden" value="{{$maxprice}}" name="price[]" id="max_price" class="rangeSlider" >
+                        @if(isset($regionlist))
+                        <div class="filter_type regionA">
                             <h6>地区</h6>
                             <ul>
-                                <li><label><a href="###" class="btn_1" style="padding:3px 10px;">北部地区</a></label></li>
-                                <li><label><a href="###">奥克兰</a></label></li>
-                                <li><label><a href="###">汉密尔顿</a></label></li>
-                                <li><label><a href="###">丰盛湾</a></label></li>
-                                <li><label><a href="###">吉斯伯恩</a></label></li>
-                                <li><label><a href="###">霍克斯湾</a></label></li>
-                                <li><label><a href="###">塔拉纳基</a></label></li>
-                                <li><label><a href="###">皇后镇</a></label></li>
-                                <li><label><a href="###">科罗曼德</a></label></li>
+                                @foreach($regionlist as $region )
+                                <li ><label><a href="javascript:void(0);" rel="{{$region->id}}" {!!($rid==$region->id) ?'class="btn_1" style="padding:3px 10px;"':"" !!}>{{$region->name}}</a></label></li>
+                                @endforeach
                             </ul>
                         </div>
-                        <div class="filter_type">
+                        @endif
+
+                        @if(isset($regionclist))
+                        <div class="filter_type regionC">
                             <h6>城市</h6>
                             <ul>
-                                <li><label><a href="###" class="btn_1" style="padding:3px 10px;">Far North</a></label></li>
-                                <li><label><a href="###">Kaipara</a></label></li>
-                                <li><label><a href="###">Whangarei</a></label></li>
+                               @foreach($regionclist as $region )
+                                    <li><label><a href="javascript:void(0);"  rel="{{$region->id}}" {!!($cid==$region->id) ?'class="btn_1" style="padding:3px 10px;"':"" !!}>{{$region->name}}</a></label></li>
+                                @endforeach
+
                             </ul>
                         </div>
-                        <div class="filter_type">
+                        @endif
+                        @if(isset($regiondlist))
+                        <div class="filter_type regionD">
                             <h6>城镇</h6>
                             <ul>
-                                <li><label><a href="###">One Tree Point</a></label></li>
-                                <li><label><a href="###">Kensington</a></label></li>
-                                <li><label><a href="###">Kiripaka</a></label></li>
-                                <li><label><a href="###">Tamaterau</a></label></li>
-                                <li><label><a href="###">Poroti</a></label></li>
-                                <li><label><a href="###">Tikipunga</a></label></li>
+                                 @foreach($regiondlist as $region )
+                                    <li><label><a href="javascript:void(0);"  rel="{{$region->id}}" {!!($did==$region->id) ?'class="btn_1" style="padding:3px 10px;"':"" !!}>{{$region->name}}</a></label></li>
+                                @endforeach
                             </ul>
                         </div>
-                        <div class="filter_type">
+                        @endif
+                        <div class="filter_type htype">
                             <h6>类型</h6>
                             <ul>
-                                <li><label><a href="###">独立别墅</a></label></li>
-                                <li><label><a href="###">公寓</a></label></li>
-                                <li><label><a href="###">单元房</a></label></li>
-                                <li><label><a href="###">城市屋</a></label></li>
+                                <li><label><a href="javascript:void(0);" rel="0"  {!!($type==0) ?'class="btn_1" style="padding:3px 10px;"':"" !!}>全部</a></label></li>
+                                <li><label><a href="javascript:void(0);" rel="1"  {!!($type==1) ?'class="btn_1" style="padding:3px 10px;"':"" !!}>独立别墅</a></label></li>
+                                <li><label><a href="javascript:void(0);" rel="2"   {!!($type==2) ?'class="btn_1" style="padding:3px 10px;"':"" !!}>公寓</a></label></li>
+                                <li><label><a href="javascript:void(0);" rel="3"  {!!($type==3) ?'class="btn_1" style="padding:3px 10px;"':"" !!}>单元房</a></label></li>
+                                <li><label><a href="javascript:void(0);" rel="4"  {!!($type==4) ?'class="btn_1" style="padding:3px 10px;"':"" !!}>城市屋</a></label></li>
+                                <li><label><a href="javascript:void(0);" rel="5"  {!!($type==5) ?'class="btn_1" style="padding:3px 10px;"':"" !!} >排房</a></label></li>
+                                <li><label><a href="javascript:void(0);" rel="6"  {!!($type==6) ?'class="btn_1" style="padding:3px 10px;"':"" !!}>建地</a></label></li>
+                                <li><label><a href="javascript:void(0);" rel="7"   {!!($type==7) ?'class="btn_1" style="padding:3px 10px;"':"" !!}>Home</a></label></li>
+                                <li><label><a href="javascript:void(0);" rel="8"  {!!($type==8) ?'class="btn_1" style="padding:3px 10px;"':"" !!}>乡村别墅</a></label></li>
+                                <li><label><a href="javascript:void(0);" rel="9"  {!!($type==9) ?'class="btn_1" style="padding:3px 10px;"':"" !!}>乡村住宅建地</a></label></li>
                             </ul>
                         </div>
-                    </div><!--End collapse -->
-                </div><!--End filters col-->
-
-            </div><!--End aside -->
+                    </div>
+                    <input id="select_region" name="region" type="hidden" value="{{$rid}}">
+                    <input id="select_regionc" name="region" type="hidden" value="{{$cid}}">
+                    <input id="select_regiond" name="region" type="hidden" value="{{$did}}">
+                    <input id="select_type" name="type" type="hidden" value="{{$type}}">
+                </div>
+            </div>
         </div>
         <div class="row">
             <div class="col-md-8">
@@ -90,15 +98,6 @@
                             <div class="styled-select-filters">
                                 <select name="sort_price" id="sort_price">
                                     <option value="" selected>价格排序</option>
-                                    <option value="lower">从高到低</option>
-                                    <option value="higher">从低到高</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-3 col-xs-6">
-                            <div class="styled-select-filters">
-                                <select name="sort_rating" id="sort_rating">
-                                    <option value="" selected>评价排序</option>
                                     <option value="lower">从高到低</option>
                                     <option value="higher">从低到高</option>
                                 </select>
@@ -349,7 +348,6 @@
                     newStr[i] = strArray[currentIndex--];
                 }
             }
-            //$(".price").val(newStr.join(""));
             return newStr.join("")
         }
         $(function () {
@@ -401,6 +399,7 @@
     </script>
 
     <script src="/js/vue.min.js"></script>
+    <script src="/js/select.js"></script>
     <script>
 
     </script>

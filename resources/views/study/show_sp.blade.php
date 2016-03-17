@@ -7,7 +7,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 col-sm-8">
-                         <h1>{{$study->cn_name}}</h1>
+                         <h1>{{$study->name}}</h1>
                         <span>{{$study->country}}-{{ $study->city}}</span>
                     </div>
 
@@ -20,8 +20,8 @@
         <div class="container">
             <ul>
                 <li><a href="/">首页</a></li>
-                <li><a href="/study">留学</a></li>
-                <li>{{$study->cn_name}}</li>
+                <li><a href="/study-sp">留学</a></li>
+                <li>{{$study->name}}</li>
             </ul>
         </div>
     </div><!-- End Position -->
@@ -163,129 +163,116 @@
                         <img alt="" class="sp-thumbnail" src="/img/slider_single_tour/9_medium.jpg">
                     </div>
                 </div>
+                <div class="row"  style="margin-top:20px;">
+                    <ul class="table-list">
+                        <li class="odd">
+                            <p class="desc-p">
+                                <span class="label">地址：</span>
+                                <span class="label-val">{{$study->address}}</span>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="desc-p clear">
+                                <span class="label">地区：</span>
+                                <span class="label-val">888</span>
+                            </p>
+
+                        </li>
+                        <li>
+                            <p class="desc-p">
+                                <span class="label">学校性质：</span>
+                                <span class="label-val"><?php
+                                    switch($study->nature)
+                                    {
+
+                                        case 1 :echo "公立学校"; break;
+                                        case 2 :echo "私立学校"; break;
+                                        case 3 :echo "其他"; break;
+                                    }
+                                    ?></span>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="desc-p">
+                                <span class="label">学校学生：</span>
+                                <span class="label-val"><?php
+                                    switch($study->gender)
+                                    {
+                                        case 1 :echo "男校"; break;
+                                        case 2 :echo "女校"; break;
+                                        case 3 :echo "男女混合"; break;
+                                    }
+                                    ?></span>
+                            </p>
+                        </li>
+                        @if(!empty($study->decile))
+                        <li>
+                            <p class="desc-p">
+                                <span class="label">分制：</span>
+                                <span class="label-val">{{$study->decile}}</span>
+                            </p>
+                        </li>
+                        @endif
+                        <li>
+                            <p class="desc-p">
+                                <span class="label">学校类型：</span>
+                                <span class="label-val"><?php
+                                    switch($study->nature)
+                                    {
+
+                                        case 1 :echo "小学"; break;
+                                        case 2 :echo "初中"; break;
+                                        case 3 :echo "高中"; break;
+                                        case 4 :echo "全年级"; break;
+                                        case 5 :echo "特殊学校"; break;
+                                    }
+                                    ?></span>
+                            </p>
+                        </li>
+                        @if(!empty($study->mobile))
+                        <li>
+                            <p class="desc-p">
+                                <span class="label">电话：</span>
+                                <span class="label-val">{{$study->mobile}}</span>
+                            </p>
+                        </li>
+                        @endif
+                        @if(!empty($study->fax))
+                        <li>
+                            <p class="desc-p">
+                                <span class="label">传真：</span>
+                                <span class="label-val">{{$study->fax}}</span>
+                            </p>
+                        </li>
+                        @endif
+                        @if(!empty($study->email))
+                        <li>
+                            <p class="desc-p">
+                                <span class="label">邮箱：</span>
+                                <span class="label-val">{{$study->email}}</span>
+                            </p>
+                        </li>
+                        @endif
+                        @if(!empty($study->siteurl))
+                        <li>
+                            <p class="desc-p">
+                                <span class="label">网址：</span>
+                                <span class="label-val">{{$study->siteurl}}</span>
+                            </p>
+                        </li>
+                        @endif
+                    </ul>
+                </div>
+
+                <hr>
                 <div class="row">
-                    <div id="ml" style="background-color: #333;font-size: 11px;margin-top:32px;">
-                        <div style="width:100%;margin-right: auto;margin-left: auto;">
-                            <ul class="c_ul" style="margin: 0;padding: 0;color: #888;">
-                                <li class="new_a"><a onclick="removeClass('xxxx', this)" href="#xxxx">学校信息</a></li>
-                                <li class="new_a"><a onclick="removeClass('xxjj', this)" href="#xxjj">学校简介</a></li>
-                                <li><a href="#xxls" onclick="removeClass('xxls', this)">学校历史</a></li>
-                                <li><a href="#xxts" onclick="removeClass('xxts', this)">学校特色</a></li>
-                                <li><a href="#yxts" onclick="removeClass('yxts', this)">院校特色</a></li>
-                                <li><a href="#xxss" onclick="removeClass('xxss', this)">学校设施</a></li>
-                                <li><a href="#xxsu" onclick="removeClass('xxsu', this)">学校宿舍</a></li>
-                            </ul>
-                        </div>
+                    <div class="col-md-12">
+                        <p>
+                            {!! $study->description !!}
+                        </p>
                     </div>
                 </div>
 
-                <div class="row" style="margin-top:20px;">
-                    <div class="col-md-3" id="xxxx">
-                        <h3>学校信息</h3>
-                    </div>
-                    <div class="col-md-9">
-                        <div class="row">
-                            <div class="table-responsive">
-                                <table class="table table-condensed">
-                                    <tbody>
-                                    <tr>
-                                        <td>英文名称</td>
-
-                                        <td class="text-center">{{$study->en_name}} </td>
-                                    </tr>
-                                    <tr>
-                                        <td>中文名称</td>
-
-                                        <td class="text-center">{{$study->cn_name}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>雅思</td>
-                                        <td class="text-center">{{$study->fee_min}} 至 {{$study->fee_max}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>位置</td>
-                                        <td class="text-center">{{$study->country}}-{{ $study->city}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>offer发放速度(几周)</td>
-                                        <td class="text-center">{{$study->offer_release_rate}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>海外学生比例（百分比）</td>
-                                        <td class="text-center">{{$study->overseas_stu_rate}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>位置</td>
-                                        <td class="text-center">{{$study->country}}-{{ $study->city}}</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div><!-- End row  -->
-                    </div>
-                </div><!-- End row  -->
-                <hr>
-                <div class="row">
-                    <div class="col-md-3" id="xxjj">
-                        <h3>学校简介</h3>
-                    </div>
-                    <div class="col-md-9">
-                        <p>
-                            {!! $study->intro !!}
-                        </p>
-                    </div><!-- End col-md-9  -->
-                </div><!-- End row  -->
-                <hr>
-                <div class="row">
-                    <div class="col-md-3" id="xxls">
-                        <h3>学校历史</h3>
-                    </div>
-                    <div class="col-md-9">
-                        <p>
-                            {!! $study->history !!}
-                        </p>
-                    </div><!-- End col-md-9  -->
-                </div><!-- End row  -->
-                <hr>
-                <div class="row">
-                    <div class="col-md-3" id="xxts">
-                        <h3>学校特色</h3>
-                    </div>
-                    <div class="col-md-9">
-                        <p>
-                            {!! $study->school_feature !!}
-                        </p>
-                    </div><!-- End col-md-9  -->
-                </div><!-- End row  -->
-                <hr>
-                <div class="row">
-                    <div class="col-md-3" id="yxts">
-                        <h3>院校特色</h3>
-                    </div>
-                    <div class="col-md-9">
-                        <p> {!!$study->college_feature  !!}  </p>
-                    </div><!-- End col-md-9  -->
-                </div><!-- End row  -->
-                <hr>
-                <div class="row">
-                    <div class="col-md-3" id="xxss">
-                        <h3>学校设施</h3>
-                    </div>
-                    <div class="col-md-9">
-                        <p>{!! $study->facility !!}</p>
-                    </div>
-                </div>
-                <hr>
-                <div class="row">
-                    <div class="col-md-3" id="xxsu">
-                        <h3>学校宿舍</h3>
-                    </div>
-                    <div class="col-md-9">
-                        <p>{!! $study->dormitory !!}</p>
-                    </div><!-- End col-md-9  -->
-                </div><!-- End row  -->
-
-                <hr>
             </div>
 
             <aside class="col-md-4">
@@ -430,6 +417,7 @@
         height: 130px;
         margin-bottom: 4px;
     }
+    #single_tour_desc{ background-color: #ffffff;}
 </style>
 @endpush
 
@@ -464,11 +452,6 @@
 </script>
 
 
-<!-- Date and time pickers -->
-<script src="/js/bootstrap-datepicker.js"></script>
-<script>
-    $('input.date-pick').datepicker('setDate', 'today');
-</script>
 <!-- Map -->
 <script src="http://maps.google.cn/maps/api/js"></script>
 <script src="/js/map.js"></script>

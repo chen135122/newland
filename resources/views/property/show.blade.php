@@ -6,8 +6,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 col-sm-8">
-                        <span class="rating"><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class=" icon-star-empty"></i></span>
-                        <h1>{{$property ->title}}</h1>
+                         <h1>{{$property ->title}}</h1>
                         <span>{{$property ->address}}</span>
                     </div>
                     <div class="col-md-4 col-sm-4">

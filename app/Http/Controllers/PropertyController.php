@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Property;
+use App\Models\Region;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -12,28 +13,43 @@ class PropertyController extends Controller
 {
     public function index(Request $request)
     {
-//        $properties = Property::where('status', 1);
-//        if($title =$request->get('title')){
-//            $properties = $properties->where('title', 'LIKE', '%'.$title.'%');
-//        }
+        $properties = Property::where('status', '<>', 0)->where('status', '<>', 4);
+
         $price=$request->get('price');
+        $rid = request()->get('rid');  //一级地区
+        $cid= request()->get('cid'); //二级地区
+        $did= request()->get('did'); //三级地区
+        $type= request()->get('type'); //房屋类型
+        if (!empty($type)&&$type!=0){
+            $properties= $properties->where('type', $type);
+        }
         if (!empty($price)){
-            $properties= Property::whereBetween('total_price', $price);
+            $properties= $properties->whereBetween('total_price', $price);
         }
-        if($sortprice = request()->get('sortPrice'))
-        {
-            if($sortprice=="higher")
-            {
-                $properties= Property::orderBy("total_price","desc")->paginate(5)->appends(['sortPrice' => 'higher']);
-            }
-            else{
-                $properties =Property::orderBy("total_price","asc")->paginate(5)->appends(['sortPrice' => 'lower']);
-            }
+        $regionlist=Region::where('parent_id', 0)->get();
+        if (!empty($rid)){
+
+            $properties= $properties->where('region', $rid);
+            $regionclist=Region::where('parent_id', $rid)->get();
+            $cid=$regionclist->first()->id;
+            $regiondlist=Region::where('parent_id', $cid)->get();
         }
-        else
-        {
-            $properties=Property::orderBy("id","desc")->paginate(5);
-        }
+
+        if (!empty($cid)){
+            $properties= $properties->where('city', $cid);
+            $rid=Region::find($cid)->parent_id;
+            $regionclist=Region::where('parent_id', $rid)->get();
+            $regiondlist=Region::where('parent_id', $cid)->get();
+          }
+
+        if (!empty($did)){
+            $properties= $properties->where('district', $did);
+            $cid=Region::find($did)->parent_id;
+            $rid=Region::find($cid)->parent_id;
+            $regionclist=Region::where('parent_id', $rid)->get();
+            $regiondlist=Region::where('parent_id', $cid)->get();
+         }
+
 
         $maxprice=Property::max('total_price');
         if (!empty($price)){
@@ -45,7 +61,22 @@ class PropertyController extends Controller
             $toprice=$maxprice;
         }
 
-        return view('property.index')->with(compact('properties','maxprice','minprice','toprice'));
+
+        if($sortprice = request()->get('sortPrice'))
+        {
+            if($sortprice=="higher")
+            {
+                $properties= $properties->orderBy("total_price","desc")->paginate(5)->appends(['sortPrice' => 'higher']);
+            }
+            else{
+                $properties =$properties->orderBy("total_price","asc")->paginate(5)->appends(['sortPrice' => 'lower']);
+            }
+        }
+        else
+        {
+            $properties=$properties->orderBy("id","desc")->paginate(5);
+        }
+        return view('property.index')->with(compact('properties','maxprice','minprice','toprice','regionlist','regionclist','regiondlist','rid','cid','did','type'));
     }
 
     public function show($id)

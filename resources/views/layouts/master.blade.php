@@ -122,19 +122,19 @@
                                 <a href="#" class="show-submenu"> <!--<i class="icon_set_1_icon-64"></i>--> 首页 </a>
                             </li>
                             <li class=" megamenu submenu">
-                                <a href="property" class="show-submenu-mega"> <!--<i class="icon_set_1_icon-2"></i>--> 房产置业 </a>
+                                <a href="/property" class="show-submenu-mega"> <!--<i class="icon_set_1_icon-2"></i>--> 房产置业 </a>
                             </li>
                             <li class="submenu">
-                                <a href="tour" class="show-submenu"><!--<i class="icon_set_1_icon-8"></i>--> 国际旅游 </a>
+                                <a href="/tour" class="show-submenu"><!--<i class="icon_set_1_icon-8"></i>--> 国际旅游 </a>
                             </li>
                             <li class="submenu">
-                                <a href="javascript:void(0);" class="show-submenu"><!--<i class="icon_set_1_icon-43"></i>--> 移民留学 </a>
+                                <a href="/study" class="show-submenu"><!--<i class="icon_set_1_icon-43"></i>--> 移民留学 </a>
                             </li>
                             <li class="submenu">
                                 <a href="javascript:void(0);" class="show-submenu"> <!--<i class="icon_set_1_icon-14"></i>--> 积分商城 </a>
                             </li>
                             <li class="submenu">
-                                <a href="javascript:void(0);" class="show-submenu"><!--<i class="icon_set_1_icon-7"></i>--> 新闻资讯 </a>
+                                <a href="/news" class="show-submenu"><!--<i class="icon_set_1_icon-7"></i>--> 新闻资讯 </a>
                             </li>
                         </ul>
                     </div><!-- End main-menu -->
