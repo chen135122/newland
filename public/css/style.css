@@ -4080,3 +4080,21 @@ ul.plan-features {
     color: #fff;
 }
 .price_list .price{ font-size: 23px;}
+.table-list .desc-p{line-height:20px}
+.table-list .desc-p .label-val {
+    display: block;
+    color: #888;
+    margin-left: 100px;
+}
+.table-list li{float:left;line-height:100px;width:50%; list-style: none; }
+.table-list li .label{
+    display: inline-block;
+    width: 100px;
+    font-weight: bold;
+    color: #333;
+    vertical-align: top;
+    float: left;font-size: 14px;
+}
+
+.table-list li:nth-child(2n) .desc-p{margin-right:28px;line-height:20px}
+.table-list li:nth-child(2n+1) .desc-p{margin-left:28px}
