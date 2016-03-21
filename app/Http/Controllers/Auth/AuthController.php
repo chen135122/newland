@@ -24,7 +24,7 @@ class AuthController extends Controller
 
     use AuthenticatesAndRegistersUsers;
 
-    protected $username = "username";
+    protected $username = "mobile";
     /**
      * Create a new authentication controller instance.
      *
@@ -79,12 +79,12 @@ class AuthController extends Controller
 
     public function postLogin(Request $request)
     {
-        $username=$request->get('username');
+        $username=$request->get('txtMobile');
         $password=$request->get('password');
         if (!isset($username)){
             return response()->json([
                 'status' => 0,
-                'msg' => "请输入用户名！"
+                'msg' => "请输入手机号！"
             ]);
         }
         if (!isset($password)){

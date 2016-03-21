@@ -6,7 +6,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    protected $table = "user";
+    protected $table = "nz_member";
 
     /**
      * The attributes that are mass assignable.
@@ -14,7 +14,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'password',
+        'mobile', 'password',
     ];
 
     /**
@@ -28,7 +28,7 @@ class User extends Authenticatable
 
     public function getAuthPassword()
     {
-        return $this->password_hash;
+        return $this->password;
     }
 
     public function articles(){
