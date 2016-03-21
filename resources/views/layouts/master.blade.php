@@ -78,7 +78,7 @@
                             <li>
                                 <div class="dropdown dropdown-access">
                                     @if (auth()->user())
-                                     {{auth()->user()->mobile}}
+                                     {{auth()->user()->username}}
                                     @else
                                      <a href="/auth/login" class="dropdown-toggle" data-toggle="dropdown" id="access_link">登录</a>
                                     @endif

@@ -24,7 +24,7 @@
         <div class="col-md-8 articleContent">
             <h1 class="title">{{$article ->title}}</h1>
             <p class="date">发布时间：<?php echo with($article ->created_at)->format('Y/m/d'); ?></p>
-            <hr>
+            <p class="abstract">{!!$article ->abstract !!}</p>
             <div class="img_wrapper"><img src="{{$article ->picurl}}" title="{{$article ->title}}">
                 </div>
             <div class="artibody">
