@@ -35,8 +35,7 @@
                         <div class="filter_type">
                             <h6>分类</h6>
                             <ul>
-
-                                @foreach($travelCategorys as $travelCategory)
+                                @foreach($categorys as $travelCategory)
                                 <?php $vs=false   ?>
                                     @if(count($category)>0)
                                         @foreach($category as $key=>$value)
@@ -102,13 +101,13 @@
                         <div class="col-lg-6 col-md-6 col-sm-6">
                             <div class="tour_list_desc">
                                 <div class="rating">{{--<i class="icon-smile voted"></i><i class="icon-smile  voted"></i><i class="icon-smile  voted"></i><i class="icon-smile  voted"></i><i class="icon-smile"></i><small>(75)</small>--}}</div>
-                                <h3><strong>【{{$travel->hugetitle}}】</strong> {{$travel->title}}</h3><p>{!! $travel->description !!}</p>
+                                <h3><strong>【{{$travel->bigtitle}}】</strong> {{$travel->title}}</h3><p>{!! $travel->introduction !!}</p>
                             </div>
                         </div>
                         <div class="col-lg-2 col-md-2 col-sm-2">
                             <div class="price_list">
                                 <div>
-                                    <span class="price">${{$travel->oprice}}</span><span class="normal_price_list"></span><small>每人</small>
+                                    <span class="price">${{$travel->referenceprice}}</span><span class="normal_price_list"></span><small>每人</small>
                                     <p><a href="/tour/{{$travel->id}}" class="btn_1">详情</a></p>
                                 </div>
 

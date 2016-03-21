@@ -4,7 +4,7 @@ namespace App\Models;
 
 class TravelCategory extends BaseModel
 {
-    protected $table = 'nz_travel_category';
+    protected $table = 'nz_category';
 
     // public function regions()
     // {

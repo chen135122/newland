@@ -8,7 +8,7 @@ class Travel extends BaseModel
 
     public function day()
     {
-        return $this->hasOne('App\Models\TravelDay', 'route_id','id');
+        return $this->hasOne('App\Models\TravelDay', 'routeid','id');
     }
     public function cate()
     {

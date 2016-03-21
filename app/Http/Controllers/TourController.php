@@ -22,40 +22,41 @@ class TourController extends Controller
         $category=$request->get('category');
         $price=$request->get('price');
         if (!empty($price)){
-            $travels= $travels->whereBetween('oprice', $price);
+            $travels= $travels->whereBetween('referenceprice', $price);
         }
         else{
             $category=[];
         }
         if (!empty($category)){
-                $travels= $travels->WhereIn('categoryid', $category);
+                $travels= $travels->WhereIn('catid', $category);
         }
        if($sortprice = request()->get('sortPrice'))
        {
            if($sortprice=="higher")
            {
-               $travels= $travels->orderBy("mprice","desc")->paginate(5)->appends(['sortPrice' => 'higher']);
+               $travels= $travels->orderBy("referenceprice","desc")->paginate(5)->appends(['sortPrice' => 'higher']);
            }
            else{
-               $travels = $travels->orderBy("mprice","asc")->paginate(5)->appends(['sortPrice' => 'lower']);
+               $travels = $travels->orderBy("referenceprice","asc")->paginate(5)->appends(['sortPrice' => 'lower']);
            }
        }
         else
         {
         $travels=$travels->orderBy("created_at","desc")->paginate(5);
         }
-        $travelCategorys = TravelCategory::all();
-        $maxprice=Travel::where("id",">",0)->orderBy("mprice","desc")->first()->oprice;
+        $travelCategorys = TravelCategory::where('parentid',0)->where("name","like",'%'.'旅游'.'%')->first();
+        $categorys=TravelCategory::all()->where("parentid",$travelCategorys->id);
+        $maxprice=Travel::where("id",">",0)->orderBy("referenceprice","desc")->first()->referenceprice;
         if (!empty($price)){
             $minprice=$price[0];
             $toprice=$price[1];
         }
         else{
             $minprice=0;
-            $toprice=Travel::where("id",">",0)->orderBy("mprice","desc")->first()->oprice;
+            $toprice=$maxprice;
         }
 
-        return view('tour.index')->with(compact('travels'))->with(compact("travelCategorys"))->with(compact('category'))
+        return view('tour.index')->with(compact('travels'))->with(compact('categorys'))->with(compact('category'))
             ->with("maxprice",$maxprice)->with("minprice",$minprice)->with("toprice",$toprice);
     }
 
@@ -63,10 +64,10 @@ class TourController extends Controller
     {
         $travel = Travel::where('id', $id)->first();
         $travelDay=$travel->day()->get(); //TravelDay::where("route_id",$travel->id);
-        $travelFeature=$travel->feature()->get();
-        $pic=explode(',',$travel->picurl);
-        return view('tour.show')->with(compact('travel'))->with(compact('pic'))->with(compact("travelDay",$travelDay))
-            ->with(compact("travelFeature",$travelFeature));
+        //$travelFeature=$travel->feature()->get();
+        //$pic=explode(',',$travel->picurl);
+        return view('tour.show')->with(compact('travel'))->with(compact("travelDay",$travelDay));
+            //->with(compact("travelFeature",$travelFeature))->with(compact('pic'));
     }
     public function order(Request $request)
     {
