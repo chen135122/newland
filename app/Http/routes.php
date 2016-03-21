@@ -1,4 +1,7 @@
 <?php
+
+require_once app_path().'/WxPayPubHelper/WxPayPubHelper.php';
+
     Route::controller('auth', '\App\Http\Controllers\Auth\AuthController');
 
 
@@ -50,12 +53,17 @@ Route::group([ 'middleware' => ['web']], function () {
     Route::post('pay','AlipayController@pay');
     //支付后跳转页面
     Route::post('result','AlipayController@result');
-
+    Route::post('wpay','AlipayController@wpay');
+    Route::get('initialize','AlipayController@initialize');
+    Route::get('qrcode','AlipayController@qrcode');
+    Route::get('notify','AlipayController@notify');
+    Route::get('wem','AlipayController@wem');
+    Route::get('query','AlipayController@query');
 Route::get('debug', function(){
    //  phpinfo();()
 
-    return strval(Session::get('users'));
-
+    $aaa=new Common_util_pub();
+    return $aaa->trimString(11);
   // return auth()->user();
 //
 //Route::get('debug', function(){
