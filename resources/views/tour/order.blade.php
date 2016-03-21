@@ -298,8 +298,8 @@
                     </tbody>
                 </table>
 
-                <a class="btn_full" onclick="Ceng()">支付宝</a>
-                <a class="btn_full" onclick="Ceng()">微信</a>
+                <a class="btn_full" onclick="Ceng(1)">支付宝</a>
+                <a class="btn_full" onclick="Ceng(2)">微信</a>
 
                 <!--<a class="btn_full_outline" href="#"><i class="icon-right"></i> Continue shopping</a>-->
             </div>
@@ -372,9 +372,16 @@
     {{--});--}}
 {{--</script>--}}
 <script>
-    function Ceng() {
+    function Ceng(type) {
         document.getElementById('ceng').style.display = 'block';
         document.getElementById('close').style.display = 'block';
+        if (type == 1)
+        {
+          $("#orderform").attr("action","/pay");
+        }
+        else{
+            $("#orderform").attr("action","/wpay");
+        }
         return false;
     }
     function closeCeng() {
