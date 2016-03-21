@@ -1,11 +1,10 @@
 <?php
 
-require_once app_path().'/WxPayPubHelper/WxPayPubHelper.php';
 
     Route::controller('auth', '\App\Http\Controllers\Auth\AuthController');
 
 
-Route::group([ 'middleware' => ['web']], function () {
+     Route::group([ 'middleware' => ['web']], function () {
 
 
     Route::get('/', function () {
@@ -65,8 +64,6 @@ Route::group([ 'middleware' => ['web']], function () {
 Route::get('debug', function(){
    //  phpinfo();()
 
-    $aaa=new Common_util_pub();
-    return $aaa->trimString(11);
   // return auth()->user();
 //
 //Route::get('debug', function(){
