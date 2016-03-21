@@ -48,7 +48,6 @@
     Route::get('register', '\App\Http\Controllers\RegisterController@index');
     Route::post('register', '\App\Http\Controllers\RegisterController@postUser_Register');
     Route::post('register/sendsms','\App\Http\Controllers\RegisterController@sendsms');
-    Route::post('register/validate_username','\App\Http\Controllers\RegisterController@validate_username');
     Route::post('register/validate_mobile','\App\Http\Controllers\RegisterController@validate_mobile');
 
     //支付宝支付处理

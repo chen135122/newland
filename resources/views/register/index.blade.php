@@ -11,11 +11,6 @@
                         <hr>
                         <form class="form-horizontal" id="regform" name="regform" action="/register" method="post">
                             <div class="form-group">
-                                <label for="txtUserName" class="col-sm-3 control-label">用户名</label>
-                                <div class="col-sm-9"><input type="text" class=" form-control"  placeholder="请输入用户名"  datatype="s3-50"  nullmsg="请输入用户名" sucmsg=" " id="txtUserName"  name="txtUserName" ajaxurl="/register/validate_username">
-                                    <span class="Validform_checktip"></span></div>
-                            </div>
-                            <div class="form-group">
                                 <label for="txtMobile" class="col-sm-3 control-label">手机号</label>
                                 <div class="col-sm-9"><input type="text" class=" form-control"  placeholder="请输入手机号码" datatype="m" nullmsg="请输入手机号码" sucmsg=" " id="txtMobile"  name="txtMobile" errormsg="请输入正确的手机号码" ajaxurl="/register/validate_mobile">
                                 <span class="Validform_checktip"></span></div>

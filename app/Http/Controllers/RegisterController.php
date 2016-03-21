@@ -13,32 +13,6 @@ class RegisterController extends Controller
     {
         return view('register.index');
     }
-    public function validate_username(Request $request)
-    {
-        $param=$request->get('param');
-        if (empty($param)){
-            return response()->json([
-                'status' => "n",
-                'info' => "用户名不可为空！"
-            ]);
-        }
-        $paramcount = User::where('username', '=',$param)->count();
-        if($paramcount>0)
-        {
-            return response()->json([
-                'status' => "n",
-                'info' => "该用户名已被注册"
-            ]);
-        }
-        else
-        {
-            return response()->json([
-                'status' => "y",
-                'info' => "该用户名可用"
-            ]);
-        }
-
-    }
 
     public function validate_mobile(Request $request)
     {
@@ -127,17 +101,10 @@ class RegisterController extends Controller
     //用户注册
     public function postUser_Register(Request $request){
         $user=new User();
-        $txtUserName = $request->input('txtUserName');
         $txtMobile = $request->input('txtMobile');
         $txtPassword= $request->input('userpassword');
         $code= $request->input('txtCode');
 
-        if (empty($txtUserName)){
-            return response()->json([
-                'status' => 0,
-                'msg' => "请输入用户名！"
-            ]);
-        }
         if (empty($txtMobile)){
             return response()->json([
                 'status' => 0,
@@ -162,11 +129,8 @@ class RegisterController extends Controller
        {
           // $Passwords= Hash::make($txtPassword);
            $Passwords=bcrypt($txtPassword);
-           $user->username=$txtUserName;
-           $user->password_hash=$Passwords;
-           $user->auth_key='test';
-           $user->status=0;
-           $user->score=0;
+           $user->password=$Passwords;
+           $user->status=1;
            $user->mobile=$txtMobile;
            $user->save();
            return response()->json([
