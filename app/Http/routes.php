@@ -4,7 +4,7 @@
 Route::controller('auth', '\App\Http\Controllers\Auth\AuthController');
 
 
-<<<<<<< HEAD
+
 Route::group([ 'middleware' => ['web', 'auth']], function () {
     Route::post('tools/Favourite_add','\App\Http\Controllers\FavouriteController@postFavourite_add');
 //    Route::get('xxx', function(){
@@ -13,19 +13,8 @@ Route::group([ 'middleware' => ['web', 'auth']], function () {
 });
 
 Route::group([ 'middleware' => ['web']], function () {
-=======
-     Route::group([ 'middleware' => ['web']], function () {
->>>>>>> 402fa6f00105a7a21e010a9a4b3bbe60d4db9e66
-
-//
-//    Route::get('/', function () {
-//        //return view('auth.login');
-//    });
-
 //    Route::post('tools/Favourite_add','\App\Http\Controllers\FavouriteController@postFavourite_add');
     Route::get('password/reset','\App\Http\Controllers\Auth\PasswordController@getReset');
-});
-
 
     //Route::post('password/reset','\App\Http\Controllers\Auth\PasswordController@postReset');
 
@@ -71,6 +60,7 @@ Route::group([ 'middleware' => ['web']], function () {
     Route::get('notify','AlipayController@notify');
     Route::get('wem','AlipayController@wem');
     Route::get('query','AlipayController@query');
+});
 Route::get('debug', function(){
    //  phpinfo();()
 
@@ -85,5 +75,6 @@ Route::get('debug', function(){
     $properties = \App\Models\Property::first();
     return $properties->developers->name;
 });
+
 
 
