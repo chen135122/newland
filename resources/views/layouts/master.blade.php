@@ -78,11 +78,10 @@
                             <li>
                                 <div class="dropdown dropdown-access">
                                     @if (auth()->user())
-                                     {{auth()->user()->username}}
+                                     {{auth()->user()->mobile}}
                                     @else
                                      <a href="/auth/login" class="dropdown-toggle" data-toggle="dropdown" id="access_link">登录</a>
                                     @endif
-                                    {{--{{(auth()->user()?auth()->user()->username:'')}}--}}
                                     <div class="dropdown-menu">
                                         <div class="form-group">
                                             <input type="text" class="form-control" id="inputUsernameEmail" placeholder="Email">

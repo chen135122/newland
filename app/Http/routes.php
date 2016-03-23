@@ -2,16 +2,24 @@
 
 require_once app_path().'/WxPayPubHelper/WxPayPubHelper.php';
 
-    Route::controller('auth', '\App\Http\Controllers\Auth\AuthController');
+Route::controller('auth', '\App\Http\Controllers\Auth\AuthController');
 
+
+Route::group([ 'middleware' => ['web', 'auth']], function () {
+    Route::post('tools/Favourite_add','\App\Http\Controllers\FavouriteController@postFavourite_add');
+//    Route::get('xxx', function(){
+//        return (auth()->user());
+//    });
+});
 
 Route::group([ 'middleware' => ['web']], function () {
 
+//
+//    Route::get('/', function () {
+//        //return view('auth.login');
+//    });
 
-    Route::get('/', function () {
-        return view('auth');
-    });
-    Route::post('tools/Favourite_add','\App\Http\Controllers\FavouriteController@postFavourite_add');
+//    Route::post('tools/Favourite_add','\App\Http\Controllers\FavouriteController@postFavourite_add');
     Route::get('password/reset','\App\Http\Controllers\Auth\PasswordController@getReset');
 });
 
@@ -39,8 +47,7 @@ Route::group([ 'middleware' => ['web']], function () {
     Route::get('news', '\App\Http\Controllers\ArticleController@index');
     Route::get('news/{id}', '\App\Http\Controllers\ArticleController@show');
 
-
-	Route::get('study', '\App\Http\Controllers\StudyController@index');
+    Route::get('study', '\App\Http\Controllers\StudyController@index');
 	Route::get('study/{id}', '\App\Http\Controllers\StudyController@show');
 
     Route::get('study-sp', '\App\Http\Controllers\StudyController@index_sp');
