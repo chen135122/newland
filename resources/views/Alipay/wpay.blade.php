@@ -78,7 +78,6 @@ elseif($unifiedOrderResult["code_url"] != NULL)
 </div>
 <div align="center">
     <p>订单号：<?php echo $out_trade_no; ?></p>
-    <p id="sub">123333</p>
 </div>
 <br>
 </body>
@@ -116,7 +115,7 @@ elseif($unifiedOrderResult["code_url"] != NULL)
                 data: "",
                 success: function (data) {
                     if (data=="SUCCESS") { //订单状态为1表示支付成功
-                        window.location.href = "http://www.baidu.com"; //页面跳转
+                        window.location.href = "/result?out_trade_no="+'{{$sn}}'+"&type=1"; //页面跳转
                     }
                 }//,
 //                error: function () {

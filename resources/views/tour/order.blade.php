@@ -153,113 +153,54 @@
             <table id="sel_table" class="table table-striped options_cart">
                 <thead>
                 <tr>
-                    <th colspan="4">
+                    <th colspan="5">
                         项目清单
                     </th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td style="width:10%">
-                        <i class="icon_set_1_icon-16"></i>
-                    </td>
-                    <td style="width:30%">
-                        <nav class="col-md-9 col-sm-9 col-xs-9" style="padding-left:0px;z-index:3;">
-                            <div class="main-menu">
-                                <ul>
-                                    <li class="submenu">
-                                        <a class="show-submenu">航班</a>
-                                        <ul>
-                                            <li><p style="word-break:break-all;word-wrap:break-word;padding:5px;">航班价格会随时间变动航班价格会随时间变动航班价格会随时间变动</p></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div><!-- End main-menu -->
+                @for($i=0;$i<count($priceBase);$i++)
+                    <tr>
+                        <td style="width:10%">
+                            <i class="icon_set_1_icon-16"></i>
+                        </td>
+                        <td style="width:30%">
+                            <nav class="col-md-9 col-sm-9 col-xs-9" style="padding-left:0px;z-index:{{count($priceBase)-$i}};">
+                                <div class="main-menu">
+                                    <ul>
+                                        <li class="submenu">
+                                            <a class="show-submenu">{{$priceBase[$i]->title}}</a>
+                                            <ul>
+                                                <li><p style="word-break:break-all;word-wrap:break-word;padding:5px;">{{$priceBase[$i]->remark}}</p></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div><!-- End main-menu -->
 
-                        </nav>
-                        <strong></strong>
-                    </td>
-                    <td style="width:25%">
-                        <a id="sm" style="color:red;display:none;">航班价格会随时间变动</a>
-                    </td>
-                    <td style="width:35%">
-                        <label class="switch-light switch-ios pull-right">
-                            <input type="checkbox" name="option_1" id="option_1"  checked value="">
+                            </nav>
+                            <strong></strong>
+                        </td>
+                        <td>
+                            ￥{{$priceBase[$i]->price}}
+                        </td>
+                        <td style="width:25%">
+                            @if($priceBase[$i]->title=="航班")
+                            <a id="sm" style="color:red;display:none;">航班价格会随时间变动</a>
+                                @endif
+                        </td>
+                        <td style="width:35%">
+                            <label class="switch-light switch-ios pull-right">
+                                <input type="checkbox" name="option_1" id="option_1"  checked value="{{$priceBase[$i]->id}}">
                                     <span>
                                         <span>No</span>
                                         <span>Yes</span>
                                     </span>
-                            <a></a>
-                        </label>
+                                <a></a>
+                            </label>
 
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <i class="icon_set_1_icon-26"></i>
-                    </td>
-                    <td>
-                        <nav class="col-md-9 col-sm-9 col-xs-9" style="padding-left:0px;z-index:2;">
-                            <div class="main-menu">
-                                <ul>
-                                    <li class="submenu">
-                                        <a>签证</a>
-                                        <ul>
-                                            <li><p style="word-break:break-all;word-wrap:break-word;padding:5px;">航班价格会随时间变动航班价格会随时间变动航班价格会随时间变动</p></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div><!-- End main-menu -->
-
-                        </nav>
-                    </td>
-                    <td>
-                        <a style="color:red;display:none;">航班价格会随时间变动</a>
-                    </td>
-                    <td>
-                        <label class="switch-light switch-ios pull-right">
-                            <input type="checkbox" name="option_2" id="option_2" checked value="">
-                                    <span>
-                                        <span>No</span>
-                                        <span>Yes</span>
-                                    </span>
-                            <a></a>
-                        </label>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <i class="icon_set_1_icon-71"></i>
-                    </td>
-                    <td>
-                        <nav class="col-md-9 col-sm-9 col-xs-9" style="padding-left:0px;z-index:1;">
-                            <div class="main-menu">
-                                <ul>
-                                    <li class="submenu">
-                                        <a>保险</a>
-                                        <ul>
-                                            <li><p style="word-break:break-all;word-wrap:break-word;padding:5px;">航班价格会随时间变动航班价格会随时间变动航班价格会随时间变动</p></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div><!-- End main-menu -->
-
-                        </nav>
-                    </td>
-                    <td>
-                        <a style="color:red;display:none;">航班价格会随时间变动</a>
-                    </td>
-                    <td>
-                        <label class="switch-light switch-ios pull-right">
-                            <input type="checkbox" name="option_3" id="option_3"  value="" checked>
-                                    <span>
-                                        <span>No</span>
-                                        <span>Yes</span>
-                                    </span>
-                            <a></a>
-                        </label>
-                    </td>
-                </tr>
+                        </td>
+                    </tr>
+                    @endfor
                 </tbody>
             </table>
         </div><!-- End col-md-8 -->
@@ -283,7 +224,7 @@
                             地点
                         </td>
                         <td class="text-right">
-                            新西兰
+                           {{$travel->bigtitle}}
                         </td>
                     </tr>
 
@@ -292,7 +233,7 @@
                             定金
                         </td>
                         <td class="text-right">
-                            ¥2000
+                            {{($travel->oprice)*$perNum}}
                         </td>
                     </tr>
                     </tbody>
@@ -405,39 +346,55 @@
         }
     }
     $(function () {
-        //$("#sel_table").find("input[type='checkbox']").each(function () {
-
-        //    $(this).change(function () {
-        //        var $checked=$(this).is(":checked");
-        //        var text, id = $(this).attr("id").split('_')[1];
-
-        //        var len = $("#order_tbody tr#tr_" + id).length;
-        //        if ($checked == true && len < 1) {
-        //            var typeText = $(this).parent().parent().prev().find("span").text(), mon = $(this).parent().parent().prev().find("strong").text();
-        //            var tr = "<tr id='tr_" + id + "'><td><span class=\"item_cart\">" + typeText + "</span></td><td><div class=\"numbers-row\"><input type=\"text\" onkeyup=\"changeNum(this)\" value=\"1\" id=\"quantity_1\" class=\"qty2 form-control\" name=\"quantity_1\"><div id='add_" + id + "' class=\"inc button_inc\" onclick=\"changeVal(this)\">+</div><div class=\"dec button_inc\" id='r_" + id + "' onclick=\"changeVal(this)\">-</div>"
-        //            tr = tr + "</div></td><td class=\"options\"><a href=\"#\"><i class=\"icon-trash\"></i></a><a href=\"#\"><i class=\"icon-ccw-2\"></i></a> </td></tr>";
-        //            $("#order_tbody").append(tr);
-        //        }
-        //        else {
-        //            $("#table").find("tr").each(function () {
-        //                var trId="tr_"+id;
-        //                if ($(this).attr("id") == trId)
-        //                {
-        //                    $(this).remove()
-        //                }
-        //            });
-        //        }
-        //    })
-
-        //})
-        $("#option_1").change(function () {
-            if ($(this).is(":checked")) {
-                $("#sm").show();
-            }
-            else {
-                $("#sm").hide();
-            }
-        });
+        $("#sel_table tbody tr").find("input[type='checkbox']").each(function () {
+            $(this).change(function () {
+                var $checked=$(this).is(":checked");
+                var id=$(this).val();
+                var len = $("#price").find(".baseprice_"+ id).length;
+                if ($(this).is(":checked")) {
+                    $(this).parent().parent().prev().find("a#sm").show();
+                }
+                else {
+                    $(this).parent().parent().prev().find("a#sm").hide();
+                }
+                if ($checked == true && len < 1) {
+                   var $input="<input  name='baseprice[]' id='baseprice_"+id+"' type='hidden' value='"+id+"'>";
+                    $("#price").append($input);
+                }
+                else {
+                    $("#price").find("input[type=hidden]").each(function () {
+                        var trId="baseprice_"+id;
+                        if ($(this).attr("id") == trId)
+                        {
+                            $(this).remove()
+                        }
+                    });
+                }
+            })
+        })
+//        $("#sel_table").find("input[type='checkbox']").each(function () {
+//            $(this).change(function () {
+//                var $checked=$(this).is(":checked");
+//                var text, id = $(this).attr("id").split('_')[1];
+//                var len = $("#order_tbody tr#tr_" + id).length;
+//                if ($checked == true && len < 1) {
+//                    var typeText = $(this).parent().parent().prev().find("span").text(), mon = $(this).parent().parent().prev().find("strong").text();
+//                    var tr = "<tr id='tr_" + id + "'><td><span class=\"item_cart\">" + typeText + "</span></td><td><div class=\"numbers-row\"><input type=\"text\" onkeyup=\"changeNum(this)\" value=\"1\" id=\"quantity_1\" class=\"qty2 form-control\" name=\"quantity_1\"><div id='add_" + id + "' class=\"inc button_inc\" onclick=\"changeVal(this)\">+</div><div class=\"dec button_inc\" id='r_" + id + "' onclick=\"changeVal(this)\">-</div>"
+//                    tr = tr + "</div></td><td class=\"options\"><a href=\"#\"><i class=\"icon-trash\"></i></a><a href=\"#\"><i class=\"icon-ccw-2\"></i></a> </td></tr>";
+//                    $("#order_tbody").append(tr);
+//                }
+//                else {
+//                    $("#table").find("tr").each(function () {
+//                        var trId="tr_"+id;
+//                        if ($(this).attr("id") == trId)
+//                        {
+//                            $(this).remove()
+//                        }
+//                    });
+//                }
+//            })
+//
+//        })
 
         $("#subOrder").click(function(){
 
@@ -458,7 +415,7 @@
                     type: "post",
                     url: "/create",
                     dataType: "json",
-                    data: { 'rout': $("#rout").val(),"perNum":$("#perNum").text().trim(),"username":$("#username").val(),"userPhone":$("#userPhone").val(),"userEmail":$("#userEmail").val(),"content":$("#txt_content").val()  },
+                    data: { 'rout': $("#rout").val(),"perNum":'{{$perNum}}',"username":$("#username").val(),"userPhone":$("#userPhone").val(),"userEmail":$("#userEmail").val(),"content":$("#txt_content").val()  },
                     success: function(msg){
                         $("#orderform").submit();
                     }
@@ -495,7 +452,12 @@
                     <input  name="subject" type="hidden" value="{{$name}}">
                     <input  name="total_fee" type="hidden" value="2000">
                     <input  name="url" id="url" type="hidden" value="">
-
+                     <input  name="perNum" id="perNum" type="hidden" value="{{$perNum}}">
+            <div id="price">
+                @foreach($priceBase as $price)
+                    <input name="baseprice[]" id="baseprice_{{$price->id}}" type="hidden" value="{{$price->id}}">
+                    @endforeach
+            </div>
             <div class="form-group">
                 <label for="txtUserName" class="col-sm-3 control-label" >联系人姓名</label>
                     <div class="col-sm-9" ><input  name="username" id="username" class="date-pick form-control" style="width:90%;" placeholder="用户名不能为空"  datatype="s3-50"  nullmsg="用户名不能为空" sucmsg=" " id="txtUserName"  name="txtUserName" >

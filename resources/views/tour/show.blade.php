@@ -6,7 +6,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 col-sm-8">
-                        <h1>【{{$travel->hugetitle}}】{{$travel->title}}</h1>
+                        <h1>【{{$travel->bigtitle}}】{{$travel->title}}</h1>
                         <span></span>
                         {{--<i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><small>(75)</small>--}}
                         <span class="rating"></span>
@@ -43,21 +43,21 @@
 
                 <div id="img_carousel" class="slider-pro">
                     <div class="sp-slides">
-                        @foreach($pic as $key=>$value)
+                        @foreach($pic as $p)
                             <div class="sp-slide">
                                 <img alt="" class="sp-image" src="/css/images/blank.gif"
-                                     data-src="{{$value}}"
-                                     data-small="{{$value}}"
-                                     data-medium="{{$value}}"
-                                     data-large="{{$value}}"
-                                     data-retina="{{$value}}">
+                                     data-src="{{$p->picurl}}"
+                                     data-small="{{$p->picurl}}"
+                                     data-medium="{{$p->picurl}}"
+                                     data-large="{{$p->picurl}}"
+                                     data-retina="{{$p->picurl}}">
                             </div>
                         @endforeach
 
                     </div>
                     <div class="sp-thumbnails">
-                        @foreach($pic as $key=>$value)
-                            <img alt="" class="sp-thumbnail" src="{{$value}}">
+                        @foreach($pic as $p)
+                            <img alt="" class="sp-thumbnail" src="{{$p->picurl}}">
                         @endforeach
                     </div>
                 </div>
@@ -83,28 +83,29 @@
                     <div class="col-md-9">
                         <h4>关于此行程</h4>
                         <p>
-                        {!!$travel->description !!}
+                        {!!$travel->introduction !!}
                         </p>
                         <h4>行程特色</h4>
                         <p>
                             以上报价仅供参考，可能会因为不同的出发城市及时间会有所浮动
                         </p>
-                        <div class="row">
-                            <div class="col-md-6 col-sm-6">
-                                <ul class="list_ok">
-                                    @for($i=0;$i<count($travelFeature->where("type",0))/2;$i++)
-                                    <li>{{$travelFeature[$i]->content}}</li>
-                                    @endfor
-                                </ul>
-                            </div>
-                            <div class="col-md-6 col-sm-6">
-                                <ul class="list_ok">
-                                    @for($i=count($travelFeature->where("type",0))/2;$i<count($travelFeature->where("type",0));$i++)
-                                        <li>{{$travelFeature[$i]->content}}</li>
-                                    @endfor
-                                </ul>
-                            </div>
-                        </div>
+                        {!!$travel->feature!!}
+                        {{--<div class="row">--}}
+                            {{--<div class="col-md-6 col-sm-6">--}}
+                                {{--<ul class="list_ok">--}}
+                                    {{--@for($i=0;$i<count($travelFeature->where("type",0))/2;$i++)--}}
+                                    {{--<li>{{$travelFeature[$i]->content}}</li>--}}
+                                    {{--@endfor--}}
+                                {{--</ul>--}}
+                            {{--</div>--}}
+                            {{--<div class="col-md-6 col-sm-6">--}}
+                                {{--<ul class="list_ok">--}}
+                                    {{--@for($i=count($travelFeature->where("type",0))/2;$i<count($travelFeature->where("type",0));$i++)--}}
+                                        {{--<li>{{$travelFeature[$i]->content}}</li>--}}
+                                    {{--@endfor--}}
+                                {{--</ul>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
 
                     </div>
                 </div>
@@ -115,7 +116,7 @@
                     <div class="col-md-9">
                         <h4>关于此产品</h4>
                         <p>
-                            {!!$travel->description !!}
+                            {!!$travel->introduction !!}
                         </p>
                         <h4>行程特色</h4>
                         <p>
@@ -124,37 +125,38 @@
                     </div>
                 </div>
                 <hr>
-                <div class="row">
-                    <div class="col-md-3" id="hbxx">
-                        <h3>航班信息</h3>
-                    </div>
-                    <div class="col-md-9">
-                        <h4>关于此航班</h4>
-                        <p>
-                            {!!$travel->fdescription!!}
-                        </p>
-                        <h4>行程特色</h4>
-                        <p>
-                            以上报价仅供参考，可能会因为不同的出发城市及时间会有所浮动
-                        </p>
-                        <div class="row">
-                            <div class="col-md-6 col-sm-6">
-                                <ul class="list_ok">
-                                    @for($i=0;$i<count($travelFeature->where("type",1))/2;$i++)
-                                        <li>{{$travelFeature[$i]->content}}</li>
-                                    @endfor
-                                </ul>
-                            </div>
-                            <div class="col-md-6 col-sm-6">
-                                <ul class="list_ok">
-                                    @for($i=count($travelFeature->where("type",1))/2;$i<count($travelFeature->where("type",1));$i++)
-                                        <li>{{$travelFeature[$i]->content}}</li>
-                                    @endfor
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                {{--<div class="row">--}}
+                    {{--<div class="col-md-3" id="hbxx">--}}
+                        {{--<h3>航班信息</h3>--}}
+                    {{--</div>--}}
+                    {{--<div class="col-md-9">--}}
+                        {{--<h4>关于此航班</h4>--}}
+                        {{--<p>--}}
+                            {{--{!!$travel->fdescription!!}--}}
+                        {{--</p>--}}
+                        {{--<h4>行程特色</h4>--}}
+                        {{--<p>--}}
+                            {{--以上报价仅供参考，可能会因为不同的出发城市及时间会有所浮动--}}
+                        {{--</p>--}}
+                        {{--{!!$travel->feature!!}--}}
+                        {{--<div class="row">--}}
+                            {{--<div class="col-md-6 col-sm-6">--}}
+                                {{--<ul class="list_ok">--}}
+                                    {{--@for($i=0;$i<count($travelFeature->where("type",1))/2;$i++)--}}
+                                        {{--<li>{{$travelFeature[$i]->content}}</li>--}}
+                                    {{--@endfor--}}
+                                {{--</ul>--}}
+                            {{--</div>--}}
+                            {{--<div class="col-md-6 col-sm-6">--}}
+                                {{--<ul class="list_ok">--}}
+                                    {{--@for($i=count($travelFeature->where("type",1))/2;$i<count($travelFeature->where("type",1));$i++)--}}
+                                        {{--<li>{{$travelFeature[$i]->content}}</li>--}}
+                                    {{--@endfor--}}
+                                {{--</ul>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
 
                 <hr>
 
@@ -192,31 +194,27 @@
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                @foreach(($travelDay[$i]->sightspot()->get()) as $sight)
+                                                @foreach(($travelDay[$i]->dayDetail()->get()) as $detail)
                                                     <tr>
                                                         <td style="width: 100px;">
-                                                            {{$sight->name}}
+                                                            {{$detail->title}}
                                                         </td>
                                                         <td>
-                                                            @if(!empty($sight->introduction))
-                                                                {{$sight->introduction}}
+                                                            @if(!empty($detail->introduction))
+                                                                {{$detail->introduction}}
                                                                 @else
-                                                                {{$sight->name}}
+                                                                {{$detail->title}}
                                                                 @endif
-                                                            @if(empty($sight->picurl))
-                                                                @else
+                                                             @if(count($detail->detailImg()->get())>0)
                                                                     <ul class="time_photo">
-                                                                        @foreach(($sight->hasimg()->get()) as $img)
+                                                                        @foreach(($detail->detailImg()->get()->where("smalltype",2)) as $img)
                                                                             <li>
                                                                                 <img src="{{$img->picurl}}">
-                                                                                <p style="text-align:center;padding-top:10px">{{empty($img->title)?$sight->name:$img->title}}</p>
+                                                                                <p style="text-align:center;padding-top:10px">{{empty($img->title)?$travelDay[$i]->title:$img->title}}</p>
                                                                             </li>
                                                                             @endforeach
                                                                     </ul>
                                                                 @endif
-
-
-
                                                         </td>
                                                     </tr>
                                                 @endforeach
@@ -254,14 +252,18 @@
                                             {{$cate->title}}
                                         </td>
                                         <td>
-                                            {{$cate->introduction}}
+                                            {!! $cate->introduction !!}
                                             <ul class="time_photo">
-
-                                                @foreach(explode(',',$cate->picurl) as $key=>$value)
-                                                    <li>
-                                                        <img src="{{$value}}">
-                                                    </li>
-                                                @endforeach
+                                                @if(count($cate->foodImg()->get())>0)
+                                                    <ul class="time_photo">
+                                                        @foreach(($cate->foodImg()->get()) as $img)
+                                                            <li>
+                                                                <img src="{{$img->picurl}}">
+                                                                <p style="text-align:center;padding-top:10px">{{empty($img->title)?$cate->title:$img->title}}</p>
+                                                            </li>
+                                                        @endforeach
+                                                    </ul>
+                                                @endif
                                             </ul>
                                         </td>
                                     </tr>

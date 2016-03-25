@@ -34,6 +34,7 @@
     Route::get('result', '\App\Http\Controllers\TourController@result');
     Route::post('spay', '\App\Http\Controllers\TourController@pay');
     Route::post('create', '\App\Http\Controllers\TourController@create');
+    Route::get('tprint/{id}', '\App\Http\Controllers\TourController@tprint');
 
     Route::get('news', '\App\Http\Controllers\ArticleController@index');
     Route::get('news/{id}', '\App\Http\Controllers\ArticleController@show');

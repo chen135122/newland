@@ -1,14 +1,17 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\priceBase;
 use App\Models\Travel;
 use App\Models\TravelDay;
 use App\Models\TravelCategory;
 use App\Models\newOrder;
+use App\Models\orderDetail;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Omnipay;
 use App\Http\Requests;
+
 use App\Http\Controllers\Controller;
 use Overtrue\Wechat\QRCode;
 use Overtrue\Wechat\Url;
@@ -19,23 +22,29 @@ class AlipayController extends Controller
 {
     public function pay(Request $request)
     {
+       $num=$request->get("perNum");
+        $travel=Travel::where("id",$request->get("rout"))->first();
         $order=new newOrder();
-        $order->route_id=$request->get("rout");
+        $order->itemid=$request->get("rout");
         $order->uid=1;
-        $order->sn=time();
-        $order->startdate=Carbon::now();
-        $order->children=0;
-        $order-> total_price=0.0;
-        $order-> discount=0.0;
-        $order-> price=0.0;
-        $order-> oprice=0.0;
-        $order->status=1;
+        $order->sn=date('Ymd').substr(implode(NULL, array_map('ord', str_split(substr(uniqid(), 7, 13), 1))), 0, 8);;
+        //$order->startdate=Carbon::now();
+        // $order->children=0;
+        $order-> totalprice=($travel->referenceprice);
+        //$order-> discount=0.0;
+        $order-> orderprice=$travel->oprice;
+        $order-> status=1;
+        $order->type=1;
+        $order->paytype=2;
         $order-> created_at=Carbon::now();
-        $order->adults=strval($request->get("perNum"));
+        $order-> created_by=1;
+        $order->num=$num;
         $order->username=strval($request->get("username")) ;
         $order->phone=strval($request->get("userPhone"));
         $order->email=strval($request->get("userEmail"));
         $order->remark=strval($request->get("content"));
+        //$order->adults=strval($request->get("perNum"));
+
 //            $order->updated_at=Carbon::now();
 //            $order->paytime=null;
 //            $order->transid="12";
@@ -43,10 +52,27 @@ class AlipayController extends Controller
 
        if($order->id>0)
        {
+           $category=$request->get('baseprice');
+           foreach($category as $key=>$value)
+           {
+               $base= priceBase::where("id",$value)->first();
+               $orderDetail=new orderDetail();
+               $orderDetail->orderid=$order->id;
+               $orderDetail->title=$base->title;
+               $orderDetail->price=$base->price;
+               $orderDetail->num=$num;
+               $orderDetail->created_at=Carbon::now();
+               $orderDetail->created_by=1;
+               $orderDetail->updated_at=null;
+               $orderDetail->updated_by=null;
+               $orderDetail->save();
+           }
+
+
             $gateway = Omnipay::gateway();
 
             $options = [
-                'out_trade_no' => date('YmdHis') . mt_rand(1000,9999),
+                'out_trade_no' =>  $order->sn,
                 'subject' => $request->get("subject"),
                 'total_fee' => '0.01',
             ];
@@ -59,35 +85,58 @@ class AlipayController extends Controller
 
     public  function wpay(Request $request)
     {
+        $num=$request->get("perNum");
+        $travel=Travel::where("id",$request->get("rout"))->first();
         $order=new newOrder();
-        $order->route_id=$request->get("rout");
+        $order->itemid=$request->get("rout");
         $order->uid=1;
-        $order->sn=time();
-        $order->startdate=Carbon::now();
-        $order->children=0;
-        $order-> total_price=0.0;
-        $order-> discount=0.0;
-        $order-> price=0.0;
-        $order-> oprice=0.0;
-        $order->status=1;
+        $order->sn=date('Ymd').substr(implode(NULL, array_map('ord', str_split(substr(uniqid(), 7, 13), 1))), 0, 8);;
+        //$order->startdate=Carbon::now();
+        // $order->children=0;
+        $order-> totalprice=($travel->referenceprice);
+        //$order-> discount=0.0;
+        $order-> orderprice=$travel->oprice;
+        $order-> status=1;
+        $order->type=1;
+        $order->paytype=3;
         $order-> created_at=Carbon::now();
-        $order->adults=strval($request->get("perNum"));
+        $order-> created_by=1;
+        $order->num=$num;
         $order->username=strval($request->get("username")) ;
         $order->phone=strval($request->get("userPhone"));
         $order->email=strval($request->get("userEmail"));
         $order->remark=strval($request->get("content"));
+        //$order->adults=strval($request->get("perNum"));
+
 //            $order->updated_at=Carbon::now();
 //            $order->paytime=null;
 //            $order->transid="12";
         $order->save();
 
+
+
         if($order->id>0)
         {
-          $subject=  $request->get("subject");
+            $category=$request->get('baseprice');
+            foreach($category as $key=>$value)
+            {
+                $base= priceBase::where("id",$value)->first();
+                $orderDetail=new orderDetail();
+                $orderDetail->orderid=$order->id;
+                $orderDetail->title=$base->title;
+                $orderDetail->price=$base->price;
+                $orderDetail->num=$num;
+                $orderDetail->created_at=Carbon::now();
+                $orderDetail->created_by=1;
+                $orderDetail->updated_at=null;
+                $orderDetail->updated_by=null;
+                $orderDetail->save();
+            }
+             $subject=  $request->get("subject");
         }
         else
             return redirect($request->get("url"));
-       return view("Alipay.wpay")->with("subject",$subject);
+       return view("Alipay.wpay")->with("subject",$subject)->with("sn", $order->sn);
     }
     public  function  notify()
     {
