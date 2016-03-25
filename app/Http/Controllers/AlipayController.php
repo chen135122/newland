@@ -11,7 +11,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Omnipay;
 use App\Http\Requests;
-
+use Session;
 use App\Http\Controllers\Controller;
 use Overtrue\Wechat\QRCode;
 use Overtrue\Wechat\Url;
@@ -26,7 +26,7 @@ class AlipayController extends Controller
         $travel=Travel::where("id",$request->get("rout"))->first();
         $order=new newOrder();
         $order->itemid=$request->get("rout");
-        $order->uid=1;
+        $order->uid=auth()->user()->id;;
         $order->sn=date('Ymd').substr(implode(NULL, array_map('ord', str_split(substr(uniqid(), 7, 13), 1))), 0, 8);;
         //$order->startdate=Carbon::now();
         // $order->children=0;
@@ -89,7 +89,7 @@ class AlipayController extends Controller
         $travel=Travel::where("id",$request->get("rout"))->first();
         $order=new newOrder();
         $order->itemid=$request->get("rout");
-        $order->uid=1;
+        $order->uid=auth()->user()->id;
         $order->sn=date('Ymd').substr(implode(NULL, array_map('ord', str_split(substr(uniqid(), 7, 13), 1))), 0, 8);;
         //$order->startdate=Carbon::now();
         // $order->children=0;

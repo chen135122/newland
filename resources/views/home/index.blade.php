@@ -118,34 +118,11 @@
                     <ul id="top_links">
                         <li>
                             <div class="dropdown dropdown-access">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="access_link">登录</a>
-                                <div class="dropdown-menu">
-                                    <div class="row">
-                                        <div class="col-md-6 col-sm-6 col-xs-6">
-                                            <a href="#" class="bt_facebook">
-                                                <i class="icon-facebook"></i>Facebook
-                                            </a>
-                                        </div>
-                                        <div class="col-md-6 col-sm-6 col-xs-6">
-                                            <a href="#" class="bt_paypal">
-                                                <i class="icon-paypal"></i>Paypal
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="login-or">
-                                        <hr class="hr-or">
-                                        <span class="span-or">or</span>
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" id="inputUsernameEmail" placeholder="Email">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="password" class="form-control" id="inputPassword" placeholder="Password">
-                                    </div>
-                                    <a id="forgot_pw" href="#">忘记密码？</a>
-                                    <input type="submit" name="Sign_in" value="登录" id="Sign_in" class="button_drop">
-                                    <input type="submit" name="Sign_up" value="注册" id="Sign_up" class="button_drop outline">
-                                </div>
+                                @if (auth()->user())
+                                    {{auth()->user()->mobile}}
+                                @else
+                                    <a href="/auth/login" class="dropdown-toggle" data-toggle="dropdown" id="access_link">登录</a>
+                                @endif
                             </div><!-- End Dropdown access -->
                         </li>
                         <li><a href="#" id="wishlist_link">收藏</a></li>
@@ -181,7 +158,11 @@
                             <a href="/tour" class="show-submenu"><!--<i class="icon_set_1_icon-8"></i>--> 国际旅游 </a>
                         </li>
                         <li class="submenu">
-                            <a href="/study" class="show-submenu"><!--<i class="icon_set_1_icon-43"></i>--> 移民留学 </a>
+                            <a href="javascript:void(0);" class="show-submenu"><!--<i class="icon_set_1_icon-43"></i>--> 留学 <i class="icon-down-open-mini"></i></a>
+                            <ul>
+                                <li><a href="/study">大学</a></li>
+                                <li><a href="/study-sp">中小学</a></li>
+                            </ul>
                         </li>
                         <li class="submenu">
                             <a href="#" class="show-submenu"> <!--<i class="icon_set_1_icon-14"></i>--> 积分商城 </a>
