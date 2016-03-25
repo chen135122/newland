@@ -77,7 +77,7 @@
                                     @if (auth()->user())
                                      {{auth()->user()->mobile}}
                                     @else
-                                     <a href="/auth/login" class="dropdown-toggle" data-toggle="dropdown" id="access_link">登录</a>
+                                     <a href="/auth/login"  id="access_link">登录</a>
                                     @endif
                                     {{--<div class="dropdown-menu">--}}
                                         {{--<div class="form-group">--}}
