@@ -13,11 +13,11 @@ class HomeController extends Controller
     public function index()
     {
         $hotpropertys=$this->HotProperty(3);
-        return view('Home.index')->with(compact('hotpropertys'));
+        return view('home.index')->with(compact('hotpropertys'));
     }
     public function faq()
     {
-        return view('Home.faq');
+        return view('home.faq');
     }
     public function validate_mobile(Request $request)
     {
