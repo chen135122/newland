@@ -120,7 +120,7 @@
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <div class="tour_list_desc">
                                     <h3>{{$property->title}}</h3>
-                                    <p>{{$property->address}}</p>
+                                    <p>{{$property->regions->name}}-{{$property->regions_city->name}}-{{$property->regions_district->name}}</p>
                                     <ul class="add_info">
                                         <li>
                                             <a href="javascript:void(0);" class="tooltip-1" data-placement="top" title="" data-original-title="{{$property->bedroom}}个卧室">

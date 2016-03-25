@@ -155,7 +155,7 @@
                                     </tr>
                                     <tr>
                                         <td>位置</td>
-                                        {{--<td class="text-center">{{$property->regions->name}}-{{$property->regions_city->name}}-{{$property->regions_district->name}}</td>--}}
+                                        <td class="text-center">{{$property->regions->name}}-{{$property->regions_city->name}}-{{$property->regions_district->name}}</td>
                                     </tr>
                                     <tr>
                                         <td>地址</td>

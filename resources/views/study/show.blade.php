@@ -10,7 +10,7 @@
                 <div class="row">
                     <div class="col-md-8 col-sm-8">
                          <h1>{{$study->cn_name}}</h1>
-                        <span>{{$study->country}}-{{ $study->city}}</span>
+                        <span>{{$study->regions->name}}.{{ $study->regions_city->name}}.{{ $study->regions_district->name}}</span>
                     </div>
 
                 </div>
@@ -206,7 +206,7 @@
                                     </tr>
                                     <tr>
                                         <td>位置</td>
-                                        <td class="text-center">{{$study->country}}-{{ $study->city}}</td>
+                                        <td class="text-center">{{$study->regions->name}}.{{ $study->regions_city->name}}.{{ $study->regions_district->name}}</td>
                                     </tr>
                                     <tr>
                                         <td>offer发放速度(几周)</td>

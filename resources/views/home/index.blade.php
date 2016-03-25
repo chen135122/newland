@@ -1,30 +1,7 @@
-
-<!DOCTYPE html>
-<!--[if IE 8]><html class="ie ie8"> <![endif]-->
-<!--[if IE 9]><html class="ie ie9"> <![endif]-->
-<!--[if gt IE 9]><!-->
-<html>
-<!--<![endif]-->
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="author" content="Ansonika">
-    <title>All In New Zealand - 新西兰旅游置业</title>
-    <!-- Favicons-->
-    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-    <!-- BASE CSS -->
-    <link href="css/base.css" rel="stylesheet">
-    <!-- Google web fonts -->
-    <link href='http://fonts.useso.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.useso.com/css?family=Gochi+Hand' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.useso.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
-
-
-    <!--[if lt IE 9]>
-    <script src="js/html5shiv.min.js"></script>
-    <script src="js/respond.min.js"></script>
-    <![endif]-->
+@extends('layouts.master')
+@push('style')
+<link href="rs-plugin/css/settings.css" rel="stylesheet">
+<link href="css/extralayers.css" rel="stylesheet">
     <style>
         .main_title p {
             /*font-size: 14px !important;*/
@@ -88,94 +65,11 @@
             font-size:100px;
         }
     </style>
-    <!-- REVOLUTION SLIDER CSS -->
-    <link href="rs-plugin/css/settings.css" rel="stylesheet">
-    <link href="css/extralayers.css" rel="stylesheet">
-</head>
-<body>
-<!--[if lte IE 8]>
-<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a>.</p>
-<![endif]-->
-<div id="preloader">
-    <div class="sk-spinner sk-spinner-wave">
-        <div class="sk-rect1"></div>
-        <div class="sk-rect2"></div>
-        <div class="sk-rect3"></div>
-        <div class="sk-rect4"></div>
-        <div class="sk-rect5"></div>
-    </div>
-</div>
-<!-- End Preload -->
-<div class="layer"></div>
-<!-- Mobile menu overlay mask -->
-<!-- Header================================================== -->
-<header>
-    <div id="top_line">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 col-sm-6 col-xs-6"><i class="icon-phone"></i><strong>025-58761818</strong></div>
-                <div class="col-md-6 col-sm-6 col-xs-6">
-                    <ul id="top_links">
-                        <li>
-                            <div class="dropdown dropdown-access">
-                                @if (auth()->user())
-                                    {{auth()->user()->mobile}}
-                                @else
-                                    <a href="/auth/login" class="dropdown-toggle" data-toggle="dropdown" id="access_link">登录</a>
-                                @endif
-                            </div><!-- End Dropdown access -->
-                        </li>
-                        <li><a href="#" id="wishlist_link">收藏</a></li>
-                        <li><a href="###"></a></li>
-                    </ul>
-                </div>
-            </div><!-- End row -->
-        </div><!-- End container-->
-    </div><!-- End top line-->
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3 col-sm-3 col-xs-3" style="width:50%;">
-                <div id="logo">
-                    <a href="#"><img src="img/logo2.png" height="55" alt="All IN New Zealand" data-retina="true" class="logo_normal"></a>
-                    <a href="#"><img src="img/logo_sticky.png" height="34" alt="All IN New Zealand" data-retina="true" class="logo_sticky"></a>
-                </div>
-            </div>
-            <nav class="col-md-9 col-sm-9 col-xs-9" style="width:50%;">
-                <a class="cmn-toggle-switch cmn-toggle-switch__htx open_close" href="javascript:void(0);"><span>Menu mobile</span></a>
-                <div class="main-menu">
-                    <div id="header_menu">
-                        <img src="img/logo_sticky.png" width="160" height="34" alt="City tours" data-retina="true">
-                    </div>
-                    <a href="#" class="open_close" id="close_in"><i class="icon_set_1_icon-77"></i></a>
-                    <ul class="head_type">
-                        <li class="submenu">
-                            <a href="#" class="show-submenu"> <!--<i class="icon_set_1_icon-64"></i>--> 首页 </a>
-                        </li>
-                        <li class=" megamenu submenu">
-                            <a href="/property" class="show-submenu-mega"> <!--<i class="icon_set_1_icon-2"></i>--> 房产置业 </a>
-                        </li>
-                        <li class="submenu">
-                            <a href="/tour" class="show-submenu"><!--<i class="icon_set_1_icon-8"></i>--> 国际旅游 </a>
-                        </li>
-                        <li class="submenu">
-                            <a href="javascript:void(0);" class="show-submenu"><!--<i class="icon_set_1_icon-43"></i>--> 留学 <i class="icon-down-open-mini"></i></a>
-                            <ul>
-                                <li><a href="/study">大学</a></li>
-                                <li><a href="/study-sp">中小学</a></li>
-                            </ul>
-                        </li>
-                        <li class="submenu">
-                            <a href="#" class="show-submenu"> <!--<i class="icon_set_1_icon-14"></i>--> 积分商城 </a>
-                        </li>
-                        <li class="submenu">
-                            <a href="/news" class="show-submenu"><!--<i class="icon_set_1_icon-7"></i>--> 新闻资讯 </a>
-                        </li>
-                    </ul>
-                </div><!-- End main-menu -->
-            </nav>
-        </div>
-    </div><!-- container -->
-</header><!-- End Header -->
+
+@endpush
+
+@section('content')
+
 <!-- Slider -->
 <div class="tp-banner-container">
     <div class="tp-banner">
@@ -404,7 +298,7 @@
         </div><!-- End col-md-4 -->
     </div><!-- End row -->
     <p class="text-center add_bottom_30">
-        <a href="#" class="btn_1 medium"><i class="icon-eye-7"></i>查看所有行程 (144) </a>
+        <a href="/tour" class="btn_1 medium"><i class="icon-eye-7"></i>查看所有行程 (5) </a>
     </p>
     <hr>
     <div class="main_title">
@@ -412,66 +306,30 @@
         <p>我们提供的不仅是房屋买卖交易的桥梁, 我们更加注重开发和创建一个公平开放的合作平台</p>
     </div>
     <div class="row">
+        @foreach($hotpropertys as $hotproperty)
         <div class="col-md-4 col-sm-6 wow zoomIn" data-wow-delay="0.1s">
             <div class="hotel_container">
                 <div class="img_container">
-                    <a href="property/562857">
-                        <img src="img/hotel_1.jpg" width="800" height="533" class="img-responsive" alt="">
+                    <a href="/property/{{$hotproperty->id}}">
+                        <img src="{{$hotproperty->picurl}}" width="800" height="533" class="img-responsive" alt="">
                         <div class="ribbon top_rated"></div>
                         <div class="short_info hotel">
-                            奥克兰<span class="price">$450000</span>
+                            {{$hotproperty->address}}<span class="price">{{$hotproperty->total_price}}</span>
                         </div>
                     </a>
                 </div>
                 <div class="hotel_title">
-                    <h3><strong>Auckland Central The Maritime</strong> 奥市中心永久业权！拥抱南太平洋最繁华的都市生活！</h3>
-                    <div class="rating">
-                        <i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star-empty"></i>
-                    </div><!-- end rating -->
+                    <h3>{{$hotproperty->title}}</h3>
+                    {{--<div class="rating">--}}
+                        {{--<i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star-empty"></i>--}}
+                    {{--</div><!-- end rating -->--}}
                 </div>
             </div><!-- End box -->
-        </div><!-- End col-md-4 -->
-        <div class="col-md-4 col-sm-6 wow zoomIn" data-wow-delay="0.2s">
-            <div class="hotel_container">
-                <div class="img_container">
-                    <a href="property/562857">
-                        <img src="img/hotel_2.jpg" width="800" height="533" class="img-responsive" alt="">
-                        <div class="ribbon top_rated"></div>
-                        <div class="short_info hotel">
-                            汉密尔顿<span class="price">$4231100</span>
-                        </div>
-                    </a>
-                </div>
-                <div class="hotel_title">
-                    <h3><strong>Auckland Central Alexandra Park</strong>  全新城中城，二期顶级精品公寓，现火热发售中！</h3>
-                    <div class="rating">
-                        <i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star-empty"></i>
-                    </div><!-- end rating -->
-                </div>
-            </div><!-- End box -->
-        </div><!-- End col-md-4 -->
-        <div class="col-md-4 col-sm-6 wow zoomIn" data-wow-delay="0.3s">
-            <div class="hotel_container">
-                <div class="img_container">
-                    <a href="property/562857">
-                        <img src="img/hotel_3.jpg" width="800" height="533" class="img-responsive" alt="">
-                        <div class="ribbon top_rated"></div>
-                        <div class="short_info hotel">
-                            基督城<span class="price">$3920000</span>
-                        </div>
-                    </a>
-                </div>
-                <div class="hotel_title">
-                    <h3><strong>Auckland Central Queens Square</strong> 皇后广场高端精品公寓 永久地权分契业权</h3>
-                    <div class="rating">
-                        <i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star-empty"></i>
-                    </div><!-- end rating -->
-                </div>
-            </div><!-- End box -->
-        </div><!-- End col-md-4 -->
+        </div>
+        @endforeach
     </div><!-- End row -->
     <p class="text-center nopadding">
-        <a href="#" class="btn_1 medium"><i class="icon-eye-7"></i>查看所有房产 (70) </a>
+        <a href="/property" class="btn_1 medium"><i class="icon-eye-7"></i>查看所有房产 (70) </a>
     </p>
 </div><!-- End container -->
 <section class="promo_full">
@@ -485,55 +343,9 @@
         </div>
     </div>
 </section><!-- End section -->
+@endsection
+@push('script')
 
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4 col-sm-3">
-                <h3>需要帮助?</h3>
-                <a href="#" id="phone">+025-58761818</a>
-                <a href="#" id="email_footer">services@allinnewzealand.com</a>
-            </div>
-            <div class="col-md-2 col-sm-3" style="margin-left:10%;">
-                <h3>关于我们</h3>
-                <ul>
-                    <li><a href="#">我们是谁</a></li>
-                    <li><a href="/faq.html">常见问题</a></li>
-                    <li><a href="#">使用条款</a></li>
-                </ul>
-            </div>
-            <div class="col-md-2 col-sm-3" style="margin-left:10%;">
-                <h3>其他内容</h3>
-                <ul>
-                    <li><a href="#">最新资讯</a></li>
-                    <li><a href="#">热门房产</a></li>
-                </ul>
-            </div>
-        </div><!-- End row -->
-        <div class="row">
-            <div class="col-md-12">
-                <div id="social_footer">
-                    <ul>
-                        <li><a href="#"><i class="icon-facebook"></i></a></li>
-                        <li><a href="#"><i class="icon-twitter"></i></a></li>
-                        <li><a href="#"><i class="icon-google"></i></a></li>
-                        <li><a href="#"><i class="icon-instagram"></i></a></li>
-                        <li><a href="#"><i class="icon-pinterest"></i></a></li>
-                        <li><a href="#"><i class="icon-vimeo"></i></a></li>
-                        <li><a href="#"><i class="icon-youtube-play"></i></a></li>
-                        <li><a href="#"><i class="icon-linkedin"></i></a></li>
-                    </ul>
-                    <p>© All New Zealand 2016</p>
-                </div>
-            </div>
-        </div><!-- End row -->
-    </div><!-- End container -->
-</footer><!-- End footer -->
-<div id="toTop"></div><!-- Back to top button -->
-<!-- Common scripts -->
-<script src="js/jquery-1.11.2.min.js"></script>
-<script src="js/common_scripts_min.js"></script>
-<script src="js/functions.js"></script>
 <!-- SLIDER REVOLUTION 4.x SCRIPTS  -->
 <script src="rs-plugin/js/jquery.themepunch.tools.min.js"></script>
 <script src="rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
@@ -581,5 +393,6 @@
         })
     })
 </script>
+@endpush
 </body>
 </html>

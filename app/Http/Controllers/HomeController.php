@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Property;
 use Cookie;
 use Session;
 use Illuminate\Http\Request;
@@ -11,7 +12,8 @@ class HomeController extends Controller
 {
     public function index()
     {
-        return view('Home.index');
+        $hotpropertys=$this->HotProperty(3);
+        return view('Home.index')->with(compact('hotpropertys'));
     }
     public function faq()
     {
@@ -182,5 +184,18 @@ class HomeController extends Controller
         return $key;
     }
 
+    //最新资讯
+    public function LastedNews($n)
+    {
+        $article= Article::orderBy('displayorder', 'desc')->take($n)->select('id', 'title','picurl','abstract')->get();
+        return $article;
+    }
 
+
+    //热门房产
+    public function HotProperty($n)
+    {
+        $property= Property::orderBy('id', 'desc')->take($n)->select('id', 'title','picurl','total_price')->get();
+        return $property;
+    }
 }

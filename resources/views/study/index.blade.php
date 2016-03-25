@@ -90,7 +90,7 @@
                                           <h3>{{$study->cn_name}}</h3>
                                           <ul>
                                               <li>英文名： {{$study->en_name}}</li>
-                                              <li>地区： {{$study->country}}-{{ $study->city}}</li>
+                                              <li>地区： {{$study->regions->name}}.{{ $study->regions_city->name}}.{{ $study->regions_district->name}}</li>
                                               <li>费用： {{$study->fee_min}}-{{$study->fee_max}}</li>
                                               <li>ielts： {{$study->ielts_min}}-{{$study->ielts_max}}</li>
                                           </ul>
