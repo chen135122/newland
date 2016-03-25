@@ -22,46 +22,39 @@ class TourController extends Controller
     {
 
         $travels=Travel::where("id",">",0);
+          $category = $request->get('category');
+          $price = $request->get('price');
+          if (!empty($price)) {
+              $travels = $travels->whereBetween('referenceprice', $price);
+          } else {
+              $category = [];
+          }
+          if (!empty($category)) {
+              $travels = $travels->WhereIn('catid', $category);
+          }
+          if ($sortprice = request()->get('sortPrice')) {
+              if ($sortprice == "higher") {
+                  $travels = $travels->orderBy("referenceprice", "desc")->paginate(5)->appends(['sortPrice' => 'higher']);
+              } else {
+                  $travels = $travels->orderBy("referenceprice", "asc")->paginate(5)->appends(['sortPrice' => 'lower']);
+              }
+          } else {
+              $travels = $travels->orderBy("created_at", "desc")->paginate(5);
+          }
+          $travelCategorys = TravelCategory::where('parentid', 0)->where("name", "like", '%' . '旅游' . '%')->first();
+          $categorys = TravelCategory::all()->where("parentid", $travelCategorys->id);
+          $maxprice = Travel::where("id", ">", 0)->orderBy("referenceprice", "desc")->first()->referenceprice;
+          if (!empty($price)) {
+              $minprice = $price[0];
+              $toprice = $price[1];
+          } else {
+              $minprice = 0;
+              $toprice = $maxprice;
+          }
 
-        $category=$request->get('category');
-        $price=$request->get('price');
-        if (!empty($price)){
-            $travels= $travels->whereBetween('referenceprice', $price);
-        }
-        else{
-            $category=[];
-        }
-        if (!empty($category)){
-                $travels= $travels->WhereIn('catid', $category);
-        }
-       if($sortprice = request()->get('sortPrice'))
-       {
-           if($sortprice=="higher")
-           {
-               $travels= $travels->orderBy("referenceprice","desc")->paginate(5)->appends(['sortPrice' => 'higher']);
-           }
-           else{
-               $travels = $travels->orderBy("referenceprice","asc")->paginate(5)->appends(['sortPrice' => 'lower']);
-           }
-       }
-        else
-        {
-        $travels=$travels->orderBy("created_at","desc")->paginate(5);
-        }
-        $travelCategorys = TravelCategory::where('parentid',0)->where("name","like",'%'.'旅游'.'%')->first();
-        $categorys=TravelCategory::all()->where("parentid",$travelCategorys->id);
-        $maxprice=Travel::where("id",">",0)->orderBy("referenceprice","desc")->first()->referenceprice;
-        if (!empty($price)){
-            $minprice=$price[0];
-            $toprice=$price[1];
-        }
-        else{
-            $minprice=0;
-            $toprice=$maxprice;
-        }
+          return view('tour.index')->with(compact('travels'))->with(compact('categorys'))->with(compact('category'))
+              ->with("maxprice", $maxprice)->with("minprice", $minprice)->with("toprice", $toprice);
 
-        return view('tour.index')->with(compact('travels'))->with(compact('categorys'))->with(compact('category'))
-            ->with("maxprice",$maxprice)->with("minprice",$minprice)->with("toprice",$toprice);
     }
 
     public function show($id)

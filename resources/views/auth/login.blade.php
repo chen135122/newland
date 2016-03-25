@@ -52,9 +52,9 @@
     <script src="/js/common.js"></script>
     <script src="/js/Validform.js"></script>
     <script>
-        $(function() {
-            AjaxInitForm('#loginform', '#btnSubmit', 1);
-        });
+//        $(function() {
+//            AjaxInitForm('#loginform', '#btnSubmit', 1);
+//        });
     </script>
     @endpush
     @push('style')

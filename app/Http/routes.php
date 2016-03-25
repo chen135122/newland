@@ -8,7 +8,10 @@ Route::controller('auth', '\App\Http\Controllers\Auth\AuthController');
 Route::group([ 'middleware' => ['web', 'auth']], function () {
     Route::get('percenter','\App\Http\Controllers\PercenterController@index');
     Route::post('tools/Favourite_add','\App\Http\Controllers\FavouriteController@postFavourite_add');
-
+    //支付宝支付处理
+    Route::post('pay','AlipayController@pay');
+    //微信支付处理
+    Route::post('wpay','AlipayController@wpay');
 //    Route::get('xxx', function(){
 //        return (auth()->user());
 //    });
@@ -16,6 +19,8 @@ Route::group([ 'middleware' => ['web', 'auth']], function () {
 
 Route::group([ 'middleware' => ['web']], function () {
 //    Route::post('tools/Favourite_add','\App\Http\Controllers\FavouriteController@postFavourite_add');
+    Route::get('index', '\App\Http\Controllers\HomeController@index');
+    Route::get('faq', '\App\Http\Controllers\HomeController@faq');
     Route::get('password/reset','\App\Http\Controllers\Auth\PasswordController@getReset');
 
     //Route::post('password/reset','\App\Http\Controllers\Auth\PasswordController@postReset');
@@ -39,6 +44,8 @@ Route::group([ 'middleware' => ['web']], function () {
     Route::post('create', '\App\Http\Controllers\TourController@create');
     Route::get('tprint/{id}', '\App\Http\Controllers\TourController@tprint');
 
+
+
     Route::get('news', '\App\Http\Controllers\ArticleController@index');
     Route::get('news/{id}', '\App\Http\Controllers\ArticleController@show');
 
@@ -53,11 +60,11 @@ Route::group([ 'middleware' => ['web']], function () {
     Route::post('register/sendsms','\App\Http\Controllers\RegisterController@sendsms');
     Route::post('register/validate_mobile','\App\Http\Controllers\RegisterController@validate_mobile');
 
-    //支付宝支付处理
-    Route::post('pay','AlipayController@pay');
+
     //支付后跳转页面
+
     Route::post('result','AlipayController@result');
-    Route::post('wpay','AlipayController@wpay');
+
     Route::get('initialize','AlipayController@initialize');
     Route::get('qrcode','AlipayController@qrcode');
     Route::get('notify','AlipayController@notify');

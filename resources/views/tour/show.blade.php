@@ -89,23 +89,7 @@
                         <p>
                             以上报价仅供参考，可能会因为不同的出发城市及时间会有所浮动
                         </p>
-                        {!!$travel->feature!!}
-                        {{--<div class="row">--}}
-                            {{--<div class="col-md-6 col-sm-6">--}}
-                                {{--<ul class="list_ok">--}}
-                                    {{--@for($i=0;$i<count($travelFeature->where("type",0))/2;$i++)--}}
-                                    {{--<li>{{$travelFeature[$i]->content}}</li>--}}
-                                    {{--@endfor--}}
-                                {{--</ul>--}}
-                            {{--</div>--}}
-                            {{--<div class="col-md-6 col-sm-6">--}}
-                                {{--<ul class="list_ok">--}}
-                                    {{--@for($i=count($travelFeature->where("type",0))/2;$i<count($travelFeature->where("type",0));$i++)--}}
-                                        {{--<li>{{$travelFeature[$i]->content}}</li>--}}
-                                    {{--@endfor--}}
-                                {{--</ul>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
+                        {!! $travel->feature !!}
 
                     </div>
                 </div>
@@ -201,7 +185,7 @@
                                                         </td>
                                                         <td>
                                                             @if(!empty($detail->introduction))
-                                                                {{$detail->introduction}}
+                                                                {!! $detail->introduction !!}
                                                                 @else
                                                                 {{$detail->title}}
                                                                 @endif
@@ -210,7 +194,7 @@
                                                                         @foreach(($detail->detailImg()->get()->where("smalltype",2)) as $img)
                                                                             <li>
                                                                                 <img src="{{$img->picurl}}">
-                                                                                <p style="text-align:center;padding-top:10px">{{empty($img->title)?$travelDay[$i]->title:$img->title}}</p>
+                                                                                <p style="text-align:center;padding-top:10px;font-family:'Microsoft YaHei' ">{{empty($img->title)?$travelDay[$i]->title:$img->title}}</p>
                                                                             </li>
                                                                             @endforeach
                                                                     </ul>
