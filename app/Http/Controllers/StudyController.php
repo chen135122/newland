@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Study;
 use App\Models\StudySP;
+use App\Models\Property;
+use App\Models\Article;
 use App\Models\Region;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -12,6 +14,8 @@ class StudyController extends Controller
 {
     public function index()
     {
+        $Lastedarticle=$this->LastedNews(5);
+        $hotpropertys=$this->HotProperty(4);
         $studys = Study::where("id",">",0);
         $rid = request()->get('rid');  //一级地区
         $cid= request()->get('cid'); //二级地区
@@ -40,13 +44,16 @@ class StudyController extends Controller
             $regiondlist=Region::where('parent_id', $cid)->get();
         }
         $studys = $studys->paginate(5);
-        return view('study.index')->with(compact('studys','regionlist','regionclist','regiondlist','rid','cid','did'));
+        return view('study.index')->with(compact('studys','regionlist','regionclist','regiondlist','rid','cid','did','Lastedarticle','hotpropertys'));
     }
 
     public function show($id)
     {
+
         $study = Study::where('id', $id)->first();
-        return view('study.show')->with(compact('study'));
+        $Lastedarticle=$this->LastedNews(5);
+        $hotpropertys=$this->HotProperty(4);
+        return view('study.show')->with(compact('study','Lastedarticle','hotpropertys'));
     }
 
     //zhong xiao xue
@@ -93,12 +100,31 @@ class StudyController extends Controller
             $regiondlist=Region::where('parent_id', $cid)->get();
         }
         $studys = $studys->paginate(5);
-        return view('study.index_sp')->with(compact('studys','regionlist','regionclist','regiondlist','rid','cid','did','type','nature','gender'));
+        $Lastedarticle=$this->LastedNews(5);
+        $hotpropertys=$this->HotProperty(4);
+        return view('study.index_sp')->with(compact('studys','regionlist','regionclist','regiondlist','rid','cid','did','type','nature','gender','Lastedarticle','hotpropertys'));
     }
 
     public function show_sp($id)
     {
         $study = StudySP::where('id', $id)->first();
-        return view('study.show_sp')->with(compact('study'));
+        $Lastedarticle=$this->LastedNews(5);
+        $hotpropertys=$this->HotProperty(4);
+        return view('study.show_sp')->with(compact('study','Lastedarticle','hotpropertys'));
+    }
+
+    //最新资讯
+    public function LastedNews($n)
+    {
+        $article= Article::orderBy('displayorder', 'desc')->take($n)->select('id', 'title','picurl','abstract')->get();
+        return $article;
+    }
+
+
+    //热门房产
+    public function HotProperty($n)
+    {
+        $property= Property::orderBy('id', 'desc')->take($n)->select('id', 'title','picurl','address')->get();
+        return $property;
     }
 }

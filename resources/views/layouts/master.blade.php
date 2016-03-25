@@ -124,8 +124,13 @@
                                 <a href="/tour" class="show-submenu"><!--<i class="icon_set_1_icon-8"></i>--> 国际旅游 </a>
                             </li>
                             <li class="submenu">
-                                <a href="/study" class="show-submenu"><!--<i class="icon_set_1_icon-43"></i>--> 移民留学 </a>
+                                <a href="javascript:void(0);" class="show-submenu"><!--<i class="icon_set_1_icon-43"></i>--> 留学 <i class="icon-down-open-mini"></i></a>
+                                <ul>
+                                    <li><a href="/study">大学</a></li>
+                                    <li><a href="/study-sp">中小学</a></li>
+                                </ul>
                             </li>
+
                             <li class="submenu">
                                 <a href="/news" class="show-submenu"><!--<i class="icon_set_1_icon-7"></i>--> 新闻资讯 </a>
                             </li>
