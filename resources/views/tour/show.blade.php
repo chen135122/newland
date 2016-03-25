@@ -68,7 +68,7 @@
                         <ul class="c_ul" style="margin: 0;padding: 0;color: #888;">
                             <li class="new_a" ><a href="#xcjj" onclick="removeClass('xcjj', this)">行程简介</a></li>
                             <li><a href="#cpts" onclick="removeClass('cpts',this)">产品特色</a></li>
-                            <li><a href="#hbxx" onclick="removeClass('hbxx',this)">航班信息</a></li>
+                            <li><a href="#hbxx" onclick="removeClass('hbxx',this)">费用包含</a></li>
                             <li><a href="#xcjs" onclick="removeClass('xcjs', this)">行程介绍</a></li>
                             <li><a href="#mstj" onclick="removeClass('mstj', this)">美食推荐</a></li>
                             {{--<li><a href="#zxpl" onclick="removeClass('zxpl', this)">评论区域</a></li>--}}
@@ -85,11 +85,10 @@
                         <p>
                         {!!$travel->introduction !!}
                         </p>
-                        <h4>行程特色</h4>
-                        <p>
-                            以上报价仅供参考，可能会因为不同的出发城市及时间会有所浮动
-                        </p>
-                        {!! $travel->feature !!}
+                        {{--<h4>行程特色</h4>--}}
+                        {{--<p>--}}
+                            {{--以上报价仅供参考，可能会因为不同的出发城市及时间会有所浮动--}}
+                        {{--</p>--}}
 
                     </div>
                 </div>
@@ -100,47 +99,20 @@
                     <div class="col-md-9">
                         <h4>关于此产品</h4>
                         <p>
-                            {!!$travel->introduction !!}
-                        </p>
-                        <h4>行程特色</h4>
-                        <p>
-                            以上报价仅供参考，可能会因为不同的出发城市及时间会有所浮动
+                            {!! $travel->feature !!}
                         </p>
                     </div>
                 </div>
                 <hr>
-                {{--<div class="row">--}}
-                    {{--<div class="col-md-3" id="hbxx">--}}
-                        {{--<h3>航班信息</h3>--}}
-                    {{--</div>--}}
-                    {{--<div class="col-md-9">--}}
-                        {{--<h4>关于此航班</h4>--}}
-                        {{--<p>--}}
-                            {{--{!!$travel->fdescription!!}--}}
-                        {{--</p>--}}
-                        {{--<h4>行程特色</h4>--}}
-                        {{--<p>--}}
-                            {{--以上报价仅供参考，可能会因为不同的出发城市及时间会有所浮动--}}
-                        {{--</p>--}}
-                        {{--{!!$travel->feature!!}--}}
-                        {{--<div class="row">--}}
-                            {{--<div class="col-md-6 col-sm-6">--}}
-                                {{--<ul class="list_ok">--}}
-                                    {{--@for($i=0;$i<count($travelFeature->where("type",1))/2;$i++)--}}
-                                        {{--<li>{{$travelFeature[$i]->content}}</li>--}}
-                                    {{--@endfor--}}
-                                {{--</ul>--}}
-                            {{--</div>--}}
-                            {{--<div class="col-md-6 col-sm-6">--}}
-                                {{--<ul class="list_ok">--}}
-                                    {{--@for($i=count($travelFeature->where("type",1))/2;$i<count($travelFeature->where("type",1));$i++)--}}
-                                        {{--<li>{{$travelFeature[$i]->content}}</li>--}}
-                                    {{--@endfor--}}
-                                {{--</ul>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
+                <div class="row">
+                    <div class="col-md-3" id="hbxx">
+                        <h3>费用包含</h3>
+                    </div>
+                    <div class="col-md-9">
+                        <h4>费用包含</h4>
+                        {!!$travel->feeinclude!!}
+                    </div>
+                </div>
 
                 <hr>
 
@@ -264,7 +236,7 @@
                         <div class="mockup-content">
 
                             <div class="morph-button morph-button-modal morph-button-modal-2 morph-button-fixed" >
-                                <button type="button" class="btn_1 add_bottom_30" data-toggle="modal" data-target="#myReview">撰写评论</button>
+                                {{--<button type="button" class="btn_1 add_bottom_30" data-toggle="modal" data-target="#myReview">撰写评论</button>--}}
                                 <div class="morph-content" style="background-color:#fff;">
                                     <div>
                                         <div class="content-style-form content-style-form-1" id="comment">
@@ -343,84 +315,84 @@
                         </div>
 
                     </div>
-                    <div class="col-md-9" id="all_comment">
-                        <div id="general_rating">
-                            11条评论
-                            <div class="rating">
-                                <i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><i class="icon-smile"></i>
-                            </div>
-                        </div><!-- End general_rating -->
-                        <div class="row" id="rating_summary">
-                            <div class="col-md-6">
-                                <ul>
-                                    <li>
-                                        目的地
-                                        <div class="rating">
-                                            <i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><i class="icon-smile"></i>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        导游
-                                        <div class="rating">
-                                            <i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="col-md-6">
-                                <ul>
-                                    <li>
-                                        价格
-                                        <div class="rating">
-                                            <i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><i class="icon-smile"></i>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        质量
-                                        <div class="rating">
-                                            <i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div><!-- End row -->
-                        <hr>
-                        <div class="review_strip_single">
-                            <img src="/img/avatar1.jpg" alt="" class="img-circle">
-                            <small> - 10 March 2015 -</small>
-                            <h4>Jhon Doe</h4>
-                            <p>
-                                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a lorem quis neque interdum consequat ut sed sem. Duis quis tempor nunc. Interdum et malesuada fames ac ante ipsum primis in faucibus."
-                            </p>
-                            <div class="rating">
-                                <i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><i class="icon-smile"></i>
-                            </div>
-                        </div><!-- End review strip -->
+                    {{--<div class="col-md-9" id="all_comment">--}}
+                        {{--<div id="general_rating">--}}
+                            {{--11条评论--}}
+                            {{--<div class="rating">--}}
+                                {{--<i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><i class="icon-smile"></i>--}}
+                            {{--</div>--}}
+                        {{--</div><!-- End general_rating -->--}}
+                        {{--<div class="row" id="rating_summary">--}}
+                            {{--<div class="col-md-6">--}}
+                                {{--<ul>--}}
+                                    {{--<li>--}}
+                                        {{--目的地--}}
+                                        {{--<div class="rating">--}}
+                                            {{--<i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><i class="icon-smile"></i>--}}
+                                        {{--</div>--}}
+                                    {{--</li>--}}
+                                    {{--<li>--}}
+                                        {{--导游--}}
+                                        {{--<div class="rating">--}}
+                                            {{--<i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i>--}}
+                                        {{--</div>--}}
+                                    {{--</li>--}}
+                                {{--</ul>--}}
+                            {{--</div>--}}
+                            {{--<div class="col-md-6">--}}
+                                {{--<ul>--}}
+                                    {{--<li>--}}
+                                        {{--价格--}}
+                                        {{--<div class="rating">--}}
+                                            {{--<i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><i class="icon-smile"></i>--}}
+                                        {{--</div>--}}
+                                    {{--</li>--}}
+                                    {{--<li>--}}
+                                        {{--质量--}}
+                                        {{--<div class="rating">--}}
+                                            {{--<i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i>--}}
+                                        {{--</div>--}}
+                                    {{--</li>--}}
+                                {{--</ul>--}}
+                            {{--</div>--}}
+                        {{--</div><!-- End row -->--}}
+                        {{--<hr>--}}
+                        {{--<div class="review_strip_single">--}}
+                            {{--<img src="/img/avatar1.jpg" alt="" class="img-circle">--}}
+                            {{--<small> - 10 March 2015 -</small>--}}
+                            {{--<h4>Jhon Doe</h4>--}}
+                            {{--<p>--}}
+                                {{--"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a lorem quis neque interdum consequat ut sed sem. Duis quis tempor nunc. Interdum et malesuada fames ac ante ipsum primis in faucibus."--}}
+                            {{--</p>--}}
+                            {{--<div class="rating">--}}
+                                {{--<i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><i class="icon-smile"></i>--}}
+                            {{--</div>--}}
+                        {{--</div><!-- End review strip -->--}}
 
-                        <div class="review_strip_single">
-                            <img src="/img/avatar3.jpg" alt="" class="img-circle">
-                            <small> - 10 March 2015 -</small>
-                            <h4>Jhon Doe</h4>
-                            <p>
-                                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a lorem quis neque interdum consequat ut sed sem. Duis quis tempor nunc. Interdum et malesuada fames ac ante ipsum primis in faucibus."
-                            </p>
-                            <div class="rating">
-                                <i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><i class="icon-smile"></i>
-                            </div>
-                        </div><!-- End review strip -->
+                        {{--<div class="review_strip_single">--}}
+                            {{--<img src="/img/avatar3.jpg" alt="" class="img-circle">--}}
+                            {{--<small> - 10 March 2015 -</small>--}}
+                            {{--<h4>Jhon Doe</h4>--}}
+                            {{--<p>--}}
+                                {{--"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a lorem quis neque interdum consequat ut sed sem. Duis quis tempor nunc. Interdum et malesuada fames ac ante ipsum primis in faucibus."--}}
+                            {{--</p>--}}
+                            {{--<div class="rating">--}}
+                                {{--<i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><i class="icon-smile"></i>--}}
+                            {{--</div>--}}
+                        {{--</div><!-- End review strip -->--}}
 
-                        <div class="review_strip_single last">
-                            <img src="/img/avatar2.jpg" alt="" class="img-circle">
-                            <small> - 10 March 2015 -</small>
-                            <h4>Jhon Doe</h4>
-                            <p>
-                                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a lorem quis neque interdum consequat ut sed sem. Duis quis tempor nunc. Interdum et malesuada fames ac ante ipsum primis in faucibus."
-                            </p>
-                            <div class="rating">
-                                <i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><i class="icon-smile"></i>
-                            </div>
-                        </div><!-- End review strip -->
-                    </div>
+                        {{--<div class="review_strip_single last">--}}
+                            {{--<img src="/img/avatar2.jpg" alt="" class="img-circle">--}}
+                            {{--<small> - 10 March 2015 -</small>--}}
+                            {{--<h4>Jhon Doe</h4>--}}
+                            {{--<p>--}}
+                                {{--"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a lorem quis neque interdum consequat ut sed sem. Duis quis tempor nunc. Interdum et malesuada fames ac ante ipsum primis in faucibus."--}}
+                            {{--</p>--}}
+                            {{--<div class="rating">--}}
+                                {{--<i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><i class="icon-smile"></i>--}}
+                            {{--</div>--}}
+                        {{--</div><!-- End review strip -->--}}
+                    {{--</div>--}}
                 </div>
             </div><!--End  single_tour_desc-->
 
@@ -459,104 +431,44 @@
                     <a class="btn_full" onclick="linkto()">马上预定</a>
                 </div><!--/box_style_1 -->
                 <div class="box_style_1 expose">
-                    <h3 class="inner">热门旅游</h3>
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6 room">
-                            <div>
-                                <img src="/img/slider_single_tour/1_medium.jpg" alt="" width="68" height="68" class="/img-circle">
-                            </div>
-                            <div class="hold_room">
-                                <h4>新西兰天马镇</h4>
-                                <small>宽敞舒适精美靓宅 绝佳地段双校网 必售房源速来抢购 </small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6 room">
-                            <div>
-                                <img src="/img/slider_single_tour/1_medium.jpg" width="68" height="68" alt="" class="/img-circle">
-                            </div>
-                            <div class="hold_room">
-                                <h4>新西兰天马镇</h4>
-                                <small>宽敞舒适精美靓宅 绝佳地段双校网 必售房源速来抢购 </small>
+                    <h3 class="inner">热门房产</h3>
+                    @foreach($hotpropertys as $hotproperty)
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6 room">
+                                <div>
+                                    <a href="/property/{{$hotproperty->id}}"><img src="{{$hotproperty->picurl}}" alt="{{$hotproperty->title}}" width="68" height="68" class="/img-circle"></a>
+                                </div>
+                                <div class="hold_room">
+                                    <h4><a href="/property/{{$hotproperty->id}}">{{str_replace('基督城','',$hotproperty->title)}}</a></h4>
+                                    <small>{{$hotproperty->address}}</small>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6 room">
-                            <div>
-                                <img src="/img/avatar1.jpg" alt="" width="68" height="68" class="/img-circle">
-                            </div>
-                            <div class="hold_room">
-                                <h4>新西兰天马镇</h4>
-                                <small>宽敞舒适精美靓宅 绝佳地段双校网 必售房源速来抢购 </small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6 room">
-                            <div>
-                                <img src="/img/slider_single_tour/1_medium.jpg" alt="" width="68" height="68" class="/img-circle">
-                            </div>
-                            <div class="hold_room">
-                                <h4>新西兰天马镇</h4>
-                                <small>宽敞舒适精美靓宅 绝佳地段双校网 必售房源速来抢购 </small>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
+
                     <br>
 
-                    <a class="btn_full" href="cart_hotel.html">更多</a>
+                    <a class="btn_full" href="/property">更多</a>
                 </div>
                 <div class="box_style_1 expose">
-                    <h3 class="inner">热门资讯</h3>
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6 room">
-                            <div>
-                                <img src="/img/slider_single_tour/1_medium.jpg" alt="" width="68" height="68" class="/img-circle">
-                            </div>
-                            <div class="hold_room">
-                                <h4>新西兰天马镇</h4>
-                                <small>宽敞舒适精美靓宅 绝佳地段双校网 必售房源速来抢购 </small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6 room">
-                            <div>
-                                <img src="/img/slider_single_tour/1_medium.jpg" width="68" height="68" alt="" class="/img-circle">
-                            </div>
-                            <div class="hold_room">
-                                <h4>新西兰天马镇</h4>
-                                <small>宽敞舒适精美靓宅 绝佳地段双校网 必售房源速来抢购 </small>
+                    <h3 class="inner">最新资讯</h3>
+                    @foreach($Lastedarticle as $article2)
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6 room">
+                                <div>
+                                    <img src="{{$article2->picurl}}" alt="" width="68" height="68" class="/img-circle">
+                                </div>
+                                <div class="hold_room">
+                                    <h4><a href="/news/{{$article2->id}}">{{$article2->title}}</a></h4>
+
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6 room">
-                            <div>
-                                <img src="/img/avatar1.jpg" alt="" width="68" height="68" class="/img-circle">
-                            </div>
-                            <div class="hold_room">
-                                <h4>新西兰天马镇</h4>
-                                <small>宽敞舒适精美靓宅 绝佳地段双校网 必售房源速来抢购 </small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6 room">
-                            <div>
-                                <img src="/img/slider_single_tour/1_medium.jpg" alt="" width="68" height="68" class="/img-circle">
-                            </div>
-                            <div class="hold_room">
-                                <h4>新西兰天马镇</h4>
-                                <small>宽敞舒适精美靓宅 绝佳地段双校网 必售房源速来抢购 </small>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
+
                     <br>
 
-                    <a class="btn_full" href="cart_hotel.html">更多</a>
+                    <a class="btn_full" href="/news">更多</a>
                 </div>
                 <div class="box_style_4">
                     <i class="icon_set_1_icon-90"></i>

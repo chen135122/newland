@@ -8,6 +8,8 @@ use App\Models\newOrder;
 use App\Models\priceBase;
 use App\Models\priceRange;
 use App\Models\orderDetail;
+use App\Models\Property;
+use App\Models\Article;
 use App\Models\Image;
 use Carbon\Carbon;
 use Omnipay;
@@ -59,13 +61,32 @@ class TourController extends Controller
 
     public function show($id)
     {
+        $Lastedarticle=$this->LastedNews(5);
+        $hotpropertys=$this->HotProperty(4);
+
         $travel = Travel::where('id', $id)->first();
+        if(empty( $travel))
+            return view('home.index');
         $travelDay=$travel->day()->get(); //TravelDay::where("route_id",$travel->id);
         //$travelFeature=$travel->feature()->get();
         $pic=$travel->travelImg()->get()->where("smalltype",1);
         //$pic=$pic::all()->where(['type'=>1]);
-        return view('tour.show')->with(compact('travel'))->with(compact("travelDay",$travelDay))->with(compact('pic'));
+        return view('tour.show')->with(compact('travel'))->with(compact("travelDay",$travelDay))->with(compact('pic'))
+            ->with(compact('Lastedarticle',$Lastedarticle))->with(compact('hotpropertys',$hotpropertys)) ;
             //->with(compact("travelFeature",$travelFeature));
+    }
+    public function LastedNews($n)
+    {
+        $article= Article::orderBy('displayorder', 'desc')->take($n)->select('id', 'title','picurl','abstract')->get();
+        return $article;
+    }
+
+
+    //热门房产
+    public function HotProperty($n)
+    {
+        $property= Property::orderBy('id', 'desc')->take($n)->select('id', 'title','picurl','address')->get();
+        return $property;
     }
     public function order(Request $request)
     {
