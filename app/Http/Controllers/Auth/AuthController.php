@@ -101,7 +101,8 @@ class AuthController extends Controller
            // dd(auth()->user());
             return response()->json([
                 'status' => 1,
-                'msg' => "登录成功！"
+                'msg' => "登录成功！",
+                'url'=>"/percenter"
             ]);
         }
 

@@ -82,20 +82,20 @@
                                     @else
                                      <a href="/auth/login" class="dropdown-toggle" data-toggle="dropdown" id="access_link">登录</a>
                                     @endif
-                                    <div class="dropdown-menu">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" id="inputUsernameEmail" placeholder="Email">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="password" class="form-control" id="inputPassword" placeholder="Password">
-                                        </div>
-                                        <a id="forgot_pw" href="#">忘记密码？</a>
-                                        <input type="submit" name="Sign_in" value="登录" id="Sign_in" class="button_drop">
-                                        <input type="submit" name="Sign_up" value="注册" id="Sign_up" class="button_drop outline">
-                                    </div>
+                                    {{--<div class="dropdown-menu">--}}
+                                        {{--<div class="form-group">--}}
+                                            {{--<input type="text" class="form-control" id="inputUsernameEmail" placeholder="Email">--}}
+                                        {{--</div>--}}
+                                        {{--<div class="form-group">--}}
+                                            {{--<input type="password" class="form-control" id="inputPassword" placeholder="Password">--}}
+                                        {{--</div>--}}
+                                        {{--<a id="forgot_pw" href="#">忘记密码？</a>--}}
+                                        {{--<input type="submit" name="Sign_in" value="登录" id="Sign_in" class="button_drop">--}}
+                                        {{--<input type="submit" name="Sign_up" value="注册" id="Sign_up" class="button_drop outline">--}}
+                                    {{--</div>--}}
                                 </div><!-- End Dropdown access -->
                             </li>
-                            <li><a href="wishlist.html" id="wishlist_link">收藏<span class="wishlist-num">0</span></a></li>
+                            <li><a href="/percenter" id="wishlist_link">收藏<span class="wishlist-num">0</span></a></li>
                         </ul>
                     </div>
                 </div><!-- End row -->

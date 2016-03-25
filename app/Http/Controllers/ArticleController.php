@@ -12,7 +12,7 @@ class ArticleController extends Controller
     public function index()
     {
 
-        $articles = Article::orderBy('displayorder', 'desc')->paginate(10);
+        $articles = Article::where('picurl','<>', '')->orderBy('displayorder', 'desc')->paginate(10);
         $Lastedarticle=$this->LastedNews(5);
         $Hotdarticle=$this->HotNews(5);
         return view('article.index')->with(compact('articles','Lastedarticle','Hotdarticle'));
