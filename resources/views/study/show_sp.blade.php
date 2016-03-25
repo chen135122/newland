@@ -285,104 +285,43 @@
 
                 <div class="box_style_1 expose">
                     <h3 class="inner">热门房产</h3>
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6 room">
-                            <div>
-                                <img src="/img/slider_single_tour/1_medium.jpg" alt="" width="68" height="68" class="/img-circle">
-                            </div>
-                            <div class="hold_room">
-                                <h4>新西兰天马镇</h4>
-                                <small>宽敞舒适精美靓宅 绝佳地段双校网 必售房源速来抢购 </small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6 room">
-                            <div>
-                                <img src="/img/slider_single_tour/1_medium.jpg" alt="" width="68" height="68" class="/img-circle">
-                            </div>
-                            <div class="hold_room">
-                                <h4>新西兰天马镇</h4>
-                                <small>宽敞舒适精美靓宅 绝佳地段双校网 必售房源速来抢购 </small>
+                    @foreach($hotpropertys as $hotproperty)
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6 room">
+                                <div>
+                                    <a href="/property/{{$hotproperty->id}}"><img src="{{$hotproperty->picurl}}" alt="{{$hotproperty->title}}" width="68" height="68" class="/img-circle"></a>
+                                </div>
+                                <div class="hold_room">
+                                    <h4><a href="/property/{{$hotproperty->id}}">{{str_replace('基督城','',$hotproperty->title)}}</a></h4>
+                                    <small>{{$hotproperty->address}}</small>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6 room">
-                            <div>
-                                <img src="/img/slider_single_tour/1_medium.jpg" alt="" width="68" height="68" class="/img-circle">
-                            </div>
-                            <div class="hold_room">
-                                <h4>新西兰天马镇</h4>
-                                <small>宽敞舒适精美靓宅 绝佳地段双校网 必售房源速来抢购 </small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6 room">
-                            <div>
-                                <img src="/img/slider_single_tour/1_medium.jpg" alt="" width="68" height="68" class="/img-circle">
-                            </div>
-                            <div class="hold_room">
-                                <h4>新西兰天马镇</h4>
-                                <small>宽敞舒适精美靓宅 绝佳地段双校网 必售房源速来抢购 </small>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
+
                     <br>
 
-                    <a class="btn_full" href="cart_hotel.html">更多</a>
+                    <a class="btn_full" href="/property">更多</a>
                 </div>
-
                 <div class="box_style_1 expose">
-                    <h3 class="inner">热门资讯</h3>
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6 room">
-                            <div>
-                                <img src="/img/slider_single_tour/1_medium.jpg" alt="" width="68" height="68" class="/img-circle">
-                            </div>
-                            <div class="hold_room">
-                                <h4>新西兰天马镇</h4>
-                                <small>宽敞舒适精美靓宅 绝佳地段双校网 必售房源速来抢购 </small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6 room">
-                            <div>
-                                <img src="/img/slider_single_tour/1_medium.jpg" width="68" height="68" alt="" class="/img-circle">
-                            </div>
-                            <div class="hold_room">
-                                <h4>新西兰天马镇</h4>
-                                <small>宽敞舒适精美靓宅 绝佳地段双校网 必售房源速来抢购 </small>
+                    <h3 class="inner">最新资讯</h3>
+                    @foreach($Lastedarticle as $article2)
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6 room">
+                                <div>
+                                    <img src="{{$article2->picurl}}" alt="" width="68" height="68" class="/img-circle">
+                                </div>
+                                <div class="hold_room">
+                                    <h4><a href="/news/{{$article2->id}}">{{$article2->title}}</a></h4>
+
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6 room">
-                            <div>
-                                <img src="/img/avatar1.jpg" alt="" width="68" height="68" class="/img-circle">
-                            </div>
-                            <div class="hold_room">
-                                <h4>新西兰天马镇</h4>
-                                <small>宽敞舒适精美靓宅 绝佳地段双校网 必售房源速来抢购 </small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6 room">
-                            <div>
-                                <img src="/img/slider_single_tour/1_medium.jpg" alt="" width="68" height="68" class="/img-circle">
-                            </div>
-                            <div class="hold_room">
-                                <h4>新西兰天马镇</h4>
-                                <small>宽敞舒适精美靓宅 绝佳地段双校网 必售房源速来抢购 </small>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
+
                     <br>
 
-                    <a class="btn_full" href="cart_hotel.html">更多</a>
+                    <a class="btn_full" href="/news">更多</a>
                 </div>
                 <div class="box_style_4">
                     <i class="icon_set_1_icon-90"></i>

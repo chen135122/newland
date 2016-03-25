@@ -54,39 +54,41 @@
         </div>
         <aside class="col-md-4">
             <div class="box_style_1 expose">
-                <h3 class="inner">最新资讯</h3>
-                @foreach($Lastedarticle as $article2)
-                <div class="row">
-                    <div class="col-md-6 col-sm-6 room">
-                        <div>
-                            <img src="{{$article2->picurl}}" alt="" width="68" height="68" class="/img-circle">
-                        </div>
-                        <div class="hold_room">
-                            <h4><a href="/news/{{$article2->id}}">{!!str_limit($article2->title,40)!!}</a></h4>
-                            <small>{!!str_limit($article2->abstract,40)!!} </small>
+                <h3 class="inner">热门房产</h3>
+                @foreach($hotpropertys as $hotproperty)
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 room">
+                            <div>
+                                <a href="/property/{{$hotproperty->id}}"><img src="{{$hotproperty->picurl}}" alt="{{$hotproperty->title}}" width="68" height="68" class="/img-circle"></a>
+                            </div>
+                            <div class="hold_room">
+                                <h4><a href="/property/{{$hotproperty->id}}">{{str_replace('基督城','',$hotproperty->title)}}</a></h4>
+                                <small>{{$hotproperty->address}}</small>
+                            </div>
                         </div>
                     </div>
-                </div>
                 @endforeach
+
                 <br>
 
-                <a class="btn_full" href="/news">更多</a>
+                <a class="btn_full" href="/property">更多</a>
             </div>
             <div class="box_style_1 expose">
-                <h3 class="inner">热门资讯</h3>
-                @foreach($Hotdarticle as $article2)
+                <h3 class="inner">最新资讯</h3>
+                @foreach($Lastedarticle as $article2)
                     <div class="row">
                         <div class="col-md-6 col-sm-6 room">
                             <div>
                                 <img src="{{$article2->picurl}}" alt="" width="68" height="68" class="/img-circle">
                             </div>
                             <div class="hold_room">
-                                <h4><a href="/news/{{$article2->id}}">{!!str_limit($article2->title,40)!!}</a></h4>
-                                <small>{!!str_limit($article2->abstract,40)!!} </small>
+                                <h4><a href="/news/{{$article2->id}}">{{$article2->title}}</a></h4>
+
                             </div>
                         </div>
                     </div>
                 @endforeach
+
                 <br>
 
                 <a class="btn_full" href="/news">更多</a>

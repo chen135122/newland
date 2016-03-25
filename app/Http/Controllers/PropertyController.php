@@ -88,6 +88,7 @@ class PropertyController extends Controller
         $property = Property::where('id', $id)->first();
         $locationArray=explode(',',$property->location);
 
+        $pic=$property->propertyImg()->get();
         if(count($locationArray)==2){
             $locationX=$locationArray[0];
             $locationY=$locationArray[1];
@@ -96,7 +97,7 @@ class PropertyController extends Controller
             $locationX=-45.023564;
             $locationY=168.9689589;
         }
-        return view('property.show')->with(compact('property','locationX','locationY','Lastedarticle','hotpropertys'));
+        return view('property.show')->with(compact('property','locationX','locationY','Lastedarticle','hotpropertys','pic'));
     }
 
     //最新资讯
