@@ -1,12 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\priceBase;
+use App\Models\PriceBase;
 use App\Models\Travel;
 use App\Models\TravelDay;
 use App\Models\TravelCategory;
 use App\Models\newOrder;
-use App\Models\orderDetail;
+use App\Models\OrderDetail;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Omnipay;
@@ -55,8 +55,8 @@ class AlipayController extends Controller
            $category=$request->get('baseprice');
            foreach($category as $key=>$value)
            {
-               $base= priceBase::where("id",$value)->first();
-               $orderDetail=new orderDetail();
+               $base= PriceBase::where("id",$value)->first();
+               $orderDetail=new OrderDetail();
                $orderDetail->orderid=$order->id;
                $orderDetail->title=$base->title;
                $orderDetail->price=$base->price;
@@ -120,8 +120,8 @@ class AlipayController extends Controller
             $category=$request->get('baseprice');
             foreach($category as $key=>$value)
             {
-                $base= priceBase::where("id",$value)->first();
-                $orderDetail=new orderDetail();
+                $base= PriceBase::where("id",$value)->first();
+                $orderDetail=new OrderDetail();
                 $orderDetail->orderid=$order->id;
                 $orderDetail->title=$base->title;
                 $orderDetail->price=$base->price;

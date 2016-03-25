@@ -18,6 +18,6 @@ class newOrder extends BaseModel
     }
     public function detail()
     {
-        return $this->hasOne('App\Models\orderDetail','orderid','id');
+        return $this->hasOne('App\Models\OrderDetail','orderid','id');
     }
 }

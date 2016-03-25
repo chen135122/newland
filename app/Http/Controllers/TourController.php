@@ -5,9 +5,9 @@ use App\Models\Travel;
 use App\Models\TravelDay;
 use App\Models\TravelCategory;
 use App\Models\newOrder;
-use App\Models\priceBase;
-use App\Models\priceRange;
-use App\Models\orderDetail;
+use App\Models\PriceBase;
+use App\Models\PriceRange;
+use App\Models\OrderDetail;
 use App\Models\Property;
 use App\Models\Article;
 use App\Models\Image;
@@ -94,10 +94,10 @@ class TourController extends Controller
         if(!empty( $route=$request->get("routid")))
         {
             $travel=Travel::where("id",$route)->first();
-            $priceRange=priceRange::where("routeid",$route)->where("endnum",">",$perNum)->where("startnum","<",$perNum);
+            $priceRange=PriceRange::where("routeid",$route)->where("endnum",">",$perNum)->where("startnum","<",$perNum);
         }
 
-       $priceBase= priceBase::all()->sortByDesc("displayorder");
+       $priceBase= PriceBase::all()->sortByDesc("displayorder");
         //$route=$request->get("routid");
 
         return view('tour.order')->with(compact("travel",$travel))->with(compact("priceBase",$priceBase))
@@ -133,7 +133,7 @@ class TourController extends Controller
             $order->save();
             if($order->id>0)
             {
-                $orderDetail=new orderDetail();
+                $orderDetail=new OrderDetail();
                 $orderDetail->orderid=$order->id;
                 $orderDetail->title=$travel->title;
                // $orderDetail->price=
