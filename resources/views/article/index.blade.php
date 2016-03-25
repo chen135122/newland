@@ -1,5 +1,5 @@
 @extends('layouts.master')
-
+@section('title')新闻资讯@stop
 @section('content')
     <section class="parallax-window" data-parallax="scroll" data-image-src="/img/hotels_bg.jpg" data-natural-width="1400" data-natural-height="470">
         <div class="parallax-content-1">

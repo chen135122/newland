@@ -9,11 +9,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Ansonika">
-    <title>All In New Zealand - 新西兰旅游置业</title>
-
-    <!-- Favicons-->
+    <title>@yield('title','All In New Zealand - 新西兰旅游置业')</title>
     <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
-
     <!-- BASE CSS -->
     <link href="/css/base.css" rel="stylesheet">
 
@@ -118,7 +115,7 @@
                         <a href="#" class="open_close" id="close_in"><i class="icon_set_1_icon-77"></i></a>
                         <ul class="head_type">
                             <li class="submenu">
-                                <a href="#" class="show-submenu"> <!--<i class="icon_set_1_icon-64"></i>--> 首页 </a>
+                                <a href="/" class="show-submenu"> <!--<i class="icon_set_1_icon-64"></i>--> 首页 </a>
                             </li>
                             <li class=" megamenu submenu">
                                 <a href="/property" class="show-submenu-mega"> <!--<i class="icon_set_1_icon-2"></i>--> 房产置业 </a>
@@ -130,10 +127,10 @@
                                 <a href="/study" class="show-submenu"><!--<i class="icon_set_1_icon-43"></i>--> 移民留学 </a>
                             </li>
                             <li class="submenu">
-                                <a href="javascript:void(0);" class="show-submenu"> <!--<i class="icon_set_1_icon-14"></i>--> 积分商城 </a>
+                                <a href="/news" class="show-submenu"><!--<i class="icon_set_1_icon-7"></i>--> 新闻资讯 </a>
                             </li>
                             <li class="submenu">
-                                <a href="/news" class="show-submenu"><!--<i class="icon_set_1_icon-7"></i>--> 新闻资讯 </a>
+                                <a href="javascript:void(0);" class="show-submenu"> <!--<i class="icon_set_1_icon-14"></i>--> 管家服务 </a>
                             </li>
                         </ul>
                     </div><!-- End main-menu -->

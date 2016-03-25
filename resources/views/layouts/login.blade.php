@@ -28,35 +28,22 @@
     <![endif]-->
     <style>
 
-        #position ul li:first-child:before {
-            content:"";
+        .main_title p{
+            font-size: 14px !important;
+            margin-top: 5px;
         }
-        ul.info_booking li,.strip_booking h3 {
-            font-family:'Microsoft YaHei';
+
+        .main-menu a {
+            font-size: 15px;
         }
-        .icon_set_1_icon-51:before {
-            content:'\36';
-        }
-        .icon_set_1_icon-3:before {
-            content:'\24';
-        }
-        .icon_set_1_icon-4:before {
-            content:'\3e';
-        }
-        .icon_set_1_icon-44:before {
-            content:'\79';
-        }
-        .col-md-12 h4 a {
-            cursor:pointer;
-            color:#337ab7;
-        }
-        .form-group span{
-            display:block;
-            font-family:'Microsoft YaHei';
-        }
-        .form-group input,select {
-            display:none;
-        }
+		.tour_list_desc h3{
+			line-height: 23px !important;
+			font-size: 14px;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			height: 3em;
+			font-family: 'Microsoft YaHei',Arial,sans-serif;
+		}
     </style>
 
     @stack('style')
@@ -66,6 +53,56 @@
 <!--[if lte IE 8]>
 <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a>.</p>
 <![endif]-->
+
+    <div id="preloader">
+        <div class="sk-spinner sk-spinner-wave">
+            <div class="sk-rect1"></div>
+            <div class="sk-rect2"></div>
+            <div class="sk-rect3"></div>
+            <div class="sk-rect4"></div>
+            <div class="sk-rect5"></div>
+        </div>
+    </div>
+    <!-- End Preload -->
+    <div class="layer"></div>
+    <!-- Mobile menu overlay mask -->
+    <!-- Header================================================== -->
+    <header>
+        <div id="top_line">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 col-xs-6"><i class="icon-phone"></i><strong>025-58761818</strong></div>
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                        <ul id="top_links">
+                            <li>
+                                <div class="dropdown dropdown-access">
+                                    @if (auth()->user())
+                                     {{auth()->user()->mobile}}
+                                    @else
+                                     <a href="/auth/login" class="dropdown-toggle" data-toggle="dropdown" id="access_link">登录</a>
+                                    @endif
+                                    {{--<div class="dropdown-menu">--}}
+                                        {{--<div class="form-group">--}}
+                                            {{--<input type="text" class="form-control" id="inputUsernameEmail" placeholder="Email">--}}
+                                        {{--</div>--}}
+                                        {{--<div class="form-group">--}}
+                                            {{--<input type="password" class="form-control" id="inputPassword" placeholder="Password">--}}
+                                        {{--</div>--}}
+                                        {{--<a id="forgot_pw" href="#">忘记密码？</a>--}}
+                                        {{--<input type="submit" name="Sign_in" value="登录" id="Sign_in" class="button_drop">--}}
+                                        {{--<input type="submit" name="Sign_up" value="注册" id="Sign_up" class="button_drop outline">--}}
+                                    {{--</div>--}}
+                                </div><!-- End Dropdown access -->
+                            </li>
+                            <li><a href="/percenter" id="wishlist_link">收藏<span class="wishlist-num">0</span></a></li>
+                        </ul>
+                    </div>
+                </div><!-- End row -->
+            </div><!-- End container-->
+        </div><!-- End top line-->
+
+    </header><!-- End Header -->
+
 @yield('content')
 
   <footer>

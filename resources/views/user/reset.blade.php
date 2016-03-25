@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.usercenter')
 
 @section('content')
     <meta name="_token" content="{{ csrf_token() }}">

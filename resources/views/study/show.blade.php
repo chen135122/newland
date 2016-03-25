@@ -1,5 +1,7 @@
 @extends('layouts.master')
-
+@section('title')
+    {{$study->cn_name}}
+@stop
 @section('content')
 
     <section class="parallax-window" data-parallax="scroll" data-image-src="/img/single_hotel_bg_1.jpg" data-natural-width="1400" data-natural-height="470">

@@ -1,4 +1,5 @@
 @extends('layouts.master')
+@section('title')新西兰留学-大学@stop
 @section('content')
     <section class="parallax-window" data-parallax="scroll" data-image-src="img/hotels_bg.jpg" data-natural-width="1400" data-natural-height="470">
         <div class="parallax-content-1">
@@ -13,8 +14,8 @@
     <div id="position">
         <div class="container">
             <ul>
-                <li><a href="/indexNew.html">首页</a></li>
-                <li><a href="#">新西兰留学</a></li>
+                <li><a href="/">首页</a></li>
+                <li><a href="/study">新西兰留学</a></li>
             </ul>
         </div>
     </div><!-- Position -->

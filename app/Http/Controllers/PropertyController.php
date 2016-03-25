@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Property;
+use App\Models\Article;
 use App\Models\Region;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,8 @@ class PropertyController extends Controller
     public function index(Request $request)
     {
         $properties = Property::where('status', '<>', 0)->where('status', '<>', 4);
-
+        $Lastedarticle=$this->LastedNews(5);
+        $hotpropertys=$this->HotProperty(4);
         $price=$request->get('price');
         $rid = request()->get('rid');  //一级地区
         $cid= request()->get('cid'); //二级地区
@@ -76,12 +78,13 @@ class PropertyController extends Controller
         {
             $properties=$properties->orderBy("id","desc")->paginate(5);
         }
-        return view('property.index')->with(compact('properties','maxprice','minprice','toprice','regionlist','regionclist','regiondlist','rid','cid','did','type'));
+        return view('property.index')->with(compact('properties','maxprice','minprice','toprice','regionlist','regionclist','regiondlist','rid','cid','did','type','Lastedarticle','hotpropertys'));
     }
 
     public function show($id)
     {
-
+        $Lastedarticle=$this->LastedNews(5);
+        $hotpropertys=$this->HotProperty(4);
         $property = Property::where('id', $id)->first();
         $locationArray=explode(',',$property->location);
 
@@ -93,7 +96,21 @@ class PropertyController extends Controller
             $locationX=-45.023564;
             $locationY=168.9689589;
         }
-        return view('property.show')->with(compact('property','locationX','locationY'));
+        return view('property.show')->with(compact('property','locationX','locationY','Lastedarticle','hotpropertys'));
     }
 
+    //最新资讯
+    public function LastedNews($n)
+    {
+        $article= Article::orderBy('displayorder', 'desc')->take($n)->select('id', 'title','picurl','abstract')->get();
+        return $article;
+    }
+
+
+    //热门房产
+    public function HotProperty($n)
+    {
+        $property= Property::orderBy('id', 'desc')->take($n)->select('id', 'title','picurl','address')->get();
+        return $property;
+    }
 }

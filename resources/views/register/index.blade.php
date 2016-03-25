@@ -1,5 +1,5 @@
-@extends('layouts.master')
-
+@extends('layouts.login')
+@section('title')会员注册@stop
 @section('content')
     <meta name="_token" content="{{ csrf_token() }}">
     <section id="hero" class="login">
