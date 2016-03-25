@@ -794,11 +794,11 @@
 {{--var locationY=parseFloat({{$locationY}});--}}
 //alert(typeof(locationX));
 //    alert(locationX);
-//
+////            center: {lat:locationX, lng:locationY},
 //    alert(locationY);
     function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
-//            center: {lat:locationX, lng:locationY},
+
             center: {lat: -45.023564, lng: 168.9689589},
             zoom: 8
         });

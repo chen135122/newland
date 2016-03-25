@@ -149,7 +149,7 @@
 
                 <div class="text-center">
                     {{$properties->render()}}
-                </div><!-- end pagination-->
+                </div>
             </div>
             <aside class="col-md-4">
                 <div class="box_style_1 expose">
