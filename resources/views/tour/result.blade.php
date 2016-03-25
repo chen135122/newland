@@ -12,7 +12,7 @@
     <meta name="keywords" content="template, tour template, city tours, city tour, tours tickets, transfers, travel, travel template" />
     <meta name="description" content="Citytours - Premium site template for city tours agencies, transfers and tickets.">
     <meta name="author" content="Ansonika">
-    <title>CITY TOURS - City tours and travel site template by Ansonika</title>
+    <title>订单页</title>
 
     <!-- Favicons-->
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
@@ -124,7 +124,7 @@
             <div class="col-xs-4 bs-wizard-step active">
                 <div class="text-center bs-wizard-stepnum">完成</div>
                 <div class="progress" style="background-color:#e04f67;"><div class="progress-bar" style="background-color:#e04f67;"></div></div>
-                <a href="confirmation.html" class="bs-wizard-dot"></a>
+                <a href="" class="bs-wizard-dot"></a>
             </div>
 
         </div>
@@ -216,7 +216,7 @@
                             <strong>支付类型</strong>
                         </td>
                         <td>
-                            支付宝
+                            {{$paytype}}
                         </td>
                     </tr>
                     </tbody>
@@ -231,7 +231,7 @@
                     奥克兰+怀托摩萤火虫洞+罗托鲁瓦+蒂卡波湖+基督城+箭镇+皇后镇10天
                 </p>
                 <hr>
-                <a class="btn_full_outline" href="print.html" target="_blank">订单信息</a>
+                <a class="btn_full_outline" href="/tprint/{{$order->id}}" target="_blank">订单信息</a>
             </div>
             <div class="box_style_4">
                 <i class="icon_set_1_icon-90"></i>

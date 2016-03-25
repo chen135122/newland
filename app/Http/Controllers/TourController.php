@@ -5,6 +5,10 @@ use App\Models\Travel;
 use App\Models\TravelDay;
 use App\Models\TravelCategory;
 use App\Models\newOrder;
+use App\Models\priceBase;
+use App\Models\priceRange;
+use App\Models\orderDetail;
+use App\Models\Image;
 use Carbon\Carbon;
 use Omnipay;
 use Illuminate\Http\Request;
@@ -65,38 +69,45 @@ class TourController extends Controller
         $travel = Travel::where('id', $id)->first();
         $travelDay=$travel->day()->get(); //TravelDay::where("route_id",$travel->id);
         //$travelFeature=$travel->feature()->get();
-        //$pic=explode(',',$travel->picurl);
-        return view('tour.show')->with(compact('travel'))->with(compact("travelDay",$travelDay));
-            //->with(compact("travelFeature",$travelFeature))->with(compact('pic'));
+        $pic=$travel->travelImg()->get()->where("smalltype",1);
+        //$pic=$pic::all()->where(['type'=>1]);
+        return view('tour.show')->with(compact('travel'))->with(compact("travelDay",$travelDay))->with(compact('pic'));
+            //->with(compact("travelFeature",$travelFeature));
     }
     public function order(Request $request)
     {
         $perNum=$request->get("num");
         if(!empty( $route=$request->get("routid")))
         {
-            $name=Travel::where("id",$route)->first()->hugetitle;
+            $travel=Travel::where("id",$route)->first();
+            $priceRange=priceRange::where("routeid",$route)->where("endnum",">",$perNum)->where("startnum","<",$perNum);
         }
+
+       $priceBase= priceBase::all()->sortByDesc("displayorder");
         //$route=$request->get("routid");
 
-        return view('tour.order')->with("perNum",$perNum)->with("route",$route)->with("name",$name);
+        return view('tour.order')->with(compact("travel",$travel))->with(compact("priceBase",$priceBase))
+            ->with("perNum",$perNum)->with("route",$route)->with("name",$travel->bigtitle);
     }
 
     public function create(Request $request)
     {
-
         try{
+            $travel=Travel::where("id",get("rout"))->first();
             $order=new newOrder();
-            $order->route_id=$request->get("rout");
+            $order->itemid=$request->get("rout");
             $order->uid=1;
-            $order->sn=time();
-            $order->startdate=Carbon::now();
-            $order->children=0;
-            $order-> total_price=0.0;
-            $order-> discount=0.0;
-            $order-> price=0.0;
-            $order-> oprice=0.0;
-            $order->status=1;
+            $order->sn=date('Ymd').substr(implode(NULL, array_map('ord', str_split(substr(uniqid(), 7, 13), 1))), 0, 8);;
+            //$order->startdate=Carbon::now();
+           // $order->children=0;
+            $order-> totalprice=($travel->referenceprice);
+            //$order-> discount=0.0;
+            $order-> orderprice=$travel->oprice;
+            //$order-> oprice=0.0;
+            $order->type=1;
+            $order->paytype=3;
             $order-> created_at=Carbon::now();
+            $order-> created_by=1;
             $order->adults=strval($request->get("perNum"));
             $order->username=strval($request->get("username")) ;
             $order->phone=strval($request->get("userPhone"));
@@ -106,7 +117,14 @@ class TourController extends Controller
 //            $order->paytime=null;
 //            $order->transid="12";
             $order->save();
-
+            if($order->id>0)
+            {
+                $orderDetail=new orderDetail();
+                $orderDetail->orderid=$order->id;
+                $orderDetail->title=$travel->title;
+               // $orderDetail->price=
+                $orderDetail->num=$request->get("perNum");
+            }
             return  $order->sn;
         }
         catch(Exception $e)
@@ -119,29 +137,65 @@ class TourController extends Controller
     {
         return view('tour.pay');
     }
+    public function tprint($id)
+    {
+        $order=newOrder::where("id",$id)->first();
+        $orderDetail=$order->detail()->get();
+        $travel=$order->travel()->get()->first();
+        return view('tour.tprint')->with(compact("order",$order))->with(compact("travel",$travel))->with(compact("orderDetail",$orderDetail));
+    }
     public function result(Request $request)
     {
+        $trade_no= $request->get("out_trade_no");
+       if(!empty( $request->get("trade_status"))&&$request->get("buyer_id")=="2088202430037100")
+       {
         $gateway = Omnipay::gateway();
-
         $options = [
             'request_params'=> $_REQUEST,
         ];
 
         $response = $gateway->completePurchase($options)->send();
-
-        if ($response->isSuccessful() && $response->isTradeStatusOk()) {
+           $upOrder= newOrder::where("sn",$trade_no)->first();
+        if (($response->isSuccessful() && $response->isTradeStatusOk())||($request->get("is_success")=="T")) {
             //支付成功后操作
             $msg="支付成功";
+            $upOrder->status=2;
+
         } else {
             //支付失败通知.
             $msg="失败";
+            $upOrder->status=5;
+
         }
-        $order=newOrder::where("sn","201603160217463574")->first();
+           $upOrder->save();
+       }
+        else{
+            $upOrder= newOrder::where("sn",$trade_no)->first();
+            if ($request->get("type")=="1") {
+                //支付成功后操作
+                $msg="支付成功";
+                $upOrder->status=2;
+
+            } else {
+                //支付失败通知.
+                $msg="失败";
+                $upOrder->status=5;
+
+            }
+            $upOrder->save();
+        }
+        $order=newOrder::where("sn",$trade_no)->first();
         $travel=$order->travel()->get()->first();
-        return view('tour.result')->with(compact("order",$order))->with(compact("travel",$travel))->with("msg",$msg);
+        $paytype="";
+        switch ($order->paytype)
+        {
+            case 1:$paytype="线下现金";break;
+            case 2:$paytype="支付宝";break;
+            case 3:$paytype="微信";break;
+            case 4:$paytype="对公账号";break;
+        }
+        return view('tour.result')->with(compact("order",$order))->with(compact("travel",$travel))->with("msg",$msg)->with("paytype",$paytype);;
     }
-
-
 }
 class toInt
     {

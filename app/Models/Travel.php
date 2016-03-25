@@ -18,34 +18,35 @@ class Travel extends BaseModel
     {
         return $this->hasOne('App\Models\Feature', 'route_id','id');
     }
-
+    public function travelImg()
+    {
+        return   $query= $this->belongsTo ('App\Models\Image', 'id','itemid')->where("type",'=',1);
+    }
 }
 class TravelDay extends BaseModel
 {
     protected $table = 'nz_travel_day';
-    public function sightspot()
+    public function dayDetail()
     {
-        return $this->hasOne('App\Models\SightSpot', 'day_id','id')->orderBy("sort_num","asc");
+        return $this->hasOne('App\Models\TravelDayDetail', 'dayid','id');
     }
-
 }
-//景点model
-class SightSpot extends BaseModel
+class TravelDayDetail extends BaseModel
 {
-    protected $table = 'nz_travel_sightspot';
-    public function hasimg()
+    protected  $table='nz_travel_day_detail';
+    public function detailImg()
     {
-        return $this->hasOne('App\Models\Imge', 'out_id','id')->where("type","1")->orderBy("sort_num","desc");
+        return $this->hasOne('App\Models\Image', 'itemid','id');
     }
 }
 //美食model
 class Cate extends BaseModel
 {
-    protected $table = 'nz_travel_cate';
-}
-class Imge extends BaseModel
-{
-    protected $table = 'nz_travel_img';
+    protected $table = 'nz_travel_food';
+    public function foodImg()
+    {
+        return $this->hasOne('App\Models\Image', 'itemid','id')->where("smalltype",3);
+    }
 }
 class Feature extends  BaseModel
 {

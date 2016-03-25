@@ -11,9 +11,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class newOrder extends BaseModel
 {
-    protected $table = 'nz_travel_order';
+    protected $table = 'nz_order';
     public function travel()
     {
-        return $this->belongsTo('App\Models\Travel','route_id','id');
+        return $this->belongsTo('App\Models\Travel','itemid','id');
+    }
+    public function detail()
+    {
+        return $this->hasOne('App\Models\orderDetail','orderid','id');
     }
 }
