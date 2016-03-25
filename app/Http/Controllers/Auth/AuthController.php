@@ -102,7 +102,7 @@ class AuthController extends Controller
             return response()->json([
                 'status' => 1,
                 'msg' => "登录成功！",
-                'url'=>"/index"
+                'url'=>"/"
             ]);
         }
 
