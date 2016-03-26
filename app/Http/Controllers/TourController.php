@@ -162,7 +162,7 @@ class TourController extends Controller
     public function result(Request $request)
     {
         $trade_no= $request->get("out_trade_no");
-       if(!empty( $request->get("trade_status"))&&$request->get("buyer_id")=="2088202430037100")
+       if(!empty( $request->get("trade_status")))
        {
         $gateway = Omnipay::gateway();
         $options = [
@@ -210,6 +210,19 @@ class TourController extends Controller
             case 4:$paytype="对公账号";break;
         }
         return view('tour.result')->with(compact("order",$order))->with(compact("travel",$travel))->with("msg",$msg)->with("paytype",$paytype);;
+    }
+    public  static function  status($str)
+    {
+        $paytype="";
+        switch ($str)
+        {
+            case 1:$paytype="提交";break;
+            case 2:$paytype="已支付定金";break;
+            case 3:$paytype="完成订单";break;
+            case 4:$paytype="取消订单";break;
+            case 5:$paytype="支付失败";break;
+        }
+        return $paytype;
     }
 }
 class toInt

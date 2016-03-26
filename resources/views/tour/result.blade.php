@@ -176,7 +176,7 @@
                             <strong>出发地</strong>
                         </td>
                         <td>
-                            {{$travel->start_place}}
+                            上海
                         </td>
                     </tr>
                     <tr>
@@ -184,31 +184,31 @@
                             <strong>出发时间</strong>
                         </td>
                         <td>
-                            2015年12月1号
+                            2016年3月26号
                         </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <strong>目的地</strong>
-                        </td>
-                        <td>
-                            新西兰
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <strong>抵达时间</strong>
-                        </td>
-                        <td>
-                            2015年12月1号
-                        </td>
-                    </tr>
+                    {{--</tr>--}}
+                    {{--<tr>--}}
+                        {{--<td>--}}
+                            {{--<strong>目的地</strong>--}}
+                        {{--</td>--}}
+                        {{--<td>--}}
+                            {{--新西兰--}}
+                        {{--</td>--}}
+                    {{--</tr>--}}
+                    {{--<tr>--}}
+                        {{--<td>--}}
+                            {{--<strong>抵达时间</strong>--}}
+                        {{--</td>--}}
+                        {{--<td>--}}
+                            {{--2015年12月1号--}}
+                        {{--</td>--}}
+                    {{--</tr>--}}
                     <tr>
                         <td>
                             <strong>支付状态</strong>
                         </td>
                         <td>
-                            {{$msg}}
+                            {{App\Http\Controllers\TourController::status($travel->status)}}
                         </td>
                     </tr>
                     <tr>
@@ -228,7 +228,7 @@
             <div class="box_style_1">
                 <h3 class="inner">感谢您!</h3>
                 <p>
-                    奥克兰+怀托摩萤火虫洞+罗托鲁瓦+蒂卡波湖+基督城+箭镇+皇后镇10天
+                    {{$travel->hugetitle}}
                 </p>
                 <hr>
                 <a class="btn_full_outline" href="/tprint/{{$order->id}}" target="_blank">订单信息</a>
