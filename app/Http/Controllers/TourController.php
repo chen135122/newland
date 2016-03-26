@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Travel;
 use App\Models\TravelDay;
 use App\Models\TravelCategory;
-use App\Models\newOrder;
+use App\Models\NewOrder;
 use App\Models\PriceBase;
 use App\Models\PriceRange;
 use App\Models\OrderDetail;
@@ -109,7 +109,7 @@ class TourController extends Controller
     {
         try{
             $travel=Travel::where("id",get("rout"))->first();
-            $order=new newOrder();
+            $order=new NewOrder();
             $order->itemid=$request->get("rout");
             $order->uid=1;
             $order->sn=date('Ymd').substr(implode(NULL, array_map('ord', str_split(substr(uniqid(), 7, 13), 1))), 0, 8);;
@@ -154,7 +154,7 @@ class TourController extends Controller
     }
     public function tprint($id)
     {
-        $order=newOrder::where("id",$id)->first();
+        $order=NewOrder::where("id",$id)->first();
         $orderDetail=$order->detail()->get();
         $travel=$order->travel()->get()->first();
         return view('tour.tprint')->with(compact("order",$order))->with(compact("travel",$travel))->with(compact("orderDetail",$orderDetail));
@@ -170,7 +170,7 @@ class TourController extends Controller
         ];
 
         $response = $gateway->completePurchase($options)->send();
-           $upOrder= newOrder::where("sn",$trade_no)->first();
+           $upOrder= NewOrder::where("sn",$trade_no)->first();
         if (($response->isSuccessful() && $response->isTradeStatusOk())||($request->get("is_success")=="T")) {
             //支付成功后操作
             $msg="支付成功";
@@ -185,7 +185,7 @@ class TourController extends Controller
            $upOrder->save();
        }
         else{
-            $upOrder= newOrder::where("sn",$trade_no)->first();
+            $upOrder= NewOrder::where("sn",$trade_no)->first();
             if ($request->get("type")=="1") {
                 //支付成功后操作
                 $msg="支付成功";
@@ -199,7 +199,7 @@ class TourController extends Controller
             }
             $upOrder->save();
         }
-        $order=newOrder::where("sn",$trade_no)->first();
+        $order=NewOrder::where("sn",$trade_no)->first();
         $travel=$order->travel()->get()->first();
         $paytype="";
         switch ($order->paytype)
