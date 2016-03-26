@@ -99,8 +99,7 @@ class TourController extends Controller
             return view('errors.404');
         }
 
-        $priceBase= PriceBase::all()->sortByDesc("displayorder");
-        //$route=$request->get("routid");
+        $priceBase= PriceBase::orderBy("displayorder")->get();
 
         return view('tour.order')->with(compact("travel", "priceBase", "perNum", "route"))
             ->with("name",$travel->bigtitle);
