@@ -5,7 +5,7 @@ use App\Models\PriceBase;
 use App\Models\Travel;
 use App\Models\TravelDay;
 use App\Models\TravelCategory;
-use App\Models\newOrder;
+use App\Models\NewOrder;
 use App\Models\OrderDetail;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -24,7 +24,7 @@ class AlipayController extends Controller
     {
        $num=$request->get("perNum");
         $travel=Travel::where("id",$request->get("rout"))->first();
-        $order=new newOrder();
+        $order=new NewOrder();
         $order->itemid=$request->get("rout");
         $order->uid=auth()->user()->id;;
         $order->sn=date('Ymd').substr(implode(NULL, array_map('ord', str_split(substr(uniqid(), 7, 13), 1))), 0, 8);;
@@ -87,7 +87,7 @@ class AlipayController extends Controller
     {
         $num=$request->get("perNum");
         $travel=Travel::where("id",$request->get("rout"))->first();
-        $order=new newOrder();
+        $order=new NewOrder();
         $order->itemid=$request->get("rout");
         $order->uid=auth()->user()->id;
         $order->sn=date('Ymd').substr(implode(NULL, array_map('ord', str_split(substr(uniqid(), 7, 13), 1))), 0, 8);;
@@ -185,7 +185,7 @@ class AlipayController extends Controller
                 //log_result($log_name,"【支付成功】:\n".$xml."\n");
                 $msg=支付成功;
             }
-            $order=newOrder::where("sn","201603160217463574")->first();
+            $order=NewOrder::where("sn","201603160217463574")->first();
             $travel=$order->travel()->get()->first();
             return view('tour.result')->with(compact("order",$order))->with(compact("travel",$travel))->with("msg",$msg);
             //商户自行增加处理流程,
