@@ -22,40 +22,39 @@ class TourController extends Controller
 {
     public function index(Request $request)
     {
+        $travels = Travel::where("id",">",0);
+        $category = $request->get('category');
+        $price = $request->get('price');
+        if (!empty($price)) {
+          $travels = $travels->whereBetween('referenceprice', $price);
+        } else {
+          $category = [];
+        }
+        if (!empty($category)) {
+          $travels = $travels->WhereIn('catid', $category);
+        }
+        if ($sortprice = request()->get('sortPrice')) {
+          if ($sortprice == "higher") {
+              $travels = $travels->orderBy("referenceprice", "desc")->paginate(5)->appends(['sortPrice' => 'higher']);
+          } else {
+              $travels = $travels->orderBy("referenceprice", "asc")->paginate(5)->appends(['sortPrice' => 'lower']);
+          }
+        } else {
+          $travels = $travels->orderBy("created_at", "desc")->paginate(5);
+        }
+        $travelCategorys = TravelCategory::where('parentid', 0)->where("name", "like", '%' . '旅游' . '%')->first();
+        $categorys = TravelCategory::all()->where("parentid", $travelCategorys->id);
+        $maxprice = Travel::where("id", ">", 0)->orderBy("referenceprice", "desc")->first()->referenceprice;
+        if (!empty($price)) {
+          $minprice = $price[0];
+          $toprice = $price[1];
+        } else {
+          $minprice = 0;
+          $toprice = $maxprice;
+        }
 
-        $travels=Travel::where("id",">",0);
-          $category = $request->get('category');
-          $price = $request->get('price');
-          if (!empty($price)) {
-              $travels = $travels->whereBetween('referenceprice', $price);
-          } else {
-              $category = [];
-          }
-          if (!empty($category)) {
-              $travels = $travels->WhereIn('catid', $category);
-          }
-          if ($sortprice = request()->get('sortPrice')) {
-              if ($sortprice == "higher") {
-                  $travels = $travels->orderBy("referenceprice", "desc")->paginate(5)->appends(['sortPrice' => 'higher']);
-              } else {
-                  $travels = $travels->orderBy("referenceprice", "asc")->paginate(5)->appends(['sortPrice' => 'lower']);
-              }
-          } else {
-              $travels = $travels->orderBy("created_at", "desc")->paginate(5);
-          }
-          $travelCategorys = TravelCategory::where('parentid', 0)->where("name", "like", '%' . '旅游' . '%')->first();
-          $categorys = TravelCategory::all()->where("parentid", $travelCategorys->id);
-          $maxprice = Travel::where("id", ">", 0)->orderBy("referenceprice", "desc")->first()->referenceprice;
-          if (!empty($price)) {
-              $minprice = $price[0];
-              $toprice = $price[1];
-          } else {
-              $minprice = 0;
-              $toprice = $maxprice;
-          }
-
-          return view('tour.index')->with(compact('travels'))->with(compact('categorys'))->with(compact('category'))
-              ->with("maxprice", $maxprice)->with("minprice", $minprice)->with("toprice", $toprice);
+        return view('tour.index')->with(compact('travels'))->with(compact('categorys'))->with(compact('category'))
+          ->with("maxprice", $maxprice)->with("minprice", $minprice)->with("toprice", $toprice);
 
     }
 
@@ -88,20 +87,23 @@ class TourController extends Controller
         $property= Property::orderBy('id', 'desc')->take($n)->select('id', 'title','picurl','address')->get();
         return $property;
     }
+
     public function order(Request $request)
     {
-        $perNum=$request->get("num");
+        $perNum = $request->get("num");
         if(!empty( $route=$request->get("routid")))
         {
-            $travel=Travel::where("id",$route)->first();
-            $priceRange=PriceRange::where("routeid",$route)->where("endnum",">",$perNum)->where("startnum","<",$perNum);
+            $travel = Travel::where("id",$route)->first();
+            $priceRange = PriceRange::where("routeid",$route)->where("endnum",">",$perNum)->where("startnum","<",$perNum);
+        }else{
+            return view('errors.404');
         }
 
-       $priceBase= PriceBase::all()->sortByDesc("displayorder");
+        $priceBase= PriceBase::all()->sortByDesc("displayorder");
         //$route=$request->get("routid");
 
-        return view('tour.order')->with(compact("travel",$travel))->with(compact("priceBase",$priceBase))
-            ->with("perNum",$perNum)->with("route",$route)->with("name",$travel->bigtitle);
+        return view('tour.order')->with(compact("travel", "priceBase", "perNum", "route"))
+            ->with("name",$travel->bigtitle);
     }
 
     public function create(Request $request)
