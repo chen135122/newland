@@ -11,7 +11,6 @@ class ArticleController extends Controller
 {
     public function index()
     {
-
         $articles = Article::where('picurl','<>', '')->orderBy('displayorder', 'desc')->paginate(10);
         $Lastedarticle=$this->LastedNews(5);
         $hotpropertys=$this->HotProperty(4);

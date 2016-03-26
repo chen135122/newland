@@ -27,9 +27,7 @@
                         <div class="row">
                             <div class="col-lg-4 col-md-4 col-sm-4">
                                     @if (auth()->check())
-                                        @if($article->users->count()==0)
-                                        <div class="wishlist"><a class="tooltip_flip tooltip-effect-1" href="javascript:void(0);" articleId="{{$article->id}}" typeid="4" title="添加到收藏">+</a></div>
-                                        @endif
+
                                     @else
                                         <div class="wishlist"><a class="tooltip_flip tooltip-effect-1" href="javascript:void(0);" articleId="{{$article->id}}" typeid="4" title="添加到收藏">+</a></div>
                                     @endif
