@@ -39,8 +39,8 @@ return [
 				'partner' => '2088411593247008',
 				'key' => 'r0q49twoqh5b5qrf0gkuhco0ebumqmh0',
 				'sellerEmail' =>'dinghua@chitunet.com',
-				'returnUrl' => 'http://localhost:8000/result',
-				'notifyUrl' => 'http://localhost:8000/result'
+				'returnUrl' => 'http://nz.chitunet.com/result',
+				'notifyUrl' => 'http://nz.chitunet.com/result'
 			]
 		]
 	]
