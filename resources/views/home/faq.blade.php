@@ -1,22 +1,7 @@
-
 @extends('layouts.master')
 
 @section('content')
-<!--[if lte IE 8]>
-<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a>.</p>
-<![endif]-->
 
-<div id="preloader">
-    <div class="sk-spinner sk-spinner-wave">
-        <div class="sk-rect1"></div>
-        <div class="sk-rect2"></div>
-        <div class="sk-rect3"></div>
-        <div class="sk-rect4"></div>
-        <div class="sk-rect5"></div>
-    </div>
-</div>
-<!-- End Preload -->
-<div class="layer"></div>
 <!-- Mobile menu overlay mask -->
 <!-- Header================================================== -->
 <section class="parallax-window" data-parallax="scroll" data-image-src="img/home_bg_1.jpg" data-natural-width="1400" data-natural-height="470">
@@ -142,29 +127,9 @@
                 </div>
             </div>
 
-
-
-
         </div><!-- End col lg-9 -->
     </div><!-- End row -->
 </div><!-- End container -->
 
-
 <div id="toTop"></div><!-- Back to top button -->
 @endsection
-@push('style')
-<!-- Common scripts -->
-<script src="js/jquery-1.11.2.min.js"></script>
-<script src="js/common_scripts_min.js"></script>
-<script src="js/functions.js"></script>
-<link href="/css/slider-pro.min.css" rel="stylesheet">
-<link href="/css/date_time_picker.css" rel="stylesheet">
-<link href="/css/owl.carousel.css" rel="stylesheet">
-<link href="/css/owl.theme.css" rel="stylesheet">
-<link href="/css/component.css" rel="stylesheet">
-<link href="/css/content.css" rel="stylesheet">
-
-<!-- Specific scripts -->
-<!-- Cat nav mobile -->
-<script src="js/cat_nav_mobile.js"></script>
-<script>$('#cat_nav').mobileMenu();</script>

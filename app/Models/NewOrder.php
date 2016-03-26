@@ -7,9 +7,7 @@
  */
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-
-class newOrder extends BaseModel
+class NewOrder extends BaseModel
 {
     protected $table = 'nz_order';
     public function travel()

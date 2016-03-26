@@ -157,16 +157,16 @@
                 <div class="col-md-2 col-sm-3" style="margin-left:10%;">
                     <h3>关于我们</h3>
                     <ul>
-                        <li><a href="#">我们是谁</a></li>
-                        <li><a href="/faq.html">常见问题</a></li>
-                        <li><a href="#">使用条款</a></li>
+                        <li><a href="/faq">我们是谁</a></li>
+                        <li><a href="/faq">常见问题</a></li>
+                        <li><a href="/faq">使用条款</a></li>
                     </ul>
                 </div>
                 <div class="col-md-2 col-sm-3" style="margin-left:10%;">
                     <h3>其他内容</h3>
                     <ul>
-                        <li><a href="#">最新资讯</a></li>
-                        <li><a href="#">热门房产</a></li>
+                        <li><a href="/news">最新资讯</a></li>
+                        <li><a href="/property">热门房产</a></li>
                     </ul>
                 </div>
             </div><!-- End row -->

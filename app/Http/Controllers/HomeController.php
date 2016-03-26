@@ -15,10 +15,12 @@ class HomeController extends Controller
         $hotpropertys=$this->HotProperty(3);
         return view('home.index')->with(compact('hotpropertys'));
     }
+
     public function faq()
     {
         return view('home.faq');
     }
+
     public function validate_mobile(Request $request)
     {
         $param=$request->get('param');
@@ -43,8 +45,8 @@ class HomeController extends Controller
                 'info' => "该手机号可用"
             ]);
         }
-
     }
+
     public function sendsms(Request $request)
     {
             $txtMobile= $request->get('mobile');
@@ -153,25 +155,29 @@ class HomeController extends Controller
 
         }
     }
+
     //验证  短信验证码
-     function verify_sms_code($code)
+    function verify_sms_code($code)
     {
-        if(!Session::has('sms_code'))
+        if (!Session::has('sms_code'))
         {
             return "对不起，验证码超时或已过期！";
         }
-        if ($code!= Session::get('sms_code', 'default'))
+        if ($code != Session::get('sms_code', 'default'))
         {
-            return  "您输入的验证码与系统的不一致";
+            return "您输入的验证码与系统的不一致";
         }
+
         return "ok";
     }
+
     //发送验证码
-     function send($ch,$data){
+    function send($ch,$data){
         curl_setopt ($ch, CURLOPT_URL, 'https://sms.yunpian.com/v1/sms/send.json');
         curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
         return curl_exec($ch);
     }
+
     //生成随机数
     function randomkeys($length)
     {
@@ -190,7 +196,6 @@ class HomeController extends Controller
         $article= Article::orderBy('displayorder', 'desc')->take($n)->select('id', 'title','picurl','abstract')->get();
         return $article;
     }
-
 
     //热门房产
     public function HotProperty($n)

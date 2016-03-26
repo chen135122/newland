@@ -10,11 +10,8 @@ use App\User;
 use Session;
 class FavouriteController extends Controller
 {
-
-
     public function postFavourite_add(Request $request)
     {
-
         if(auth()->check()==false)
         {
             return response()->json([
