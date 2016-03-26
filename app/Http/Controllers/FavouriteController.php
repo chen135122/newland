@@ -19,9 +19,9 @@ class FavouriteController extends Controller
                 'msg' => "您尚未登录，请登录之后添加收藏！"
             ]);
         }
-        $userid=auth()->user()->id;
-        $article_id= $request->get('article_id');
-        $article_type= $request->get('typeid');
+        $userid = auth()->user()->id;
+        $article_id   = $request->get('article_id');
+        $article_type = $request->get('typeid');
 
         if (empty($article_id)||empty($article_type)){
             return response()->json([
@@ -38,7 +38,7 @@ class FavouriteController extends Controller
                 'msg' => "您提交的参数有误！"
             ]);
         }
-        $favouritecount=Favourity_detail::where('uid',$userid)->where('articleId',$article_id)->where('typeid',$article_type)->count();
+        $favouritecount=Favourity_detail::where('uid',$userid)->where('itemid',$article_id)->where('type',$article_type)->count();
         if($favouritecount>0)
         {
             return response()->json([
@@ -48,8 +48,8 @@ class FavouriteController extends Controller
         }
         $favourite=new Favourity_detail();
         $favourite->uid=$userid;
-        $favourite->articleId=$article_id;
-        $favourite->typeid=$article_type;
+        $favourite->itemid=$article_id;
+        $favourite->type=$article_type;
         $favourite->save();
         return response()->json([
             'status' => 1,
