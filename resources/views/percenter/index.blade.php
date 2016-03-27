@@ -23,7 +23,7 @@
     <div class="margin_60 container">
         <div id="tabs" class="tabs">
             <nav>
-                <ul>
+                <ul  class="mytab">
                     <li><a href="#section-1" class="icon-booking"><span>订单列表</span></a></li>
                     <li><a href="#section-2" class="icon-wishlist"><span>收藏列表</span></a></li>
                     <li><a href="#section-3" class="icon-profile"><span>个人中心</span></a></li>
@@ -165,7 +165,7 @@
                             <li><a href="###">5</a></li>
                             <li><a href="###">下一页</a></li>
                         </ul>
-                    </div><!-- end pagination-->
+                    </div>
                 </section>
 
                 <section id="section-2">
@@ -173,164 +173,40 @@
                         <aside class="col-lg-3 col-md-3">
                             <div class="box_style_cat">
                                 <ul id="cat_nav">
-                                    <li><a href="#" id="active"><i class="icon_set_1_icon-51"></i>房产置业 <span>(141)</span></a></li>
-                                    <li><a href="#"><i class="icon_set_1_icon-3"></i>国际旅游 <span>(20)</span></a></li>
-                                    <li><a href="#"><i class="icon_set_1_icon-4"></i>移民留学 <span>(16)</span></a></li>
-                                    <li><a href="#"><i class="icon_set_1_icon-44"></i>新闻资讯 <span>(12)</span></a></li>
+                                    <li><a href="?crid=1&type=2" id="active"><i class="icon_set_1_icon-51"></i>房产置业 <span>({{$count1}})</span></a></li>
+                                    <li><a href="?crid=2&type=2"><i class="icon_set_1_icon-3"></i>国际旅游 <span>({{$count2}})</span></a></li>
+                                    <li><a href="?crid=3&type=2"><i class="icon_set_1_icon-4"></i>移民留学 <span>({{$count3}})</span></a></li>
+                                    <li><a href="?crid=4&type=2"><i class="icon_set_1_icon-44"></i>新闻资讯 <span>({{$count4}})</span></a></li>
                                 </ul>
                             </div>
                         </aside>
                         <div class="col-lg-9 col-md-9">
+                            @foreach($models as $model)
                             <div class="col-md-4 col-sm-6">
                                 <div class="hotel_container">
                                     <div class="img_container">
-                                        <a href="single_hotel.html">
-                                            <img src="img/hotel_1.jpg" width="800" height="533" class="img-responsive" alt="">
-                                            <div class="ribbon top_rated">
-                                            </div>
-                                            <div class="score">
-                                                <span>7.5</span>Good
-                                            </div>
-                                            <div class="short_info hotel">
-                                                From/Per night<span class="price"><sup>$</sup>59</span>
-                                            </div>
+                                        <a href="{{$typeUrl}}/{{$model->id}}">
+                                            <img src="{{$model->picurl}}" width="800" height="533" class="img-responsive" alt="">
+
+
+                                            {{--<div class="short_info hotel">--}}
+                                                {{--From/Per night<span class="price"><sup>$</sup>59</span>--}}
+                                            {{--</div>--}}
                                         </a>
                                     </div>
                                     <div class="hotel_title">
-                                        <h3><strong>Park Hyatt</strong> Hotel</h3>
-                                        <div class="rating">
-                                            <i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><small>(75)</small>
-                                        </div><!-- end rating -->
-                                        <div class="wishlist_close_admin">
-                                            -
-                                        </div>
-                                    </div>
-                                </div><!-- End box tour -->
-                            </div><!-- End col-md-6 -->
+                                        <h3>{{str_limit($model->title,20)}}</h3>
 
-                            <div class="col-md-4 col-sm-6 ">
-                                <div class="hotel_container">
-                                    <div class="img_container">
-                                        <a href="single_hotel.html">
-                                            <img src="img/hotel_2.jpg" width="800" height="533" class="img-responsive" alt="">
-                                            <div class="ribbon top_rated">
-                                            </div>
-                                            <div class="score">
-                                                <span>9.0</span>Superb
-                                            </div>
-                                            <div class="short_info hotel">
-                                                From/Per night<span class="price"><sup>$</sup>45</span>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="hotel_title">
-                                        <h3><strong>Mariott</strong> Hotel</h3>
-                                        <div class="rating">
-                                            <i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><small>(75)</small>
-                                        </div><!-- end rating -->
-                                        <div class="wishlist_close_admin">
-                                            -
-                                        </div>
-                                    </div>
-                                </div><!-- End box -->
-                            </div><!-- End col-md-6 -->
-
-                            <div class="col-md-4 col-sm-6">
-                                <div class="tour_container">
-                                    <div class="img_container">
-                                        <a href="single_tour.html">
-                                            <img src="img/tour_box_1.jpg" width="800" height="533" class="img-responsive" alt="">
-                                            <div class="ribbon top_rated">
-                                            </div>
-                                            <div class="short_info">
-                                                <i class="icon_set_1_icon-44"></i>Historic Buildings<span class="price"><sup>$</sup>45</span>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="tour_title">
-                                        <h3 style="height:18px;"><strong>Arc Triomphe</strong> tour</h3>
-                                        <div class="rating">
-                                            <i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><small>(75)</small>
-                                        </div><!-- end rating -->
                                         <div class="wishlist_close_admin">
                                             -
                                         </div>
                                     </div>
                                 </div>
-                                <!-- End box tour -->
-                            </div><!-- End col-md-6 -->
-
-                            <div class="col-md-4 col-sm-6">
-                                <div class="tour_container">
-                                    <div class="img_container">
-                                        <a href="single_tour.html">
-                                            <img src="img/tour_box_3.jpg" width="800" height="533" class="img-responsive" alt="">
-                                            <div class="ribbon popular">
-                                            </div>
-                                            <div class="short_info">
-                                                <i class="icon_set_1_icon-44"></i>Historic Buildings<span class="price"><sup>$</sup>45</span>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="tour_title">
-                                        <h3 style="height:18px;"><strong>Versailles</strong> tour</h3>
-                                        <div class="rating">
-                                            <i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><small>(75)</small>
-                                        </div><!-- end rating -->
-                                        <div class="wishlist_close_admin">
-                                            -
-                                        </div>
-                                    </div>
-                                </div><!-- End box tour -->
-                            </div><!-- End col-md-6 -->
-
-                            <div class="col-md-4 col-sm-6">
-                                <div class="tour_container">
-                                    <div class="img_container">
-                                        <a href="single_tour.html">
-                                            <img src="img/tour_box_4.jpg" width="800" height="533" class="img-responsive" alt="">
-                                            <div class="ribbon popular">
-                                            </div>
-                                            <div class="short_info">
-                                                <i class="icon_set_1_icon-30"></i>Walking tour<span class="price"><sup>$</sup>45</span>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="tour_title">
-                                        <h3 style="height:18px;"><strong>Pompidue</strong> tour</h3>
-                                        <div class="rating">
-                                            <i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><small>(75)</small>
-                                        </div><!-- end rating -->
-                                        <div class="wishlist_close_admin">
-                                            -
-                                        </div>
-                                    </div>
-                                </div><!-- End box tour -->
-                            </div><!-- End col-md-6 -->
-
-                            <div class="col-md-4 col-sm-6">
-                                <div class="transfer_container">
-                                    <div class="img_container">
-                                        <a href="single_transfer.html">
-                                            <img src="img/transfer_1.jpg" width="800" height="533" class="img-responsive" alt="">
-                                            <div class="ribbon top_rated">
-                                            </div>
-                                            <div class="short_info">
-                                                From/Per person<span class="price"><sup>$</sup>45</span>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="transfer_title">
-                                        <h3><strong>Orly Airport</strong> private</h3>
-                                        <div class="rating">
-                                            <i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><small>(75)</small>
-                                        </div><!-- end rating -->
-                                        <div class="wishlist_close_admin">
-                                            -
-                                        </div>
-                                    </div>
-                                </div><!-- End box tour -->
-                            </div><!-- End col-md-6 -->
+                            </div>
+                            @endforeach
+                        </div>
+                        <div class="text-center">
+                            {{$models->render()}}
                         </div>
                     </div><!-- End row -->
                     <!--<button type="submit" class="btn_1 green">更改清单</button>-->
@@ -595,6 +471,20 @@
 <script src="/js/bootstrap-datepicker.js"></script>
 <script>new CBPFWTabs(document.getElementById('tabs'));</script>
 <script>
+
+    $(function () {
+        var type=parseInt('{{$type}}');
+        $(".mytab li").each(function(){
+            var $this= $(this);
+            if(($this.index()+1)==type)
+            {
+                $this.attr('class','tab-current').siblings().attr('class','');
+                $("#section-"+type).attr('class','content-current').siblings().attr('class','');
+                $("#section-"+type).attr('class','content-current').siblings().attr('class','');
+            }
+        });
+    });
+
     $('.wishlist_close_admin').on('click', function (c) {
         $(this).parent().parent().parent().fadeOut('slow', function (c) {
         });
