@@ -133,14 +133,12 @@
                         <div class="col-md-6 col-sm-6">
                             <h4>你的基本信息</h4>
                             <ul id="profile_summary">
-                                <li>用户名 <span>karl</span></li>
-                                <li>手机号 <span>18762099830</span></li>
-                                <li>地址 <span>南京</span></li>
-                                <li>座机<span>+00 032 42366</span></li>
-                                <li>生日<span>1975/04/13</span></li>
-                                <li>所在城市 <span>南京</span></li>
-                                <li>邮编 <span>002843</span></li>
-                                <li>积分 <span>2843</span></li>
+                                <li>用户名 <span>{{$member->nickname}}</span></li>
+                                <li>手机号 <span>{{$member->mobile}}</span></li>
+                                <li>地址 <span>{{$member->address}}</span></li>
+                                <li>生日<span>{{$member->birthday}}</span></li>
+                                <li>所在城市 <span>{{$member->city}}</span></li>
+                                <li>积分 <span>{{$member->point}}</span></li>
                             </ul>
                         </div>
                         <div class="col-md-6 col-sm-6">
@@ -155,92 +153,94 @@
                             <h4>个人信息(<a onclick="edit(this, '0', 'perinfo')">查看</a>/<a  onclick="edit(this, '1', 'perinfo')">编辑</a>)</h4>
                         </div>
                         <div id="perinfo">
+                            <form method="post" action="/edit">
                             <div class="col-md-6 col-sm-6">
                                 <div class="form-group">
                                     <label>用户名</label>
-                                    <span>zhx</span>
-                                    <input class="form-control" name="first_name" value="zhx" id="first_name" type="text">
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-sm-6">
-                                <div class="form-group">
-                                    <label>账号</label>
-                                    <span>super</span>
-                                    <input class="form-control" name="last_name"  value="super" id="last_name" type="text">
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-sm-6">
-                                <div class="form-group">
-                                    <label>手机号码</label>
-                                    <span >1321617309</span>
-                                    <input class="form-control" name="email_2" value="1321617309" id="email_2" type="text">
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-sm-6">
-                                <div class="form-group">
-                                    <label>生日 <small>(yyyy/mm/dd)</small></label>
-                                    <span>2012/12/11</span>
-                                    <input class="date-pick form-control" data-date-format="M d"  type="text">
-                                </div>
-                            </div>
-                            <input type="button" class="btn_1" style="display:none;float:right;margin-right:20px;" value="提交" />
-                        </div>
-                    </div><!-- End row -->
-
-                    <hr>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h4>地址(<a onclick="edit(this, '0', 'address')">查看</a>/<a onclick="    edit(this, '1', 'address')">编辑</a>)</h4>
-                        </div>
-                        <div id="address">
-                            <div class="col-md-6 col-sm-6">
-                                <div class="form-group">
-                                    <label>收货人</label>
-                                    <span >zhx</span>
-                                    <input class="form-control" name="first_name" id="first_name" value="zhx" type="text">
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-sm-6">
-                                <div class="form-group">
-                                    <label>手机号</label>
-                                    <span >13576031872</span>
-                                    <input class="form-control" name="last_name" id="last_name" value="13576031872" type="text">
+                                    <span>{{$member->nickname}}</span>
+                                    <input class="form-control" name="nickname" value="{{$member->nickname}}" id="first_name" type="text">
                                 </div>
                             </div>
                             <div class="col-md-6 col-sm-6">
                                 <div class="form-group">
                                     <label>地址</label>
-                                    <span >南京鼓楼</span>
-                                    <input class="form-control" name="email" id="email" value="南京鼓楼" type="text">
+                                    <span>{{$member->address}}</span>
+                                    <input class="form-control" name="address"  value="{{$member->address}}" id="last_name" type="text">
                                 </div>
                             </div>
                             <div class="col-md-6 col-sm-6">
                                 <div class="form-group">
-                                    <label>选择要编辑的地址</label>
-                                    <span >北京中关村</span>
-                                    <select id="country" style="display:none;" class="form-control" name="country">
-                                        <option value="">南京鼓楼区</option>
-                                        <option value="">北京中关村</option>
-                                    </select>
-
+                                    <label>所在城市</label>
+                                    <span >{{$member->city}}</span>
+                                    <input class="form-control" name="city" value="{{$member->city}}" id="email_2" type="text">
                                 </div>
                             </div>
                             <div class="col-md-6 col-sm-6">
                                 <div class="form-group">
-                                    <label>是否设置为默认</label>
-                                    <span >否</span>
-                                    <select id="country" style="display:none;" class="form-control" name="country">
-                                        <option value="">是</option>
-                                        <option value="">否</option>
-                                    </select>
+                                    <label>生日 <small></small></label>
+                                    <span>{{ date('Y/m/d',$member->birthday)}}</span>
+                                    <input class="date-pick form-control" name="birthday" data-date-format="yyyy/M/d"  type="text">
                                 </div>
                             </div>
-                            <hr />
-                            <input type="button" class="btn_1" style="display:none;float:right;margin-right:20px;" value="提交" />
+                            <input type="submit" class="btn_1" style="display:none;float:right;margin-right:20px;" value="提交" />
+                            </form>
                         </div>
-
-
                     </div><!-- End row -->
+
+                    {{--<hr>--}}
+                    {{--<div class="row">--}}
+                        {{--<div class="col-md-12">--}}
+                            {{--<h4>地址(<a onclick="edit(this, '0', 'address')">查看</a>/<a onclick="    edit(this, '1', 'address')">编辑</a>)</h4>--}}
+                        {{--</div>--}}
+                        {{--<div id="address">--}}
+                            {{--<div class="col-md-6 col-sm-6">--}}
+                                {{--<div class="form-group">--}}
+                                    {{--<label>收货人</label>--}}
+                                    {{--<span >zhx</span>--}}
+                                    {{--<input class="form-control" name="first_name" id="first_name" value="zhx" type="text">--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                            {{--<div class="col-md-6 col-sm-6">--}}
+                                {{--<div class="form-group">--}}
+                                    {{--<label>手机号</label>--}}
+                                    {{--<span >13576031872</span>--}}
+                                    {{--<input class="form-control" name="last_name" id="last_name" value="13576031872" type="text">--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                            {{--<div class="col-md-6 col-sm-6">--}}
+                                {{--<div class="form-group">--}}
+                                    {{--<label>地址</label>--}}
+                                    {{--<span >南京鼓楼</span>--}}
+                                    {{--<input class="form-control" name="email" id="email" value="南京鼓楼" type="text">--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                            {{--<div class="col-md-6 col-sm-6">--}}
+                                {{--<div class="form-group">--}}
+                                    {{--<label>选择要编辑的地址</label>--}}
+                                    {{--<span >北京中关村</span>--}}
+                                    {{--<select id="country" style="display:none;" class="form-control" name="country">--}}
+                                        {{--<option value="">南京鼓楼区</option>--}}
+                                        {{--<option value="">北京中关村</option>--}}
+                                    {{--</select>--}}
+
+                                {{--</div>--}}
+                            {{--</div>--}}
+                            {{--<div class="col-md-6 col-sm-6">--}}
+                                {{--<div class="form-group">--}}
+                                    {{--<label>是否设置为默认</label>--}}
+                                    {{--<span >否</span>--}}
+                                    {{--<select id="country" style="display:none;" class="form-control" name="country">--}}
+                                        {{--<option value="">是</option>--}}
+                                        {{--<option value="">否</option>--}}
+                                    {{--</select>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                            {{--<hr />--}}
+                            {{--<input type="button" class="btn_1" style="display:none;float:right;margin-right:20px;" value="提交" />--}}
+                        {{--</div>--}}
+
+
+                    {{--</div>--}}
 
                     <hr>
                 </section>
@@ -384,6 +384,7 @@
 @push('script')
 <script src="/js/tabs.js"></script>
 <script src="/js/bootstrap-datepicker.js"></script>
+<link href="/css/date_time_picker.css" rel="stylesheet">
 <script>new CBPFWTabs(document.getElementById('tabs'));</script>
 <script>
 

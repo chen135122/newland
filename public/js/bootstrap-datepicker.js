@@ -1,4 +1,4 @@
-/* =========================================================
+﻿/* =========================================================
  * bootstrap-datepicker.js
  * Repo: https://github.com/eternicode/bootstrap-datepicker/
  * Demo: http://eternicode.github.io/bootstrap-datepicker/
@@ -1395,7 +1395,7 @@
         forceParse: true,
         format: 'mm/dd/yyyy',
         keyboardNavigation: true,
-        language: 'en',
+        language: 'cn',
         minViewMode: 0,
         multidate: false,
         multidateSeparator: ',',
@@ -1422,6 +1422,15 @@
             monthsShort: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
             today: "Today",
             clear: "Clear"
+        },
+        cn: {
+            days: ["周日", "周一", "周二", "周三", "周四", "周五", "周六", "周日"],
+            daysShort: ["日", "一", "二", "三", "四", "五", "六", "七"],
+            daysMin: ["日", "一", "二", "三", "四", "五", "六", "七"],
+            months: ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"],
+            monthsShort: ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"],
+            today: "今天",
+            clear: "清除"
         }
     };
 

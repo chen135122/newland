@@ -7,6 +7,7 @@ use App\Models\Article;
 use App\Models\NewOrder;
 use App\Models\Travel;
 use App\Models\Study;
+use App\Models\Member;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -25,6 +26,18 @@ class PercenterController  extends Controller
 //        $models=$models->paginate(6);
 //        return view('percenter.index')->with(compact('models'));
 //    }
+    public  function  edit(Request $request)
+    {
+        $userid = auth()->user()->id;
+        $member=Member::find($userid);
+        $member->nickname=$request->get("nickname");
+        $member->address=$request->get("address");
+        $member->city=$request->get("city");
+        $member->birthday=strtotime($request->get("birthday"));
+        $member->save();
+       // $member->appends("type",3);
+        return redirect("/percenter?type=3");
+    }
     public function index(Request $request)
     {
         $type= $request->get('type');
@@ -38,7 +51,7 @@ class PercenterController  extends Controller
         }
 
         $userid = auth()->user()->id;
-
+        $member=Member::where("id",$userid)->first();
         $count1=Favourity_detail::where('uid',$userid)->where('type',1)->count();
         $count2=Favourity_detail::where('uid',$userid)->where('type',2)->count();
         $count3=Favourity_detail::where('uid',$userid)->where('type',3)->count();
@@ -87,7 +100,7 @@ class PercenterController  extends Controller
         {
         $orderList=$orderList->paginate(5);
         }
-        return view('percenter.index')->with(compact('models','type','count1','count2','count3','count4','typeUrl','orderList'))
+        return view('percenter.index')->with(compact('models','type','count1','count2','count3','count4','typeUrl','orderList','member'))
             ->with('type',$type);
     }
     public  static  function  Upper($moth,$type)
