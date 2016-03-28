@@ -24,8 +24,9 @@
         <div id="tabs" class="tabs">
             <nav>
                 <ul  class="mytab">
-                    <li><a href="#section-1" class="icon-booking"><span>订单列表</span></a></li>
-                    <li><a href="#section-2" class="icon-wishlist"><span>收藏列表</span></a></li>
+                    {{--#section-1--}}
+                    <li onclick="window.location='/percenter?type=1'"><a href="" class="icon-booking"><span>订单列表</span></a></li>
+                    <li onclick="window.location='/percenter?type=2'"><a href="" class="icon-wishlist"><span>收藏列表</span></a></li>
                     <li><a href="#section-3" class="icon-profile"><span>个人中心</span></a></li>
                     <li><a href="#section-4" class="icon-gl"><span>管家服务</span></a></li>
                 </ul>
@@ -33,138 +34,50 @@
             <div class="content">
 
                 <section id="section-1">
-                    <div id="tools">
-                        <div class="row">
-                            <div class="col-md-3 col-sm-3 col-xs-6">
-                                <div class="styled-select-filters">
-                                    <select name="sort_price" id="sort_price">
-                                        <option value="" selected>价格排序</option>
-                                        <option value="lower">从高到低</option>
-                                        <option value="higher">从低到高</option>
-                                    </select>
+                    @foreach($orderList as $order)
+                        <div class="strip_booking">
+                            <div class="row">
+                                <div class="col-md-2 col-sm-2">
+                                    <div class="date">
+                                        <span class="month">{{App\Http\Controllers\PercenterController::Upper(date('n',strtotime($order->created_at)),1) }}</span>
+                                        <span class="day"><strong>{{date('d', strtotime($order->created_at))}}</strong>{{App\Http\Controllers\PercenterController::Upper(date('N', strtotime($order->created_at)),2)}}</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-3 col-sm-3 col-xs-6">
-                                <div class="styled-select-filters">
-                                    <select name="sort_rating" id="sort_rating">
-                                        <option value="" selected>评价排序</option>
-                                        <option value="lower">从高到低</option>
-                                        <option value="higher">从低到高</option>
-                                    </select>
+                                <div class="col-md-6 col-sm-5">
+                                    <h3 class="hotel_booking">
+                                        @if(($order->type)==1)
+                                            新西兰旅游
+                                            @elseif(($order->type)==2)
+                                            新西兰房产
+                                            @endif
+                                        <span>
+                                    @if(($order->type)==1)
+                                        {{App\Models\Travel::where("id",$order->itemid)->first()->bigtitle}}
+                                        @endif
+                                        </span>
+                                    </h3>
                                 </div>
-                            </div>
-                        </div>
-                    </div><!--/tools -->
+                                <div class="col-md-2 col-sm-3">
+                                    <ul class="info_booking">
+                                        <li><strong>订单号</strong> {{$order->sn}}</li>
+                                        <li><strong>支付状态</strong>
+                                            {{App\Http\Controllers\PercenterController::payType($order->paytype) }}
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-2 col-sm-2">
+                                    <div class="booking_buttons">
+                                        <a href="/tprint/{{$order->id}}" target="_blank" class="btn_2">详情</a>
+                                    </div>
+                                </div>
+                            </div><!-- End row -->
+                        </div><!-- End strip booking -->
+                    @endforeach
 
-                    <div class="strip_booking">
-                        <div class="row">
-                            <div class="col-md-2 col-sm-2">
-                                <div class="date">
-                                    <span class="month">三月</span>
-                                    <span class="day"><strong>23</strong>星期六</span>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-sm-5">
-                                <h3 class="hotel_booking">新西兰房产<span>SUNNYNOOK 3房 SUNNYNOOK 宽敞舒适精美靓宅 绝佳地段双校网</span></h3>
-                            </div>
-                            <div class="col-md-2 col-sm-3">
-                                <ul class="info_booking">
-                                    <li><strong>订单号</strong> 23442</li>
-                                    <li><strong>支付状态</strong> 未支付</li>
-                                </ul>
-                            </div>
-                            <div class="col-md-2 col-sm-2">
-                                <div class="booking_buttons">
-                                    <a href="#0" class="btn_2">详情</a>
-                                </div>
-                            </div>
-                        </div><!-- End row -->
-                    </div><!-- End strip booking -->
-
-                    <div class="strip_booking">
-                        <div class="row">
-                            <div class="col-md-2 col-sm-2">
-                                <div class="date">
-                                    <span class="month">三月</span>
-                                    <span class="day"><strong>27</strong>星期六</span>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-sm-5">
-                                <h3 class="tours_booking">新西兰旅游<span>SUNNYNOOK 3房 SUNNYNOOK 宽敞舒适精美靓宅 绝佳地段双校网</span></h3>
-                            </div>
-                            <div class="col-md-2 col-sm-3">
-                                <ul class="info_booking">
-                                    <li><strong>订单号</strong> 23442</li>
-                                    <li><strong>支付状态</strong> 未支付</li>
-                                </ul>
-                            </div>
-                            <div class="col-md-2 col-sm-2">
-                                <div class="booking_buttons">
-                                    <a href="#0" class="btn_2">详情</a>
-                                </div>
-                            </div>
-                        </div><!-- End row -->
-                    </div><!-- End strip booking -->
-
-                    <div class="strip_booking">
-                        <div class="row">
-                            <div class="col-md-2 col-sm-2">
-                                <div class="date">
-                                    <span class="month">三月</span>
-                                    <span class="day"><strong>28</strong>星期五</span>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-sm-5">
-                                <h3 class="tours_booking">新西兰房产<span>SUNNYNOOK 3房 SUNNYNOOK 宽敞舒适精美靓宅 绝佳地段双校网</span></h3>
-                            </div>
-                            <div class="col-md-2 col-sm-3">
-                                <ul class="info_booking">
-                                    <li><strong>订单号</strong> 23442</li>
-                                    <li><strong>支付状态</strong> 已支付</li>
-                                </ul>
-                            </div>
-                            <div class="col-md-2 col-sm-2">
-                                <div class="booking_buttons">
-                                    <a href="#0" class="btn_2">详情</a>
-                                </div>
-                            </div>
-                        </div><!-- End row -->
-                    </div><!-- End strip booking -->
-
-                    <div class="strip_booking">
-                        <div class="row">
-                            <div class="col-md-2 col-sm-2">
-                                <div class="date">
-                                    <span class="month">三月</span>
-                                    <span class="day"><strong>30</strong>星期五</span>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-sm-5">
-                                <h3 class="transfers_booking">新西兰旅游<span>SUNNYNOOK 3房 SUNNYNOOK 宽敞舒适精美靓宅 绝佳地段双校网</span></h3>
-                            </div>
-                            <div class="col-md-2 col-sm-3">
-                                <ul class="info_booking">
-                                    <li><strong>订单号</strong> 23442</li>
-                                    <li><strong>支付状态</strong> 未支付</li>
-                                </ul>
-                            </div>
-                            <div class="col-md-2 col-sm-2">
-                                <div class="booking_buttons">
-                                    <a href="#0" class="btn_2">详情</a>
-                                </div>
-                            </div>
-                        </div><!-- End row -->
-                    </div><!-- End strip booking -->
                     <div class="text-center">
-                        <ul id="pageClick" class="pagination">
-                            <li><a href="">上一页</a></li>
-                            <li class="active"><a href="###">1</a></li>
-                            <li><a href="###">2</a></li>
-                            <li><a href="###">3</a></li>
-                            <li><a href="###">4</a></li>
-                            <li><a href="###">5</a></li>
-                            <li><a href="###">下一页</a></li>
-                        </ul>
+                        @if($type==1)
+                            {{$orderList->render()}}
+                        @endif
                     </div>
                 </section>
 
@@ -206,7 +119,9 @@
                             @endforeach
                         </div>
                         <div class="text-center">
-                            {{$models->render()}}
+                            @if($type==2)
+                                {{$models->render()}}
+                            @endif
                         </div>
                     </div><!-- End row -->
                     <!--<button type="submit" class="btn_1 green">更改清单</button>-->
