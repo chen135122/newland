@@ -84,7 +84,12 @@
         <ul id="top_links">
             <li>
                 <div class="dropdown dropdown-access">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:#000;font-family:'Microsoft YaHei';" id="access_link">登录</a>
+                    @if (auth()->user())
+                        {{auth()->user()->mobile}}
+                    @else
+                        <a href="/auth/login" class="dropdown-toggle" data-toggle="dropdown" style="color:#000;font-family:'Microsoft YaHei';" id="access_link">登录</a>
+                    @endif
+
                     <div class="dropdown-menu">
                         <div class="row">
                             <div class="col-md-6 col-sm-6 col-xs-6">
@@ -114,7 +119,7 @@
                     </div>
                 </div>
             </li>
-            <li><a href="wishlist.html" id="wishlist_link" style="color:#000;font-family:'Microsoft YaHei';">收藏</a></li>
+            <li><a href="/percenter?type=2" id="wishlist_link" style="color:#000;font-family:'Microsoft YaHei';">收藏</a></li>
         </ul>
     </div>
 </div>

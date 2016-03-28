@@ -27,8 +27,8 @@
                     {{--#section-1--}}
                     <li onclick="window.location='/percenter?type=1'"><a href="" class="icon-booking"><span>订单列表</span></a></li>
                     <li onclick="window.location='/percenter?type=2'"><a href="" class="icon-wishlist"><span>收藏列表</span></a></li>
-                    <li><a href="#section-3" class="icon-profile"><span>个人中心</span></a></li>
-                    <li><a href="#section-4" class="icon-gl"><span>管家服务</span></a></li>
+                    <li id="percenter" ><a href="#section-3" class="icon-profile"><span>个人中心</span></a></li>
+                    <li id="gjfw"><a href="#section-4" class="icon-gl"><span>管家服务</span></a></li>
                 </ul>
             </nav>
             <div class="content">
@@ -395,10 +395,14 @@
             if(($this.index()+1)==type)
             {
                 $this.attr('class','tab-current').siblings().attr('class','');
-                $("#section-"+type).attr('class','content-current').siblings().attr('class','');
+                //$("#section-"+type).attr('class','content-current').siblings().attr('class','');
                 $("#section-"+type).attr('class','content-current').siblings().attr('class','');
             }
         });
+        $("#percenter,#gjfw").click(function(){
+            $(this).attr('class','tab-current').siblings().attr('class','');
+            $("#section-"+($(this).index()+1)).attr('class','content-current').siblings().attr('class','');
+        })
     });
 
     $('.wishlist_close_admin').on('click', function (c) {
