@@ -79,14 +79,16 @@ class AuthController extends Controller
 
     public function postLogin(Request $request)
     {
-        $username=$request->get('txtMobile');
+
+        $mobile=$request->get('txtMobile');
         $password=$request->get('password');
-        if (!isset($username)){
+        if (!isset($mobile)){
             return response()->json([
                 'status' => 0,
                 'msg' => "请输入手机号！"
             ]);
         }
+
         if (!isset($password)){
             return response()->json([
                 'status' => 0,
@@ -98,7 +100,7 @@ class AuthController extends Controller
 
 
         if (Auth::guard($this->getGuard())->attempt($credentials, $request->has('remember'))) {
-           // dd(auth()->user());
+            dd(auth()->user());
             return response()->json([
                 'status' => 1,
                 'msg' => "登录成功！",
@@ -115,7 +117,10 @@ class AuthController extends Controller
     }
     protected function getCredentials(Request $request)
     {
-        return $request->only($this->loginUsername(), 'password');
+        $result = [];
+        $result['mobile'] = $request->get("txtMobile");
+        $result["password"] = $request->input("password");
+        return $result;
     }
 
 }
