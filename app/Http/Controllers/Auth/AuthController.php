@@ -100,7 +100,6 @@ class AuthController extends Controller
 
 
         if (Auth::guard($this->getGuard())->attempt($credentials, $request->has('remember'))) {
-            dd(auth()->user());
             return response()->json([
                 'status' => 1,
                 'msg' => "登录成功！",
@@ -115,6 +114,9 @@ class AuthController extends Controller
             'msg' => "错误提示：".$errors
         ]);
     }
+
+
+
     protected function getCredentials(Request $request)
     {
         $result = [];
