@@ -442,7 +442,7 @@
 </div>
 <div id="close" style="position:fixed ;left:30%;top:0px;z-index:1001;background-color:#fff;margin:5% 0 0 0;padding:0px;display:none;width:361px;text-align:right">
     <i class="icon-cancel" onclick="closeCeng()"></i>
-    <h3 style="text-align:-webkit-auto;padding-left: 10px;">填写联系人信息</h3>
+    <h3 style="text-align:left;padding-left: 10px;">填写联系人信息</h3>
     <hr>
     <div style="text-align:center;"><br>
     {{--<form id="orderform" name="orderform" action="/spay" method="post">--}}

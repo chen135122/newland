@@ -27,7 +27,10 @@
                             <div class="form-group">
                                 <label for="userpassword" class="col-sm-3 control-label">密码</label>
                                 <div class="col-sm-9"><input type="password" class="form-control" id="password" name="password" sucmsg=" "  placeholder="密码" datatype="*6-16" nullmsg="请输入密码！" errormsg="密码范围在6~16位之间！"></div>
+
                                 <div style="float: right"><a href="/password/reset" target="_blank">忘记密码</a></div>
+
+                                <div style="float: right;margin-right: 30px;"><a href="/register" target="_blank">注册</a></div>
                             </div>
 
                             <div class="form-group">
