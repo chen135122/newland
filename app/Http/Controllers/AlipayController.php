@@ -112,9 +112,6 @@ class AlipayController extends Controller
 //            $order->paytime=null;
 //            $order->transid="12";
         $order->save();
-
-
-
         if($order->id>0)
         {
             $category=$request->get('baseprice');
@@ -137,6 +134,27 @@ class AlipayController extends Controller
         else
             return redirect($request->get("url"));
        return view("Alipay.wpay")->with("subject",$subject)->with("sn", $order->sn);
+    }
+
+    public  function  topay($id)
+    {
+        $order= NewOrder::find($id);
+        $travel=Travel::find($order->itemid);
+        if($order->paytype==2)
+        {
+            $gateway = Omnipay::gateway();
+            $options = [
+                'out_trade_no' =>  $order->sn,
+                'subject' => $travel->bigtitle,
+                'total_fee' => '0.01',
+            ];
+            $response = $gateway->purchase($options)->send();
+            $response->redirect();
+        }
+        else if($order->paytype==3){
+            return view("Alipay.wpay")->with("subject",$travel->bigtitle)->with("sn", $order->sn);
+        }
+        return  redirect("/percenter?type=1");
     }
     public  function  notify()
     {

@@ -28,7 +28,7 @@
                     <li onclick="window.location='/percenter?type=1'"><a href="" class="icon-booking"><span>订单列表</span></a></li>
                     <li onclick="window.location='/percenter?type=2'"><a href="" class="icon-wishlist"><span>收藏列表</span></a></li>
                     <li id="percenter" ><a href="#section-3" class="icon-profile"><span>个人中心</span></a></li>
-                    <li id="gjfw"><a href="#section-4" class="icon-gl"><span>管家服务</span></a></li>
+                    {{--<li id="gjfw"><a href="#section-4" class="icon-gl"><span>管家服务</span></a></li>--}}
                 </ul>
             </nav>
             <div class="content">
@@ -61,13 +61,17 @@
                                     <ul class="info_booking">
                                         <li><strong>订单号</strong> {{$order->sn}}</li>
                                         <li><strong>支付状态</strong>
-                                            {{App\Http\Controllers\PercenterController::payType($order->paytype) }}
+                                            {{App\Http\Controllers\PercenterController::payType($order->status) }}
                                         </li>
                                     </ul>
                                 </div>
                                 <div class="col-md-2 col-sm-2">
                                     <div class="booking_buttons">
                                         <a href="/tprint/{{$order->id}}" target="_blank" class="btn_2">详情</a>
+                                        @if($order->status==1)
+                                            <br>
+                                        <a href="/topay/{{$order->id}}" target="_blank" class="btn_2">去支付</a>
+                                            @endif
                                     </div>
                                 </div>
                             </div><!-- End row -->
@@ -138,7 +142,6 @@
                                 <li>地址 <span>{{$member->address}}</span></li>
                                 <li>生日<span>{{$member->birthday}}</span></li>
                                 <li>所在城市 <span>{{$member->city}}</span></li>
-                                <li>积分 <span>{{$member->point}}</span></li>
                             </ul>
                         </div>
                         <div class="col-md-6 col-sm-6">

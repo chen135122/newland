@@ -4,12 +4,14 @@ Route::controller('auth', '\App\Http\Controllers\Auth\AuthController');
 
 Route::group([ 'middleware' => ['web', 'auth']], function () {
     Route::get('percenter','\App\Http\Controllers\PercenterController@index');
+
     Route::post('edit','\App\Http\Controllers\PercenterController@edit');
     Route::post('tools/Favourite_add', '\App\Http\Controllers\FavouriteController@postFavourite_add');
     //支付宝支付处理
     Route::post('pay','AlipayController@pay');
     //微信支付处理
-    Route::post('wpay','AlipayController@wpay');
+    Route::post('wpay','\App\Http\Controllers\AlipayController@wpay');
+    Route::get('topay/{id}','\App\Http\Controllers\AlipayController@topay');
 //    Route::get('xxx', function(){
 //        return (auth()->user());
 //    });
@@ -63,11 +65,11 @@ Route::group([ 'middleware' => ['web']], function () {
 
     Route::post('result','AlipayController@result');
 
-    Route::get('initialize','AlipayController@initialize');
-    Route::get('qrcode','AlipayController@qrcode');
-    Route::get('notify','AlipayController@notify');
-    Route::get('wem','AlipayController@wem');
-    Route::get('query','AlipayController@query');
+    Route::get('initialize','\App\Http\Controllers\AlipayController@initialize');
+    Route::get('qrcode','\App\Http\Controllers\AlipayController@qrcode');
+    Route::get('notify','\App\Http\Controllers\AlipayController@notify');
+    Route::get('wem','\App\Http\Controllers\AlipayController@wem');
+    Route::get('query','\App\Http\Controllers\AlipayController@query');
 });
 Route::get('debug', function(){
    //  phpinfo();()
