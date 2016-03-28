@@ -743,7 +743,7 @@
         if (t > (top -60)) {
             var $xingc = $("#xingc");
             $xingc.css("position", "fixed").css("top", "105px").css("z-index", "9999");
-            if (window.outerHeight === screen.availHeight || window.outerWidth === screen.availWidth) {
+            if (window.outerHeight === screen.availHeight || window.outerWidth === screen.availWidth||(navigator.userAgent.indexOf('MSIE') >= 0) && (navigator.userAgent.indexOf('Opera') < 0)||navigator.userAgent.indexOf('Firefox')) {
                 $xingc.css("width", "8.5%");
             }
             else {
@@ -771,7 +771,15 @@
                 $ml.css("width", "58%");
             }
             else {
-                $ml.css("width", "90%");
+                if ((navigator.userAgent.indexOf('MSIE') >= 0) && (navigator.userAgent.indexOf('Opera') < 0)||navigator.userAgent.indexOf('Firefox'))
+                {
+                    $ml.css("width", "55%");
+                }
+                else
+                {
+                    $ml.css("width", "90%");
+                }
+
             }
             //$("#ml").css("position", "fixed").css("top", "30px").css("z-index", "999").css("width", "56%");
         }
