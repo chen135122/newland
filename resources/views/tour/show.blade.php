@@ -740,19 +740,18 @@
         var t = document.documentElement.scrollTop || document.body.scrollTop;
         var top = $("#tour_xc").offset().top;
         var pl_top = $("#zxpl").offset().top;
-        if (t > (top -60)) {
+        if (t > (top -100)) {
             var $xingc = $("#xingc");
             $xingc.css("position", "fixed").css("top", "105px").css("z-index", "9999");
-            if (window.outerHeight === screen.availHeight || window.outerWidth === screen.availWidth||(navigator.userAgent.indexOf('MSIE') >= 0) && (navigator.userAgent.indexOf('Opera') < 0)||navigator.userAgent.indexOf('Firefox')) {
+            if (window.outerHeight === screen.availHeight || window.outerWidth === screen.availWidth||navigator.userAgent.indexOf('Chrome') < 0) {
                 $xingc.css("width", "8.5%");
             }
             else {
-                $xingc.css("width", "12.5%");
+                $xingc.css("width", "13.0%");
             }
 
             $("#tour_d,#xcjs").css("margin-left", "10%");
         }
-
         else {
             $("#xingc").css("position", "relative").css("top", "").css("width", "10%");
             $("#tour_d,#xcjs").css("margin-left", "0");
@@ -768,16 +767,17 @@
             var $ml = $("#ml");
             $ml.css("position", "fixed").css("top", "30px").css("z-index", "999");
             if (window.outerHeight === screen.availHeight || window.outerWidth === screen.availWidth) {
-                $ml.css("width", "58%");
+                $ml.css("width", "56%");
             }
             else {
-                if ((navigator.userAgent.indexOf('MSIE') >= 0) && (navigator.userAgent.indexOf('Opera') < 0)||navigator.userAgent.indexOf('Firefox'))
+                if ((navigator.userAgent.indexOf('Chrome') >= 0))
                 {
-                    $ml.css("width", "55%");
+                    $ml.css("width", "90%");
+
                 }
                 else
                 {
-                    $ml.css("width", "90%");
+                    $ml.css("width", "55%");
                 }
 
             }
