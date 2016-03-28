@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models;
+use DB;
 
 class Property extends BaseModel
 {
@@ -26,5 +27,14 @@ class Property extends BaseModel
     public function propertyImg()
     {
         return   $query= $this->belongsTo ('App\Models\Image', 'id','itemid')->where("type",'=',2);
+    }
+    public function getIsFavAttribute()
+    {
+        if(auth()->check()==false)
+            return false;
+        $user_id= auth()->user()->id;
+        $article_id=$this->attributes['id'];
+        $count=DB::table('nz_collection')->where('itemid',$article_id)->where('uid',$user_id)->where('type',1)->count();
+        return $count>0?true:false;
     }
 }

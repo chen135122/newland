@@ -72,16 +72,8 @@ Route::group([ 'middleware' => ['web']], function () {
     Route::get('query','\App\Http\Controllers\AlipayController@query');
 });
 Route::get('debug', function(){
-   //  phpinfo();()
-
-  // return auth()->user();
-//
-//Route::get('debug', function(){
-//   //  phpinfo();
-//    $user = \App\User::find(1);
-//    \Auth::login($user);
-//    return 'ok';
-//
+  $article=App\Models\Article::find(39);
+    return $article->users()->having('type','=',4)->get();
     $properties = \App\Models\Property::first();
     return $properties->developers->name;
 });

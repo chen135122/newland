@@ -87,9 +87,9 @@
                 <div class="strip_all_tour_list wow fadeIn" data-wow-delay="0.1s">
                     <div class="row">
                         <div class="col-lg-4 col-md-4 col-sm-4">
-                            <div class="wishlist">
-                                <a class="tooltip_flip tooltip-effect-1" href="javascript:void(0);">+<span class="tooltip-content-flip"><span class="tooltip-back">添加到收藏</span></span></a>
-                            </div>
+                            @if (!(auth()->check() &&$travel->is_fav ))
+                                <div class="wishlist"><a class="tooltip_flip tooltip-effect-1" href="javascript:void(0);" articleId="{{$travel->id}}" typeid="2" title="添加到收藏">+</a></div>
+                            @endif
                             <div class="img_list">
                                 <a href="/tour/{{$travel->id}}">
                                     <div class="ribbon popular"></div><img src="{{$travel->picurl}}" alt="">
@@ -282,7 +282,10 @@
 </script>
 
 <script src="/js/vue.min.js"></script>
-<script>
-
-</script>
+    <script type="text/javascript" src="/js/jQuery-Add-Favorites.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('.tooltip_flip').Add();
+        });
+    </script>
 @endpush

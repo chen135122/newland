@@ -22,19 +22,14 @@
     <div class="container margin_60">
         <div class="row">
             <div class="col-lg-8 col-md-8">
+                <?php $i=1; ?>
                 @foreach($articles as $article)
-                    <div class="strip_all_tour_list wow fadeIn" data-wow-delay="0.1s">
+                    <div class="strip_all_tour_list wow fadeIn" data-wow-delay="0.<?php echo $i++; ?>s">
                         <div class="row">
                             <div class="col-lg-4 col-md-4 col-sm-4">
-
-                                    @if (auth()->check())
-                                        @if($article->users->count()==0)
-                                        <div class="wishlist"><a class="tooltip_flip tooltip-effect-1" href="javascript:void(0);" articleId="{{$article->id}}" typeid="4" title="添加到收藏">+</a></div>
-                                        @endif
-                                    @else
+                                    @if (!(auth()->check() &&$article->is_fav ))
                                         <div class="wishlist"><a class="tooltip_flip tooltip-effect-1" href="javascript:void(0);" articleId="{{$article->id}}" typeid="4" title="添加到收藏">+</a></div>
                                     @endif
-
                                 <div class="img_list">
                                     <a href="/news/{{$article->id}}">
                                         <img src="{{$article->picurl}}" alt="">
@@ -45,7 +40,6 @@
                             <div class="clearfix visible-xs-block"></div>
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <div class="tour_list_desc">
-                                    <div class="rating"></div>
                                     <h3>{{$article->title}}</h3>
                                     <p>{!!$article->abstract !!}</p>
                                 </div>

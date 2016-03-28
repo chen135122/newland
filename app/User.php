@@ -32,6 +32,6 @@ class User extends Authenticatable
     }
 
     public function articles(){
-        return $this->belongsToMany('App\Model\Article','nz_favourity_detail','uid','articleId');
+        return $this->belongsToMany('App\Models\Article','nz_collection','uid','itemid')->withPivot('type');
     }
 }
