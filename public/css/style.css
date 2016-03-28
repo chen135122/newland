@@ -806,7 +806,7 @@ footer {
                     color: #111;
                 }
 
-a#email_footer, a#phone {
+footer .email_footer, footer .phone {
     display: block;
     position: relative;
     color: #fdf7ac;
@@ -815,21 +815,21 @@ a#email_footer, a#phone {
     margin: 20px 0;
 }
 
-    a#email_footer:before, a#phone:before {
+    .email_footer:before, .phone:before {
         font-style: normal;
         font-weight: 400;
         font-family: icon_set_1;
         position: absolute;
     }
 
-    a#phone:before {
+    .phone:before {
         font-size: 30px;
         content: "\79";
         left: 0;
         top: 0;
     }
 
-    a#email_footer:before {
+    .email_footer:before {
         font-size: 28px;
         content: "\74";
         left: 0;

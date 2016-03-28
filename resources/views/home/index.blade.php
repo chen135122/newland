@@ -180,125 +180,29 @@
         <p>在接下来的行程里，您可以根据实际情况合理的调整行程，我们将竭力为您打造一次被宠坏的旅行。</p>
     </div>
     <div class="row">
-        <div class="col-md-4 col-sm-6 wow zoomIn" data-wow-delay="0.1s">
+        <?php $i=1; ?>
+        @foreach($travels as $travel)
+        <div class="col-md-4 col-sm-6 wow zoomIn" data-wow-delay="0.<?php echo $i++; ?>s">
             <div class="tour_container">
                 <div class="img_container">
-                    <a href="tour/1">
+                    <a href="tour/{{$travel->id}}">
                         <img src="img/tour_box_1.jpg" class="img-responsive" alt="">
-                        <div class="ribbon top_rated"></div>
+                        @if($travel->istop==1)) <div class="ribbon top_rated"></div> @endif
                         <div class="short_info">
-                            <!--<i class="icon_set_1_icon-44"></i>-->自由行<span class="price">¥3900</span>
+                            <span class="price">￥{{$travel->referenceprice}}</span>
                         </div>
                     </a>
                 </div>
                 <div class="tour_title">
-                    <h3><span>【南北岛精华游】</span> 奥克兰+怀托摩萤火虫洞+罗托鲁瓦+蒂卡波湖+基督城+箭镇+皇后镇10天</h3>
-                    <div class="rating">
-                        <i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><small>(75)</small>
-                    </div><!-- end rating -->
+                    <h3><strong>【{{$travel->bigtitle}}】</strong> {{$travel->title}}</h3>
                 </div>
-            </div><!-- End box tour -->
-        </div><!-- End col-md-4 -->
-        <div class="col-md-4 col-sm-6 wow zoomIn" data-wow-delay="0.2s">
-            <div class="tour_container">
-                <div class="img_container">
-                    <a href="tour/1">
-                        <img src="img/tour_box_2.jpg" width="800" height="533" class="img-responsive" alt="">
-                        <div class="ribbon top_rated"></div>
-                        <div class="short_info">
-                            <!--<i class="icon_set_1_icon-43"></i>-->教会<span class="price">¥45000</span>
-                        </div>
-                    </a>
-                </div>
-                <div class="tour_title">
-                    <h3><span>【距离上帝最近的地方大溪地+纯净新西兰】</span> 14天（茉莉雅+波拉波拉+大溪地本岛+新西兰北岛）</h3>
-                    <div class="rating">
-                        <i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><small>(75)</small>
-                    </div><!-- end rating -->
-                </div>
-            </div><!-- End box tour -->
-        </div><!-- End col-md-4 -->
-        <div class="col-md-4 col-sm-6 wow zoomIn" data-wow-delay="0.3s">
-            <div class="tour_container">
-                <div class="img_container">
-                    <a href="tour/1">
-                        <img src="img/tour_box_3.jpg" width="800" height="533" class="img-responsive" alt="">
-                        <div class="ribbon popular"></div>
-                        <div class="badge_save">Save<strong>30%</strong></div>
-                        <div class="short_info">
-                            <!--<i class="icon_set_1_icon-44"></i>-->历史风格<span class="price">¥4800</span>
-                        </div>
-                    </a>
-                </div>
-                <div class="tour_title">
-                    <h3><span>【冰川纪行】</span> 南岛西海岸冰川9日之旅（法兰士约瑟夫冰川+米尔福德峡湾）</h3>
-                    <div class="rating">
-                        <i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><small>(75)</small>
-                    </div><!-- end rating -->
-                </div>
-            </div><!-- End box tour -->
-        </div><!-- End col-md-4 -->
-        <div class="col-md-4 col-sm-6 wow zoomIn" data-wow-delay="0.4s">
-            <div class="tour_container">
-                <div class="img_container">
-                    <a href="tour/1">
-                        <img src="img/tour_box_4.jpg" width="800" height="533" class="img-responsive" alt="">
-                        <div class="ribbon popular"></div>
-                        <div class="badge_save">Save<strong>20%</strong></div>
-                        <div class="short_info">
-                            <!--<i class="icon_set_1_icon-30"></i>-->徒步旅行<span class="price">¥3600</span>
-                        </div>
-                    </a>
-                </div>
-                <div class="tour_title">
-                    <h3><span>【南北岛精华游】</span> 奥克兰+怀托摩萤火虫洞+罗托鲁瓦+蒂卡波湖+基督城+箭镇+皇后镇10天</h3>
-                    <div class="rating">
-                        <i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><small>(75)</small>
-                    </div><!-- end rating -->
-                </div>
-            </div><!-- End box tour -->
-        </div><!-- End col-md-4 -->
-        <div class="col-md-4 col-sm-6 wow zoomIn" data-wow-delay="0.5s">
-            <div class="tour_container">
-                <div class="img_container">
-                    <a href="tour/1">
-                        <img src="img/tour_box_14.jpg" width="800" height="533" class="img-responsive" alt="">
-                        <div class="ribbon popular"></div>
-                        <div class="short_info">
-                            <!--<i class="icon_set_1_icon-28"></i>-->天空之旅<span class="price">¥4200</span>
-                        </div>
-                    </a>
-                </div>
-                <div class="tour_title">
-                    <h3><span>【南北岛精华游】</span> 奥克兰+怀托摩萤火虫洞+罗托鲁瓦+蒂卡波湖+基督城+箭镇+皇后镇10天</h3>
-                    <div class="rating">
-                        <i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><small>(75)</small>
-                    </div><!-- end rating -->
-                </div>
-            </div><!-- End box tour -->
-        </div><!-- End col-md-4 -->
-        <div class="col-md-4 col-sm-6 wow zoomIn" data-wow-delay="0.6s">
-            <div class="tour_container">
-                <div class="img_container">
-                    <a href="tour/1">
-                        <img src="img/tour_box_5.jpg" width="800" height="533" class="img-responsive" alt="">
-                        <div class="ribbon top_rated"></div>
-                        <div class="short_info">
-                            <!--<i class="icon_set_1_icon-44"></i>-->古建筑<span class="price">¥4000</span>
-                        </div>
-                    </a>
-                </div>
-                <div class="tour_title">
-                    <h3><span>【南北岛精华游】</span> 奥克兰+怀托摩萤火虫洞+罗托鲁瓦+蒂卡波湖+基督城+箭镇+皇后镇10天</h3>
-                    <div class="rating">
-                        <i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><small>(75)</small>
-                    </div><!-- end rating -->
-                </div>
-            </div><!-- End box tour -->
-        </div><!-- End col-md-4 -->
+            </div>
+        </div>
+
+        @endforeach
     </div><!-- End row -->
     <p class="text-center add_bottom_30">
-        <a href="/tour" class="btn_1 medium"><i class="icon-eye-7"></i>查看所有行程 (5) </a>
+        <a href="/tour" class="btn_1 medium"><i class="icon-eye-7"></i>查看所有行程 ({{$travelsCount}}) </a>
     </p>
     <hr>
     <div class="main_title">
@@ -306,30 +210,27 @@
         <p>我们提供的不仅是房屋买卖交易的桥梁, 我们更加注重开发和创建一个公平开放的合作平台</p>
     </div>
     <div class="row">
+        <?php $i=1; ?>
         @foreach($hotpropertys as $hotproperty)
-        <div class="col-md-4 col-sm-6 wow zoomIn" data-wow-delay="0.1s">
+        <div class="col-md-4 col-sm-6 wow zoomIn" data-wow-delay="0.<?php echo $i++; ?>s">
             <div class="hotel_container">
                 <div class="img_container">
                     <a href="/property/{{$hotproperty->id}}">
-                        <img src="{{$hotproperty->picurl}}" width="800" height="533" class="img-responsive" alt="">
-                        <div class="ribbon top_rated"></div>
+                        <img src="{{$hotproperty->picurl}}"  class="img-responsive" alt="">
                         <div class="short_info hotel">
-                            {{$hotproperty->address}}<span class="price">{{$hotproperty->total_price}}</span>
+                            {{$hotproperty->address}}<span class="price">￥{{$hotproperty->total_price}}</span>
                         </div>
                     </a>
                 </div>
                 <div class="hotel_title">
                     <h3>{{$hotproperty->title}}</h3>
-                    {{--<div class="rating">--}}
-                        {{--<i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star-empty"></i>--}}
-                    {{--</div><!-- end rating -->--}}
                 </div>
             </div><!-- End box -->
         </div>
         @endforeach
     </div><!-- End row -->
     <p class="text-center nopadding">
-        <a href="/property" class="btn_1 medium"><i class="icon-eye-7"></i>查看所有房产 (70) </a>
+        <a href="/property" class="btn_1 medium"><i class="icon-eye-7"></i>查看所有房产 ({{$HouseCount}}) </a>
     </p>
 </div><!-- End container -->
 <section class="promo_full">
@@ -339,7 +240,6 @@
             <p>
                 Lorem ipsum dolor sit amet, vix erat audiam ei. Cum doctus civibus efficiantur in. Nec id tempor imperdiet deterruisset, doctus volumus explicari qui ex.
             </p>
-            <a href="#" class="video"><i class="icon-play-circled2-1"></i></a>
         </div>
     </div>
 </section><!-- End section -->
@@ -350,49 +250,7 @@
 <script src="rs-plugin/js/jquery.themepunch.tools.min.js"></script>
 <script src="rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
 <script src="js/revolution_func.js"></script>
-<script>
-    var cutStr= function (str) {
-        var newStr = new Array(str.length + parseInt(str.length / 3));
-        var strArray = str.split("");
-        newStr[newStr.length - 1] = strArray[strArray.length - 1];
-        var currentIndex = strArray.length - 1;
-        for (var i = newStr.length - 1; i >= 0; i--) {
-            if ((newStr.length - i) % 4 == 0) {
-                if (i == 0)
-                {
-                    if ((str.length % 3) != 0)
-                        newStr[i] = ",";
-                    else
-                        continue;
-                }
-                newStr[i] = ",";
-            }
-            else {
-                newStr[i] = strArray[currentIndex--];
-            }
-        }
-        //$(".price").val(newStr.join(""));
-        return newStr.join("")
-    }
-    $(function () {
-        $(".price").each(function () {
-            var price = $(this).text().split('$');//.split('¥')[0];
-            var newPrice;
-            if (price.length == 1) {
-                newPrice = price[0].split('¥')[1].trim();
-                newPrice = cutStr(newPrice);
-                $(this).text("¥"+newPrice);
-            }
-            else {
-                newPrice = price[1].trim();
-                newPrice = cutStr(newPrice);
-                $(this).text("$" + newPrice);
-            }
 
-
-        })
-    })
-</script>
 @endpush
 </body>
 </html>

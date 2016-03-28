@@ -105,8 +105,9 @@
                         </div>
                     </div>
                 </div><!--/tools -->
+                <?php $i=1; ?>
                 @foreach($properties as $property)
-                    <div class="strip_all_tour_list wow fadeIn" data-wow-delay="0.1s">
+                    <div class="strip_all_tour_list wow fadeIn" data-wow-delay="0.<?php echo $i++; ?>s">
                         <div class="row">
                             <div class="col-lg-4 col-md-4 col-sm-4">
                                 <div class="img_list">

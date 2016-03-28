@@ -75,24 +75,14 @@
                             <li>
                                 <div class="dropdown dropdown-access">
                                     @if (auth()->user())
-                                     {{auth()->user()->mobile}}
+                                        <a href="/percenter"> {{auth()->user()->mobile}}</a>
                                     @else
-                                     <a href="/auth/login"  id="access_link">登录</a>
+                                        <a href="/auth/login"  id="access_link">登录</a>
                                     @endif
-                                    {{--<div class="dropdown-menu">--}}
-                                        {{--<div class="form-group">--}}
-                                            {{--<input type="text" class="form-control" id="inputUsernameEmail" placeholder="Email">--}}
-                                        {{--</div>--}}
-                                        {{--<div class="form-group">--}}
-                                            {{--<input type="password" class="form-control" id="inputPassword" placeholder="Password">--}}
-                                        {{--</div>--}}
-                                        {{--<a id="forgot_pw" href="#">忘记密码？</a>--}}
-                                        {{--<input type="submit" name="Sign_in" value="登录" id="Sign_in" class="button_drop">--}}
-                                        {{--<input type="submit" name="Sign_up" value="注册" id="Sign_up" class="button_drop outline">--}}
-                                    {{--</div>--}}
-                                </div><!-- End Dropdown access -->
+                                </div>
                             </li>
-                            <li><a href="/percenter" id="wishlist_link">收藏<span class="wishlist-num">0</span></a></li>
+                            <li><a href="/percenter" id="wishlist_link">收藏<span class="wishlist-num"></span></a></li>
+
                         </ul>
                     </div>
                 </div><!-- End row -->
@@ -102,8 +92,8 @@
             <div class="row">
                 <div class="col-md-3 col-sm-3 col-xs-3" style="width:50%;">
                     <div id="logo">
-                        <a href="#"><img src="/img/logo2.png" height="55" alt="All IN New Zealand" data-retina="true" class="logo_normal"></a>
-                        <a href="#"><img src="/img/logo_sticky.png" height="34" alt="All IN New Zealand" data-retina="true" class="logo_sticky"></a>
+                        <a href="/"><img src="/img/logo2.png" height="55" alt="All IN New Zealand" data-retina="true" class="logo_normal"></a>
+                        <a href="/"><img src="/img/logo_sticky.png" height="34" alt="All IN New Zealand" data-retina="true" class="logo_sticky"></a>
                     </div>
                 </div>
                 <nav class="col-md-9 col-sm-9 col-xs-9" style="width:50%;">
@@ -112,7 +102,7 @@
                         <div id="header_menu">
                             <img src="/img/logo_sticky.png" width="160" height="34" alt="City tours" data-retina="true">
                         </div>
-                        <a href="#" class="open_close" id="close_in"><i class="icon_set_1_icon-77"></i></a>
+
                         <ul class="head_type">
                             <li class="submenu">
                                 <a href="/" class="show-submenu"> <!--<i class="icon_set_1_icon-64"></i>--> 首页 </a>
@@ -151,8 +141,8 @@
             <div class="row">
                 <div class="col-md-4 col-sm-3">
                     <h3>需要帮助?</h3>
-                    <a href="#" id="phone">+025-58761818</a>
-                    <a href="#" id="email_footer">services@allinnewzealand.com</a>
+                    <span  class="phone">+025-58761818</span>
+                    <a href="mailto:services@allinnewzealand.com" class="email_footer">services@allinnewzealand.com</a>
                 </div>
                 <div class="col-md-2 col-sm-3" style="margin-left:10%;">
                     <h3>关于我们</h3>
