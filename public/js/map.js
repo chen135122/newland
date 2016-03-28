@@ -151,7 +151,7 @@ $('#collapseMap').on('shown.bs.collapse', function(e){
 
 			var mapOptions = {
 				zoom: 14,
-				center: new google.maps.LatLng(-36.8483247, 174.7636383),
+				center: new google.maps.LatLng(-arry[0], arry[1]),
 				mapTypeId: google.maps.MapTypeId.ROADMAP,
 
 				mapTypeControl: false,

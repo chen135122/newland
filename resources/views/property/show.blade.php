@@ -592,6 +592,16 @@
 <!-- Date and time pickers -->
 <script src="/js/jquery.sliderPro.min.js"></script>
 <script type="text/javascript">
+    var newlocation= '{{$property->location}}';
+    var arry=new Array();
+    if(newlocation!=""&&newlocation!=null)
+    {
+        arry=newlocation.split(',');
+    }
+    else {
+        arry[0]=36.8483247;
+        arry[1]=174.7636383;
+    }
     $( document ).ready(function( $ ) {
         $( '#img_carousel' ).sliderPro({
             width: 960,
@@ -612,7 +622,8 @@
 
 
 <!-- Map -->
-
+    <script src="http://maps.google.cn/maps/api/js"></script>
+    <script src="/js/map.js"></script>
 {{--<script src="/js/infobox.js"></script>--}}
 <!-- Carousel -->
 <script src="/js/owl.carousel.min.js"></script>
@@ -624,13 +635,13 @@
 //    alert(locationX);
 ////            center: {lat:locationX, lng:locationY},
 //    alert(locationY);
-    function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-
-            center: {lat: -45.023564, lng: 168.9689589},
-            zoom: 8
-        });
-    }
+//    function initMap() {
+//        map = new google.maps.Map(document.getElementById('map'), {
+//
+//            center: {lat: -45.023564, lng: 168.9689589},
+//            zoom: 8
+//        });
+//    }
 //    $(document).ready(function(){
 //        $(".carousel").owlCarousel({
 //            items : 4,
@@ -640,8 +651,6 @@
 //        console.debug($(".carousel"));
 //    });
 </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&callback=initMap"
-            async defer></script>
 <!--Review modal validation -->
 
 @endpush

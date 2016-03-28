@@ -374,6 +374,16 @@
 <!-- Date and time pickers -->
 <script src="/js/jquery.sliderPro.min.js"></script>
 <script type="text/javascript">
+    var newlocation= '{{$study->location}}';
+    var arry=new Array();
+    if(newlocation!=""&&newlocation!=null)
+    {
+        arry=newlocation.split(',');
+    }
+    else {
+        arry[0]=36.8483247;
+        arry[1]=174.7636383;
+    }
     $( document ).ready(function( $ ) {
         $( '#img_carousel' ).sliderPro({
             width: 960,
