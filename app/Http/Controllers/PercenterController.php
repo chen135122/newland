@@ -44,7 +44,7 @@ class PercenterController  extends Controller
 //        $collectioncount=Favourity_detail::where('uid',$userid)->where('itemid',$article_id)->where('type',$article_type)->count();
         $collection_type= $request->get('crid'); //我的收藏分类
         if (empty($collection_type)){
-            $collection_type=4;
+            $collection_type=1;
         }
         if (empty($type)){
             $type=1;
