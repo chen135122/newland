@@ -75,7 +75,8 @@
                             <li>
                                 <div class="dropdown dropdown-access">
                                     @if (auth()->user())
-                                        <a href="/percenter"> {{auth()->user()->mobile}}</a>
+                                        <a href="/percenter"> {{auth()->user()->mobile}}</a> |
+                                        <a href="/auth/logout"> 退出 </a>
                                     @else
                                         <a href="/auth/login"  id="access_link">登录</a>
                                     @endif

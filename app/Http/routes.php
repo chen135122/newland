@@ -3,6 +3,7 @@
 Route::controller('auth', '\App\Http\Controllers\Auth\AuthController');
 
 Route::group([ 'middleware' => ['web', 'auth']], function () {
+    Route::get('auth/logout','\App\Http\Controllers\Auth\AuthController@Logout');
     Route::get('percenter','\App\Http\Controllers\PercenterController@index');
 
     Route::post('edit','\App\Http\Controllers\PercenterController@edit');
@@ -21,7 +22,7 @@ Route::group([ 'middleware' => ['web']], function () {
 //    Route::post('tools/Favourite_add','\App\Http\Controllers\FavouriteController@postFavourite_add');
     Route::get('/',   '\App\Http\Controllers\HomeController@index');
     Route::get('faq', '\App\Http\Controllers\HomeController@faq');
-    Route::get('password/reset','\App\Http\Controllers\Auth\PasswordController@getReset');
+    Route::get('password/reset','\App\Http\Controllers\Auth\PasswordController@getLogout');
 
     //Route::post('password/reset','\App\Http\Controllers\Auth\PasswordController@postReset');
 
