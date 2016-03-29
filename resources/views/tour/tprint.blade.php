@@ -91,7 +91,7 @@
                                 <td class="text-center">旅游天数:{{count($travel->day()->get())}}天</td>
                             </tr>
                             <tr>
-                                <td>出发时间:2016年3月26号</td>
+                                <td>{{date("Y年n月d日",strtotime($travel->start_time)) }}</td>
                                 <td></td>
                             </tr>
                             </tbody>

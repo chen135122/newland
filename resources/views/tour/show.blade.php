@@ -82,9 +82,7 @@
                     </div>
                     <div class="col-md-9">
                         <h4>关于此行程</h4>
-                        <p>
                         {!!$travel->introduction !!}
-                        </p>
                         {{--<h4>行程特色</h4>--}}
                         {{--<p>--}}
                             {{--以上报价仅供参考，可能会因为不同的出发城市及时间会有所浮动--}}
@@ -98,9 +96,7 @@
                     </div>
                     <div class="col-md-9">
                         <h4>关于此产品</h4>
-                        <p>
                             {!! $travel->feature !!}
-                        </p>
                     </div>
                 </div>
                 <hr>
@@ -123,7 +119,7 @@
                             <div class="box_style_cat">
                                 <ul id="cat_nav">
                                     @for($i=0;$i<count($travelDay);$i++)
-                                        <li><a href="#travelInfo_{{$i}}">
+                                        <li><a href="#travelInfo_{{$i}}" onclick="removeClass('travelInfo_{{$i}}',this)">
                                               第  {{$i+1}}  天
                                             </a></li>
                                      @endfor
@@ -135,7 +131,7 @@
                         </div>
                         <div class="col-md-8 add_bottom_15" id="tour_d" style="">
                             @for($i=0;$i<count($travelDay);$i++)
-                            <div class="form_title" id="travelInfo_1">
+                            <div class="form_title" id="travelInfo_{{$i}}">
                                 <h3><strong>{{$i+1}}</strong>DAY{{$i+1}}</h3>
                             </div>
                                 <div class="step">
@@ -233,86 +229,86 @@
                 <hr>
                 <div class="row">
                     <div class="col-md-3" id="zxpl">
-                        <div class="mockup-content">
+                        {{--<div class="mockup-content">--}}
 
-                            <div class="morph-button morph-button-modal morph-button-modal-2 morph-button-fixed" >
+                            {{--<div class="morph-button morph-button-modal morph-button-modal-2 morph-button-fixed" >--}}
                                 {{--<button type="button" class="btn_1 add_bottom_30" data-toggle="modal" data-target="#myReview">撰写评论</button>--}}
-                                <div class="morph-content" style="background-color:#fff;">
-                                    <div>
-                                        <div class="content-style-form content-style-form-1" id="comment">
-                                            <span class="icon icon-close">Close the dialog</span>
-                                            <form>
-                                                <p><a style="color:#000;font-family:'Microsoft YaHei';">评论内容:</a><textarea id="txt_comment" style="width:100%;height:80px;"></textarea></p>
+                                {{--<div class="morph-content" style="background-color:#fff;">--}}
+                                    {{--<div>--}}
+                                        {{--<div class="content-style-form content-style-form-1" id="comment">--}}
+                                            {{--<span class="icon icon-close">Close the dialog</span>--}}
+                                            {{--<form>--}}
+                                                {{--<p><a style="color:#000;font-family:'Microsoft YaHei';">评论内容:</a><textarea id="txt_comment" style="width:100%;height:80px;"></textarea></p>--}}
 
 
-                                                <div class="star_comment" id="mstar_comment">
-                                                    <a>景点评分:</a>
-                                                    <span></span>
-                                                    <ul>
-                                                        <li><i class="icon-smile voted"></i><a href="javascript:;">1</a></li>
-                                                        <li><i class="icon-smile voted"></i><a href="javascript:;">2</a></li>
-                                                        <li><i class="icon-smile voted"></i><a href="javascript:;">3</a></li>
-                                                        <li><i class="icon-smile voted"></i><a href="javascript:;">4</a></li>
-                                                        <li><i class="icon-smile voted"></i><a href="javascript:;">5</a></li>
-                                                    </ul>
-                                                    <span></span>
-                                                    <p></p>
-                                                    <input name="grade" id="mstar_grade" type="hidden" value="" />
-                                                </div>
-                                                <br />
+                                                {{--<div class="star_comment" id="mstar_comment">--}}
+                                                    {{--<a>景点评分:</a>--}}
+                                                    {{--<span></span>--}}
+                                                    {{--<ul>--}}
+                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">1</a></li>--}}
+                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">2</a></li>--}}
+                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">3</a></li>--}}
+                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">4</a></li>--}}
+                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">5</a></li>--}}
+                                                    {{--</ul>--}}
+                                                    {{--<span></span>--}}
+                                                    {{--<p></p>--}}
+                                                    {{--<input name="grade" id="mstar_grade" type="hidden" value="" />--}}
+                                                {{--</div>--}}
+                                                {{--<br />--}}
 
-                                                <div class="star_comment" id="jstar_comment">
-                                                    <a>价格评分:</a>
-                                                    <span></span>
-                                                    <ul>
-                                                        <li><i class="icon-smile voted"></i><a href="javascript:;">1</a></li>
-                                                        <li><i class="icon-smile voted"></i><a href="javascript:;">2</a></li>
-                                                        <li><i class="icon-smile voted"></i><a href="javascript:;">3</a></li>
-                                                        <li><i class="icon-smile voted"></i><a href="javascript:;">4</a></li>
-                                                        <li><i class="icon-smile voted"></i><a href="javascript:;">5</a></li>
-                                                    </ul>
-                                                    <span></span>
-                                                    <p></p>
-                                                    <input name="grade" id="jstar_grade" type="hidden" value="" />
-                                                </div>
-                                                <br />
-                                                <div class="star_comment" id="dstar_comment">
-                                                    <a>导游评分:</a>
-                                                    <span></span>
-                                                    <ul>
-                                                        <li><i class="icon-smile voted"></i><a href="javascript:;">1</a></li>
-                                                        <li><i class="icon-smile voted"></i><a href="javascript:;">2</a></li>
-                                                        <li><i class="icon-smile voted"></i><a href="javascript:;">3</a></li>
-                                                        <li><i class="icon-smile voted"></i><a href="javascript:;">4</a></li>
-                                                        <li><i class="icon-smile voted"></i><a href="javascript:;">5</a></li>
-                                                    </ul>
-                                                    <span></span>
-                                                    <p></p>
-                                                    <input name="grade" id="dstar_grade" type="hidden" value="" />
-                                                </div>
-                                                <br/>
-                                                <div class="star_comment" id="zstar_comment">
-                                                    <a>质量评分:</a>
-                                                    <span></span>
-                                                    <ul>
-                                                        <li><i class="icon-smile voted"></i><a href="javascript:;">1</a></li>
-                                                        <li><i class="icon-smile voted"></i><a href="javascript:;">2</a></li>
-                                                        <li><i class="icon-smile voted"></i><a href="javascript:;">3</a></li>
-                                                        <li><i class="icon-smile voted"></i><a href="javascript:;">4</a></li>
-                                                        <li><i class="icon-smile voted"></i><a href="javascript:;">5</a></li>
-                                                    </ul>
-                                                    <span></span>
-                                                    <p></p>
-                                                    <input name="grade" id="zstar_grade" type="hidden" value="" />
-                                                </div>
+                                                {{--<div class="star_comment" id="jstar_comment">--}}
+                                                    {{--<a>价格评分:</a>--}}
+                                                    {{--<span></span>--}}
+                                                    {{--<ul>--}}
+                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">1</a></li>--}}
+                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">2</a></li>--}}
+                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">3</a></li>--}}
+                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">4</a></li>--}}
+                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">5</a></li>--}}
+                                                    {{--</ul>--}}
+                                                    {{--<span></span>--}}
+                                                    {{--<p></p>--}}
+                                                    {{--<input name="grade" id="jstar_grade" type="hidden" value="" />--}}
+                                                {{--</div>--}}
+                                                {{--<br />--}}
+                                                {{--<div class="star_comment" id="dstar_comment">--}}
+                                                    {{--<a>导游评分:</a>--}}
+                                                    {{--<span></span>--}}
+                                                    {{--<ul>--}}
+                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">1</a></li>--}}
+                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">2</a></li>--}}
+                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">3</a></li>--}}
+                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">4</a></li>--}}
+                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">5</a></li>--}}
+                                                    {{--</ul>--}}
+                                                    {{--<span></span>--}}
+                                                    {{--<p></p>--}}
+                                                    {{--<input name="grade" id="dstar_grade" type="hidden" value="" />--}}
+                                                {{--</div>--}}
+                                                {{--<br/>--}}
+                                                {{--<div class="star_comment" id="zstar_comment">--}}
+                                                    {{--<a>质量评分:</a>--}}
+                                                    {{--<span></span>--}}
+                                                    {{--<ul>--}}
+                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">1</a></li>--}}
+                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">2</a></li>--}}
+                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">3</a></li>--}}
+                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">4</a></li>--}}
+                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">5</a></li>--}}
+                                                    {{--</ul>--}}
+                                                    {{--<span></span>--}}
+                                                    {{--<p></p>--}}
+                                                    {{--<input name="grade" id="zstar_grade" type="hidden" value="" />--}}
+                                                {{--</div>--}}
 
-                                                <p><button id="btn_comment">提交</button></p>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                                                {{--<p><button id="btn_comment">提交</button></p>--}}
+                                            {{--</form>--}}
+                                        {{--</div>--}}
+                                    {{--</div>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
 
                     </div>
                     {{--<div class="col-md-9" id="all_comment">--}}
@@ -400,13 +396,14 @@
                 <div class="box_style_1 expose">
                     <h3 class="inner">- 预定 -</h3>
                     <div class="row">
-                        <div class="col-md-6 col-sm-6">
-                            <div class="form-group">
-                                <label><i class="icon-calendar-7"></i> 出发日期</label>
-                                <input class="date-pick form-control" data-date-format="yyyy/M/d" type="text">
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-sm-6">
+                        {{--<div class="col-md-6 col-sm-6">--}}
+                            {{--<div class="form-group">--}}
+                                {{--<label><i class="icon-calendar-7"></i> 出发日期</label>--}}
+                                {{--<input id="start_date" class="date-pick form-control" data-date-format="yyyy/M/d" type="text">--}}
+                                {{--<label><i class="icon-calendar-7"></i> {{ $detail->start_time}}</label>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                        <div class="col-md-6 col-sm-6" style="width: 100%;">
                             <div class="form-group">
                                 <label>人数</label>
                                 <div class="numbers-row">
@@ -426,6 +423,15 @@
                                 2
                             </td>
                         </tr>
+                        <tr>
+                            <td>
+                               出发日期
+                            </td>
+                            <td id="perNum" class="text-right">
+                                {{  date("Y-n-d",strtotime($travel->start_time)) }}
+                            </td>
+                        </tr>
+
                         </tbody>
                     </table>
                     <a class="btn_full" onclick="linkto()">马上预定</a>
@@ -593,8 +599,8 @@
 <!-- CSS -->
 <link href="/css/slider-pro.min.css" rel="stylesheet">
 <link href="/css/date_time_picker.css" rel="stylesheet">
-<link href="/css/owl.carousel.css" rel="stylesheet">
-<link href="/css/owl.theme.css" rel="stylesheet">
+{{--<link href="/css/owl.carousel.css" rel="stylesheet">--}}
+{{--<link href="/css/owl.theme.css" rel="stylesheet">--}}
 <link href="/css/component.css" rel="stylesheet">
 <link href="/css/content.css" rel="stylesheet">
 <style>
@@ -938,9 +944,9 @@
     })
 </script>
 <!-- Map -->
-<script src="http://maps.google.cn/maps/api/js"></script>
-<script src="/js/map.js"></script>
-<script src="/js/infobox.js"></script>
+{{--<script src="http://maps.google.cn/maps/api/js"></script>--}}
+{{--<script src="/js/map.js"></script>--}}
+{{--<script src="/js/infobox.js"></script>--}}
 
 <!--Review modal validation -->
 <script src="/assets/validate.js"></script>

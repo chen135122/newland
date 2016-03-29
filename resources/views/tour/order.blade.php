@@ -377,7 +377,7 @@
 
         $("#subOrder").click(function(){
 
-             validate();
+             //validate();
             //$("#orderform").submit();
             if($(".popover").length<=0&&result==true)
             {
