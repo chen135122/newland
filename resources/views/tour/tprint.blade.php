@@ -91,7 +91,7 @@
                                 <td class="text-center">旅游天数:{{count($travel->day()->get())}}天</td>
                             </tr>
                             <tr>
-                                <td>{{date("Y年n月d日",strtotime($travel->start_time)) }}</td>
+                                <td>{{date("Y年n月d日",$travel->start_time) }}</td>
                                 <td></td>
                             </tr>
                             </tbody>
@@ -106,7 +106,6 @@
                             <tbody>
                             @for($i=0;$i<count($orderDetail);$i++)
                                 <tr>
-
                                     <td class="{{$i==0?"thick-line":"no-line"}}  text-center"><strong>{{$orderDetail[$i]->title}}</strong></td>
                                     <td class="{{$i==0?"thick-line":"no-line"}} text-right">×{{$orderDetail[$i]->price}}</td>
                                 </tr>

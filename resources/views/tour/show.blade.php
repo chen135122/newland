@@ -428,7 +428,7 @@
                                出发日期
                             </td>
                             <td id="perNum" class="text-right">
-                                {{  date("Y-n-d",strtotime($travel->start_time)) }}
+                                {{  date("Y-n-d",$travel->start_time) }}
                             </td>
                         </tr>
 
@@ -768,7 +768,7 @@
             $("#tour_d,#xcjs").css("margin-left", "0");
         }
         var ml_top = $("#xcjj").offset().top;
-        if (t > (ml_top - 43))
+        if (t > (ml_top -143))
         {
             var $ml = $("#ml");
             $ml.css("position", "fixed").css("top", "30px").css("z-index", "999");
