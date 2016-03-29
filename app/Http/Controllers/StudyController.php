@@ -53,7 +53,8 @@ class StudyController extends Controller
         $study = Study::where('id', $id)->first();
         $Lastedarticle=$this->LastedNews(5);
         $hotpropertys=$this->HotProperty(4);
-        return view('study.show')->with(compact('study','Lastedarticle','hotpropertys'));
+        $pic=$study->propertyImg()->get();
+        return view('study.show')->with(compact('study','Lastedarticle','hotpropertys','pic'));
     }
 
     //zhong xiao xue
@@ -110,7 +111,8 @@ class StudyController extends Controller
         $study = StudySP::where('id', $id)->first();
         $Lastedarticle=$this->LastedNews(5);
         $hotpropertys=$this->HotProperty(4);
-        return view('study.show_sp')->with(compact('study','Lastedarticle','hotpropertys'));
+        $pic=$study->propertyImg()->get();
+        return view('study.show_sp')->with(compact('study','Lastedarticle','hotpropertys','pic'));
     }
 
     //最新资讯
