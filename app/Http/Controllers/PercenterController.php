@@ -100,8 +100,7 @@ class PercenterController  extends Controller
         {
         $orderList=$orderList->paginate(5);
         }
-        return view('percenter.index')->with(compact('models','type','count1','count2','count3','count4','typeUrl','orderList','member'))
-            ->with('type',$type);
+        return view('percenter.index')->with(compact('models','type','collection_type','count1','count2','count3','count4','typeUrl','orderList','member'));
     }
     public  static  function  Upper($moth,$type)
     {

@@ -11,11 +11,13 @@
                     <div class="dropdown dropdown-access">
                         @if (auth()->user())
                             {{auth()->user()->mobile}}
+                            <a href="/auth/logout"> 退出 </a>
                         @else
                             <a href="/auth/login" class="dropdown-toggle" data-toggle="dropdown" id="access_link">登录</a>
                         @endif
                     </div>
                 </li>
+                <li><a href="/" class="" target="_blank" id="">首页</a></li>
             </ul>
         </div>
     </div><!-- End Position -->
@@ -393,6 +395,16 @@
 
     $(function () {
         var type=parseInt('{{$type}}');
+        var car_id=parseInt('{{$collection_type}}');
+        $("#cat_nav li").each(function(){
+            var $this= $(this);
+            if(($this.index()+1)==car_id)
+            {
+                $this.children(":first-child").attr("id","active");
+                $this.siblings().children(":first-child").attr('id','');
+                //$("#section-"+type).attr('class','content-current').siblings().attr('class','');
+            }
+        });
         $(".mytab li").each(function(){
             var $this= $(this);
             if(($this.index()+1)==type)

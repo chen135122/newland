@@ -85,38 +85,12 @@
             <li>
                 <div class="dropdown dropdown-access">
                     @if (auth()->user())
-                        {{auth()->user()->mobile}}
-                    @else
-                        <a href="/auth/login" class="dropdown-toggle" data-toggle="dropdown" style="color:#000;font-family:'Microsoft YaHei';" id="access_link">登录</a>
-                    @endif
 
-                    <div class="dropdown-menu">
-                        <div class="row">
-                            <div class="col-md-6 col-sm-6 col-xs-6">
-                                <a href="#" class="bt_facebook">
-                                    <i class="icon-facebook"></i>Facebook
-                                </a>
-                            </div>
-                            <div class="col-md-6 col-sm-6 col-xs-6">
-                                <a href="#" class="bt_paypal">
-                                    <i class="icon-paypal"></i>Paypal
-                                </a>
-                            </div>
-                        </div>
-                        <div class="login-or">
-                            <hr class="hr-or">
-                            <span class="span-or">or</span>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="inputUsernameEmail" placeholder="Email">
-                        </div>
-                        <div class="form-group">
-                            <input type="password" class="form-control" id="inputPassword" placeholder="Password">
-                        </div>
-                        <a id="forgot_pw" href="#">Forgot password?</a>
-                        <input type="submit" name="Sign_in" value="Sign in" id="Sign_in" class="button_drop">
-                        <input type="submit" name="Sign_up" value="Sign up" id="Sign_up" class="button_drop outline">
-                    </div>
+                        <a href="/percenter" style="color:#000;font-family:'Microsoft YaHei';"> {{auth()->user()->mobile}}</a> |
+                        <a href="/auth/logout" style="color:#000;font-family:'Microsoft YaHei';"> 退出 </a>
+                    @else
+                        <a href="/auth/login"  style="color:#000;font-family:'Microsoft YaHei';" id="access_link">登录</a>
+                    @endif
                 </div>
             </li>
             <li><a href="/percenter?type=2" id="wishlist_link" style="color:#000;font-family:'Microsoft YaHei';">收藏</a></li>

@@ -4,9 +4,9 @@
     <section class="parallax-window" data-parallax="scroll" data-image-src="/img/hotels_bg.jpg" data-natural-width="1400" data-natural-height="470">
         <div class="parallax-content-1">
             <div class="animated fadeInDown">
-                <h1>新西兰房产</h1>
+                <h1>新闻资讯</h1>
                 <br>
-                <p>我们提供新西兰最新的居民住宅，商业地产和农场买卖信息</p>
+                <p>我们提供新西兰最新资讯，实时新闻信息</p>
             </div>
         </div>
     </section><!-- End section -->

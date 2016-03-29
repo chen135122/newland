@@ -136,9 +136,16 @@ class AlipayController extends Controller
        return view("Alipay.wpay")->with("subject",$subject)->with("sn", $order->sn);
     }
 
-    public  function  topay($id)
+    public  function  topay($id=null)
     {
-        $order= NewOrder::find($id);
+        if($id==null)
+        {
+            return redirect("/percenter?type=1");
+        }
+
+        $order= NewOrder::where(["uid"=>auth()->user()->id,"id"=>$id])->first();
+        if(empty($order)||$order->status!=1)
+            return redirect("/percenter?type=1");
         $travel=Travel::find($order->itemid);
         if($order->paytype==2)
         {
