@@ -23,19 +23,7 @@
 					   if ($('#floatOrder').length <= 0) {					      
 					       $('body').append('<div id="floatOrder"><i class="icon-heart" style="font-size: 35px;color: #82ca9c;"></i></div>');
 						};
-						var $obj=$('#floatOrder');
-						if (!$obj.is(':animated')) {
-						    $obj.css({ 'left': x, 'top': y }).animate({ 'left': X, 'top': Y - 80 }, 1000, function () {
-						        $obj.stop(false, false).animate({ 'top': Y - 20, 'opacity': 0 }, 1000, function () {
-									$obj.fadeOut(300,function(){
-										$obj.remove();	
-										$target.data('click', false).addClass('disabled');
-										num=Number($num.text());
-										$num.text(num+1);
-									});
-								});
-							});	
-						};
+
 						//ajax添加到收藏夹 开始
 							$.ajax({
 								type: "post",
@@ -51,6 +39,19 @@
 								},
 								success: function(data, textStatus) {
 									if (data.status == 1) {
+										var $obj=$('#floatOrder');
+										if (!$obj.is(':animated')) {
+											$obj.css({ 'left': x, 'top': y }).animate({ 'left': X, 'top': Y - 80 }, 1000, function () {
+												$obj.stop(false, false).animate({ 'top': Y - 20, 'opacity': 0 }, 1000, function () {
+													$obj.fadeOut(300,function(){
+														$obj.remove();
+														$target.data('click', false).addClass('disabled');
+														//num=Number($num.text());
+														//$num.text(num+1);
+													});
+												});
+											});
+										};
 										var d = dialog({content:data.msg}).show();
 										setTimeout(function () {
 											d.close().remove();

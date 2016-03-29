@@ -103,7 +103,7 @@ class PropertyController extends Controller
     //最新资讯
     public function LastedNews($n)
     {
-        $article= Article::orderBy('displayorder', 'desc')->take($n)->select('id', 'title','picurl','abstract')->get();
+        $article= Article::where('status',1)->orderBy('displayorder', 'desc')->take($n)->select('id', 'title','picurl','abstract')->get();
         return $article;
     }
 

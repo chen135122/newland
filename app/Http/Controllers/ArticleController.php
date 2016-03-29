@@ -11,7 +11,7 @@ class ArticleController extends Controller
 {
     public function index()
     {
-        $articles = Article::where('picurl','<>', '')->orderBy('displayorder', 'desc')->paginate(10);
+        $articles = Article::where('status',1)->where('picurl','<>', '')->orderBy('displayorder', 'desc')->paginate(10);
         $Lastedarticle=$this->LastedNews(5);
         $hotpropertys=$this->HotProperty(4);
         return view('article.index')->with(compact('articles','Lastedarticle','hotpropertys'));
@@ -22,16 +22,16 @@ class ArticleController extends Controller
     {
         $Lastedarticle=$this->LastedNews(5);
         $hotpropertys=$this->HotProperty(4);
-        $article = Article::where('id', $id)->first();
-        $prev= Article::where('id', '<',$id)->select('id', 'title')->orderBy('id', 'desc')->first();
-        $next= Article::where('id', '>', $id)->select('id', 'title')->first();
+        $article = Article::where('status',1)->where('id', $id)->first();
+        $prev= Article::where('status',1)->where('id', '<',$id)->select('id', 'title')->orderBy('id', 'desc')->first();
+        $next= Article::where('status',1)->where('id', '>', $id)->select('id', 'title')->first();
 
         return view('article.show')->with(compact('article','prev','next','Lastedarticle','hotpropertys'));
     }
     //最新资讯
     public function LastedNews($n)
     {
-        $article= Article::orderBy('displayorder', 'desc')->take($n)->select('id', 'title','picurl','abstract')->get();
+        $article= Article::where('status',1)->orderBy('displayorder', 'desc')->take($n)->select('id', 'title','picurl','abstract')->get();
         return $article;
     }
 
@@ -39,7 +39,7 @@ class ArticleController extends Controller
     //热门房产
     public function HotProperty($n)
     {
-        $property= Property::orderBy('id', 'desc')->take($n)->select('id', 'title','picurl','address')->get();
+        $property= Property::where('status',1)->orderBy('id', 'desc')->take($n)->select('id', 'title','picurl','address')->get();
         return $property;
     }
 
