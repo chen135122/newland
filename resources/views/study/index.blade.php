@@ -271,7 +271,7 @@
 
 <!-- Radio and check inputs -->
 <link href="/css/skins/square/grey.css" rel="stylesheet">
-
+<link href="/js/artdialog/ui-dialog.css" rel="stylesheet" type="text/css" />
 @endpush
 
 @push('script')

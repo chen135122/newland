@@ -220,7 +220,7 @@
 @push('style')
 <!-- Radio and check inputs -->
 <link href="/css/skins/square/grey.css" rel="stylesheet">
-
+<link href="/js/artdialog/ui-dialog.css" rel="stylesheet" type="text/css" />
 <!-- Range slider -->
 <link href="/css/ion.rangeSlider.css" rel="stylesheet" >
 <link href="/css/ion.rangeSlider.skinFlat.css" rel="stylesheet">

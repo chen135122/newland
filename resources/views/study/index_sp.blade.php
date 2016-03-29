@@ -234,7 +234,7 @@
 
 <!-- BASE CSS -->
 <link href="/css/base.css" rel="stylesheet">
-
+<link href="/js/artdialog/ui-dialog.css" rel="stylesheet" type="text/css" />
 <!-- Google web fonts -->
 <link href='http://fonts.useso.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 <link href='http://fonts.useso.com/css?family=Gochi+Hand' rel='stylesheet' type='text/css'>
