@@ -618,6 +618,7 @@
             autoplay: false
         });
     });
+
 </script>
 
 
@@ -628,7 +629,42 @@
 <!-- Carousel -->
 <script src="/js/owl.carousel.min.js"></script>
 <script>
-    var map;
+    window.onscroll = function () {
+        var t = document.documentElement.scrollTop || document.body.scrollTop;
+        var ml_top = $("#info").offset().top;
+        if (t > (ml_top -143))
+        {
+            var $ml = $("#ml");
+            $ml.css("position", "fixed").css("top", "30px").css("z-index", "999");
+            if (window.outerHeight === screen.availHeight || window.outerWidth === screen.availWidth) {
+                $ml.css("width", "56%");
+            }
+            else {
+                if ((navigator.userAgent.indexOf('Chrome') >= 0))
+                {
+                    $ml.css("width", "90%");
+
+                }
+                else
+                {
+                    $ml.css("width", "55%");
+                }
+
+            }
+            //$("#ml").css("position", "fixed").css("top", "30px").css("z-index", "999").css("width", "56%");
+        }
+        else {
+            $("#ml").css("position", "relative").css("top", "").css("width", "");
+            //$("#tour_d").css("margin-left", "0");
+        }
+    }
+    function removeClass(id,obj)
+    {
+        var ev = ev || window.event;
+        var thisId = document.getElementById(id);
+        document.documentElement.scrollTop = document.body.scrollTop = $(thisId).offset().top-100-32;// - oBtn.offsetHeight;
+        ev.preventDefault();
+    }
 {{--var locationX=parseFloat({{$locationX}});--}}
 {{--var locationY=parseFloat({{$locationY}});--}}
 //alert(typeof(locationX));
