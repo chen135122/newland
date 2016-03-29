@@ -35,7 +35,7 @@
 								dataType: "json",
 								beforeSend: function(XMLHttpRequest) {
 									//发送前动作
-									$target.prop("disabled",true).text("...");
+									//$target.prop("disabled",true).text("...");
 								},
 								success: function(data, textStatus) {
 									if (data.status == 1) {

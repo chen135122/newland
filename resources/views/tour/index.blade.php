@@ -282,6 +282,7 @@
 </script>
 
 <script src="/js/vue.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/js/artdialog/dialog-plus-min.js"></script>
     <script type="text/javascript" src="/js/jQuery-Add-Favorites.js"></script>
     <script type="text/javascript">
         $(function () {
