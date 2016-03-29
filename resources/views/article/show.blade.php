@@ -36,18 +36,19 @@
 
             <div class="view_pagetitle">
                 <span><strong>上一篇:</strong>
-                @if($prev)
-               <a href="/news/{{$prev->id}}">{{$prev->title}}</a>
-                @else
-               没有了...
-                @endif
-                </span><br />
-                <span><strong>下一篇:</strong>
                     @if($next)
                         <a href="/news/{{$next->id}}">{{$next->title}}</a>
                     @else
                         没有了...
                     @endif
+                </span><br />
+                <span><strong>下一篇:</strong>
+                    @if($prev)
+                        <a href="/news/{{$prev->id}}">{{$prev->title}}</a>
+                    @else
+                        没有了...
+                    @endif
+
                 </span><br />
             </div>
 

@@ -115,6 +115,7 @@ $(document).ready(function () {
 
             var dosubmit = function () {
                 var url=window.location.pathname;
+                var isschool=false;
                 if(url.indexOf("/property")!=-1)
                 {
                     var min_price=$(".irs-from").text().split('$')[1].replace(" ","");
@@ -128,6 +129,7 @@ $(document).ready(function () {
 
                 if(url.indexOf("/study-sp")!=-1)
                 {
+                    isschool=true;
                     url+="?";
                     var values=$select_nature.val();
                     if(values!="" &&values!=undefined)
@@ -142,13 +144,21 @@ $(document).ready(function () {
                 var did=$select_regionD.val();
                 var typeid=$select_type.val();
 
-                if(rid!="" &&rid!=undefined)
-                    url+="&rid="+rid;
+                if(url.indexOf("/study")!=-1 &&isschool==false){
+                    if(rid!="" &&rid!=undefined)
+                        url+="?rid="+rid;
+                }
+                else
+                {
+                    if(rid!="" &&rid!=undefined)
+                        url+="&rid="+rid;
+                }
+
                 if(cid!="" &&cid!=undefined&&rid!="0")
                     url+="&cid="+cid;
                 if(did!="" &&did!=undefined&&cid!="0")
                     url+="&did="+did;
-                if(typeid!="")
+                if(typeid!="" &&typeid!=undefined)
                     url+="&type="+typeid;
 
                window.location=url;

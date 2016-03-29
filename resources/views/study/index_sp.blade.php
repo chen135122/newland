@@ -83,8 +83,8 @@
                                         <h6>学校性别</h6>
                                         <ul>
                                             <li><label><a href="javascript:void(0);" rel="1" {!!($gender==1) ?'class="btn_1" style="padding:3px 10px;"':"" !!}>男校</a></label></li>
-                                            <li><label><a href="javascript:void(0);" rel="1" {!!($gender==2) ?'class="btn_1" style="padding:3px 10px;"':"" !!}>女校</a></label></li>
-                                            <li><label><a href="javascript:void(0);" rel="1" {!!($gender==3) ?'class="btn_1" style="padding:3px 10px;"':"" !!}>男女混合校</a></label></li>
+                                            <li><label><a href="javascript:void(0);" rel="2" {!!($gender==2) ?'class="btn_1" style="padding:3px 10px;"':"" !!}>女校</a></label></li>
+                                            <li><label><a href="javascript:void(0);" rel="3" {!!($gender==3) ?'class="btn_1" style="padding:3px 10px;"':"" !!}>男女混合校</a></label></li>
                                         </ul>
                                     </div>
                                     <input id="select_region" name="region" type="hidden" value="{{$rid}}">

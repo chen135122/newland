@@ -64,7 +64,7 @@ class StudyController extends Controller
         $rid = request()->get('rid');  //一级地区
         $cid= request()->get('cid'); //二级地区
         $did= request()->get('did'); //三级地区
-        $type= request()->get('type'); //学校类型
+        $type= request()->get('htype'); //学校类型
         $nature= request()->get('nature'); //学校性质
         $gender= request()->get('gender'); //学校性别
 
