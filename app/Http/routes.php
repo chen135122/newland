@@ -73,7 +73,7 @@ Route::group([ 'middleware' => ['web']], function () {
     Route::get('query','\App\Http\Controllers\AlipayController@query');
 });
 Route::get('debug', function(){
-  return 9;
+  return 10;
 });
 
 
