@@ -662,7 +662,7 @@
     {
         var ev = ev || window.event;
         var thisId = document.getElementById(id);
-        document.documentElement.scrollTop = document.body.scrollTop = $(thisId).offset().top-100-32;// - oBtn.offsetHeight;
+        document.documentElement.scrollTop = document.body.scrollTop = $(thisId).offset().top-100-64;// - oBtn.offsetHeight;
         ev.preventDefault();
     }
 {{--var locationX=parseFloat({{$locationX}});--}}
