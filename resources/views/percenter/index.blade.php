@@ -92,11 +92,11 @@
                         <aside class="col-lg-3 col-md-3">
                             <div class="box_style_cat">
                                 <ul id="cat_nav">
-                                    <li><a href="?crid=1&type=2" id="active"><i class="icon_set_1_icon-51"></i>房产置业 <span>({{$count1}})</span></a></li>
-                                    <li><a href="?crid=2&type=2"><i class="icon_set_1_icon-34"></i>国际旅游 <span>({{$count2}})</span></a></li>
-                                    <li><a href="?crid=3&type=2"><i class="icon_set_1_icon-29"></i>新西兰大学<span>({{$count3}})</span></a></li>
-                                    <li><a href="?crid=5&type=2"><i class="icon_set_1_icon-4"></i>新西兰中小学<span>({{$count5}})</span></a></li>
-                                    <li><a href="?crid=4&type=2"><i class="icon_set_1_icon-7"></i>新闻资讯 <span>({{$count4}})</span></a></li>
+                                    <li rel="1"><a href="?crid=1&type=2" id="active"><i class="icon_set_1_icon-51"></i>房产置业 <span>({{$count1}})</span></a></li>
+                                    <li rel="2"><a href="?crid=2&type=2"><i class="icon_set_1_icon-34"></i>国际旅游 <span>({{$count2}})</span></a></li>
+                                    <li rel="3"><a href="?crid=3&type=2"><i class="icon_set_1_icon-29"></i>新西兰大学<span>({{$count3}})</span></a></li>
+                                    <li rel="5"><a href="?crid=5&type=2"><i class="icon_set_1_icon-4"></i>新西兰中小学<span>({{$count5}})</span></a></li>
+                                    <li rel="4"><a href="?crid=4&type=2"><i class="icon_set_1_icon-7"></i>新闻资讯 <span>({{$count4}})</span></a></li>
 
                                 </ul>
                             </div>
@@ -411,7 +411,8 @@
         var car_id=parseInt('{{$collection_type}}');
         $("#cat_nav li").each(function(){
             var $this= $(this);
-            if(($this.index()+1)==car_id)
+            var relid=parseInt($(this).attr("rel"));
+            if((relid)==car_id)
             {
                 $this.children(":first-child").attr("id","active");
                 $this.siblings().children(":first-child").attr('id','');
