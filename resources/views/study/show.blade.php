@@ -10,7 +10,9 @@
                 <div class="row">
                     <div class="col-md-8 col-sm-8">
                          <h1>{{$study->cn_name}}</h1>
-                        <span>{{$study->regions->name}}.{{ $study->regions_city->name}}.{{ $study->regions_district->name}}</span>
+                        {{isset($study->regions->name)? $study->regions->name:""}}
+                        {{isset($study->regions_city->name)? $study->regions_city->name:""}}
+                        {{isset($study->regions_district->name)? $study->regions_district->name:""}}
                     </div>
 
                 </div>
@@ -99,7 +101,11 @@
                                     </tr>
                                     <tr>
                                         <td>位置</td>
-                                        <td class="text-center">{{$study->regions->name}}.{{ $study->regions_city->name}}.{{ $study->regions_district->name}}</td>
+                                        <td class="text-center">
+                                            {{isset($study->regions->name)? $study->regions->name:""}}
+                                            {{isset($study->regions_city->name)? $study->regions_city->name:""}}
+                                            {{isset($study->regions_district->name)? $study->regions_district->name:""}}
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td>offer发放速度(几周)</td>

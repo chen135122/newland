@@ -252,5 +252,3 @@
 <script src="js/revolution_func.js"></script>
 
 @endpush
-</body>
-</html>
