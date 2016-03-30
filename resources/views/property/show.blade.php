@@ -642,7 +642,7 @@
             else {
                 if ((navigator.userAgent.indexOf('Chrome') >= 0))
                 {
-                    $ml.css("width", "90%");
+                    $ml.css("width", "58%");
 
                 }
                 else

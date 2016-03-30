@@ -746,7 +746,7 @@
     window.onscroll = function () {
         var t = document.documentElement.scrollTop || document.body.scrollTop;
         var top = $("#tour_xc").offset().top;
-        var pl_top = $("#zxpl").offset().top;
+        var pl_top = $("#mstj").offset().top;
         var $div=$("#tour_d div.form_title");
         for(i=0;i<$div.length;i++)
         {

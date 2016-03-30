@@ -186,7 +186,7 @@
             <div class="tour_container">
                 <div class="img_container">
                     <a href="tour/{{$travel->id}}">
-                        <img src="img/tour_box_1.jpg" class="img-responsive" alt="">
+                        <img src="{{$travel->picurl}}" class="img-responsive" alt="">
                         @if($travel->istop==1)) <div class="ribbon top_rated"></div> @endif
                         <div class="short_info">
                             <span class="price">￥{{$travel->referenceprice}}</span>
