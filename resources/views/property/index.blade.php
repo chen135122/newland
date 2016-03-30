@@ -300,9 +300,6 @@
             }
             return newStr.join("")
         }
-        $(function () {
-
-        })
         function su()
         {
 
