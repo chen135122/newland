@@ -308,6 +308,7 @@
             autoplay: false
         });
     });
+    var width=$("#ml").width();
     window.onscroll = function () {
         var t = document.documentElement.scrollTop || document.body.scrollTop;
         var ml_top = $("#xxxx").offset().top;
@@ -321,12 +322,12 @@
             else {
                 if ((navigator.userAgent.indexOf('Chrome') >= 0))
                 {
-                    $ml.css("width", "58%");
+                    $ml.css("width", width+"px");
 
                 }
                 else
                 {
-                    $ml.css("width", "55%");
+                    $ml.css("width", width+"px");
                 }
 
             }
