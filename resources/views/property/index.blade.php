@@ -97,9 +97,9 @@
                         <div class="col-md-3 col-sm-3 col-xs-6">
                             <div class="styled-select-filters">
                                 <select name="sort_price" id="sort_price">
-                                    <option value="" selected>价格排序</option>
-                                    <option value="lower">从高到低</option>
-                                    <option value="higher">从低到高</option>
+                                    <option value="" <?php isset($sortPrice)? "selected":'' ?>>价格排序</option>
+                                    <option value="lower" <?php isset($sortPrice)&&($sortPrice=='lower')? "selected":'' ?>>从低到高</option>
+                                    <option value="higher" <?php isset($sortPrice)&&($sortPrice=='higher')? "selected":'' ?>>从高到低</option>
                                 </select>
                             </div>
                         </div>
@@ -220,6 +220,7 @@
 @push('style')
 <!-- Radio and check inputs -->
 <link href="/css/skins/square/grey.css" rel="stylesheet">
+<link href="/js/artdialog/ui-dialog.css" rel="stylesheet" type="text/css" />
 <link href="/js/artdialog/ui-dialog.css" rel="stylesheet" type="text/css" />
 <!-- Range slider -->
 <link href="/css/ion.rangeSlider.css" rel="stylesheet" >

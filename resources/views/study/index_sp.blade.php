@@ -120,7 +120,7 @@
                                           <ul>
                                               <li>学校类型：
                                                   <?php
-                                                  switch($study->nature)
+                                                  switch($study->type)
                                                   {
 
                                                   case 1 :echo "小学"; break;

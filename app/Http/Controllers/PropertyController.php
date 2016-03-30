@@ -14,6 +14,7 @@ class PropertyController extends Controller
 {
     public function index(Request $request)
     {
+        $parames=[];
         $properties = Property::where('status', '<>', 0)->where('status', '<>', 4);
         $Lastedarticle=$this->LastedNews(5);
         $hotpropertys=$this->HotProperty(4);
@@ -24,9 +25,11 @@ class PropertyController extends Controller
         $type= request()->get('type'); //房屋类型
         if (!empty($type)&&$type!=0){
             $properties= $properties->where('type', $type);
+            $parames["type"]=$type;
         }
         if (!empty($price)){
             $properties= $properties->whereBetween('total_price', $price);
+            $parames["price"]=$price;
         }
         $regionlist=Region::where('parent_id', 0)->get();
         if (!empty($rid)){
@@ -35,6 +38,7 @@ class PropertyController extends Controller
             $regionclist=Region::where('parent_id', $rid)->get();
             $cid=$regionclist->first()->id;
             $regiondlist=Region::where('parent_id', $cid)->get();
+            $parames["rid"]=$rid;
         }
 
         if (!empty($cid)){
@@ -42,6 +46,7 @@ class PropertyController extends Controller
             $rid=Region::find($cid)->parent_id;
             $regionclist=Region::where('parent_id', $rid)->get();
             $regiondlist=Region::where('parent_id', $cid)->get();
+            $parames["cid"]=$cid;
           }
 
         if (!empty($did)){
@@ -50,6 +55,7 @@ class PropertyController extends Controller
             $rid=Region::find($cid)->parent_id;
             $regionclist=Region::where('parent_id', $rid)->get();
             $regiondlist=Region::where('parent_id', $cid)->get();
+            $parames["did"]=$did;
          }
 
 
@@ -68,15 +74,17 @@ class PropertyController extends Controller
         {
             if($sortprice=="higher")
             {
-                $properties= $properties->orderBy("total_price","desc")->paginate(5)->appends(['sortPrice' => 'higher']);
+                $parames["sortPrice"]='higher';
+                $properties= $properties->orderBy("total_price","desc")->paginate(5)->appends($parames);
             }
             else{
-                $properties =$properties->orderBy("total_price","asc")->paginate(5)->appends(['sortPrice' => 'lower']);
+                $parames["sortPrice"]='lower';
+                $properties =$properties->orderBy("total_price","asc")->paginate(5)->appends($parames);
             }
         }
         else
         {
-            $properties=$properties->orderBy("id","desc")->paginate(5);
+            $properties=$properties->orderBy("id","desc")->paginate(5)->appends($parames);
         }
         return view('property.index')->with(compact('properties','maxprice','minprice','toprice','regionlist','regionclist','regiondlist','rid','cid','did','type','Lastedarticle','hotpropertys'));
     }

@@ -14,6 +14,7 @@ class StudyController extends Controller
 {
     public function index()
     {
+        $parames=[];
         $Lastedarticle=$this->LastedNews(5);
         $hotpropertys=$this->HotProperty(4);
         $studys = Study::where("id",">",0);
@@ -27,6 +28,7 @@ class StudyController extends Controller
             $regionclist=Region::where('parent_id', $rid)->get();
             $cid=$regionclist->first()->id;
             $regiondlist=Region::where('parent_id', $cid)->get();
+            $parames["rid"]=$rid;
         }
 
         if (!empty($cid)){
@@ -34,6 +36,7 @@ class StudyController extends Controller
             $rid=Region::find($cid)->parent_id;
             $regionclist=Region::where('parent_id', $rid)->get();
             $regiondlist=Region::where('parent_id', $cid)->get();
+            $parames["cid"]=$cid;
         }
 
         if (!empty($did)){
@@ -42,8 +45,9 @@ class StudyController extends Controller
             $rid=Region::find($cid)->parent_id;
             $regionclist=Region::where('parent_id', $rid)->get();
             $regiondlist=Region::where('parent_id', $cid)->get();
+            $parames["did"]=$did;
         }
-        $studys = $studys->paginate(5);
+        $studys = $studys->paginate(5)->appends($parames);
         return view('study.index')->with(compact('studys','regionlist','regionclist','regiondlist','rid','cid','did','Lastedarticle','hotpropertys'));
     }
 
@@ -60,23 +64,26 @@ class StudyController extends Controller
     //zhong xiao xue
     public function index_sp()
     {
+        $parames=[];
         $studys = StudySP::where("id",">",0);
         $rid = request()->get('rid');  //一级地区
         $cid= request()->get('cid'); //二级地区
         $did= request()->get('did'); //三级地区
-        $type= request()->get('htype'); //学校类型
+        $type= request()->get('type'); //学校类型
         $nature= request()->get('nature'); //学校性质
         $gender= request()->get('gender'); //学校性别
-
         $regionlist=Region::where('parent_id', 0)->get();
         if (!empty($type)&&$type!=0){
             $studys= $studys->where('type', $type);
+            $parames["type"]=$type;
         }
         if (!empty($nature)&&$nature!=0){
             $studys= $studys->where('nature', $nature);
+            $parames["nature"]=$nature;
         }
         if (!empty($gender)&&$gender!=0){
             $studys= $studys->where('gender', $gender);
+            $parames["gender"]=$gender;
         }
         if (!empty($rid)){
 
@@ -84,6 +91,7 @@ class StudyController extends Controller
             $regionclist=Region::where('parent_id', $rid)->get();
             $cid=$regionclist->first()->id;
             $regiondlist=Region::where('parent_id', $cid)->get();
+            $parames["rid"]=$rid;
         }
 
         if (!empty($cid)){
@@ -91,6 +99,7 @@ class StudyController extends Controller
             $rid=Region::find($cid)->parent_id;
             $regionclist=Region::where('parent_id', $rid)->get();
             $regiondlist=Region::where('parent_id', $cid)->get();
+            $parames["cid"]=$cid;
         }
 
         if (!empty($did)){
@@ -99,8 +108,10 @@ class StudyController extends Controller
             $rid=Region::find($cid)->parent_id;
             $regionclist=Region::where('parent_id', $rid)->get();
             $regiondlist=Region::where('parent_id', $cid)->get();
+            $parames["did"]=$did;
         }
-        $studys = $studys->paginate(5);
+
+        $studys = $studys->paginate(5)->appends($parames);
         $Lastedarticle=$this->LastedNews(5);
         $hotpropertys=$this->HotProperty(4);
         return view('study.index_sp')->with(compact('studys','regionlist','regionclist','regiondlist','rid','cid','did','type','nature','gender','Lastedarticle','hotpropertys'));
