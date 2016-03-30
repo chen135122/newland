@@ -315,7 +315,6 @@
         });
     });
     var width=$("#ml").width();
-    alert(width);
     window.onscroll = function () {
         var t = document.documentElement.scrollTop || document.body.scrollTop;
         var ml_top = $("#xxxx").offset().top;
