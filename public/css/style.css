@@ -1167,7 +1167,7 @@ ul#cat_nav {
         }
 
         ul#cat_nav li a#active, ul#cat_nav li a.active, ul#cat_nav li a:hover {
-            background: #f9f9f9;
+            background: #eee;
             color: #111;
         }
 
