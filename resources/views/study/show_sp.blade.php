@@ -10,7 +10,11 @@
                 <div class="row">
                     <div class="col-md-8 col-sm-8">
                          <h1>{{$study->name}}</h1>
-                        <span>{{$study->regions->name}}.{{ $study->regions_city->name}}.{{ $study->regions_district->name}}</span>
+                        <span>
+                            {{isset($study->regions->name)? $study->regions->name:""}}
+                            {{isset($study->regions_city->name)? $study->regions_city->name:""}}
+                            {{isset($study->regions_district->name)? $study->regions_district->name:""}}
+                           </span>
                     </div>
 
                 </div>
@@ -63,7 +67,11 @@
                         <li class="odd">
                             <p class="desc-p">
                                 <span class="label">地区：</span>
-                                <span class="label-val">{{$study->regions->name}}.{{ $study->regions_city->name}}.{{ $study->regions_district->name}}</span>
+                                <span class="label-val">
+                                    {{isset($study->regions->name)? $study->regions->name:""}}
+                                    {{isset($study->regions_city->name)? $study->regions_city->name:""}}
+                                    {{isset($study->regions_district->name)? $study->regions_district->name:""}}
+                                </span>
                             </p>
                         </li>
                         <li>

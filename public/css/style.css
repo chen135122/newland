@@ -789,7 +789,7 @@ footer {
 
             #social_footer ul li a {
                 color: #fff;
-                line-height: 34px;
+                line-height: 34px ;
                 display: block;
                 font-size: 16px;
                 width: 35px;
@@ -2880,7 +2880,7 @@ ul.list_order {
     transition: all .7s ease;
 }
 .hotel_container .img_container img {
-    max-height: 120px;
+    /*max-height: 120px;*/
 }
 .short_info {
     position: absolute;

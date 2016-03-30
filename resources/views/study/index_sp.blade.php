@@ -155,9 +155,11 @@
                                                   ?>
                                               </li>
 
-                                              <li>地区： {{$study->regions->name}}.{{ $study->regions_city->name}}.{{ $study->regions_district->name}}</li>
-
-                                          </ul>
+                                              <li>地区：
+                                                  {{isset($study->regions->name)? $study->regions->name:""}}
+                                                  {{isset($study->regions_city->name)? $study->regions_city->name:""}}
+                                                  {{isset($study->regions_district->name)? $study->regions_district->name:""}}
+                                             </ul>
                                       </div>
                                   </div>
                                   <div class="col-lg-2 col-md-2 col-sm-2">
