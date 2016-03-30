@@ -53,21 +53,23 @@ class AlipayController extends Controller
        if($order->id>0)
        {
            $category=$request->get('baseprice');
-           foreach($category as $key=>$value)
+           if(count($category)>0)
            {
-               $base= PriceBase::where("id",$value)->first();
-               $orderDetail=new OrderDetail();
-               $orderDetail->orderid=$order->id;
-               $orderDetail->title=$base->title;
-               $orderDetail->price=$base->price;
-               $orderDetail->num=$num;
-               $orderDetail->created_at=Carbon::now();
-               $orderDetail->created_by=1;
-               $orderDetail->updated_at=null;
-               $orderDetail->updated_by=null;
-               $orderDetail->save();
+               foreach($category as $key=>$value)
+               {
+                   $base= PriceBase::where("id",$value)->first();
+                   $orderDetail=new OrderDetail();
+                   $orderDetail->orderid=$order->id;
+                   $orderDetail->title=$base->title;
+                   $orderDetail->price=$base->price;
+                   $orderDetail->num=$num;
+                   $orderDetail->created_at=Carbon::now();
+                   $orderDetail->created_by=1;
+                   $orderDetail->updated_at=null;
+                   $orderDetail->updated_by=null;
+                   $orderDetail->save();
+               }
            }
-
 
             $gateway = Omnipay::gateway();
 

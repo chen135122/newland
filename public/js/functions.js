@@ -145,10 +145,10 @@ var toggles = document.querySelectorAll(".cmn-toggle-switch");
             var newVal = parseFloat(oldValue) + 1;
         } else {
             // Don't allow decrementing below zero
-            if (oldValue > 1) {
+            if (oldValue > 2) {
                 var newVal = parseFloat(oldValue) - 1;
             } else {
-                newVal = 0;
+                newVal = 1;
             }
         }
         $button.parent().find("input").val(newVal);
