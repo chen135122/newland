@@ -58,9 +58,6 @@
             font-family:'Microsoft YaHei';
             color:black;
         }
-        .main-menu ul li {
-            margin-left:15px;
-        }
         .col-md-3 i:before {
             font-size:100px;
         }
