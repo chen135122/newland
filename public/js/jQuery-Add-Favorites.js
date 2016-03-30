@@ -45,15 +45,14 @@
 												$obj.stop(false, false).animate({ 'top': Y - 20, 'opacity': 0 }, 1000, function () {
 													$obj.fadeOut(300,function(){
 														//$obj.remove();
-
-
 														//num=Number($num.text());
 														//$num.text(num+1);
 													});
 												});
 											});
 										};
-										$(self).parent().remove();
+										$target.parent().remove();
+
 										//var d = dialog({content:data.msg}).show();
 										//setTimeout(function () {
 										//	d.close().remove();
