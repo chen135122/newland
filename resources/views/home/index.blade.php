@@ -58,9 +58,6 @@
             font-family:'Microsoft YaHei';
             color:black;
         }
-        .main-menu ul li {
-            margin-left:15px;
-        }
         .col-md-3 i:before {
             font-size:100px;
         }
@@ -182,6 +179,7 @@
     <div class="row">
         <?php $i=1; ?>
         @foreach($travels as $travel)
+                @if( $i<4)
         <div class="col-md-4 col-sm-6 wow zoomIn" data-wow-delay="0.<?php echo $i++; ?>s">
             <div class="tour_container">
                 <div class="img_container">
@@ -198,7 +196,7 @@
                 </div>
             </div>
         </div>
-
+      @endif
         @endforeach
     </div><!-- End row -->
     <p class="text-center add_bottom_30">

@@ -57,7 +57,7 @@ class TourController extends Controller
             $parames["category"]=$request->get('category');
         }
 
-        $travels=$travels->paginate(1)->appends($parames);
+        $travels=$travels->paginate(5)->appends($parames);
         $travelCategorys = TravelCategory::where('parentid', 0)->where("name", "like", '%' . '旅游' . '%')->first();
         $categorys = TravelCategory::all()->where("parentid", $travelCategorys->id);
         $maxprice = Travel::where("id", ">", 0)->orderBy("referenceprice", "desc")->first()->referenceprice;
