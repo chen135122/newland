@@ -55,6 +55,7 @@
 
                         <input type="hidden" value="{{$minprice}}" name="price[]" id="min_price" >
                         <input type="hidden" value="{{$maxprice}}" name="price[]" id="max_price">
+                        <input type="hidden" value="" name="order" id="order">
                         <input type="button" onclick="su()" value="确定" class="btn_full">
                     </div>
                     </form>
@@ -73,16 +74,23 @@
                     <div class="row">
                         <div class="col-md-3 col-sm-3 col-xs-6">
                             <div class="styled-select-filters">
-                                <select name="sort_price" id="sort_price">
-                                    <option value="" selected>价格排序</option>
-                                    <option value="lower">从低到高</option>
-                                    <option value="higher">从高到低</option>
+                                <select name="sort_price" onchange="su()" id="sort_price">
+                                    <option value="0"  selected>价格排序</option>
+                                    <option value="1">从低到高</option>
+                                    <option value="2">从高到低</option>
                                 </select>
                             </div>
                         </div>
                     </div>
                 </div><!--/tools -->
-
+               @if(count($travels)<=0)
+                    <div id="tools">
+                        <div class="row">
+                            暂时没有数据
+                        </div>
+                    </div>
+                @endif
+                @if(count($travels)>0)
 				@foreach($travels as $travel)
                 <div class="strip_all_tour_list wow fadeIn" data-wow-delay="0.1s">
                     <div class="row">
@@ -115,13 +123,13 @@
                         </div>
                     </div>
                 </div><!--End strip -->
-
-        
                 @endforeach
-                <hr>
-                <div class="text-center">
-                {{$travels->render()}}
-                </div>
+                    <hr>
+                    <div class="text-center">
+                        {{$travels->render()}}
+                    </div>
+                @endif
+
                 
 
             </div><!-- End col lg-9 -->
@@ -234,6 +242,12 @@
         return newStr.join("")
     }
         $(function () {
+            $("#sort_price option").each(function(){
+                if($(this).index()=='{{$sortprice}}')
+                {
+                    $(this).attr("selected","selected")
+                }
+            })
             $(".price").each(function () {
                 var price = $(this).text().split('$');//.split('¥')[0];
                 var newPrice;
@@ -248,17 +262,18 @@
                     $(this).text("$" + newPrice);
                 }
             })
-            $("#sort_price").change(function(){
-                var $option=$(this).children('option:selected');
-                if($option.index()!=0)
-                {
-                    window.location="/tour?sortPrice="+$option.val();
-                }
-            })
+//            $("#sort_price").change(function(){
+//                var $option=$(this).children('option:selected');
+//                if($option.index()!=0)
+//                {
+//                    window.location="/tour?sortPrice="+$option.val();
+//                }
+//            })
         })
     function su()
     {
-
+        var $option= $("#sort_price").children('option:selected');
+        $("#order").val($option.val());
         $("#min_price").val($(".irs-from").text().split('$')[1].replace(" ",""));
         $("#max_price").val($(".irs-to").text().split('$')[1].trim().replace(" ",""));
         form1.submit();

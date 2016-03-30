@@ -33,14 +33,18 @@ class TourController extends Controller
         if (!empty($category)) {
           $travels = $travels->WhereIn('catid', $category);
         }
-        if ($sortprice = request()->get('sortPrice')) {
-          if ($sortprice == "higher") {
-              $travels = $travels->orderBy("referenceprice", "desc")->paginate(5)->appends(['sortPrice' => 'higher']);
-          } else {
-              $travels = $travels->orderBy("referenceprice", "asc")->paginate(5)->appends(['sortPrice' => 'lower']);
+        if ($sortprice = request()->get('order')) {
+          if ($sortprice == "2") {
+              $travels = $travels->orderBy("referenceprice", "desc")->paginate(1);
+          } else if($sortprice == "1") {
+              $travels = $travels->orderBy("referenceprice", "asc")->paginate(1);
           }
+            else
+            {
+                $travels = $travels->orderBy("created_at", "desc")->paginate(1);
+            }
         } else {
-          $travels = $travels->orderBy("created_at", "desc")->paginate(5);
+          $travels = $travels->orderBy("created_at", "desc")->paginate(1);
         }
         $travelCategorys = TravelCategory::where('parentid', 0)->where("name", "like", '%' . '旅游' . '%')->first();
         $categorys = TravelCategory::all()->where("parentid", $travelCategorys->id);
@@ -54,7 +58,7 @@ class TourController extends Controller
         }
 
         return view('tour.index')->with(compact('travels'))->with(compact('categorys'))->with(compact('category'))
-          ->with("maxprice", $maxprice)->with("minprice", $minprice)->with("toprice", $toprice);
+          ->with(["maxprice"=>$maxprice,"minprice"=>$minprice,"toprice"=>$toprice,"sortprice"=>$sortprice]);
 
     }
 
