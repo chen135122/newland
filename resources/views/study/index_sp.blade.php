@@ -154,7 +154,8 @@
                                                   }
                                                   ?>
                                               </li>
-                                              <li>分制： {{$study->decile}}</li>
+
+                                              <li>地区： {{$study->regions->name}}.{{ $study->regions_city->name}}.{{ $study->regions_district->name}}</li>
 
                                           </ul>
                                       </div>
@@ -335,8 +336,6 @@
 @endpush
 
 @push('script')
-<script src="/js/html5shiv.min.js"></script>
-<script src="/js/respond.min.js"></script>
 <script src="/js/jquery-1.11.2.min.js"></script>
 <script src="/js/common_scripts_min.js"></script>
 <script src="/js/functions.js"></script>

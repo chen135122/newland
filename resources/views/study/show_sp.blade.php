@@ -10,7 +10,7 @@
                 <div class="row">
                     <div class="col-md-8 col-sm-8">
                          <h1>{{$study->name}}</h1>
-                        <span>{{$study->country}}-{{ $study->city}}</span>
+                        <span>{{$study->regions->name}}.{{ $study->regions_city->name}}.{{ $study->regions_district->name}}</span>
                     </div>
 
                 </div>
@@ -62,14 +62,14 @@
                     <ul class="table-list">
                         <li class="odd">
                             <p class="desc-p">
-                                <span class="label">地址：</span>
-                                <span class="label-val">{{$study->address}}</span>
+                                <span class="label">地区：</span>
+                                <span class="label-val">{{$study->regions->name}}.{{ $study->regions_city->name}}.{{ $study->regions_district->name}}</span>
                             </p>
                         </li>
                         <li>
                             <p class="desc-p clear">
-                                <span class="label">地区：</span>
-                                <span class="label-val">888</span>
+                                <span class="label">地址：</span>
+                                <span class="label-val">{{$study->address}}</span>
                             </p>
 
                         </li>

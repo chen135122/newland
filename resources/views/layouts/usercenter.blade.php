@@ -67,50 +67,49 @@
 <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a>.</p>
 <![endif]-->
 @yield('content')
-
-  <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 col-sm-3">
-                    <h3>需要帮助?</h3>
-                    <a href="#" id="phone">+025-58761818</a>
-                    <a href="#" id="email_footer">services@allinnewzealand.com</a>
-                </div>
-                <div class="col-md-2 col-sm-3" style="margin-left:10%;">
-                    <h3>关于我们</h3>
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-sm-3">
+                <h3>需要帮助?</h3>
+                <span  class="phone">+025-58761818</span>
+                <a href="mailto:services@allinnewzealand.com" class="email_footer">services@allinnewzealand.com</a>
+            </div>
+            <div class="col-md-2 col-sm-3" style="margin-left:10%;">
+                <h3>关于我们</h3>
+                <ul>
+                    <li><a href="/faq">我们是谁</a></li>
+                    <li><a href="/faq">常见问题</a></li>
+                    <li><a href="/faq">使用条款</a></li>
+                </ul>
+            </div>
+            <div class="col-md-2 col-sm-3" style="margin-left:10%;">
+                <h3>其他内容</h3>
+                <ul>
+                    <li><a href="/news">最新资讯</a></li>
+                    <li><a href="/property">热门房产</a></li>
+                </ul>
+            </div>
+        </div><!-- End row -->
+        <div class="row">
+            <div class="col-md-12">
+                <div id="social_footer">
                     <ul>
-                        <li><a href="#">我们是谁</a></li>
-                        <li><a href="/faq.html">常见问题</a></li>
-                        <li><a href="#">使用条款</a></li>
+                        <li><a href="#"><i class="icon-facebook"></i></a></li>
+                        <li><a href="#"><i class="icon-twitter"></i></a></li>
+                        <li><a href="#"><i class="icon-google"></i></a></li>
+                        <li><a href="#"><i class="icon-instagram"></i></a></li>
+                        <li><a href="#"><i class="icon-pinterest"></i></a></li>
+                        <li><a href="#"><i class="icon-vimeo"></i></a></li>
+                        <li><a href="#"><i class="icon-youtube-play"></i></a></li>
+                        <li><a href="#"><i class="icon-linkedin"></i></a></li>
                     </ul>
+                    <p>© All New Zealand 2016</p>
                 </div>
-                <div class="col-md-2 col-sm-3" style="margin-left:10%;">
-                    <h3>其他内容</h3>
-                    <ul>
-                        <li><a href="#">最新资讯</a></li>
-                        <li><a href="#">热门房产</a></li>
-                    </ul>
-                </div>
-            </div><!-- End row -->
-            <div class="row">
-                <div class="col-md-12">
-                    <div id="social_footer">
-                        <ul>
-                            <li><a href="#"><i class="icon-facebook"></i></a></li>
-                            <li><a href="#"><i class="icon-twitter"></i></a></li>
-                            <li><a href="#"><i class="icon-google"></i></a></li>
-                            <li><a href="#"><i class="icon-instagram"></i></a></li>
-                            <li><a href="#"><i class="icon-pinterest"></i></a></li>
-                            <li><a href="#"><i class="icon-vimeo"></i></a></li>
-                            <li><a href="#"><i class="icon-youtube-play"></i></a></li>
-                            <li><a href="#"><i class="icon-linkedin"></i></a></li>
-                        </ul>
-                        <p>© All New Zealand 2016</p>
-                    </div>
-                </div>
-            </div><!-- End row -->
-        </div><!-- End container -->
-    </footer><!-- End footer -->
+            </div>
+        </div><!-- End row -->
+    </div><!-- End container -->
+</footer><!-- End footer -->
 <div id="toTop"></div><!-- Back to top button -->
 
 <!-- Common scripts -->
