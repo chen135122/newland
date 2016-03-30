@@ -629,25 +629,27 @@
 <!-- Carousel -->
 <script src="/js/owl.carousel.min.js"></script>
 <script>
+
     window.onscroll = function () {
+
         var t = document.documentElement.scrollTop || document.body.scrollTop;
         var ml_top = $("#info").offset().top;
         if (t > (ml_top -143))
         {
+            var $width=$("#ml").width();
             var $ml = $("#ml");
             $ml.css("position", "fixed").css("top", "30px").css("z-index", "999");
             if (window.outerHeight === screen.availHeight || window.outerWidth === screen.availWidth) {
-                $ml.css("width", "56%");
+                $ml.css("width", $width+"px");
             }
             else {
                 if ((navigator.userAgent.indexOf('Chrome') >= 0))
                 {
-                    $ml.css("width", "58%");
-
+                    $ml.css("width", $width+"px");
                 }
                 else
                 {
-                    $ml.css("width", "55%");
+                    $ml.css("width", $width+"px");
                 }
 
             }
