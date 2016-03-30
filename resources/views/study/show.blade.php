@@ -270,6 +270,9 @@
         height: 130px;
         margin-bottom: 4px;
     }
+    .c_ul li{
+        width: 12.5%;
+    }
 </style>
 @endpush
 
@@ -314,12 +317,13 @@
             autoplay: false
         });
     });
-    var width=$("#ml").width();
+
     window.onscroll = function () {
         var t = document.documentElement.scrollTop || document.body.scrollTop;
         var ml_top = $("#xxxx").offset().top;
         if (t > (ml_top -143))
         {
+            var width=$("#ml").width();
             var $ml = $("#ml");
             $ml.css("position", "fixed").css("top", "30px").css("z-index", "999");
             if (window.outerHeight === screen.availHeight || window.outerWidth === screen.availWidth) {
