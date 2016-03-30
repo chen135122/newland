@@ -94,7 +94,7 @@
 
                 <a class="btn_full" href="/news">更多</a>
             </div>
-            <div class="box_style_2">
+            <div class="box_style_4">
                 <i class="icon_set_1_icon-57"></i>
                 <h4>需要 <span>帮助?</span></h4>
                 <a href="tel://025-58761818" class="phone">+025-58761818</a>

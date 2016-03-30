@@ -36,8 +36,10 @@ class PropertyController extends Controller
 
             $properties= $properties->where('region', $rid);
             $regionclist=Region::where('parent_id', $rid)->get();
-            $cid=$regionclist->first()->id;
-            $regiondlist=Region::where('parent_id', $cid)->get();
+            if(empty($cid)) {
+                $cid = $regionclist->first()->id;
+                $regiondlist = Region::where('parent_id', $cid)->get();
+            }
             $parames["rid"]=$rid;
         }
 

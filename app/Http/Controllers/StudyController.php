@@ -26,8 +26,10 @@ class StudyController extends Controller
 
             $studys= $studys->where('region', $rid);
             $regionclist=Region::where('parent_id', $rid)->get();
-            $cid=$regionclist->first()->id;
-            $regiondlist=Region::where('parent_id', $cid)->get();
+            if(empty($cid)){
+                $cid=$regionclist->first()->id;
+                $regiondlist=Region::where('parent_id', $cid)->get();
+            }
             $parames["rid"]=$rid;
         }
 
@@ -89,8 +91,10 @@ class StudyController extends Controller
 
             $studys= $studys->where('region', $rid);
             $regionclist=Region::where('parent_id', $rid)->get();
-            $cid=$regionclist->first()->id;
-            $regiondlist=Region::where('parent_id', $cid)->get();
+            if(empty($cid)) {
+                $cid = $regionclist->first()->id;
+                $regiondlist = Region::where('parent_id', $cid)->get();
+            }
             $parames["rid"]=$rid;
         }
 

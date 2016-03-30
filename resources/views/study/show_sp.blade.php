@@ -22,7 +22,7 @@
         <div class="container">
             <ul>
                 <li><a href="/">首页</a></li>
-                <li><a href="/study-sp">留学</a></li>
+                <li><a href="/study-sp">新西兰留学-中小学</a></li>
                 <li>{{$study->name}}</li>
             </ul>
         </div>

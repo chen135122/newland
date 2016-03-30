@@ -1,5 +1,6 @@
 @extends('layouts.master')
-
+@section('title')常见问题
+@stop
 @section('content')
 
 <!-- Mobile menu overlay mask -->
@@ -16,8 +17,7 @@
 <div id="position">
     <div class="container">
         <ul>
-            <li><a href="#">首页</a></li>
-            <li><a href="#">新西兰</a></li>
+            <li><a href="/">首页</a></li>
             <li>常见问题</li>
         </ul>
     </div>
@@ -37,7 +37,7 @@
                 </ul>
             </div>
 
-            <div class="box_style_2">
+            <div class="box_style_4">
                 <i class="icon_set_1_icon-57"></i>
                 <h4>需要 <span>帮助?</span></h4>
                 <a href="tel://025-58761818" class="phone">+025-58761818</a>
@@ -130,6 +130,4 @@
         </div><!-- End col lg-9 -->
     </div><!-- End row -->
 </div><!-- End container -->
-
-<div id="toTop"></div><!-- Back to top button -->
 @endsection

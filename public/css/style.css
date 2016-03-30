@@ -822,7 +822,7 @@ footer .email_footer, footer .phone {
         position: absolute;
     }
 
-    .phone:before {
+  footer  .phone:before {
         font-size: 30px;
         content: "\79";
         left: 0;
