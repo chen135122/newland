@@ -23,7 +23,7 @@ Route::group([ 'middleware' => ['web']], function () {
 
     Route::get('/',   '\App\Http\Controllers\HomeController@index');
     Route::get('faq', '\App\Http\Controllers\HomeController@faq');
-    Route::get('password/reset','\App\Http\Controllers\Auth\PasswordController@getLogout');
+    Route::get('password/reset','\App\Http\Controllers\Auth\PasswordController@postReset');
 
     //Route::post('password/reset','\App\Http\Controllers\Auth\PasswordController@postReset');
 
