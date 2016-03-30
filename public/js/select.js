@@ -113,7 +113,9 @@ $(document).ready(function () {
                 $select_gender.val(rid);
                 dosubmit();
             });
-
+            $("#sort_price").change(function(){
+                dosubmit();
+            })
 
 
             var dosubmit = function () {
@@ -128,6 +130,12 @@ $(document).ready(function () {
                     $("#min_price").val(min_price);
                     $("#max_price").val(max_price);
                     url+="?price[]="+min_price+"&price[]="+max_price;
+
+                    var $option= $("#sort_price").children('option:selected');
+                        if($option.index()!=0)
+                        {
+                            url+="&sortPrice="+$option.val();
+                        }
                 }
 
                 if(url.indexOf("/study-sp")!=-1)

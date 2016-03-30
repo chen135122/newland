@@ -100,19 +100,22 @@ class AuthController extends Controller
 
 
         if (Auth::guard($this->getGuard())->attempt($credentials, $request->has('remember'))) {
-            return response()->json([
-                'status' => 1,
-                'msg' => "登录成功！",
-                'url'=>"/"
-            ]);
-        }
 
-       // return view('auth.login')->withErrors('zzzzz');
+            return redirect()->back();
+
+//            return response()->json([
+//                'status' => 1,
+//                'msg' => "登录成功！",
+//                'url'=>"/"
+//            ]);
+        }
         $errors=$this->getFailedLoginMessage();
-        return response()->json([
-            'status' => 0,
-            'msg' => "错误提示：".$errors
-        ]);
+        return view('auth.login')->withErrors($errors);
+//
+//        return response()->json([
+//            'status' => 0,
+//            'msg' => "错误提示：".$errors
+//        ]);
     }
 
 

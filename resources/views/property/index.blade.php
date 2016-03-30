@@ -301,27 +301,7 @@
             return newStr.join("")
         }
         $(function () {
-            $(".price").each(function () {
-                var price = $(this).text();//.split('¥')[0];
-                var newPrice;
-                if (price.length == 1) {
-                    newPrice = price;
-                    newPrice = cutStr(newPrice);
-                    $(this).text(newPrice);
-                }
-                else {
-                    newPrice = price;
-                    newPrice = cutStr(newPrice);
-                    $(this).text(newPrice);
-                }
-            })
-            $("#sort_price").change(function(){
-                var $option=$(this).children('option:selected');
-                if($option.index()!=0)
-                {
-                    window.location="/property?sortPrice="+$option.val();
-                }
-            })
+
         })
         function su()
         {

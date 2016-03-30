@@ -7,13 +7,7 @@
                 <div class="col-md-5 col-md-offset-3 col-sm-5 col-sm-offset-3">
                     <div id="login">
                         <h3>登录
-                            {{--@if(isset($errors))--}}
 
-                                {{--{{var_dump($errors)}}--}}
-                                {{--@foreach($errors as $key=>$error)--}}
-                                   {{--{{$key}}: {{$error}}--}}
-                                {{--@endforeach--}}
-                            {{--@endif--}}
                         </h3>
 
                         <hr>
@@ -41,6 +35,14 @@
                                 </div>
                             </div>
                         </form>
+                        @if(isset($errors))
+{{--                            {{dd($errors)}}--}}
+                            <div class="alert alert-danger" role="alert"> {{ $errors }}</div>
+
+                            {{--@foreach($errors as $key=>$error)--}}
+                            {{--{{$key}}: {{$error}}--}}
+                            {{--@endforeach--}}
+                        @endif
                     </div>
                 </div>
             </div>
@@ -56,7 +58,7 @@
     <script src="/js/Validform.js"></script>
     <script>
         $(function() {
-            AjaxInitForm('#loginform', '#btnSubmit', 1);
+         //   AjaxInitForm('#loginform', '#btnSubmit', 1);
         });
     </script>
     @endpush
