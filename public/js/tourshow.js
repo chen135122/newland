@@ -28,9 +28,7 @@ function changeNum(obj)
         perNum=$(obj).val();
     }
 }
-function linkto(){
-    window.location="/order?num="+perNum+"&routid="+'{{$travel->id}}';
-}
+
 function removeClass(id,obj)
 {
     var ev = ev || window.event;

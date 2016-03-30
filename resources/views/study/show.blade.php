@@ -316,7 +316,7 @@
             var $ml = $("#ml");
             $ml.css("position", "fixed").css("top", "30px").css("z-index", "999");
             if (window.outerHeight === screen.availHeight || window.outerWidth === screen.availWidth) {
-                $ml.css("width", "56%");
+                $ml.css("width", "58%");
             }
             else {
                 if ((navigator.userAgent.indexOf('Chrome') >= 0))
