@@ -293,16 +293,20 @@
 {{--</script>--}}
 <script>
     function Ceng(type) {
-        document.getElementById('ceng').style.display = 'block';
-        document.getElementById('close').style.display = 'block';
-        if (type == 1)
-        {
-          $("#orderform").attr("action","/pay");
+        if ('{{$login}}') {
+            document.getElementById('ceng').style.display = 'block';
+            document.getElementById('close').style.display = 'block';
+            if (type == 1) {
+                $("#orderform").attr("action", "/pay");
+            }
+            else {
+                $("#orderform").attr("action", "/wpay");
+            }
         }
-        else{
-            $("#orderform").attr("action","/wpay");
+        else {
+            window.location="/auth/login";
         }
-        return false;
+        //return false;
     }
     function closeCeng() {
         document.getElementById('ceng').style.display = 'none';

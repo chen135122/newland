@@ -133,7 +133,7 @@ class AlipayController extends Controller
         }
         else
             return redirect($request->get("url"));
-       return view("Alipay.wpay")->with("subject",$subject)->with("sn", $order->sn);
+       return view("Alipay.wpay")->with(["subject"=>$subject,"sn"=>$order->sn,"price"=>0.01]);
     }
 
     public  function  topay($id=null)

@@ -14,6 +14,7 @@ use App\Models\Article;
 use App\Models\Image;
 use Carbon\Carbon;
 use Omnipay;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -114,9 +115,11 @@ class TourController extends Controller
         }
 
         $priceBase = PriceBase::orderBy("displayorder")->get();
-
+        $login=false;
+        if(auth()->user())
+            $login=true;
         return view('tour.order')->with(compact("travel", "priceBase", "perNum", "route"))
-            ->with("name", $travel->bigtitle);
+            ->with(["name"=>$travel->bigtitle,"login"=>$login]);
     }
 
     public function create(Request $request)

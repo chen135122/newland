@@ -71,13 +71,64 @@ elseif($unifiedOrderResult["code_url"] != NULL)
             width:180px;
             height: 180px;
         }
+        .table{
+            margin-top: 40px;
+        }
+        .table tr{
+            background-color:#fff;
+            line-height:40px;
+
+        }
+        .table tr td:first-child{
+            font-family: 'Microsoft YaHei';
+            width: 100px;
+            text-align: center;
+            font-style:normal;
+        }
+        .table tr td:last-child{
+            width: 300px;
+            text-align: center;
+            font-family:FangSong_GB2312;
+        }
     </style>
 </head>
-<body>
+<body style="background-color: #f9f9f9;">
 <div align="center" id="qrcode">
 </div>
 <div align="center">
-    <p>订单号：<?php echo $out_trade_no; ?></p>
+    <aside class="col-md-4">
+        <div class="box_style_1">
+            <table class="table table_summary">
+                <tbody>
+                <tr class="total">
+                    <td>
+                        行程
+                    </td>
+                    <td class="text-right">
+                        {{$subject}}
+                    </td>
+                </tr>
+                <tr class="total">
+                    <td>
+                        定金
+                    </td>
+                    <td class="text-right">
+                       {{$price}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                       订单号
+                    </td>
+                    <td id="perNum" class="text-right">
+                        <?php echo $out_trade_no; ?>
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </aside>
 </div>
 <br>
 </body>
@@ -92,7 +143,8 @@ elseif($unifiedOrderResult["code_url"] != NULL)
         qr.addData(url);
         qr.make();
         var wording=document.createElement('p');
-        wording.innerHTML = "{{$subject}}";
+        wording.innerHTML = "微信支付";
+        wording.style.fontFamily="Microsoft YaHei";
         var code=document.createElement('DIV');
         code.innerHTML = qr.createImgTag();
         var element=document.getElementById("qrcode");
