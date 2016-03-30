@@ -123,11 +123,11 @@
                                     </div>
                                     <div class="hotel_title">
                                         @if($collection_type==3)
-                                        <h3>{{str_limit($model->cn_name,20)}}</h3>
+                                        <h3>{{$model->cn_name}}</h3>
                                         @elseif($collection_type==5)
-                                            <h3>{{str_limit($model->name,20)}}</h3>
+                                            <h3>{{$model->name}}</h3>
                                          @else
-                                            <h3>{{str_limit($model->title,20)}}</h3>
+                                            <h3>{{$model->title}}</h3>
                                         @endif
 
                                     </div>
@@ -492,4 +492,14 @@
         //$(obj).parent().next().find("input [type='text']").attr("readonly", "readonly");
     }
 </script>
+<style>
+    .hotel_container .hotel_title h3{
+        text-overflow:ellipsis;
+        white-space:nowrap;
+        overflow:hidden;
+    }
+    .hotel_container .img_container img{
+        max-height:120px;
+    }
+</style>
 @endpush
