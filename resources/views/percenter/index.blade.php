@@ -109,13 +109,13 @@
                                 </div>
                                 <div class="hotel_container">
                                     <div class="img_container">
-                                        <a href="{{$typeUrl}}/{{$model->id}}" target="_blank">
+                                        <a href="{{$typeUrl}}/{{$model->id}}" width="800" height="533" target="_blank">
                                             @if($collection_type==3)
-                                             <img src="{{$model->logo}}"  class="img-responsive">
+                                             <img src="{{$model->logo}}"  width="800" height="533" class="img-responsive">
                                             @elseif($collection_type==5)
-                                                <img src="{{$model->picurl}}"  class="img-responsive">
+                                                <img src="{{$model->picurl}}" width="800" height="533"  class="img-responsive">
                                             @else
-                                                <img src="{{$model->picurl}}" class="img-responsive" >
+                                                <img src="{{$model->picurl}}"  width="800" height="533" class="img-responsive" >
                                             @endif
 
 
@@ -500,6 +500,7 @@
     }
     .hotel_container .img_container img{
         max-height:120px;
+        min-height:120px;
     }
 </style>
 @endpush
