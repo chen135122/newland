@@ -26,7 +26,7 @@
             <aside class="col-lg-3 col-md-3">
                 <div id="filters_col">
                     <a data-toggle="collapse" href="#collapseFilters" aria-expanded="false" aria-controls="collapseFilters" id="filters_col_bt"><i class="icon_set_1_icon-65"></i>筛选 <i class="icon-plus-1 pull-right"></i></a>
-                    <form id="form1" name="form1">
+                    <form id="form1" name="form1" method="get">
                     <div class="collapse" id="collapseFilters">
                         <div class="filter_type">
                             <h6>价格</h6>
@@ -45,9 +45,9 @@
                                         @endforeach
                                     @endif
                                   @if($vs==true)
-                                        <li> <label> <input name="category[]" type="checkbox" checked="checked" value="{{$travelCategory->id}}"> {{$travelCategory->name}}</label></li>
+                                        <li> <label> <input name="category" type="checkbox" checked="checked" value="{{$travelCategory->id}}"> {{$travelCategory->name}}</label></li>
                                    @else
-                                        <li> <label> <input name="category[]" type="checkbox"  value="{{$travelCategory->id}}"> {{$travelCategory->name}}</label></li>
+                                        <li> <label> <input name="category" type="checkbox"  value="{{$travelCategory->id}}"> {{$travelCategory->name}}</label></li>
                                     @endif
                                 @endforeach
                             </ul>
@@ -242,6 +242,7 @@
         return newStr.join("")
     }
         $(function () {
+
             $("#sort_price option").each(function(){
                 if($(this).index()=='{{$sortprice}}')
                 {
@@ -272,11 +273,19 @@
         })
     function su()
     {
+        var category="";
+      $("input[type='checkbox']").each(function(){
+         if($(this).is(":checked"))
+         {
+             category=$(this).val()+"_"+category;
+         }
+      });
         var $option= $("#sort_price").children('option:selected');
-        $("#order").val($option.val());
-        $("#min_price").val($(".irs-from").text().split('$')[1].replace(" ",""));
-        $("#max_price").val($(".irs-to").text().split('$')[1].trim().replace(" ",""));
-        form1.submit();
+        //$("#min_price").val($(".irs-from").text().split('$')[1].replace(" ",""));
+       var min_price=  $(".irs-from").text().split('$')[1].replace(" ",""),max_price=$(".irs-to").text().split('$')[1].trim().replace(" ","");
+        //$("#max_price").val($(".irs-to").text().split('$')[1].trim().replace(" ",""));
+        window.location="/tour?sortPrice="+$option.val()+"&price="+min_price+"_"+max_price+"&category="+category;
+       // form1.submit();
     }
     $(function () {
         'use strict';
