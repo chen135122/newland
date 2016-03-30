@@ -74,6 +74,8 @@ $(document).ready(function () {
                 var $p_li = $(this);
                 var rid = $p_li.attr("rel");
                 $select_region.val(rid);
+                $select_regionC.val("0");
+                $select_regionD.val("0");
                 dosubmit();
             });
 
@@ -81,6 +83,7 @@ $(document).ready(function () {
                 var $p_li = $(this);
                 var rid = $p_li.attr("rel");
                 $select_regionC.val(rid);
+                $select_regionD.val("0");
                 dosubmit();
             });
 

@@ -2755,6 +2755,7 @@ ul.list_order {
     font-family: icon_set_1;
     content: "\72";
     left: 0;
+    color: #f66;
 }
 
 .parallax-content-1 div h1:before {
@@ -2830,7 +2831,7 @@ ul.list_order {
     }
 
 .strip_all_tour_list .wishlist a {
-    color: #fff;
+    color: #f66;
 }
 
 .wishlist:before {
@@ -2851,12 +2852,12 @@ ul.list_order {
     font-size: 14px;
     text-align: center;
     cursor: pointer;
-    color: #fff !important;
+    color: #f66 ;
 }
 
     .strip_all_tour_list .wishlist:before {
         font-size: 30px;
-        color: #fff;
+        color: #f66;
         position: absolute;
         top: 3px;
     }
@@ -2878,7 +2879,9 @@ ul.list_order {
     -webkit-transition: all .7s ease;
     transition: all .7s ease;
 }
-
+.hotel_container .img_container img {
+    max-height: 120px;
+}
 .short_info {
     position: absolute;
     left: 0;

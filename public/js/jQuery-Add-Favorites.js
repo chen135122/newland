@@ -44,18 +44,20 @@
 											$obj.css({ 'left': x, 'top': y }).animate({ 'left': X, 'top': Y - 80 }, 1000, function () {
 												$obj.stop(false, false).animate({ 'top': Y - 20, 'opacity': 0 }, 1000, function () {
 													$obj.fadeOut(300,function(){
-														$obj.remove();
-														$target.data('click', false).addClass('disabled');
+														//$obj.remove();
+
+
 														//num=Number($num.text());
 														//$num.text(num+1);
 													});
 												});
 											});
 										};
-										var d = dialog({content:data.msg}).show();
-										setTimeout(function () {
-											d.close().remove();
-										}, 2000);
+										$(self).parent().remove();
+										//var d = dialog({content:data.msg}).show();
+										//setTimeout(function () {
+										//	d.close().remove();
+										//}, 2000);
 									} else {
 										dialog({title:'提示', content:data.msg, okValue:'确定', ok:function (){}}).showModal();
 									}

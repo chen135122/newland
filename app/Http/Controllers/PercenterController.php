@@ -7,6 +7,7 @@ use App\Models\Article;
 use App\Models\NewOrder;
 use App\Models\Travel;
 use App\Models\Study;
+use App\Models\StudySP;
 use App\Models\Member;
 use Illuminate\Http\Request;
 
@@ -56,7 +57,7 @@ class PercenterController  extends Controller
         $count2=Favourity_detail::where('uid',$userid)->where('type',2)->count();
         $count3=Favourity_detail::where('uid',$userid)->where('type',3)->count();
         $count4=Favourity_detail::where('uid',$userid)->where('type',4)->count();
-
+        $count5=Favourity_detail::where('uid',$userid)->where('type',5)->count();
 
         switch($collection_type ){
             case 1:
@@ -71,6 +72,9 @@ class PercenterController  extends Controller
             case 4:
                 $typeUrl='news';
                 break;
+            case 5:
+                $typeUrl='study-sp';
+                break;
         }
 
 //       $typeUrl=Favourity_detail::getLinkUrl($collection_type);
@@ -78,19 +82,22 @@ class PercenterController  extends Controller
         $ItemArray=Favourity_detail::where('uid',$userid)->where('type',$collection_type)->lists('itemid');
         switch($collection_type ){
             case 1:
-                $models=Property::whereIn('id', $ItemArray);
+                $models=Property::whereIn('id', $ItemArray)->select('id', 'picurl','title');
                 break;
             case 2:
-                $models=Travel::whereIn('id', $ItemArray);
+                $models=Travel::whereIn('id', $ItemArray)->select('id', 'picurl','title');
                 break;
             case 3:
-                $models=Study::whereIn('id', $ItemArray);
+                $models=Study::whereIn('id', $ItemArray)->select('id', 'logo','cn_name');
+
                 break;
             case 4:
-                $models=Article::whereIn('id', $ItemArray);
+                $models=Article::whereIn('id', $ItemArray)->select('id', 'picurl','title');
+                break;
+            case 5:
+                $models=StudySP::whereIn('id', $ItemArray)->select('id', 'picurl','name');
                 break;
         }
-
         $orderList=NewOrder::where('uid',$userid)->orderBy("created_at",'desc');
         if($type==2)
         {
@@ -100,7 +107,7 @@ class PercenterController  extends Controller
         {
         $orderList=$orderList->paginate(5);
         }
-        return view('percenter.index')->with(compact('models','type','collection_type','count1','count2','count3','count4','typeUrl','orderList','member'));
+        return view('percenter.index')->with(compact('models','type','collection_type','count1','count2','count3','count4','count5','typeUrl','orderList','member'));
     }
     public  static  function  Upper($moth,$type)
     {

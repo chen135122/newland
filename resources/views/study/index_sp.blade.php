@@ -105,6 +105,9 @@
                           <div class="strip_all_tour_list wow fadeIn" data-wow-delay="0.<?php echo $i++; ?>s" >
                               <div class="row">
                                   <div class="col-lg-4 col-md-4 col-sm-4">
+                                      @if (!(auth()->check() &&$study->is_fav ))
+                                          <div class="wishlist"><a class="tooltip_flip tooltip-effect-1" href="javascript:void(0);" articleId="{{$study->id}}" typeid="5" title="添加到收藏">+</a></div>
+                                      @endif
                                       <div class="img_list">
                                           <a href="/study-sp/{{$study->id}}">
                                              <img src="{{$study->picurl}}" alt="">
@@ -338,4 +341,11 @@
 <script src="/js/common_scripts_min.js"></script>
 <script src="/js/functions.js"></script>
 <script src="/js/select.js"></script>
+<script type="text/javascript" charset="utf-8" src="/js/artdialog/dialog-plus-min.js"></script>
+<script type="text/javascript" src="/js/jQuery-Add-Favorites.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $('.tooltip_flip').Add();
+    });
+</script>
 @endpush

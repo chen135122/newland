@@ -57,4 +57,51 @@ class FavouriteController extends Controller
         ]);
 
     }
+/*
+ * 取消收藏
+ */
+    public function postFavourite_minus(Request $request)
+    {
+//        if(auth()->check()==false)
+//        {
+//            return response()->json([
+//                'status' => 0,
+//                'msg' => "您尚未登录，请登录之后取消收藏！"
+//            ]);
+//        }
+        $userid = auth()->user()->id;
+        $article_id   = $request->get('article_id');
+        $article_type = $request->get('typeid');
+
+        if (empty($article_id)||empty($article_type)){
+            return response()->json([
+                'status' => 0,
+                'msg' => "您提交的参数有误！"
+            ]);
+        }
+
+        $article_id=(int)$article_id;
+        $article_type=(int)$article_type;
+        if ($article_id==0||$article_type==0){
+            return response()->json([
+                'status' => 0,
+                'msg' => "您提交的参数有误！"
+            ]);
+        }
+        $count=Favourity_detail::where('itemid',$article_id)->where('uid',$userid)->where('type',$article_type)->delete();
+        if($count>0){
+            return response()->json([
+                'status' => 1,
+                'msg' => "成功取消收藏"
+            ]);
+        }
+        else
+        {
+            return response()->json([
+                'status' => 0,
+                'msg' => "取消收藏失败"
+            ]);
+        }
+
+    }
 }

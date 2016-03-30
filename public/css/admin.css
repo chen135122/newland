@@ -160,14 +160,12 @@
 
 .wishlist_close_admin{
 	position:absolute;
-	top:20px;
-	right:10px;
-	width:36px;
-	height:36px;
+	top:10px;
+	right:30px;
+	width:30px;
+	height:30px;
 	z-index:2;
-	font-size:20px;
-	line-height:36px;
-	font-size:18px;
+	line-height:30px;
 	text-align:center;
 	cursor:pointer;
 	color:#F66 !important;
@@ -176,7 +174,7 @@
   font-style: normal;
   font-weight: normal;
   font-family: "icon_set_1";
-  font-size:36px;
+  font-size:30px;
   content: "\72";
   color:#F66;
   position:absolute;

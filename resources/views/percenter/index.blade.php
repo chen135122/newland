@@ -93,32 +93,43 @@
                             <div class="box_style_cat">
                                 <ul id="cat_nav">
                                     <li><a href="?crid=1&type=2" id="active"><i class="icon_set_1_icon-51"></i>房产置业 <span>({{$count1}})</span></a></li>
-                                    <li><a href="?crid=2&type=2"><i class="icon_set_1_icon-3"></i>国际旅游 <span>({{$count2}})</span></a></li>
-                                    <li><a href="?crid=3&type=2"><i class="icon_set_1_icon-4"></i>移民留学 <span>({{$count3}})</span></a></li>
-                                    <li><a href="?crid=4&type=2"><i class="icon_set_1_icon-44"></i>新闻资讯 <span>({{$count4}})</span></a></li>
+                                    <li><a href="?crid=2&type=2"><i class="icon_set_1_icon-34"></i>国际旅游 <span>({{$count2}})</span></a></li>
+                                    <li><a href="?crid=3&type=2"><i class="icon_set_1_icon-29"></i>新西兰大学<span>({{$count3}})</span></a></li>
+                                    <li><a href="?crid=5&type=2"><i class="icon_set_1_icon-4"></i>新西兰中小学<span>({{$count5}})</span></a></li>
+                                    <li><a href="?crid=4&type=2"><i class="icon_set_1_icon-7"></i>新闻资讯 <span>({{$count4}})</span></a></li>
+
                                 </ul>
                             </div>
                         </aside>
                         <div class="col-lg-9 col-md-9">
                             @foreach($models as $model)
                             <div class="col-md-4 col-sm-6">
+                                <div class="wishlist_close_admin" articleId="{{$model->id}}" typeid="{{$collection_type}}">
+                                    -
+                                </div>
                                 <div class="hotel_container">
                                     <div class="img_container">
-                                        <a href="{{$typeUrl}}/{{$model->id}}">
-                                            <img src="{{$model->picurl}}" width="800" height="533" class="img-responsive" alt="">
+                                        <a href="{{$typeUrl}}/{{$model->id}}" target="_blank">
+                                            @if($collection_type==3)
+                                             <img src="{{$model->logo}}" width="800" height="533" class="img-responsive" alt="">
+                                            @elseif($collection_type==5)
+                                                <img src="{{$model->picurl}}" width="800" height="533" class="img-responsive" alt="">
+                                            @else
+                                                <img src="{{$model->picurl}}" width="800" height="533" class="img-responsive" alt="">
+                                            @endif
 
 
-                                            {{--<div class="short_info hotel">--}}
-                                                {{--From/Per night<span class="price"><sup>$</sup>59</span>--}}
-                                            {{--</div>--}}
                                         </a>
                                     </div>
                                     <div class="hotel_title">
-                                        <h3>{{str_limit($model->title,20)}}</h3>
+                                        @if($collection_type==3)
+                                        <h3>{{str_limit($model->cn_name,20)}}</h3>
+                                        @elseif($collection_type==5)
+                                            <h3>{{str_limit($model->name,20)}}</h3>
+                                         @else
+                                            <h3>{{str_limit($model->title,20)}}</h3>
+                                        @endif
 
-                                        <div class="wishlist_close_admin">
-                                            -
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -383,10 +394,12 @@
 @endsection
 
 @push('style')
-<link href="/css/admin.css" rel="stylesheet">
+<link href="/css/admin.css" rel="stylesheet" type="text/css" >
+<link href="/js/artdialog/ui-dialog.css" rel="stylesheet" type="text/css" />
 @endpush
 
 @push('script')
+<script type="text/javascript" charset="utf-8" src="/js/artdialog/dialog-plus-min.js"></script>
 <script src="/js/tabs.js"></script>
 <script src="/js/bootstrap-datepicker.js"></script>
 <link href="/css/date_time_picker.css" rel="stylesheet">
@@ -421,8 +434,39 @@
     });
 
     $('.wishlist_close_admin').on('click', function (c) {
-        $(this).parent().parent().parent().fadeOut('slow', function (c) {
+        //ajax取消收藏 开始
+        var articleId=$(this).attr("articleId");
+        var typeid=$(this).attr("typeid");
+//        var item=$(this).parent().parent().parent();
+
+        $.ajax({
+            type: "post",
+            url:  "/tools/Favourite_minus",
+            data: {
+                "article_id" : articleId,
+                "typeid" : typeid
+            },
+            dataType: "json",
+            beforeSend: function(XMLHttpRequest) {
+
+            },
+            success: function(data, textStatus) {
+                if (data.status == 1) {
+                     location.reload();
+                } else {
+                    dialog({title:'提示', content:data.msg, okValue:'确定', ok:function (){}}).showModal();
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                dialog({title:'提示', content:"状态：" + textStatus + "；出错提示：" + errorThrown, okValue:'确定', ok:function (){}}).showModal();
+            },
+            timeout: 20000
         });
+        $(this).parent().fadeOut('slow', function (c) {
+        });
+        return false;
+
+
     });
     $('input.date-pick').datepicker('setDate', 'today');
     function edit(obj,curid,divId)
