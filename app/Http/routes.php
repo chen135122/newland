@@ -23,18 +23,12 @@ Route::group([ 'middleware' => ['web']], function () {
 
     Route::get('/',   '\App\Http\Controllers\HomeController@index');
     Route::get('faq', '\App\Http\Controllers\HomeController@faq');
-    Route::get('password/reset','\App\Http\Controllers\Auth\PasswordController@postReset');
-
-    //Route::post('password/reset','\App\Http\Controllers\Auth\PasswordController@postReset');
+    Route::get('password/reset','\App\Http\Controllers\Auth\PasswordController@getReset');
 
      Route::post('password/validate_username','\App\Http\Controllers\Auth\PasswordController@validate_username');
      Route::post('password/sendsms','\App\Http\Controllers\Auth\PasswordController@sendsms');
      Route::post('password/reset_password','\App\Http\Controllers\Auth\PasswordController@postreset_password');
 
-   // Route::post('password/reset','\App\Http\Controllers\Auth\PasswordController@postReset');
-
-//    Route::post('password/reset','\App\Http\Controllers\Auth\PasswordController@postReset');
-    // xxx.com/property
     Route::get('property', '\App\Http\Controllers\PropertyController@index');
     Route::get('property/{id}', '\App\Http\Controllers\PropertyController@show');
 

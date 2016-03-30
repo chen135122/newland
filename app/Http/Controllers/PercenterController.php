@@ -61,7 +61,7 @@ class PercenterController  extends Controller
 
         switch($collection_type ){
             case 1:
-                $typeUrl='house';
+                $typeUrl='property';
                 break;
             case 2:
                 $typeUrl='tour';
