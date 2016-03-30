@@ -439,7 +439,7 @@
             </div>
             <div class="form-group">
                 <label for="txtUserName" class="col-sm-3 control-label" >联系人姓名</label>
-                    <div class="col-sm-9" ><input  name="username" id="username" class="date-pick form-control" style="width:90%;" placeholder="用户名不能为空"  datatype="s3-50"  nullmsg="用户名不能为空" sucmsg=" " id="txtUserName"  name="txtUserName" >
+                    <div class="col-sm-9" ><input  name="username" id="username" class="date-pick form-control" style="width:90%;" placeholder="用户名不能为空"  datatype="s1-10"  nullmsg="用户名不能为空" sucmsg=" " id="txtUserName"  name="txtUserName" >
                     <span class="Validform_checktip" ></span></div>
             </div>
             <div class="form-group">

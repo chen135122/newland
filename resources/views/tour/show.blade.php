@@ -770,7 +770,7 @@
                 $xingc.css("width", "8.5%");
             }
             else {
-                $xingc.css("width", "13.0%");
+                $xingc.css("width", "8.7%");
             }
 
             $("#tour_d,#xcjs").css("margin-left", "10%");
@@ -795,7 +795,7 @@
             else {
                 if ((navigator.userAgent.indexOf('Chrome') >= 0))
                 {
-                    $ml.css("width", "90%");
+                    $ml.css("width", "55%");
                 }
                 else
                 {

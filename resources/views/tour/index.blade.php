@@ -18,7 +18,7 @@
                 <li><a href="/tour">新西兰旅游</a></li>
             </ul>
         </div>
-    </div><!-- Position -->
+    </div>
 
     <div class="container margin_60">
 
@@ -131,8 +131,8 @@
                 
 
             </div><!-- End col lg-9 -->
-        </div><!-- End row -->
-    </div><!-- End container --
+        </div>
+    </div>
 @endsection
 
 @push('style')
