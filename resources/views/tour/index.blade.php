@@ -85,9 +85,7 @@
                 </div><!--/tools -->
                @if(count($travels)<=0)
                     <div id="tools">
-                        <div class="row">
                             暂时没有数据
-                        </div>
                     </div>
                 @endif
                 @if(count($travels)>0)
