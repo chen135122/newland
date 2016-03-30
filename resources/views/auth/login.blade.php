@@ -36,12 +36,11 @@
                             </div>
                         </form>
                         @if(isset($errors))
-{{--                            {{dd($errors)}}--}}
-                            <div class="alert alert-danger" role="alert"> {{ $errors }}</div>
 
-                            {{--@foreach($errors as $key=>$error)--}}
-                            {{--{{$key}}: {{$error}}--}}
-                            {{--@endforeach--}}
+
+
+                                <div class="alert alert-danger" role="alert"> {{$errors}}</div>
+
                         @endif
                     </div>
                 </div>

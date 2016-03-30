@@ -82,20 +82,21 @@ class AuthController extends Controller
 
         $mobile=$request->get('txtMobile');
         $password=$request->get('password');
-        if (!isset($mobile)){
-            return response()->json([
-                'status' => 0,
-                'msg' => "请输入手机号！"
-            ]);
+
+        if (!$mobile){
+
+           $errors="请输入手机号码！";
+
+            return view('auth.login')->withErrors($errors);
         }
 
-        if (!isset($password)){
-            return response()->json([
-                'status' => 0,
-                'msg' => "请输入密码！"
-            ]);
+        if (!$password){
+            $errors="请输入密码！";
+            return view('auth.login')->withErrors($errors);
         }
+
         $throttles = $this->isUsingThrottlesLoginsTrait();
+
         $credentials = $this->getCredentials($request);
 
 
@@ -109,7 +110,8 @@ class AuthController extends Controller
 //                'url'=>"/"
 //            ]);
         }
-        $errors=$this->getFailedLoginMessage();
+        $errors='用户名或密码错误';
+
         return view('auth.login')->withErrors($errors);
 //
 //        return response()->json([
