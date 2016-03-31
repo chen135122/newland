@@ -30,17 +30,13 @@
                             <div class="form-group">
                                 <div class="col-sm-offset-2 col-sm-10">
                                     <div id="pass-info" class="clearfix"></div>
-                                    <input name="btnSubmit" id="btnSubmit" type="submit" class="btn_1 medium btn-success" value="登录" />
 
+                                    <input name="btnSubmit" id="btnSubmit" type="submit" class="btn_1 medium btn-success" value="登录" />
                                 </div>
                             </div>
                         </form>
-                        @if(isset($errors))
-
-
-
-                                <div class="alert alert-danger" role="alert"> {{$errors}}</div>
-
+                        @if(isset($msg))
+                            <div class="alert alert-danger" role="alert"> {{$msg}}</div>
                         @endif
                     </div>
                 </div>
@@ -51,14 +47,15 @@
 
 @push('script')
         <!-- Specific scripts -->
-    <script type="text/javascript" charset="utf-8" src="/js/jquery.form.min.js"></script>
-    <script type="text/javascript" charset="utf-8" src="/js/artdialog/dialog-plus-min.js"></script>
+    {{--<script type="text/javascript" charset="utf-8" src="/js/jquery.form.min.js"></script>--}}
+    {{--<script type="text/javascript" charset="utf-8" src="/js/artdialog/dialog-plus-min.js"></script>--}}
     <script src="/js/common.js"></script>
     <script src="/js/Validform.js"></script>
     <script>
-        $(function() {
-         //   AjaxInitForm('#loginform', '#btnSubmit', 1);
-        });
+
+   //     $(function() {
+//            AjaxInitForm('#loginform', '#btnSubmit', 1);
+      //  });
     </script>
     @endpush
     @push('style')

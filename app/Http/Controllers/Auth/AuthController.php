@@ -86,13 +86,12 @@ class AuthController extends Controller
         if (!$mobile){
 
            $errors="请输入手机号码！";
-
-            return view('auth.login')->withErrors($errors);
+            return view('auth.login')->withMsg($errors);
         }
 
         if (!$password){
             $errors="请输入密码！";
-            return view('auth.login')->withErrors($errors);
+            return view('auth.login')->withMsg($errors);
         }
 
         $throttles = $this->isUsingThrottlesLoginsTrait();
@@ -103,21 +102,11 @@ class AuthController extends Controller
         if (Auth::guard($this->getGuard())->attempt($credentials, $request->has('remember'))) {
 
             return redirect()->back();
-
-//            return response()->json([
-//                'status' => 1,
-//                'msg' => "登录成功！",
-//                'url'=>"/"
-//            ]);
         }
+//        $errors=$this->getFailedLoginMessage();
         $errors='用户名或密码错误';
 
-        return view('auth.login')->withErrors($errors);
-//
-//        return response()->json([
-//            'status' => 0,
-//            'msg' => "错误提示：".$errors
-//        ]);
+        return view('auth.login')->withMsg($errors);
     }
 
 
