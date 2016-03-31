@@ -63,6 +63,19 @@ class AuthController extends Controller
 //        ]);
     }
 
+    public function showLoginForm()
+    {
+        $view = property_exists($this, 'loginView')
+            ? $this->loginView : 'auth.authenticate';
+
+        if (view()->exists($view)) {
+            return view($view);
+        }
+        session()->put('url_before_login',  url()->previous());
+        \Log::debug("set url".  url()->previous());
+        return view('auth.login');
+    }
+
     /**
      * Create a new user instance after a valid registration.
      *
@@ -100,8 +113,9 @@ class AuthController extends Controller
 
 
         if (Auth::guard($this->getGuard())->attempt($credentials, $request->has('remember'))) {
-
-            return redirect()->back();
+            $url = session()->pull('url_before_login', '/');
+            \Log::debug("get url".  $url);
+            return redirect($url);
         }
 //        $errors=$this->getFailedLoginMessage();
         $errors='用户名或密码错误';
