@@ -11,7 +11,8 @@ class ArticleController extends Controller
 {
     public function index()
     {
-        $articles = Article::where('status',1)->where('picurl','<>', '')->orderBy('displayorder', 'desc')->paginate(10);
+//        $articles = Article::where('status',1)->where('picurl','<>', '')->orderBy('displayorder', 'desc')->paginate(10);
+        $articles = Article::where('status',1)->where('picurl','<>', '')->orderBy('id', 'desc')->paginate(10);
         $Lastedarticle=$this->LastedNews(5);
         $hotpropertys=$this->HotProperty(4);
         return view('article.index')->with(compact('articles','Lastedarticle','hotpropertys'));
