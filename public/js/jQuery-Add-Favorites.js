@@ -58,10 +58,12 @@
 										//	d.close().remove();
 										//}, 2000);
 									} else {
+										$target.prop("disabled",true).text("+");
 										dialog({title:'提示', content:data.msg, okValue:'确定', ok:function (){}}).showModal();
 									}
 								},
 								error: function (XMLHttpRequest, textStatus, errorThrown) {
+									$target.prop("disabled",true).text("+");
 									dialog({title:'提示', content:"状态：" + textStatus + "；出错提示：" + errorThrown, okValue:'确定', ok:function (){}}).showModal();
 								},
 								timeout: 20000

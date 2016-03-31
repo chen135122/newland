@@ -39,7 +39,7 @@
 			font-size: 14px;
 			overflow: hidden;
 			text-overflow: ellipsis;
-			height: 3em;
+
 			font-family: 'Microsoft YaHei',Arial,sans-serif;
 		}
         .main-menu ul li{

@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('title')新闻资讯@stop
 @section('content')
-    <section class="parallax-window" data-parallax="scroll" data-image-src="/img/hotels_bg.jpg" data-natural-width="1400" data-natural-height="470">
+    <section class="parallax-window" data-parallax="scroll" data-ima.tour_list_desc h3ge-src="/img/hotels_bg.jpg" data-natural-width="1400" data-natural-height="470">
         <div class="parallax-content-1">
             <div class="animated fadeInDown">
                 <h1>新闻资讯</h1>
@@ -41,7 +41,7 @@
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <div class="tour_list_desc">
                                     <h3>{{$article->title}}</h3>
-                                    <p>{!!$article->abstract !!}</p>
+                                    <p> {!!str_limit($article->abstract,350) !!}</p>
                                 </div>
                             </div>
                             <div class="col-lg-2 col-md-2 col-sm-2">
@@ -122,6 +122,7 @@
 <link href="/css/ion.rangeSlider.css" rel="stylesheet" >
 <link href="/css/ion.rangeSlider.skinFlat.css" rel="stylesheet">
     <style>
+
         .main_title p {
             font-size: 14px !important;
             margin-top: 5px;
@@ -163,6 +164,7 @@
         .hold_room small {
             font-family:'Microsoft YaHei';
         }
+        .tour_list_desc p{ line-height: 24px;}
 
     </style>
 @endpush
