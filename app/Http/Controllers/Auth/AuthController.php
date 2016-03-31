@@ -72,7 +72,7 @@ class AuthController extends Controller
             return view($view);
         }
         session()->put('url_before_login',  url()->previous());
-        \Log::debug("set url".  url()->previous());
+//        \Log::debug("set url".  url()->previous());
         return view('auth.login');
     }
 
@@ -114,7 +114,7 @@ class AuthController extends Controller
 
         if (Auth::guard($this->getGuard())->attempt($credentials, $request->has('remember'))) {
             $url = session()->pull('url_before_login', '/');
-            \Log::debug("get url".  $url);
+//            \Log::debug("get url".  $url);
             return redirect($url);
         }
 //        $errors=$this->getFailedLoginMessage();
