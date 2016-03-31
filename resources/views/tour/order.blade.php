@@ -218,7 +218,7 @@
                     </tbody>
                 </table>
 
-                <a class="btn_full" onclick="Ceng(1)">支付宝</a>
+                {{--<a class="btn_full" onclick="Ceng(1)">支付宝</a>--}}
                 <a class="btn_full" onclick="Ceng(2)">微信</a>
 
                 <!--<a class="btn_full_outline" href="#"><i class="icon-right"></i> Continue shopping</a>-->
