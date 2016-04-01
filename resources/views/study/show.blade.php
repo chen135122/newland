@@ -289,10 +289,9 @@
             arry[1]=174.7636383;
         }
         function initMap() {
-
-
-            var myLatlng = {lat: -arry[0], lng: arry[1]};
-
+            var x=parseFloat(arry[0]);
+            var y=parseFloat(arry[1]);
+            var myLatlng = {lat: -x, lng: y};
             var map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 15,
                 center: myLatlng

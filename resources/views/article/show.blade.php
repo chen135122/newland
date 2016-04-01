@@ -29,8 +29,9 @@
                 {{(!empty($article->source)? '来源：'.$article->source.'&nbsp;&nbsp;' : '')}}
                 发布时间：<?php echo with($article ->created_at)->format('Y/m/d'); ?>
             </p>
+            @if($article ->abstract)
             <p class="abstract">{!!$article ->abstract !!}</p>
-
+            @endif
             <div class="artibody">
                 {!! $article ->content !!}
             </div>
