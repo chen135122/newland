@@ -277,6 +277,50 @@
 @endpush
 
 @push('script')
+    <script>
+        var newlocation= '{{$study->location}}';
+        var arry=new Array();
+        if(newlocation!=""&&newlocation!=null)
+        {
+            arry=newlocation.split(',');
+        }
+        else {
+            arry[0]=36.8483247;
+            arry[1]=174.7636383;
+        }
+        function initMap() {
+
+
+            var myLatlng = {lat: -arry[0], lng: arry[1]};
+
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 15,
+                center: myLatlng
+            });
+
+            var marker = new google.maps.Marker({
+                position: myLatlng,
+                map: map,
+                title: 'Click to zoom'
+            });
+
+            map.addListener('center_changed', function() {
+                // 3 seconds after the center of the map has changed, pan back to the
+                // marker.
+                window.setTimeout(function() {
+                    map.panTo(marker.getPosition());
+                }, 3000);
+            });
+
+            marker.addListener('click', function() {
+                map.setZoom(8);
+                map.setCenter(marker.getPosition());
+            });
+        }
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&signed_in=true&callback=initMap">
+    </script>
 <!-- Specific scripts -->
 <script src="/js/icheck.js"></script>
 <script>
@@ -287,20 +331,9 @@
 </script>
 <!-- Date and time pickers -->
 <script src="/js/jquery.sliderPro.min.js"></script>
-    <script src="http://maps.google.cn/maps/api/js"></script>
-    <script src="/js/map.js"></script>
+
 <script type="text/javascript">
 
-    var newlocation= '{{$study->location}}';
-    var arry=new Array();
-    if(newlocation!=""&&newlocation!=null)
-    {
-         arry=newlocation.split(',');
-    }
-    else {
-        arry[0]=36.8483247;
-        arry[1]=174.7636383;
-    }
     $( document ).ready(function( $ ) {
         $( '#img_carousel' ).sliderPro({
             width: 960,
