@@ -223,18 +223,18 @@ class AlipayController extends Controller
     }
     public  function wem()
     {
-//        $appId  = 'wxcf1588ee73525cea';
-//        $secret = '2d2e236464875cea7218559df7965b23';
-//        $mchid = '1287337101';
-//        //商户支付密钥Key。审核通过后，在微信发送的邮件中查看
-//        $key = 'hpr825QaxxKQ9Ms3IhjQdsw8vnDl1w9s';
-//        $qrcode = new QRCode($appId, $secret);
-//        $result = $qrcode->temporary(56, 6 * 24 * 3600);
-//
-//        $ticket = $result->ticket;// 或者 $result['ticket']
-//        $expireSeconds = $result->expire_seconds; // 有效秒数
-//        $url = $result->url; // 二维码图片解析后的地址，开发者可根据该地址自行生成需要的二维码图片
-//        $u=$qrcode->show($ticket);
+        $appId  = 'wxcf1588ee73525cea';
+        $secret = '2d2e236464875cea7218559df7965b23';
+        $mchid = '1287337101';
+        //商户支付密钥Key。审核通过后，在微信发送的邮件中查看
+        $key = 'hpr825QaxxKQ9Ms3IhjQdsw8vnDl1w9s';
+        $qrcode = new QRCode($appId, $secret);
+        $result = $qrcode->temporary(56, 6 * 24 * 3600);
+
+        $ticket = $result->ticket;// 或者 $result['ticket']
+        $expireSeconds = $result->expire_seconds; // 有效秒数
+        $url = $result->url; // 二维码图片解析后的地址，开发者可根据该地址自行生成需要的二维码图片
+        $u=$qrcode->show($ticket);
 
 
         $appId  = 'wx3cf0f39249eb0e60';
@@ -242,7 +242,7 @@ class AlipayController extends Controller
 
         $url = new Url($appId, $secret);
         $shortUrl = $url->short('http://overtrue.me/open-source');
-        return view("Alipay.wem")->with("shortUrl",$shortUrl);
+        return view("Alipay.wem")->with("u",$u);
     }
     public function query(Request $request)
     {
