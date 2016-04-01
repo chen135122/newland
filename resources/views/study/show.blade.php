@@ -288,9 +288,9 @@
             arry[0]=36.8483247;
             arry[1]=174.7636383;
         }
+        var x=parseFloat(arry[0]);
+        var y=parseFloat(arry[1]);
         function initMap() {
-            var x=parseFloat(arry[0]);
-            var y=parseFloat(arry[1]);
             var myLatlng = {lat: -x, lng: y};
             var map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 15,
