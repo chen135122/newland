@@ -1,12 +1,12 @@
 @extends('layouts.master')
 @section('title')新闻资讯@stop
 @section('content')
-    <section class="parallax-window" data-parallax="scroll" data-ima.tour_list_desc h3ge-src="/img/hotels_bg.jpg" data-natural-width="1400" data-natural-height="470">
+    <section class="parallax-window" data-parallax="scroll" data-image-src="/img/hotels_bg.jpg" data-natural-width="1400" data-natural-height="470">
         <div class="parallax-content-1">
             <div class="animated fadeInDown">
-                <h1>新闻资讯</h1>
+                <h1>{{ $typename}}</h1>
                 <br>
-                <p>我们提供新西兰最新资讯，实时新闻信息</p>
+                <p>我们提供新西兰最新资讯，实时{{ $typename}}信息</p>
             </div>
         </div>
     </section><!-- End section -->
