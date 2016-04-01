@@ -151,12 +151,12 @@
   <footer>
         <div class="container">
             <div class="row">
-                <div class="col-md-4 col-sm-3">
+                <div class="col-md-4 col-sm-12 col-xs-12 ">
                     <h3>需要帮助?</h3>
                     <span  class="phone">+025-58761818</span>
                     <a href="mailto:services@allinnewzealand.com" class="email_footer">services@allinnewzealand.com</a>
                 </div>
-                <div class="col-md-2 col-sm-3" style="margin-left:10%;">
+                <div class="col-md-2  col-sm-6 col-xs-6 " >
                     <h3>关于我们</h3>
                     <ul>
                         <li><a href="/faq">我们是谁</a></li>
@@ -164,7 +164,7 @@
                         <li><a href="/faq">使用条款</a></li>
                     </ul>
                 </div>
-                <div class="col-md-2 col-sm-3" style="margin-left:10%;">
+                <div class="col-md-2 col-sm-6 col-xs-6" >
                     <h3>其他内容</h3>
                     <ul>
                         <li><a href="/news">最新资讯</a></li>

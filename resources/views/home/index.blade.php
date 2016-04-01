@@ -128,7 +128,7 @@
 <div class="white_bg">
     <div class="container margin_60">
         <div class="row">
-            <div class="col-md-3 col-sm-6 text-center" style="cursor: pointer;" onclick="window.location='/property'">
+            <div class="col-md-3 col-sm-6 col-xs-6 text-center" style="cursor: pointer;" onclick="window.location='/property'">
                 <p>
                     <i class="icon_set_1_icon-23"></i>
 
@@ -138,7 +138,7 @@
                     精挑细选的每座大楼, 让您精确领略新西兰独特的家庭, 享受旅途的轻松惬意.
                 </p>
             </div>
-            <div class="col-md-3 col-sm-6 text-center"  style="cursor: pointer;" onclick="window.location='/tour'">
+            <div class="col-md-3 col-sm-6 col-xs-6  text-center"  style="cursor: pointer;" onclick="window.location='/tour'">
                 <p>
                     <i class="icon_set_1_icon-4"></i>
 
@@ -148,7 +148,7 @@
                     从小学初中到大学, 我们提供最新的政策信息和最权威的咨询.
                 </p>
             </div>
-            <div class="col-md-3 col-sm-6 text-center"  style="cursor: pointer;" onclick="window.location='/study'">
+            <div class="col-md-3 col-sm-6 col-xs-6 text-center"  style="cursor: pointer;" onclick="window.location='/study'">
                 <p>
                     <i class="icon_set_1_icon-30"></i>
                 </p>
@@ -157,7 +157,7 @@
                     兢兢业业为您工作, 恪尽职守为您守护, 一站式管家服务, 如您亲临.
                 </p>
             </div>
-            <div class="col-md-3 col-sm-6 text-center">
+            <div class="col-md-3 col-sm-6 col-xs-6  text-center">
                 <p>
                     <i class="icon_set_1_icon-36"></i>
                 </p>
