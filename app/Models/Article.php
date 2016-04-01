@@ -7,6 +7,11 @@ class Article extends BaseModel
 {
     protected $table = 'nz_article';
 
+    public function getCategory()
+    {
+        return $this->hasOne('App\Models\ArticleCategory', 'catid','id');
+    }
+
     public function users(){
         return $this->belongsToMany('App\User', 'nz_collection', 'itemid', 'uid')->withPivot('type');
     }

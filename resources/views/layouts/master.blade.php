@@ -126,7 +126,15 @@
                             </li>
 
                             <li class="submenu">
-                                <a href="/news" class="show-submenu"><!--<i class="icon_set_1_icon-7"></i>--> 新闻资讯 </a>
+                                <a href="/news" class="show-submenu"><!--<i class="icon_set_1_icon-7"></i>--> 新闻资讯 <i class="icon-down-open-mini"></i></a>
+                                <ul>
+                                    <li  style="margin-left: 0px;"><a href="/news-21">房产</a></li>
+                                    <li  style="margin-left: 0px;"><a href="/news-22">旅游</a></li>
+                                    <li  style="margin-left: 0px;"><a href="/news-23">移民</a></li>
+                                    <li  style="margin-left: 0px;"><a href="/news-24">留学</a></li>
+                                    <li  style="margin-left: 0px;"><a href="/news-30">生活</a></li>
+                                </ul>
+
                             </li>
                             <li class="submenu">
                                 <a href="javascript:void(0);" class="show-submenu"> <!--<i class="icon_set_1_icon-14"></i>--> 管家服务 </a>

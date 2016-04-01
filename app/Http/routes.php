@@ -44,6 +44,7 @@ Route::group([ 'middleware' => ['web']], function () {
 
 
     Route::get('news', '\App\Http\Controllers\ArticleController@index');
+    Route::get('news-{type}', '\App\Http\Controllers\ArticleController@index_type');
     Route::get('news/{id}', '\App\Http\Controllers\ArticleController@show');
 
     Route::get('study', '\App\Http\Controllers\StudyController@index');
