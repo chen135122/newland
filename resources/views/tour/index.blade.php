@@ -163,6 +163,7 @@
  .tour_list_desc
  {
 	 height:180px;
+     overflow: hidden;
  }
  .price_list{
 	 height:160px;
