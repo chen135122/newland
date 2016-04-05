@@ -8,6 +8,7 @@ use App\Models\Property;
 use App\Models\Article;
 use App\Models\Region;
 use App\Http\Requests;
+use Overtrue\Wechat\QRCode;
 use App\Http\Controllers\Controller;
 
 class StudyController extends Controller
@@ -50,7 +51,8 @@ class StudyController extends Controller
             $parames["did"]=$did;
         }
         $studys = $studys->paginate(5)->appends($parames);
-        return view('study.index')->with(compact('studys','regionlist','regionclist','regiondlist','rid','cid','did','Lastedarticle','hotpropertys'));
+        $allUrl= $this->qrcode();
+        return view('study.index')->with(compact('studys','regionlist','regionclist','regiondlist','rid','cid','did','Lastedarticle','hotpropertys','allUrl'));
     }
 
     public function show($id)
@@ -60,9 +62,24 @@ class StudyController extends Controller
         $Lastedarticle=$this->LastedNews(5);
         $hotpropertys=$this->HotProperty(4);
         $pic=$study->propertyImg()->get();
-        return view('study.show')->with(compact('study','Lastedarticle','hotpropertys','pic'));
+        $allUrl= $this->qrcode();
+        return view('study.show')->with(compact('study','Lastedarticle','hotpropertys','pic','allUrl'));
     }
+    public  function  qrcode(){
+        $appId  = 'wxcf1588ee73525cea';
+        $secret = '2d2e236464875cea7218559df7965b23';
+        $mchid = '1287337101';
+        //商户支付密钥Key。审核通过后，在微信发送的邮件中查看
+        $key = 'hpr825QaxxKQ9Ms3IhjQdsw8vnDl1w9s';
+        $qrcode = new QRCode($appId, $secret);
+        $result = $qrcode->temporary(56, 6 * 24 * 3600);
 
+        $ticket = $result->ticket;// 或者 $result['ticket']
+        $expireSeconds = $result->expire_seconds; // 有效秒数
+        $url = $result->url; // 二维码图片解析后的地址，开发者可根据该地址自行生成需要的二维码图片
+        $allUrl=$qrcode->show($ticket);
+        return $allUrl;
+    }
     //zhong xiao xue
     public function index_sp()
     {
@@ -118,7 +135,8 @@ class StudyController extends Controller
         $studys = $studys->paginate(5)->appends($parames);
         $Lastedarticle=$this->LastedNews(5);
         $hotpropertys=$this->HotProperty(4);
-        return view('study.index_sp')->with(compact('studys','regionlist','regionclist','regiondlist','rid','cid','did','type','nature','gender','Lastedarticle','hotpropertys'));
+        $allUrl= $this->qrcode();
+        return view('study.index_sp')->with(compact('studys','regionlist','regionclist','regiondlist','rid','cid','did','type','nature','gender','Lastedarticle','hotpropertys','allUrl'));
     }
 
     public function show_sp($id)
@@ -127,7 +145,8 @@ class StudyController extends Controller
         $Lastedarticle=$this->LastedNews(5);
         $hotpropertys=$this->HotProperty(4);
         $pic=$study->propertyImg()->get();
-        return view('study.show_sp')->with(compact('study','Lastedarticle','hotpropertys','pic'));
+        $allUrl= $this->qrcode();
+        return view('study.show_sp')->with(compact('study','Lastedarticle','hotpropertys','pic','allUrl'));
     }
 
     //最新资讯

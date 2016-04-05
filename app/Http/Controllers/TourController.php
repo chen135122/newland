@@ -13,6 +13,7 @@ use App\Models\Property;
 use App\Models\Article;
 use App\Models\Image;
 use Carbon\Carbon;
+use Overtrue\Wechat\QRCode;
 use Omnipay;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -69,8 +70,20 @@ class TourController extends Controller
             $minprice = 0;
             $toprice = $maxprice;
         }
+        $appId  = 'wxcf1588ee73525cea';
+        $secret = '2d2e236464875cea7218559df7965b23';
+        $mchid = '1287337101';
+        //商户支付密钥Key。审核通过后，在微信发送的邮件中查看
+        $key = 'hpr825QaxxKQ9Ms3IhjQdsw8vnDl1w9s';
+        $qrcode = new QRCode($appId, $secret);
+        $result = $qrcode->temporary(56, 6 * 24 * 3600);
+
+        $ticket = $result->ticket;// 或者 $result['ticket']
+        $expireSeconds = $result->expire_seconds; // 有效秒数
+        $url = $result->url; // 二维码图片解析后的地址，开发者可根据该地址自行生成需要的二维码图片
+        $allUrl=$qrcode->show($ticket);
         return view('tour.index')->with(compact('travels'))->with(compact('categorys'))->with(compact('category'))
-            ->with(["maxprice" => $maxprice, "minprice" => $minprice, "toprice" => $toprice, "sortprice" => $sortprice]);
+            ->with(["maxprice" => $maxprice, "minprice" => $minprice, "toprice" => $toprice, "sortprice" => $sortprice,'allUrl'=>$allUrl]);
 
     }
 
@@ -86,7 +99,19 @@ class TourController extends Controller
         //$travelFeature=$travel->feature()->get();
         $pic = $travel->travelImg()->get()->where("smalltype", 1);
         //$pic=$pic::all()->where(['type'=>1]);
-        return view('tour.show')->with(compact('travel'))->with(compact("travelDay", $travelDay))->with(compact('pic'))
+        $appId  = 'wxcf1588ee73525cea';
+        $secret = '2d2e236464875cea7218559df7965b23';
+        $mchid = '1287337101';
+        //商户支付密钥Key。审核通过后，在微信发送的邮件中查看
+        $key = 'hpr825QaxxKQ9Ms3IhjQdsw8vnDl1w9s';
+        $qrcode = new QRCode($appId, $secret);
+        $result = $qrcode->temporary(56, 6 * 24 * 3600);
+
+        $ticket = $result->ticket;// 或者 $result['ticket']
+        $expireSeconds = $result->expire_seconds; // 有效秒数
+        $url = $result->url; // 二维码图片解析后的地址，开发者可根据该地址自行生成需要的二维码图片
+        $allUrl=$qrcode->show($ticket);
+        return view('tour.show')->with(compact('travel'))->with(compact("travelDay", $travelDay))->with(compact('pic','allUrl'))
             ->with(compact('Lastedarticle', $Lastedarticle))->with(compact('hotpropertys', $hotpropertys));
         //->with(compact("travelFeature",$travelFeature));
     }
