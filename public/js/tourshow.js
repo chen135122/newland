@@ -31,6 +31,8 @@ function changeNum(obj)
 
 function removeClass(id,obj)
 {
+    $(obj).parent().attr("class","new_a");
+    $(obj).parent().siblings().attr("class","")
     var ev = ev || window.event;
     var thisId = document.getElementById(id);
     document.documentElement.scrollTop = document.body.scrollTop = $(thisId).offset().top-99;// - oBtn.offsetHeight;
