@@ -288,28 +288,38 @@
             arry[0]=36.8483247;
             arry[1]=174.7636383;
         }
-        var x=parseFloat(arry[0]);
-        var y=parseFloat(arry[1]);
-        function initMap() {
-            var myLatlng = {lat: -x, lng: y};
-            var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 15,
-                center: myLatlng
-            });
-            map.addListener('center_changed', function() {
-                // 3 seconds after the center of the map has changed, pan back to the
-                // marker.
-                window.setTimeout(function() {
-                    map.panTo(marker.getPosition());
-                }, 3000);
-            });
+        var geocoder;
+        var map;
+        function initialize() {
+            geocoder = new google.maps.Geocoder();
+            var latlng = new google.maps.LatLng(-arry[0], arry[1]);
+            var myOptions = {
+                zoom: 10,
+                center: latlng,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            }
+            var img = "/img/close.gif";
 
+            if (geocoder) {
+                geocoder.geocode({ 'address': address }, function (results, status) {
+                    if (status == google.maps.GeocoderStatus.OK) {
+                        map.setCenter(results[0].geometry.location);
+                        var marker = new google.maps.Marker({
+                            map: map,
+                            position: results[0].geometry.location,
+                            title: '位置',
+                            icon: img
 
+                        });
+
+                    }
+                });
+            }
+            map = new google.maps.Map(document.getElementById("collapseMap"), myOptions);
         }
+        //window.onload = initialize;
+    </script>
 
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&signed_in=true&callback=initMap">
-    </script>
 <!-- Specific scripts -->
 <script src="/js/icheck.js"></script>
 <script>
@@ -387,8 +397,10 @@
 </script>
 <!-- Map -->
 
-<script src="/js/infobox.js"></script>
 
+    <script src="http://maps.google.cn/maps/api/js"></script>
+    <script src="/js/map.js"></script>
+  <script src="/js/infobox.js"></script>
 <!--Review modal validation -->
 <script src="/assets/validate.js"></script>
 

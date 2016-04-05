@@ -147,7 +147,7 @@
                             <div class="col-lg-2 col-md-2 col-sm-2">
                                 <div class="price_list">
                                     <div>
-                                        <span class="price">{{$property->total_price}}</span><span class="normal_price_list"></span><small>总价</small>
+                                        <span class="price">￥{{$property->total_price}}万起</span><span class="normal_price_list"></span><small>总价</small>
                                         <p><a href="/property/{{$property->id}}" class="btn_1">详情</a></p>
                                     </div>
                                 </div>

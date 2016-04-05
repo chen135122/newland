@@ -9,11 +9,13 @@
                 <div class="row">
                     <div class="col-md-8 col-sm-8">
                          <h1>{{$property ->title}}</h1>
+                        @if(isset($property->address))
                         <span>{{$property ->address}}</span>
+                         @endif
                     </div>
                     <div class="col-md-4 col-sm-4">
                         <div id="price_single_main" class="hotel">
-                            <span><sup>$</sup>{{$property ->total_price}}</span>
+                            <span><sup>￥</sup>{{$property ->total_price}}万起</span>
                         </div>
                     </div>
                 </div>
@@ -71,7 +73,7 @@
                                 <li class="new_a"><a onclick="removeClass('intro', this)" href="#intro">房源介绍</a></li>
                                 <li><a href="#cates" onclick="removeClass('cates', this)">周边配套</a></li>
                                 <li><a href="#xmmd" onclick="removeClass('xmmd', this)">项目卖点</a></li>
-                                <li><a href="#ldbz" onclick="removeClass('ldbz', this)">六大保证</a></li>
+                                <li><a href="#ldbz" onclick="removeClass('ldbz', this)">房源保证</a></li>
                                 <li><a href="#hyzx" onclick="removeClass('hyzx', this)">会员尊享</a></li>
                                 <li><a href="#gfyh" onclick="removeClass('gfyh', this)">购房优惠</a></li>
                                 <li><a href="#tzys" onclick="removeClass('tzys', this)">投资优势</a></li>
@@ -94,27 +96,32 @@
 
                                         <td class="text-center">{{$property ->developers->name}}</td>
                                     </tr>
-
+                                    @if(isset($property ->annual_yield ))
                                     <tr>
                                         <td>年收益（%）</td>
 
                                         <td class="text-center">{{ $property ->annual_yield }}</td>
                                     </tr>
+                                    @endif
                                     <tr>
                                         <td>售价</td>
 
-                                        <td class="text-center">{{ $property ->total_price }}</td>
+                                        <td class="text-center">￥{{ $property ->total_price }}万起</td>
                                     </tr>
+                                    @if(isset($property ->floor_area ))
                                     <tr>
                                         <td>居住面积</td>
 
                                         <td class="text-center">{{$property ->floor_area}}㎡</td>
                                     </tr>
+                                    @endif
+                                    @if(isset($property ->living_area ))
                                     <tr>
                                         <td>占地面积</td>
 
                                         <td class="text-center">{{$property ->living_area}}㎡</td>
                                     </tr>
+                                    @endif
                                     <tr>
                                         <td>状态</td>
                                         <td class="text-center">
@@ -157,10 +164,12 @@
                                         <td>位置</td>
                                         <td class="text-center">{{$property->regions->name}}-{{$property->regions_city->name}}-{{$property->regions_district->name}}</td>
                                     </tr>
+                                    @if(isset($property ->address ))
                                     <tr>
                                         <td>地址</td>
                                         <td class="text-center">{{ $property ->address }}</td>
                                     </tr>
+                                     @endif
                                     </tbody>
                                 </table>
                             </div>
@@ -184,112 +193,25 @@
                         <h3>周边配套</h3>
                     </div>
                     <div class="col-md-9">
-                        <h4>高尔夫球场</h4>
-                        <p>
-                            项目距离基督城市中心仅20公里，成熟的商业配套设施，世界名校学区房，超市，酒吧，购物中心，最美沙滩，享受无限快乐的生活方式。24小时的管家保安服务为您提供持续安全保护。
-                        </p>
-
-                        <div class="row">
-                        </div><!-- End row  -->
-                        <div class="carousel magnific-gallery">
-                            <div class="item">
-                                <a href="/img/gef1.jpg"><img src="/img/gef1.jpg" alt="Image"></a>
-                            </div>
-                            <div class="item">
-                                <a href="/img/gef2.jpg"><img src="/img/gef2.jpg" alt="Image"></a>
-                            </div>
-                        </div><!-- End photo carousel  -->
-
-                        <hr>
-
-                        <h4>海滩</h4>
-                        <p>
-                            毗邻全球前100名的高尔夫球场，步行1公里到达新西兰The Kohaga最美沙滩，无论是您在高尔夫球场中寻找更多的体验方式，还是携手爱人漫步在The Kohaga细沙安静的海滩上，陪孩子一起成长，自由呼吸着纯净空气，顷刻间俘获您的心，让您流年忘返，天马镇都是您最佳的选择。
-                        </p>
-
-                        <div class="row">
-                        </div><!-- End row  -->
-                        <div class="carousel magnific-gallery">
-                            <div class="item">
-                                <a href="/img/ht1.jpg"><img src="/img/ht1.jpg" alt="Image"></a>
-                            </div>
-                            <div class="item">
-                                <a href="/img/ht2.jpg"><img src="/img/ht2.jpg" alt="Image"></a>
-                            </div>
-                        </div><!-- End photo carousel  -->
-                    </div><!-- End col-md-9  -->
-                </div><!-- End row  -->
+                        {!! $property ->peripheral_support !!}
+                    </div>
+                </div>
                 <hr>
                 <div class="row">
                     <div class="col-md-3" id="xmmd">
                         <h3>项目卖点</h3>
                     </div>
                     <div class="col-md-9">
-                        <div class="row">
-                            <div class="table-responsive">
-                                <ul class="xmmd">
-                                    <li>
-                                        <td> <a>√</a> 无印花税;</td>
-                                    </li>
-                                    <li>
-                                        <td><a>√</a>基督城是新西兰第二大城市，人口增长最快，长期房屋供应不足;</td>
-                                    </li>
-                                    <li>
-                                        <td><a>√</a> 租房市场需求强劲，租金回报率平均高达5%-7%，前三年内保证回报率在6%;</td>
-                                    </li>
-                                    <li>
-                                        <td><a>√</a> 利率低;</td>
-                                    </li>
-                                    <li>
-                                        <td><a>√</a> 周边高校多，空置率低，提供代租服务;</td>
-                                    </li>
-                                    <li>
-                                        <td><a>√</a> 房屋质量有任何问题，三年内无条件退还;</td>
-                                    </li>
-                                    <li>
-                                        <td><a>√</a> 海量车位，免费，无限制;</td>
-                                    </li>
-                                    <li>
-                                        <td><a>√</a> 房屋产权为永久产权，999年;</td>
-                                    </li>
-                                    <li>
-                                        <td><a>√</a> 交付时间短，仅6-9月。</td>
-                                    </li>
-                                    <li>
-                                        <td><a>√</a> 两年内转售住宅房产，无增值税;</td>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div><!-- End row  -->
+                        {!! $property ->selling_point !!}
                     </div>
                 </div>
                 <hr>
                 <div class="row">
                     <div class="col-md-3" id="ldbz">
-                        <h3>六大保证</h3>
+                        <h3>房源保证</h3>
                     </div>
                     <div class="col-md-9">
-                        <div class="row">
-                            <div class="table-responsive">
-                                <ul class="xmmd">
-                                    <li>
-                                        <a>√</a> 全程海外律师团无缝对接;
-                                    </li>
-                                    <li>
-                                        <a>√</a>学区首选，择校无忧;
-                                    </li>
-                                    <li>
-                                        <a>√</a>三年无条件退房承若;
-                                    </li>
-                                    <li>
-                                        <a>√</a> 精装交付，价享优惠;
-                                    </li>
-                                    <li>
-                                        <a>√</a> 旅游看房一站式服务。
-                                    </li>
-                                </ul>
-                            </div>
-                        </div><!-- End row  -->
+                        {!! $property ->ensure !!}
                     </div>
                 </div>
                 <hr>
@@ -298,30 +220,7 @@
                         <h3>会员尊享</h3>
                     </div>
                     <div class="col-md-9">
-                        <div class="row">
-                            <div class="table-responsive">
-                                <ul class="xmmd">
-                                    <li>
-                                        <a>√</a> 积分兑换活动;
-                                    </li>
-                                    <li>
-                                        <a>√</a>房屋里面的卫生定期会有物业公司人上门进行打扫，打扫后通过照片或视频形式发送给客户以便查看(半个月打扫一次);
-                                    </li>
-                                    <li>
-                                        <a>√</a>为了让客户无后顾之忧，我们还为客户提供租赁服务，免费为客户找租客，减少空置率;
-                                    </li>
-                                    <li>
-                                        <a>√</a> 花园草坪的清理，花的维护;
-                                    </li>
-                                    <li>
-                                        <a>√</a> 在安保上物业公司也会提供房屋监管的服务;
-                                    </li>
-                                    <li>
-                                        <a>√</a> 内部大家电有1-3年的保证。
-                                    </li>
-                                </ul>
-                            </div>
-                        </div><!-- End row  -->
+                        {!! $property ->member_services !!}
                     </div>
                 </div>
                 <hr>
@@ -330,24 +229,7 @@
                         <h3>购房优惠</h3>
                     </div>
                     <div class="col-md-9">
-                        <div class="row">
-                            <div class="table-responsive">
-                                <ul class="xmmd">
-                                    <li>
-                                        <a>√</a> 买房免费畅游新西兰;
-                                    </li>
-                                    <li>
-                                        <a>√</a>送一年物业费(综合费一年在2000纽币左右);
-                                    </li>
-                                    <li>
-                                        <a>√</a>送一年高尔夫球场会员卡;
-                                    </li>
-                                    <li>
-                                        <a>√</a> 送床，床上四件套及洗漱用品。
-                                    </li>
-                                </ul>
-                            </div>
-                        </div><!-- End row  -->
+                        {!! $property ->purchase_discount !!}
                     </div>
                 </div>
                 <hr>
@@ -356,45 +238,7 @@
                         <h3>投资优势</h3>
                     </div>
                     <div class="col-md-9">
-                        <div class="row">
-                            <div class="table-responsive">
-                                <ul class="xmmd">
-                                    <li>
-                                        <a>√</a> 法律健全：购房手续规范，保障投资者的利益，全权由新西兰最权威的律师事务所戴维森律师事务所办理;
-                                    </li>
-                                    <li>
-                                        <a>√</a>产权优势：永久产权，无遗产税，无持有税;
-                                    </li>
-                                    <li>
-                                        <a>√</a>物业优势：房屋租赁市场强劲，空置率极低，增值稳定;
-                                    </li>
-                                    <li>
-                                        <a>√</a> 物业优势：房屋租赁市场强劲，空置率极低，增值稳定;
-                                    </li>
-                                    <li>
-                                        <a>√</a> 贷款优势：海外人士也可以申请贷款，且贷款利率跟本地人相同，手续也相对简单。海外人士买房可申请60-70%的银行贷款，拥有本地身份的人士最高可申请到80%的银行贷款;
-                                    </li>
-                                    <li>
-                                        <a>√</a> 供房优势：高租金收益;
-                                    </li>
-                                    <li>
-                                        <a>√</a> 地域优势：新西兰是移民国家之一，房产长期供不应求。
-                                    </li>
-                                    <li>
-                                        <a>√</a> 交易成本低：无任何交易税费(如印花税、契约税等);
-                                    </li>
-                                    <li>
-                                        <a>√</a> 房产市场健全，增值迅速，回报稳定;
-                                    </li>
-                                    <li>
-                                        <a>√</a> 海外人士购房无任何限制;
-                                    </li>
-                                    <li>
-                                        <a>√</a> 租金回报高，做到以房养房、以房养学;
-                                    </li>
-                                </ul>
-                            </div>
-                        </div><!-- End row  -->
+                        {!! $property ->investment_advantage !!}
                     </div>
                 </div>
                 <hr>
