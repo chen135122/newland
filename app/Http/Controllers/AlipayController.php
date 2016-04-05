@@ -43,6 +43,7 @@ class AlipayController extends Controller
         $order->phone=strval($request->get("userPhone"));
         $order->email=strval($request->get("userEmail"));
         $order->remark=strval($request->get("content"));
+        $order->start_time= $request->get("startDate");
         //$order->adults=strval($request->get("perNum"));
 
 //            $order->updated_at=Carbon::now();
@@ -76,7 +77,7 @@ class AlipayController extends Controller
             $options = [
                 'out_trade_no' =>  $order->sn,
                 'subject' => $request->get("subject"),
-                'total_fee' => '0.01',
+                'total_fee' => ($order->orderprice*$order->num)*100,
             ];
             $response = $gateway->purchase($options)->send();
             $response->redirect();
@@ -108,6 +109,7 @@ class AlipayController extends Controller
         $order->phone=strval($request->get("userPhone"));
         $order->email=strval($request->get("userEmail"));
         $order->remark=strval($request->get("content"));
+        $order->start_time=$request->get("startDate");
         //$order->adults=strval($request->get("perNum"));
 
 //            $order->updated_at=Carbon::now();
@@ -135,7 +137,7 @@ class AlipayController extends Controller
         }
         else
             return redirect($request->get("url"));
-       return view("Alipay.wpay")->with(["subject"=>$subject,"sn"=>$order->sn,"price"=>0.01]);
+       return view("Alipay.wpay")->with(["subject"=>$travel->bigtitle,"sn"=>$order->sn,"price"=>($order->orderprice*$order->num)]);
     }
 
     public  function  topay($id=null)
@@ -155,13 +157,13 @@ class AlipayController extends Controller
             $options = [
                 'out_trade_no' =>  $order->sn,
                 'subject' => $travel->bigtitle,
-                'total_fee' => '0.01',
+                'total_fee' => ($order->orderprice*$order->num)*100,
             ];
             $response = $gateway->purchase($options)->send();
             $response->redirect();
         }
         else if($order->paytype==3){
-            return view("Alipay.wpay")->with("subject",$travel->bigtitle)->with("sn", $order->sn);
+            return view("Alipay.wpay")->with("subject",$travel->bigtitle)->with(["sn"=>$order->sn,"price"=>($order->orderprice*$order->num)]);
         }
         return  redirect("/percenter?type=1");
     }

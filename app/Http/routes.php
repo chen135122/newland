@@ -11,7 +11,7 @@ Route::group([ 'middleware' => ['web', 'auth']], function () {
     //支付宝支付处理
     Route::post('pay','AlipayController@pay');
     //微信支付处理
-    Route::post('wpay','\App\Http\Controllers\AlipayController@wpay');
+    Route::get('wpay','\App\Http\Controllers\AlipayController@wpay');
     Route::get('topay/{id}','\App\Http\Controllers\AlipayController@topay');
 //    Route::get('xxx', function(){
 //        return (auth()->user());

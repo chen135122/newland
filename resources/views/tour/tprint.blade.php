@@ -79,7 +79,7 @@
                         <table class="table table-condensed">
                             <tbody>
                             <tr>
-                                <td style="width:50%;text-align:center;">出发地:上海</td>
+                                <td style="width:50%;text-align:center;">出发时间:上海</td>
                                 <td class="text-center">目的地:新西兰</td>
                             </tr>
                             <tr>
@@ -91,7 +91,7 @@
                                 <td class="text-center">旅游天数:{{count($travel->day()->get())}}天</td>
                             </tr>
                             <tr>
-                                <td>{{date("Y年n月d日",$travel->start_time) }}</td>
+                                <td>{{date("Y年n月d日", $order->start_time) }}</td>
                                 <td></td>
                             </tr>
                             </tbody>

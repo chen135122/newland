@@ -206,7 +206,14 @@
                            {{$travel->bigtitle}}
                         </td>
                     </tr>
-
+                    <tr>
+                        <td>
+                            出发日期
+                        </td>
+                        <td class="text-right">
+                            {{date("Y年n月d日",$date)}}
+                        </td>
+                    </tr>
                     <tr class="total">
                         <td>
                             定金
@@ -430,10 +437,11 @@
         {{--<input  name="WIDtotal_fee" type="hidden" value="2000">--}}
     {{--</form>--}}
 
-        <form id="orderform" name=orderform action=/pay method=post  target="_blank">
+        <form id="orderform" name=orderform action=/pay method=get  target="_blank">
                      <input  name="rout" id="rout" type="hidden" value="{{$route}}">
                     <input  name="subject" type="hidden" value="{{$name}}">
                     <input  name="total_fee" type="hidden" value="2000">
+                    <input  name="startDate" type="hidden" value="{{$date}}">
                     <input  name="url" id="url" type="hidden" value="">
                      <input  name="perNum" id="perNum" type="hidden" value="{{$perNum}}">
             <div id="price">

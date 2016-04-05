@@ -107,6 +107,8 @@ class TourController extends Controller
     public function order(Request $request)
     {
         $perNum = $request->get("num");
+        $date = $request->get("date");
+
         if (!empty($route = $request->get("routid"))) {
             $travel = Travel::where("id", $route)->first();
             $priceRange = PriceRange::where("routeid", $route)->where("endnum", ">", $perNum)->where("startnum", "<", $perNum);
@@ -119,7 +121,7 @@ class TourController extends Controller
         if(auth()->user())
             $login=true;
         return view('tour.order')->with(compact("travel", "priceBase", "perNum", "route"))
-            ->with(["name"=>$travel->bigtitle,"login"=>$login]);
+            ->with(["name"=>$travel->bigtitle,"login"=>$login,"date"=>$date]);
     }
 
     public function create(Request $request)

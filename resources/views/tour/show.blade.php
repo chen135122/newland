@@ -662,7 +662,9 @@
 <script type="text/javascript" src="/js/tourshow.js"></script>
 <script>
     function linkto(){
-        window.location="/order?num="+perNum+"&routid="+'{{$travel->id}}';
+        var date=new Date($("#start_date").val());
+        date.setDate(date.getDate()+1);
+        window.location="/order?num="+perNum+"&routid="+'{{$travel->id}}'+"&date="+ Date.parse(date)/1000;
     }
     $("#start_date").datepicker("setStartDate",new Date());
 </script>
