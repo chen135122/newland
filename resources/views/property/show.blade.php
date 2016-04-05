@@ -15,7 +15,7 @@
                     </div>
                     <div class="col-md-4 col-sm-4">
                         <div id="price_single_main" class="hotel">
-                            <span><sup>￥</sup>{{$property ->total_price}}万起</span>
+                            <span><sup>NZ$</sup>{{$property ->total_price}}万起</span>
                         </div>
                     </div>
                 </div>
@@ -293,11 +293,17 @@
         .hold_room small {
             font-family:'Microsoft YaHei';
         }
+        #single_tour_desc{
+            border-right:1px solid #ccc;
+        }
         #single_tour_desc h3 {
             font-size:14px;
             /*height:30px;*/
             margin-top:0;
         }
+        #single_tour_desc .row p span{
+            font-size:14px !important; color:#555555; line-height: 24px; font-family: 'Microsoft YaHei';}
+        #single_tour_desc .row .col-md-3{ font-size:16px !important;}
         .c_ul li{
             display: inline-block;
             padding-right: 8px;
