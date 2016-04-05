@@ -139,7 +139,7 @@
                                     </tr>
                                     <tr>
                                         <td>户型</td>
-                                        <td class="text-center">{{$property ->bedroom}}室{{$property ->living_room}}厅{{$property ->bathroom}}卫</td>
+                                        <td class="text-center">{{$property ->layout}}</td>
                                     </tr>
                                     <tr>
                                         <td>类型</td>
@@ -181,7 +181,7 @@
                     <div class="col-md-3" id="intro">
                         <h3>房源介绍</h3>
                     </div>
-                    <div class="col-md-9">
+                    <div class="col-md-12">
                         <p>
                             {!! $property ->description !!}
                         </p>
@@ -192,7 +192,7 @@
                     <div class="col-md-3" id="cates">
                         <h3>周边配套</h3>
                     </div>
-                    <div class="col-md-9">
+                    <div class="col-md-12">
                         {!! $property ->peripheral_support !!}
                     </div>
                 </div>
@@ -201,7 +201,7 @@
                     <div class="col-md-3" id="xmmd">
                         <h3>项目卖点</h3>
                     </div>
-                    <div class="col-md-9">
+                    <div class="col-md-12">
                         {!! $property ->selling_point !!}
                     </div>
                 </div>
@@ -210,7 +210,7 @@
                     <div class="col-md-3" id="ldbz">
                         <h3>房源保证</h3>
                     </div>
-                    <div class="col-md-9">
+                    <div class="col-md-12">
                         {!! $property ->ensure !!}
                     </div>
                 </div>
@@ -219,7 +219,7 @@
                     <div class="col-md-3" id="hyzx">
                         <h3>会员尊享</h3>
                     </div>
-                    <div class="col-md-9">
+                    <div class="col-md-12">
                         {!! $property ->member_services !!}
                     </div>
                 </div>
@@ -228,7 +228,7 @@
                     <div class="col-md-3" id="gfyh">
                         <h3>购房优惠</h3>
                     </div>
-                    <div class="col-md-9">
+                    <div class="col-md-12">
                         {!! $property ->purchase_discount !!}
                     </div>
                 </div>
@@ -237,7 +237,7 @@
                     <div class="col-md-3" id="tzys">
                         <h3>投资优势</h3>
                     </div>
-                    <div class="col-md-9">
+                    <div class="col-md-12">
                         {!! $property ->investment_advantage !!}
                     </div>
                 </div>
