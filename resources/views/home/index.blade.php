@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @push('style')
 <link href="rs-plugin/css/settings.css" rel="stylesheet">
-<link href="/css/newewm.css" rel="stylesheet">
+
 
 <link href="css/extralayers.css" rel="stylesheet">
     <style>
@@ -233,10 +233,10 @@
         <a href="/property" class="btn_1 medium"><i class="icon-eye-7"></i>查看所有房产 ({{$HouseCount}}) </a>
     </p>
 </div><!-- End container -->
-<div id="rightArrow"><a href="javascript:;" title="在线客户"></a></div>
-<div id="floatDivBoxs">
-    <div class="floatDtt">关注公众号</div>
-    <div class="floatShadow">
+{{--<div id="rightArrow"><a href="javascript:;" title="在线客户"></a></div>--}}
+{{--<div id="floatDivBoxs">--}}
+    {{--<div class="floatDtt">关注公众号</div>--}}
+    {{--<div class="floatShadow">--}}
         {{--<ul class="floatDqq">--}}
             {{--<li style="padding-left:0px;"><a target="_blank" href="tencent://message/?uin=1234567890&Site=sc.chinaz.com&Menu=yes"><img src="img/qq.png" align="absmiddle">&nbsp;&nbsp;在线客服1号</a></li>--}}
             {{--<li style="padding-left:0px;"><a target="_blank" href="tencent://message/?uin=1234567890&Site=sc.chinaz.com&Menu=yes"><img src="img/qq.png" align="absmiddle">&nbsp;&nbsp;在线客服2号</a></li>--}}
@@ -244,12 +244,12 @@
         {{--</ul>--}}
         {{--<div class="floatDtxt">热线电话</div>--}}
         {{--<div class="floatDtel"><img src="img/online_phone.jpg" width="155" height="45" alt=""></div>--}}
-        <div style="text-align:center;padding:10PX 0 5px 0;background:#EBEBEB;">
-            <img src="{{$allUrl}}" width="106" height="106">
-            <br>微信公众账号</div>
-    </div>
-    <div class="floatDbg"></div>
-</div>
+        {{--<div style="text-align:center;padding:10PX 0 5px 0;background:#EBEBEB;">--}}
+            {{--<img src="{{$allUrl}}" width="106" height="106">--}}
+            {{--<br>微信公众账号</div>--}}
+    {{--</div>--}}
+    {{--<div class="floatDbg"></div>--}}
+{{--</div>--}}
 
 
 <section class="promo_full">
@@ -269,20 +269,20 @@
 <script src="rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
 <script src="js/revolution_func.js"></script>
 <script type="text/javascript">
-    var flag=1;
-    $('#rightArrow').click(function(){
-        if(flag==1){
-            $("#floatDivBoxs").animate({right: '-175px'},300);
-            $(this).animate({right: '-5px'},300);
-            $(this).css('background-position','-50px 0');
-            flag=0;
-        }else{
-            $("#floatDivBoxs").animate({right: '0'},300);
-            $(this).animate({right: '170px'},300);
-            $(this).css('background-position','0px 0');
-            flag=1;
-        }
-    });
+//    var flag=1;
+//    $('#rightArrow').click(function(){
+//        if(flag==1){
+//            $("#floatDivBoxs").animate({right: '-175px'},300);
+//            $(this).animate({right: '-5px'},300);
+//            $(this).css('background-position','-50px 0');
+//            flag=0;
+//        }else{
+//            $("#floatDivBoxs").animate({right: '0'},300);
+//            $(this).animate({right: '170px'},300);
+//            $(this).css('background-position','0px 0');
+//            flag=1;
+//        }
+//    });
 </script>
 
 @endpush
