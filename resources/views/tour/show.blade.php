@@ -13,7 +13,7 @@
                     </div>
                     <div class="col-md-4 col-sm-4">
                         <div id="price_single_main">
-                            每人 <span class="price">¥{{$travel->referenceprice}}</span>
+                            {{$travel->singlem}}<span class="price">¥{{$travel->referenceprice}}</span>
                         </div>
                     </div>
                 </div>
@@ -81,7 +81,7 @@
                         <h3>行程简介</h3>
                     </div>
                     <div class="col-md-9">
-                        <h4>关于此行程</h4>
+                        <h4></h4>
                         {!!$travel->introduction !!}
                         {{--<h4>行程特色</h4>--}}
                         {{--<p>--}}
@@ -95,7 +95,7 @@
                         <h3>产品特色</h3>
                     </div>
                     <div class="col-md-9">
-                        <h4>关于此产品</h4>
+                        <h4></h4>
                             {!! $travel->feature !!}
                     </div>
                 </div>
@@ -105,7 +105,7 @@
                         <h3>费用包含</h3>
                     </div>
                     <div class="col-md-9">
-                        <h4>费用包含</h4>
+                        <h4></h4>
                         {!!$travel->feeinclude!!}
                     </div>
                 </div>

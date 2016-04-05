@@ -26,6 +26,7 @@ class TourController extends Controller
     {
         $parames=[];
         $travels = Travel::where("id", ">", 0);
+        $travels = $travels->where("status",1);
         $category=[];
         if(!empty($request->get('category')))
         {
