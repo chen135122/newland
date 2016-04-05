@@ -396,14 +396,14 @@
                 <div class="box_style_1 expose">
                     <h3 class="inner">- 预定 -</h3>
                     <div class="row">
-                        {{--<div class="col-md-6 col-sm-6">--}}
-                            {{--<div class="form-group">--}}
-                                {{--<label><i class="icon-calendar-7"></i> 出发日期</label>--}}
-                                {{--<input id="start_date" class="date-pick form-control" data-date-format="yyyy/M/d" type="text">--}}
-                                {{--<label><i class="icon-calendar-7"></i> {{ $detail->start_time}}</label>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-                        <div class="col-md-6 col-sm-6" style="width: 100%;">
+                        <div class="col-md-6 col-sm-6">
+                            <div class="form-group">
+                                <label><i class="icon-calendar-7"></i> 出发日期</label>
+                                <input id="start_date" class="date-pick form-control" data-date-format="yyyy/M/d" type="text">
+                                <label><i class="icon-calendar-7"></i> {{ $detail->start_time}}</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
                             <div class="form-group">
                                 <label>人数</label>
                                 <div class="numbers-row">
@@ -424,12 +424,12 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>
-                               出发日期
-                            </td>
-                            <td id="perNum" class="text-right">
-                                {{  date("Y-n-d",$travel->start_time) }}
-                            </td>
+                            {{--<td>--}}
+                               {{--出发日期--}}
+                            {{--</td>--}}
+                            {{--<td id="perNum" class="text-right">--}}
+                                {{--{{  date("Y-n-d",$travel->start_time) }}--}}
+                            {{--</td>--}}
                         </tr>
 
                         </tbody>
@@ -650,6 +650,7 @@
             autoplay: false
         });
     });
+
 </script>
 
 
@@ -663,6 +664,7 @@
     function linkto(){
         window.location="/order?num="+perNum+"&routid="+'{{$travel->id}}';
     }
+    $("#start_date").datepicker("setStartDate",new Date());
 </script>
 <!-- Map -->
 {{--<script src="http://maps.google.cn/maps/api/js"></script>--}}
