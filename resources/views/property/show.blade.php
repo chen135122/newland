@@ -74,9 +74,10 @@
                                 <li><a href="#cates" onclick="removeClass('cates', this)">周边配套</a></li>
                                 <li><a href="#xmmd" onclick="removeClass('xmmd', this)">项目卖点</a></li>
                                 <li><a href="#ldbz" onclick="removeClass('ldbz', this)">房源保证</a></li>
+                                <li><a href="#tzys" onclick="removeClass('tzys', this)">投资优势</a></li>
                                 <li><a href="#hyzx" onclick="removeClass('hyzx', this)">会员尊享</a></li>
                                 <li><a href="#gfyh" onclick="removeClass('gfyh', this)">购房优惠</a></li>
-                                <li><a href="#tzys" onclick="removeClass('tzys', this)">投资优势</a></li>
+
                             </ul>
                         </div>
                     </div>
@@ -113,6 +114,12 @@
                 </div>
                 <hr>
                 <div class="row">
+                    <div class="col-md-12" id="tzys">
+                        {!! $property ->investment_advantage !!}
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
                     <div class="col-md-12" id="hyzx">
                         {!! $property ->member_services !!}
                     </div>
@@ -123,12 +130,7 @@
                         {!! $property ->purchase_discount !!}
                     </div>
                 </div>
-                <hr>
-                <div class="row">
-                    <div class="col-md-12" id="tzys">
-                        {!! $property ->investment_advantage !!}
-                    </div>
-                </div>
+
                 <hr>
 
             </div>
