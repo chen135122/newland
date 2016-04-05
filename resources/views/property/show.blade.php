@@ -83,73 +83,49 @@
                 </div>
 
                 <div class="row" style="margin-top:20px;">
-                    <div class="col-md-3" id="info">
-                        <h3 >房源信息</h3>
-                    </div>
-                    <div class="col-md-12">
+                    <div class="col-md-12"  id="info">
                         {!! $property ->basic_infor !!}
                     </div>
                 </div>
                 <hr>
                 <div class="row">
-                    <div class="col-md-3" id="intro">
-                        <h3>房源介绍</h3>
-                    </div>
-                    <div class="col-md-12">
+                    <div class="col-md-12"  id="intro">
                        {!! $property ->description !!}
                     </div>
                 </div>
                 <hr>
                 <div class="row">
-                    <div class="col-md-3" id="cates">
-                        <h3>周边配套</h3>
-                    </div>
-                    <div class="col-md-12">
+                    <div class="col-md-12" id="cates">
                         {!! $property ->peripheral_support !!}
                     </div>
                 </div>
                 <hr>
                 <div class="row">
-                    <div class="col-md-3" id="xmmd">
-                        <h3>项目卖点</h3>
-                    </div>
-                    <div class="col-md-12">
+                    <div class="col-md-12"  id="xmmd">
                         {!! $property ->selling_point !!}
                     </div>
                 </div>
                 <hr>
                 <div class="row">
-                    <div class="col-md-3" id="ldbz">
-                        <h3>房源保证</h3>
-                    </div>
-                    <div class="col-md-12">
+                    <div class="col-md-12"  id="ldbz">
                         {!! $property ->ensure !!}
                     </div>
                 </div>
                 <hr>
                 <div class="row">
-                    <div class="col-md-3" id="hyzx">
-                        <h3>会员尊享</h3>
-                    </div>
-                    <div class="col-md-12">
+                    <div class="col-md-12" id="hyzx">
                         {!! $property ->member_services !!}
                     </div>
                 </div>
                 <hr>
                 <div class="row">
-                    <div class="col-md-3" id="gfyh">
-                        <h3>购房优惠</h3>
-                    </div>
-                    <div class="col-md-12">
+                    <div class="col-md-12" id="gfyh">
                         {!! $property ->purchase_discount !!}
                     </div>
                 </div>
                 <hr>
                 <div class="row">
-                    <div class="col-md-3" id="tzys">
-                        <h3>投资优势</h3>
-                    </div>
-                    <div class="col-md-12">
+                    <div class="col-md-12" id="tzys">
                         {!! $property ->investment_advantage !!}
                     </div>
                 </div>
@@ -302,8 +278,8 @@
             margin-top:0;
         }
         #single_tour_desc .row p span{
-            font-size:14px !important; color:#555555; line-height: 24px; font-family: 'Microsoft YaHei';}
-        #single_tour_desc .row .col-md-3{ font-size:16px !important;}
+            font-size:16px !important; line-height: 28px; font-family: 'Microsoft YaHei' !important;}
+        #single_tour_desc .row p strong span { font-size:24px !important;font-family: 'Microsoft YaHei' !important;  line-height: 30px; text-align: center;}
         .c_ul li{
             display: inline-block;
             padding-right: 8px;
