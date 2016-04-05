@@ -86,107 +86,19 @@
                     <div class="col-md-3" id="info">
                         <h3 >房源信息</h3>
                     </div>
-                    <div class="col-md-9">
-                        <div class="row">
-                            <div class="table-responsive">
-                                <table class="table table-condensed">
-                                    <tbody>
-                                    <tr>
-                                        <td>开发商</td>
-
-                                        <td class="text-center">{{$property ->developers->name}}</td>
-                                    </tr>
-                                    @if(isset($property ->annual_yield ))
-                                    <tr>
-                                        <td>年收益（%）</td>
-
-                                        <td class="text-center">{{ $property ->annual_yield }}</td>
-                                    </tr>
-                                    @endif
-                                    <tr>
-                                        <td>售价</td>
-
-                                        <td class="text-center">￥{{ $property ->total_price }}万起</td>
-                                    </tr>
-                                    @if(isset($property ->floor_area ))
-                                    <tr>
-                                        <td>居住面积</td>
-
-                                        <td class="text-center">{{$property ->floor_area}}㎡</td>
-                                    </tr>
-                                    @endif
-                                    @if(isset($property ->living_area ))
-                                    <tr>
-                                        <td>占地面积</td>
-
-                                        <td class="text-center">{{$property ->living_area}}㎡</td>
-                                    </tr>
-                                    @endif
-                                    <tr>
-                                        <td>状态</td>
-                                        <td class="text-center">
-                                            <?php
-                                            switch($property->status)
-                                            {
-                                                case 0 :echo "未上架"; break;
-                                                case 1 :echo "出售中"; break;
-                                                case 2 :echo "已预订"; break;
-                                                case 3 :echo "已售出"; break;
-                                                case 4 :echo "已删除"; break;
-                                            }
-                                            ?>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>户型</td>
-                                        <td class="text-center">{{$property ->layout}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>类型</td>
-                                        <td class="text-center">
-                                            <?php
-                                                switch($property->type)
-                                                    {
-                                                    case 1 :echo "独立别墅"; break;
-                                                    case 2 :echo "公寓"; break;
-                                                    case 3 :echo "单元房Studio"; break;
-                                                    case 4 :echo "城市屋Townhouse"; break;
-                                                    case 5 :echo "排房Unit"; break;
-                                                    case 6 :echo "建地Section"; break;
-                                                    case 7 :echo "Home&amp;Income"; break;
-                                                    case 8 :echo "乡村别墅Lifestyle Property"; break;
-                                                    case 9 :echo "乡村住宅建地Lifestyle Section"; break;
-                                                }
-                                            ?>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>位置</td>
-                                        <td class="text-center">{{$property->regions->name}}-{{$property->regions_city->name}}-{{$property->regions_district->name}}</td>
-                                    </tr>
-                                    @if(isset($property ->address ))
-                                    <tr>
-                                        <td>地址</td>
-                                        <td class="text-center">{{ $property ->address }}</td>
-                                    </tr>
-                                     @endif
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div><!-- End row  -->
+                    <div class="col-md-12">
+                        {!! $property ->basic_infor !!}
                     </div>
-                </div><!-- End row  -->
+                </div>
                 <hr>
                 <div class="row">
                     <div class="col-md-3" id="intro">
                         <h3>房源介绍</h3>
                     </div>
                     <div class="col-md-12">
-                        <p>
-                            {!! $property ->description !!}
-                        </p>
-                    </div><!-- End col-md-9  -->
-                </div><!-- End row  -->
+                       {!! $property ->description !!}
+                    </div>
+                </div>
                 <hr>
                 <div class="row">
                     <div class="col-md-3" id="cates">
