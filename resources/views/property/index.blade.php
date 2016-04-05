@@ -132,16 +132,7 @@
                                         </p>
                                     @endif
                                     <p>{{$property->regions->name}}-{{$property->regions_city->name}}-{{$property->regions_district->name}}</p>
-                                    <ul class="add_info">
-                                        <li>
-                                            <a href="javascript:void(0);" class="tooltip-1" data-placement="top" title="" data-original-title="{{$property->bedroom}}个卧室">
-                                                <i class="icon_set_2_icon-104"></i> {{$property->bedroom}}
-                                                {{--{{dd($property->Tags)}}--}}
 
-                                            </a>
-                                        </li>
-
-                                    </ul>
                                 </div>
                             </div>
                             <div class="col-lg-2 col-md-2 col-sm-2">
@@ -225,6 +216,7 @@
 <link href="/css/ion.rangeSlider.css" rel="stylesheet" >
 <link href="/css/ion.rangeSlider.skinFlat.css" rel="stylesheet">
     <style>
+        .tour_list_desc h3{ margin-top: 40px;}
         .strip_all_tour_list .img_list img{
             width:320px; height: 240px;
         }

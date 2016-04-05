@@ -620,6 +620,9 @@
         height: 130px;
         margin-bottom: 4px;
     }
+    #single_tour_desc{
+        border-right:1px solid #ccc;
+    }
 </style>
 @endpush
 
