@@ -13,7 +13,8 @@
                     </div>
                     <div class="col-md-4 col-sm-4">
                         <div id="price_single_main">
-                            {{$travel->singlem}}<span class="price">¥{{$travel->referenceprice}}</span>
+                            {{$travel->singlem}}<span class="price">¥{{$travel->referenceprice}}
+                               </span> <p>{{$travel->expound}}</p>
                         </div>
                     </div>
                 </div>
