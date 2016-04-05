@@ -225,6 +225,9 @@
 <link href="/css/ion.rangeSlider.css" rel="stylesheet" >
 <link href="/css/ion.rangeSlider.skinFlat.css" rel="stylesheet">
     <style>
+        .strip_all_tour_list .img_list img{
+            width:320px; height: 240px;
+        }
         .main_title p {
             font-size: 14px !important;
             margin-top: 5px;
@@ -266,6 +269,7 @@
         .hold_room small {
             font-family:'Microsoft YaHei';
         }
+        .price_list .price{ font-size: 22px;}
     </style>
 @endpush
 

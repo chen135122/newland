@@ -94,13 +94,13 @@
         </div><!-- End top line-->
         <div class="container">
             <div class="row">
-                <div class="col-md-3 col-sm-3 col-xs-3" style="width:50%;">
+                <div class="col-md-3 col-sm-3 col-xs-3" style="width:35%;">
                     <div id="logo">
                         <a href="/"><img src="/img/logo2.png" height="55" alt="All IN New Zealand" data-retina="true" class="logo_normal"></a>
                         <a href="/"><img src="/img/logo_sticky.png" height="34" alt="All IN New Zealand" data-retina="true" class="logo_sticky"></a>
                     </div>
                 </div>
-                <nav class="col-md-9 col-sm-9 col-xs-9" style="width:50%;">
+                <nav class="col-md-9 col-sm-9 col-xs-9" style="width:65%;">
                     <a class="cmn-toggle-switch cmn-toggle-switch__htx open_close" href="javascript:void(0);"><span>Menu mobile</span></a>
                     <div class="main-menu">
                         <div id="header_menu">
