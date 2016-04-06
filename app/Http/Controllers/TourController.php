@@ -82,8 +82,9 @@ class TourController extends Controller
         $expireSeconds = $result->expire_seconds; // 有效秒数
         $url = $result->url; // 二维码图片解析后的地址，开发者可根据该地址自行生成需要的二维码图片
         $allUrl=$qrcode->show($ticket);
+        $rand= random_int(0,count($travels)-1);
         return view('tour.index')->with(compact('travels'))->with(compact('categorys'))->with(compact('category'))
-            ->with(["maxprice" => $maxprice, "minprice" => $minprice, "toprice" => $toprice, "sortprice" => $sortprice,'allUrl'=>$allUrl]);
+            ->with(["maxprice" => $maxprice, "minprice" => $minprice, "toprice" => $toprice, "sortprice" => $sortprice,'allUrl'=>$allUrl,'rand'=>$rand]);
 
     }
 
