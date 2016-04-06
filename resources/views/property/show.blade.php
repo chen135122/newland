@@ -71,8 +71,12 @@
                             <ul class="c_ul" style="margin: 0;padding: 0;color: #888;">
                                 <li class="new_a"><a onclick="removeClass('info', this)" href="#info">房源信息</a></li>
                                 <li class="new_a"><a onclick="removeClass('intro', this)" href="#intro">房源介绍</a></li>
+                                @if($property->peripheral_support)
                                 <li><a href="#cates" onclick="removeClass('cates', this)">周边配套</a></li>
+                                @endif
+                                @if($property->selling_point)
                                 <li><a href="#xmmd" onclick="removeClass('xmmd', this)">项目卖点</a></li>
+                                @endif
                                 <li><a href="#ldbz" onclick="removeClass('ldbz', this)">房源保证</a></li>
                                 <li><a href="#tzys" onclick="removeClass('tzys', this)">投资优势</a></li>
                                 <li><a href="#hyzx" onclick="removeClass('hyzx', this)">会员尊享</a></li>
