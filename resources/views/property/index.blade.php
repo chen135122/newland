@@ -115,7 +115,8 @@
                                 @endif
                                 <div class="img_list">
                                     <a href="/property/{{$property->id}}">
-                                        <div class="ribbon popular"></div><img src="{{$property->picurl}}" alt="">
+                                        {{--ribbon popular--}}
+                                        <div class=""></div><img src="{{$property->picurl}}" alt="">
                                         <div class="short_info"></div>
                                     </a>
                                 </div>

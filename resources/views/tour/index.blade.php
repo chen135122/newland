@@ -1,8 +1,8 @@
 @extends('layouts.master')
 
 @section('content')
-
-    <section class="parallax-window" data-parallax="scroll" data-image-src="{{isset($travels[0])?$travels[0]->picurl:img/home_bg_1.jpg}}" data-natural-width="1400" data-natural-height="470">
+    {{--{{isset($travels[$rand])?$travels[$rand]->head_img:img/home_bg_1.jpg}}--}}
+    <section class="parallax-window" data-parallax="scroll" data-image-src="{{isset($travels[$rand])?$travels[$rand]->head_img:img/home_bg_1.jpg}}" data-natural-width="1400" data-natural-height="470">
         <div class="parallax-content-1">
             <div class="animated fadeInDown">
                 <h1>新西兰旅游</h1>
@@ -98,7 +98,7 @@
                             @endif
                             <div class="img_list">
                                 <a href="/tour/{{$travel->id}}">
-                                    <div class="ribbon popular"></div><img src="{{$travel->picurl}}" alt="">
+                                    <div class=""></div><img src="{{$travel->picurl}}" alt="">
                                     <div class="short_info"><i class="icon_set_1_icon-4"></i>{{$travel->start_place}} </div>
                                 </a>
                             </div>
