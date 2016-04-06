@@ -210,18 +210,23 @@
     }
     .filter_type:last-child {border-bottom:none;
     }
-    .col-lg-6{
-        width:55%;
-    }
-    .col-lg-4
-    {
-        width:26.33333333%;
-    }
+    /*.col-lg-6{*/
+        /*width:55%;*/
+    /*}*/
+    /*.col-lg-4*/
+    /*{*/
+        /*width:26.33333333%;*/
+    /*}*/
 
-    .price_list{
-        height:160px;
+    /*.price_list{*/
+        /*height:160px;*/
+    /*}*/
+.style_list_desc{
+    height: 220px;
+}
+    .style_list_desc h3{
+        margin-top:40px ;
     }
-
     .room {
         width:100%;
         margin-bottom:20px;
