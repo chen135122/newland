@@ -21,7 +21,7 @@ class Travel extends BaseModel
     }
     public function travelImg()
     {
-        return   $query= $this->belongsTo ('App\Models\Image', 'id','itemid')->where("type",'=',1);
+        return   $query= $this->belongsTo ('App\Models\Image', 'id','itemid')->where("type",'=',1)->orderBy("displayorder","asc");
     }
     public function getIsFavAttribute()
     {
@@ -46,7 +46,7 @@ class TravelDayDetail extends BaseModel
     protected  $table='nz_travel_day_detail';
     public function detailImg()
     {
-        return $this->hasOne('App\Models\Image', 'itemid','id');
+        return $this->hasOne('App\Models\Image', 'itemid','id')->orderBy("displayorder","asc");
     }
 }
 //美食model
