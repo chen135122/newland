@@ -46,8 +46,6 @@
         .col-md-3 > h4 span {
             color:lightcoral;
         }
-    </style>
-    <style>
         .tour_title > h3, .hotel_title > h3 {
             line-height: 19px !important;
             font-size: 14px !important;
@@ -63,6 +61,9 @@
         .col-md-3 i:before {
             font-size:100px;
         }
+        .white_bg .icon{ width: 100px;
+            height:100px;}
+
     </style>
 
 @endpush
@@ -132,8 +133,7 @@
         <div class="row">
             <div class="col-md-3 col-sm-6 col-xs-6 text-center" style="cursor: pointer;" onclick="window.location='/property'">
                 <p>
-                    <i class="icon_set_1_icon-23"></i>
-
+                 <img src="/img/icon-house.png" class="icon">
                 </p>
                 <h4><span>房产置业</span></h4>
                 <p class="tp_detail" style="">
@@ -142,7 +142,7 @@
             </div>
             <div class="col-md-3 col-sm-6 col-xs-6  text-center"  style="cursor: pointer;" onclick="window.location='/tour'">
                 <p>
-                    <i class="icon_set_1_icon-4"></i>
+                    <img src="/img/icon-tour.png" class="icon">
 
                 </p>
                 <h4><span>国际旅游</span></h4>
@@ -152,7 +152,7 @@
             </div>
             <div class="col-md-3 col-sm-6 col-xs-6 text-center"  style="cursor: pointer;" onclick="window.location='/study'">
                 <p>
-                    <i class="icon_set_1_icon-30"></i>
+                    <img src="/img/icon-school.png" class="icon">
                 </p>
                 <h4><span>移民留学</span></h4>
                 <p class="tp_detail">
@@ -161,7 +161,7 @@
             </div>
             <div class="col-md-3 col-sm-6 col-xs-6  text-center">
                 <p>
-                    <i class="icon_set_1_icon-36"></i>
+                    <img src="/img/icon-point.png" class="icon">
                 </p>
                 <h4><span>商城积分</span></h4>
                 <p class="tp_detail">
