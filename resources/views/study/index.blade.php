@@ -23,10 +23,9 @@
 
 
     <div class="container margin_60">
-
-               <div class="row">
-                    <div class="col-lg-12 col-md-12">
-                        <div id="filters_col">
+        <div class="row">
+            <div class="col-md-8">
+          <div id="filters_col">
                             <a data-toggle="collapse" href="#collapseFilters" aria-expanded="false" aria-controls="collapseFilters" id="filters_col_bt"><i class="icon_set_1_icon-65"></i>筛选 <i class="icon-plus-1 pull-right"></i></a>
                             <div class="collapse" id="collapseFilters">
                                 @if(isset($regionlist))
@@ -66,57 +65,52 @@
                                     <input id="select_regiond" name="region" type="hidden" value="{{$did}}">
                             </div>
                         </div>
-                        
-                    </div>
-                     </div>
-              <div class="row">
-                  <div class="col-lg-8 col-md-8">
-                      <?php $i=1; ?>
-					   @foreach($studys as $study)
-                          <div class="strip_all_tour_list wow fadeIn" data-wow-delay="0.<?php echo $i++; ?>s" >
-                              <div class="row">
-                                  <div class="col-lg-4 col-md-4 col-sm-4">
-                                      @if (!(auth()->check() &&$study->is_fav ))
-                                          <div class="wishlist"><a class="tooltip_flip tooltip-effect-1" href="javascript:void(0);" articleId="{{$study->id}}" typeid="3" title="添加到收藏">+</a></div>
-                                      @endif
-                                      <div class="img_list">
-                                          <a href="/study/{{$study->id}}">
-                                             <img src="{{$study->logo}}" alt="">
-                                              <div class="short_info">{{ isset($study->world_ranking) ? '世界排名第'.$study->world_ranking."位": '' }}</div>
-                                          </a>
-                                      </div>
-                                  </div>
-                                  <div class="clearfix visible-xs-block"></div>
-                                  <div class="col-lg-6 col-md-6 col-sm-6">
-                                      <div class="style_list_desc">
-                                          <div class="rating"></div>
-                                          <h3>{{$study->cn_name}}</h3>
-                                          <ul>
-                                              <li>英文名： {{$study->en_name}}</li>
-                                              <li>地区： {{$study->regions->name}}.{{ $study->regions_city->name}}.{{ $study->regions_district->name}}</li>
-                                              <li>费用： {{$study->fee_min}}-{{$study->fee_max}}</li>
-                                              <li>ielts： {{$study->ielts_min}}-{{$study->ielts_max}}</li>
-                                          </ul>
-                                      </div>
-                                  </div>
-                                  <div class="col-lg-2 col-md-2 col-sm-2">
-                                      <div class="price_list">
-                                          <div>
-                                              
-                                              <p><a href="/study/{{$study->id}}" class="btn_1">详情</a></p>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div><!--End strip -->
-                      @endforeach
+        <?php $i=1; ?>
+        @foreach($studys as $study)
+            <div class="strip_all_tour_list wow fadeIn" data-wow-delay="0.<?php echo $i++; ?>s" >
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-4">
+                        @if (!(auth()->check() &&$study->is_fav ))
+                            <div class="wishlist"><a class="tooltip_flip tooltip-effect-1" href="javascript:void(0);" articleId="{{$study->id}}" typeid="3" title="添加到收藏">+</a></div>
+                        @endif
+                        <div class="img_list">
+                            <a href="/study/{{$study->id}}">
+                                <img src="{{$study->logo}}" alt="">
 
-                      <hr>
-                      <div class="text-center">
-                          {{$studys->render()}}
-                      </div>
-                  </div>
-                  <aside class="col-md-4">
+                                <div class="short_info">{{ isset($study->world_ranking) ? '世界排名第'.$study->world_ranking."位": '' }}</div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="clearfix visible-xs-block"></div>
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="style_list_desc">
+                            <div class="rating"></div>
+                            <h3>{{$study->cn_name}}</h3>
+                            <ul>
+                                <li>英文名： {{$study->en_name}}</li>
+                                <li>地区： {{$study->regions->name}}.{{ $study->regions_city->name}}.{{ $study->regions_district->name}}</li>
+                                <li>费用： {{$study->fee_min}}-{{$study->fee_max}}</li>
+                                <li>ielts： {{$study->ielts_min}}-{{$study->ielts_max}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-2">
+                        <div class="price_list">
+                            <div>
+
+                                <p><a href="/study/{{$study->id}}" class="btn_1">详情</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!--End strip -->
+        @endforeach
+        <hr>
+        <div class="text-center">
+            {{$studys->render()}}
+        </div>
+         </div>
+        <aside class="col-md-4">
                       <div class="box_style_1 expose">
                           <h3 class="inner">热门房产</h3>
                           @foreach($hotpropertys as $hotproperty)
@@ -164,7 +158,8 @@
                           <small>周一 至 周五 9.00am - 7.30pm</small>
                       </div>
                   </aside>
-            </div><!-- End col lg-9 -->
+
+         </div>
         <!-- End row -->
     </div><!-- End container -->
     @endsection
@@ -184,6 +179,10 @@
         <link href='http://fonts.useso.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
 
 <style>
+
+    .strip_all_tour_list .img_list img{
+        width:320px; height: 240px;
+    }
     .main_title p {
         font-size: 14px !important;
         margin-top: 5px;
@@ -218,22 +217,11 @@
     {
         width:26.33333333%;
     }
-    .strip_all_tour_list .img_list img{
-        width:180px; height: 180px;
-    }
-    .img_list{
-        min-height:180px;
-    }
-    .tour_list_desc
-    {
-        height:180px;
-    }
+
     .price_list{
         height:160px;
     }
-    .img_list img{
-        height:160px;
-    }
+
     .room {
         width:100%;
         margin-bottom:20px;
@@ -247,17 +235,6 @@
     }
     .hold_room small {
         font-family:'Microsoft YaHei';
-    }
-    .tour_list_desc h3 {
-        margin-top:40px;
-    }
-    .tour_list_desc h3 {
-        line-height: 23px !important;
-        font-size: 14px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        height: 3em;
-        font-family:'Microsoft YaHei',Arial,sans-serif;
     }
     #top_links li a {
         /*font-weight: 600;*/
