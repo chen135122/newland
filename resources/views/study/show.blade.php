@@ -117,7 +117,9 @@
                                     </tr>
                                     <tr>
                                         <td>位置</td>
-                                        <td class="text-center">{{$study->country}}-{{ $study->city}}</td>
+                                        <td class="text-center"> {{isset($study->regions->name)? $study->regions->name:""}}
+                                            {{isset($study->regions_city->name)? $study->regions_city->name:""}}
+                                            {{isset($study->regions_district->name)? $study->regions_district->name:""}}</td>
                                     </tr>
                                     </tbody>
                                 </table>
@@ -285,14 +287,14 @@
             arry=newlocation.split(',');
         }
         else {
-            arry[0]=36.8483247;
-            arry[1]=174.7636383;
+            arry[0]=-43.5307484;
+            arry[1]=172.6303136;
         }
         var geocoder;
         var map;
         function initialize() {
             geocoder = new google.maps.Geocoder();
-            var latlng = new google.maps.LatLng(-arry[0], arry[1]);
+            var latlng = new google.maps.LatLng(arry[0], arry[1]);
             var myOptions = {
                 zoom: 10,
                 center: latlng,

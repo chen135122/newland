@@ -17,7 +17,7 @@ $('#collapseMap').on('shown.bs.collapse', function(e){
 			'item': [
 				{
 					name: 'Bella Napoli',
-					location_latitude: -arry[0],
+					location_latitude: arry[0],
 					location_longitude: arry[1],
 					//map_image_url: 'img/thumb_map_1.jpg',
 					name_point: 'Bella Napoli2',
@@ -29,7 +29,7 @@ $('#collapseMap').on('shown.bs.collapse', function(e){
 
 	var mapOptions = {
 		zoom:17,
-		center: new google.maps.LatLng(-arry[0], arry[1]),
+		center: new google.maps.LatLng(arry[0], arry[1]),
 		mapTypeId: google.maps.MapTypeId.ROADMAP,
 
 		mapTypeControl: false,
@@ -172,14 +172,14 @@ $('#collapseMap').on('shown.bs.collapse', function(e){
 				icon: '/img/address.png',
 			});
 
-			if ('undefined' === typeof markers[key])
-				markers[key] = [];
-			markers[key].push(marker);
-			google.maps.event.addListener(marker, 'click', (function () {
-				closeInfoBox();
-				getInfoBox(item).open(mapObject, this);
-				mapObject.setCenter(new google.maps.LatLng(item.location_latitude, item.location_longitude));
-			}));
+			//if ('undefined' === typeof markers[key])
+			//	markers[key] = [];
+			//markers[key].push(marker);
+			//google.maps.event.addListener(marker, 'click', (function () {
+			//	closeInfoBox();
+			////	getInfoBox(item).open(mapObject, this);
+			//	mapObject.setCenter(new google.maps.LatLng(item.location_latitude, item.location_longitude));
+			//}));
 
 		});
 
