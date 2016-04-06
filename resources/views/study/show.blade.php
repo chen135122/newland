@@ -3,9 +3,12 @@
     {{$study->cn_name}}
 @stop
 @section('content')
-
-    <section class="parallax-window" data-parallax="scroll" data-image-src="/img/single_hotel_bg_1.jpg" data-natural-width="1400" data-natural-height="470">
-        <div class="parallax-content-2">
+    @if($study->head_img)
+    <section class="parallax-window" data-parallax="scroll" data-image-src="{{$study->head_img}}" data-natural-width="1400" data-natural-height="470">
+    @else
+      <section class="parallax-window" data-parallax="scroll" data-image-src="/img/single_hotel_bg_1.jpg" data-natural-width="1400" data-natural-height="470">
+            @endif
+            <div class="parallax-content-2">
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 col-sm-8">
