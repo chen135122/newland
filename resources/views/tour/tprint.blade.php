@@ -79,7 +79,7 @@
                         <table class="table table-condensed">
                             <tbody>
                             <tr>
-                                <td style="width:50%;text-align:center;">出发时间:上海</td>
+                                <td style="width:50%;text-align:center;">行程:{{$travel->bigtitle}}</td>
                                 <td class="text-center">目的地:新西兰</td>
                             </tr>
                             <tr>
@@ -92,6 +92,10 @@
                             </tr>
                             <tr>
                                 <td>{{date("Y年n月d日", $order->start_time) }}</td>
+                                <td>支付状态:{{App\Http\Controllers\TourController::status($order->status)}}</td>
+                            </tr>
+                            <tr>
+                                <td>支付类型:{{App\Http\Controllers\TourController::paytype($order->paytype)}}</td>
                                 <td></td>
                             </tr>
                             </tbody>

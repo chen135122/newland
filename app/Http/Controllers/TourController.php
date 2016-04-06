@@ -245,7 +245,11 @@ class TourController extends Controller
         $order = NewOrder::where("sn", $trade_no)->first();
         $travel = $order->travel()->get()->first();
         $paytype = "";
-        switch ($order->paytype) {
+        $paytype= $this->paytype($order->paytype);
+        return view('tour.result')->with(compact("order", $order))->with(compact("travel", $travel))->with("msg", $msg)->with("paytype", $paytype);;
+    }
+    public static function paytype($str){
+        switch ($str) {
             case 1:
                 $paytype = "线下现金";
                 break;
@@ -259,9 +263,8 @@ class TourController extends Controller
                 $paytype = "对公账号";
                 break;
         }
-        return view('tour.result')->with(compact("order", $order))->with(compact("travel", $travel))->with("msg", $msg)->with("paytype", $paytype);;
+        return $paytype;
     }
-
     public static function status($str)
     {
         $paytype = "";
