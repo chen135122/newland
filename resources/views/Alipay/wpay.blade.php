@@ -22,7 +22,7 @@ $unifiedOrder->setParameter("body",$subject);//商品描述
 $timeStamp = time();
 $out_trade_no = WxPayConf_pub::APPID."$timeStamp";
 $unifiedOrder->setParameter("out_trade_no","$out_trade_no");//商户订单号
-$unifiedOrder->setParameter("total_fee",$price*100);//总金额
+$unifiedOrder->setParameter("total_fee",$price*100);//总金额$price*100
 $unifiedOrder->setParameter("notify_url",WxPayConf_pub::NOTIFY_URL);//通知地址
 $unifiedOrder->setParameter("trade_type","NATIVE");//交易类型
 //非必填参数，商户可根据实际情况选填
