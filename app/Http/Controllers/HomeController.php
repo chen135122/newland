@@ -10,10 +10,29 @@ use App\User;
 use Overtrue\Wechat\QRCode;
 use Overtrue\Wechat\Url;
 use App\Http\Requests;
+
 use App\Http\Controllers\Controller;
+
 class HomeController extends Controller
 {
     public function index()
+    {
+
+        $hotpropertys=$this->HotProperty(3);
+        $travels=$this->Hottravels(6);
+        $HouseCount = Property::where('status', '<>', 0)->where('status', '<>', 4)->count();
+        $travelsCount = Travel::count();
+        $allUrl=$this->url();
+        return view('home.index')->with(compact('hotpropertys','HouseCount','travels','travelsCount','allUrl'));
+    }
+
+    public function faq()
+    {
+        $allUrl=$this->url();
+        return view('home.faq')->with(compact('allUrl'));
+    }
+
+    public  static  function url()
     {
         $appId  = 'wxcf1588ee73525cea';
         $secret = '2d2e236464875cea7218559df7965b23';
@@ -27,18 +46,8 @@ class HomeController extends Controller
         $expireSeconds = $result->expire_seconds; // 有效秒数
         $url = $result->url; // 二维码图片解析后的地址，开发者可根据该地址自行生成需要的二维码图片
         $allUrl=$qrcode->show($ticket);
-        $hotpropertys=$this->HotProperty(3);
-        $travels=$this->Hottravels(6);
-        $HouseCount = Property::where('status', '<>', 0)->where('status', '<>', 4)->count();
-        $travelsCount = Travel::count();
-        return view('home.index')->with(compact('hotpropertys','HouseCount','travels','travelsCount','allUrl'));
+        return $allUrl;
     }
-
-    public function faq()
-    {
-        return view('home.faq');
-    }
-
     //热门旅游
     public function Hottravels($n)
     {
