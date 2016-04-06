@@ -152,7 +152,7 @@
                 <div class="box_style_1 expose">
                     <h3 class="inner">开发商介绍</h3>
                     <div class="row">
-                        <small>{{ $property->developers->intro}}  </small>
+                        <small> {!! $property->developers->intro !!}</small>
                     </div>
 
                 </div>
