@@ -95,30 +95,36 @@
                     </div>
                 </div>
                 <hr>
+                @if($property->peripheral_support)
                 <div class="row">
                     <div class="col-md-12" id="cates">
                         {!! $property ->peripheral_support !!}
                     </div>
                 </div>
                 <hr>
+                @endif
+                @if($property->selling_point)
                 <div class="row">
                     <div class="col-md-12"  id="xmmd">
                         {!! $property ->selling_point !!}
                     </div>
                 </div>
                 <hr>
+                @endif
                 <div class="row">
                     <div class="col-md-12"  id="ldbz">
                         {!! $property ->ensure !!}
                     </div>
                 </div>
                 <hr>
+                @if($property->investment_advantage)
                 <div class="row">
                     <div class="col-md-12" id="tzys">
                         {!! $property ->investment_advantage !!}
                     </div>
                 </div>
                 <hr>
+                @endif
                 <div class="row">
                     <div class="col-md-12" id="hyzx">
                         {!! $property ->member_services !!}

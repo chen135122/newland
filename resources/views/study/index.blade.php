@@ -218,6 +218,9 @@
     {
         width:26.33333333%;
     }
+    .strip_all_tour_list .img_list img{
+        width:180px; height: 180px;
+    }
     .img_list{
         min-height:180px;
     }
