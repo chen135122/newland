@@ -6,7 +6,7 @@
             <div class="animated fadeInDown">
                 <h1>新西兰房产</h1>
                 <br>
-                <p>我们提供新西兰最新的居民住宅，商业地产和农场买卖信息</p>
+                <p>我们提供最为保障的购房服务</p>
             </div>
         </div>
     </section><!-- End section -->
