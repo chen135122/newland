@@ -159,9 +159,8 @@
                 <div class="col-md-2  col-sm-6 col-xs-6 " >
                     <h3>关于我们</h3>
                     <ul>
-                        <li><a href="/faq">我们是谁</a></li>
+                        <li><a href="/about">我们是谁</a></li>
                         <li><a href="/faq">常见问题</a></li>
-                        <li><a href="/faq">使用条款</a></li>
                     </ul>
                 </div>
                 <div class="col-md-2 col-sm-6 col-xs-6" >

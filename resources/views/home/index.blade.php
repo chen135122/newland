@@ -186,7 +186,7 @@
             <div class="tour_container">
                 <div class="img_container">
                     <a href="tour/{{$travel->id}}">
-                        <img src="{{$travel->picurl}}" style="max-height:220px;min-height:220px;" class="img-responsive" alt="">
+                        <img src="{{$travel->picurl}}" style="max-height:220px;min-height:220px;max-width: 360px;min-width:360px;" class="img-responsive" alt="">
                         @if($travel->istop==1)) <div class="ribbon top_rated"></div> @endif
                         <div class="short_info">
                             <span class="price">￥{{$travel->referenceprice}}</span>
@@ -216,7 +216,7 @@
             <div class="hotel_container">
                 <div class="img_container">
                     <a href="/property/{{$hotproperty->id}}">
-                        <img src="{{$hotproperty->picurl}}"  class="img-responsive" alt="">
+                        <img src="{{$hotproperty->picurl}}"  style="max-height:240px;min-height:240px;max-width: 360px;min-width:360px;" class="img-responsive" alt="">
                         <div class="short_info hotel">
                             {{$hotproperty->address}}<span class="price">￥{{$hotproperty->total_price}}</span>
                         </div>

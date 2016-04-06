@@ -24,6 +24,7 @@ Route::group([ 'middleware' => ['web']], function () {
 
     Route::get('/',   '\App\Http\Controllers\HomeController@index');
     Route::get('faq', '\App\Http\Controllers\HomeController@faq');
+    Route::get('about', '\App\Http\Controllers\HomeController@about');
     Route::get('password/reset','\App\Http\Controllers\Auth\PasswordController@getReset');
 
      Route::post('password/validate_username','\App\Http\Controllers\Auth\PasswordController@validate_username');
