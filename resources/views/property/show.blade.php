@@ -339,8 +339,37 @@
         arry=newlocation.split(',');
     }
     else {
-        arry[0]=36.8483247;
-        arry[1]=174.7636383;
+        arry[0]=-43.5307484;
+        arry[1]=172.6303136;
+    }
+    var geocoder;
+    var map;
+    function initialize() {
+        geocoder = new google.maps.Geocoder();
+        var latlng = new google.maps.LatLng(arry[0], arry[1]);
+        var myOptions = {
+            zoom: 10,
+            center: latlng,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        var img = "/img/close.gif";
+
+        if (geocoder) {
+            geocoder.geocode({ 'address': address }, function (results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                    map.setCenter(results[0].geometry.location);
+                    var marker = new google.maps.Marker({
+                        map: map,
+                        position: results[0].geometry.location,
+                        title: '位置',
+                        icon: img
+
+                    });
+
+                }
+            });
+        }
+        map = new google.maps.Map(document.getElementById("collapseMap"), myOptions);
     }
     $( document ).ready(function( $ ) {
         $( '#img_carousel' ).sliderPro({
