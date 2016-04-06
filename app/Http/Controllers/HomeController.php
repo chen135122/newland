@@ -31,7 +31,11 @@ class HomeController extends Controller
         $allUrl=$this->url();
         return view('home.faq')->with(compact('allUrl'));
     }
-
+    public function about()
+    {
+        $allUrl=$this->url();
+        return view('home.about')->with(compact('allUrl'));
+    }
     public  static  function url()
     {
         $appId  = 'wxcf1588ee73525cea';
