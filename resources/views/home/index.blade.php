@@ -159,11 +159,11 @@
                     兢兢业业为您工作, 恪尽职守为您守护, 一站式管家服务, 如您亲临.
                 </p>
             </div>
-            <div class="col-md-3 col-sm-6 col-xs-6  text-center">
+            <div class="col-md-3 col-sm-6 col-xs-6  text-center"  style="cursor: pointer;" onclick="window.location='/about'">
                 <p>
-                    <img src="/img/icon-point.png" class="icon">
+                    <img src="/img/icon-aboutus.png" class="icon">
                 </p>
-                <h4><span>商城积分</span></h4>
+                <h4><span>关于我们</span></h4>
                 <p class="tp_detail">
                     无论是投资自住, 还是留学深造, 我们用专业的知识, 为您提供最优的选择.
                 </p>

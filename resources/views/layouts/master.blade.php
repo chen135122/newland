@@ -68,7 +68,7 @@
     <div class="layer"></div>
     <!-- Mobile menu overlay mask -->
     <!-- Header================================================== -->
-    <header>
+    <header class="sticky">
         <div id="top_line">
             <div class="container">
                 <div class="row">
@@ -171,23 +171,7 @@
                     </ul>
                 </div>
             </div><!-- End row -->
-            <div class="row">
-                <div class="col-md-12">
-                    <div id="social_footer">
-                        <ul>
-                            <li><a href="#"><i class="icon-facebook"></i></a></li>
-                            <li><a href="#"><i class="icon-twitter"></i></a></li>
-                            <li><a href="#"><i class="icon-google"></i></a></li>
-                            <li><a href="#"><i class="icon-instagram"></i></a></li>
-                            <li><a href="#"><i class="icon-pinterest"></i></a></li>
-                            <li><a href="#"><i class="icon-vimeo"></i></a></li>
-                            <li><a href="#"><i class="icon-youtube-play"></i></a></li>
-                            <li><a href="#"><i class="icon-linkedin"></i></a></li>
-                        </ul>
-                        <p>© All New Zealand 2016</p>
-                    </div>
-                </div>
-            </div><!-- End row -->
+
         </div><!-- End container -->
     </footer><!-- End footer -->
 <div id="toTop"></div><!-- Back to top button -->

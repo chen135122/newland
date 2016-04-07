@@ -25,7 +25,7 @@
     .main-menu > ul > li > a {
         color: #fff;
         padding: 0 8px 15px;
-        font-size: 15px;
+        font-size: 16px;
         font-family:'Microsoft YaHei';
     }
 
@@ -169,7 +169,7 @@ a.dropdown-toggle.icon-search {
         }
 
             .main-menu ul ul li a {
-                font-size: 12px;
+                font-size: 16px;
                 color: #666;
                 border-bottom: 1px solid #ededed;
                 display: block;
