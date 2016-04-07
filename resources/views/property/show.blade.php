@@ -15,7 +15,7 @@
                     </div>
                     <div class="col-md-4 col-sm-4">
                         <div id="price_single_main" class="hotel">
-                            <span><sup>NZ$</sup>{{$property ->total_price}}万起</span>
+                            <span><sup>NZ$</sup>{{$property ->total_price}}起</span>
                         </div>
                     </div>
                 </div>

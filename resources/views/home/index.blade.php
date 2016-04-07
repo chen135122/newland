@@ -218,7 +218,7 @@
                     <a href="/property/{{$hotproperty->id}}">
                         <img src="{{$hotproperty->picurl}}"  style="max-height:240px;min-height:240px;max-width: 360px;min-width:360px;" class="img-responsive" alt="">
                         <div class="short_info hotel">
-                            {{$hotproperty->address}}<span class="price">￥{{$hotproperty->total_price}}</span>
+                            {{$hotproperty->address}}<span class="price">NZ${{$hotproperty->total_price}}起</span>
                         </div>
                     </a>
                 </div>
