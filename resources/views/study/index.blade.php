@@ -82,7 +82,7 @@
                         </div>
                     </div>
                     <div class="clearfix visible-xs-block"></div>
-                    <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="col-lg-6 col-md-6 col-sm-6" style="cursor:pointer" onclick="window.location='/study/{{$study->id}}'">
                         <div class="style_list_desc">
                             <div class="rating"></div>
                             <h3>{{$study->cn_name}}</h3>

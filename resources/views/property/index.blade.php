@@ -6,7 +6,7 @@
             <div class="animated fadeInDown">
                 <h1>新西兰房产</h1>
                 <br>
-                <p>我们提供最为保障的购房服务</p>
+                <p>我们提供最完善、最有保障的购房服务</p>
             </div>
         </div>
     </section><!-- End section -->
@@ -122,7 +122,7 @@
                                 </div>
                             </div>
                             <div class="clearfix visible-xs-block"></div>
-                            <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="col-lg-6 col-md-6 col-sm-6" style="cursor:pointer" onclick="window.location='/property/{{$property->id}}'">
                                 <div class="tour_list_desc">
                                     <h3>{{$property->title}}</h3>
                                     @if(isset($property->is_Tags )  )

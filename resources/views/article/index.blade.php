@@ -38,7 +38,7 @@
                                 </div>
                             </div>
                             <div class="clearfix visible-xs-block"></div>
-                            <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="col-lg-6 col-md-6 col-sm-6" style="cursor:pointer" onclick="window.location='/news/{{$article->id}}'">
                                 <div class="tour_list_desc">
                                     <h3>{{$article->title}}</h3>
                                     <p> {!!str_limit($article->abstract,350) !!}</p>

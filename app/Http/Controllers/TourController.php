@@ -26,7 +26,7 @@ class TourController extends Controller
     public function index(Request $request)
     {
         $parames=[];
-        $travels = Travel::where("id", ">", 0);
+        $travels = Travel::where("id", ">", 0)->orderBy("displayorder","asc");
         $travels = $travels->where("status",1);
         $category=[];
         if(!empty($request->get('category')))
