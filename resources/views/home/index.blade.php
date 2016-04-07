@@ -147,7 +147,7 @@
                 </p>
                 <h4><span>国际旅游</span></h4>
                 <p class="tp_detail">
-                    从小学初中到大学, 我们提供最新的政策信息和最权威的咨询.
+                    新西兰旅游,为您提供梦幻般的旅游,体验不一样的旅程.
                 </p>
             </div>
             <div class="col-md-3 col-sm-6 col-xs-6 text-center"  style="cursor: pointer;" onclick="window.location='/study'">
@@ -156,7 +156,7 @@
                 </p>
                 <h4><span>移民留学</span></h4>
                 <p class="tp_detail">
-                    兢兢业业为您工作, 恪尽职守为您守护, 一站式管家服务, 如您亲临.
+                    从小学初中到大学, 我们提供最新的政策信息和最权威的咨询.
                 </p>
             </div>
             <div class="col-md-3 col-sm-6 col-xs-6  text-center"  style="cursor: pointer;" onclick="window.location='/about'">
@@ -176,7 +176,7 @@
 
     <div class="main_title">
         <h2>新西兰 <span>最热</span> 旅游路线</h2>
-        <p>在接下来的行程里，您可以根据实际情况合理的调整行程，我们将竭力为您打造一次被宠坏的旅行。</p>
+        <p>在接下来的行程里，您可以根据实际情况合理调整行程，在新西兰找到最棒的自己。</p>
     </div>
     <div class="row">
         <?php $i=1; ?>
@@ -257,7 +257,7 @@
         <div>
             <h3>用心服务 只为您的笑容</h3>
             <p>
-                Lorem ipsum dolor sit amet, vix erat audiam ei. Cum doctus civibus efficiantur in. Nec id tempor imperdiet deterruisset, doctus volumus explicari qui ex.
+                Attentively service for your smile.
             </p>
         </div>
     </div>

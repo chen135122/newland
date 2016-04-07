@@ -6,7 +6,7 @@
         <div class="parallax-content-1">
             <div class="animated fadeInDown">
                 <h1>新西兰旅游</h1>
-                <p>Ridiculus sociosqu cursus neque cursus curae ante scelerisque vehicula.</p>
+                <p>New Zealand Tourism</p>
             </div>
         </div>
     </section>
