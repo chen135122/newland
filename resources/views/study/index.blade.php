@@ -77,7 +77,7 @@
                             <a href="/study/{{$study->id}}">
                                 <img src="{{$study->logo}}" alt="">
 
-                                <div class="short_info">{{ isset($study->world_ranking) ? '世界排名第'.$study->world_ranking."位": '' }}</div>
+                                <div class="short_info"></div>
                             </a>
                         </div>
                     </div>
