@@ -100,7 +100,7 @@ class TourController extends Controller
             return view('home.index');
         $travelDay = $travel->day()->get(); //TravelDay::where("route_id",$travel->id);
         //$travelFeature=$travel->feature()->get();
-        $pic = $travel->travelImg()->get()->where("smalltype","1");
+        $pic = $travel->travelImg()->get();
         //$pic=$pic::all()->where(['type'=>1]);
         $appId  = 'wxcf1588ee73525cea';
         $secret = '2d2e236464875cea7218559df7965b23';

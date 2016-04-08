@@ -64,7 +64,8 @@
                 </div>
 
                 <hr>
-                <div id="ml" style="background-color: #333;font-size: 11px;margin-top:32px;">
+                <div class="row" style="margin-top:32px;">
+                <div id="ml" style="background-color: #333;font-size: 11px;">
                     <div  style="width:100%;margin-right: auto;margin-left: auto;">
                         <ul class="c_ul" style="margin: 0;padding: 0;color: #888;">
                             <li class="new_a" ><a href="#xcjj" onclick="removeClass('xcjj', this)">行程简介</a></li>
@@ -76,7 +77,7 @@
                         </ul>
                     </div>
                 </div>
-
+                </div>
                 <div class="row">
                     <div class="col-md-3" id="xcjj">
                         <h3>行程简介</h3>
@@ -160,7 +161,7 @@
                                                                 @endif
                                                              @if(count($detail->detailImg()->get())>0)
                                                                     <ul class="time_photo">
-                                                                        @foreach(($detail->detailImg()->get()->where("smalltype",2)) as $img)
+                                                                        @foreach(($detail->detailImg()->get()) as $img)
                                                                             <li>
                                                                                 <img src="{{$img->picurl}}">
                                                                                 <p style="text-align:center;padding-top:10px;font-family:'Microsoft YaHei' ">{{empty($img->title)?$travelDay[$i]->title:$img->title}}</p>

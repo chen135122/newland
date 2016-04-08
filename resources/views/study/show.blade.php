@@ -63,8 +63,8 @@
                         @endforeach
                     </div>
                 </div>
-                <div class="row">
-                    <div id="ml" style="background-color: #333;font-size: 11px;margin-top:32px;">
+                <div class="row" style="margin-top:32px;">
+                    <div id="ml" style="background-color: #333;font-size: 11px;">
                         <div style="width:100%;margin-right: auto;margin-left: auto;">
                             <ul class="c_ul" style="margin: 0;padding: 0;color: #888;">
                                 <li class="new_a"><a onclick="removeClass('xxxx', this)" href="#xxxx">学校信息</a></li>
@@ -357,12 +357,12 @@
 
     window.onscroll = function () {
         var t = document.documentElement.scrollTop || document.body.scrollTop;
-        var ml_top = $("#xxxx").offset().top;
+        var ml_top = $("#xxxx").offset().top,pad=$(".sticky").outerHeight(),mlh=$("#ml").outerHeight();
         if (t > (ml_top -143))
         {
             var width=$("#ml").width();
             var $ml = $("#ml");
-            $ml.css("position", "fixed").css("top", "30px").css("z-index", "999");
+            $ml.css("position", "fixed").css("top", pad+"px").css("z-index", "999");
             if (window.outerHeight === screen.availHeight || window.outerWidth === screen.availWidth) {
                 $ml.css("width", width+"px");
             }
