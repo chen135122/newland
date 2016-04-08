@@ -42,7 +42,7 @@
 
                 <p class="visible-sm visible-xs"><a class="btn_map" data-toggle="collapse" href="#collapseMap" aria-expanded="false" aria-controls="collapseMap">查看地图</a></p><!-- Map button for tablets/mobiles -->
 
-                <div id="img_carousel" class="slider-pro">
+                <div id="img_carousel" class="slider-pro" style="margin-bottom: 32px;">
                     <div class="sp-slides">
                         @foreach($pic as $p)
                             <div class="sp-slide">
@@ -64,7 +64,7 @@
                 </div>
 
                 <hr>
-                <div id="ml" style="background-color: #333;font-size: 11px;margin-top:32px;">
+                <div id="ml" style="background-color: #333;font-size: 11px;">
                     <div  style="width:100%;margin-right: auto;margin-left: auto;">
                         <ul class="c_ul" style="margin: 0;padding: 0;color: #888;">
                             <li class="new_a" ><a href="#xcjj" onclick="removeClass('xcjj', this)">行程简介</a></li>
@@ -76,6 +76,7 @@
                         </ul>
                     </div>
                 </div>
+
                 <div class="row">
                     <div class="col-md-3" id="xcjj">
                         <h3>行程简介</h3>
@@ -90,6 +91,7 @@
 
                     </div>
                 </div>
+                <hr>
                 <div class="row">
                     <div class="col-md-3" id="cpts">
                         <h3>产品特色</h3>
