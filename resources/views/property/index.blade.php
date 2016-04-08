@@ -23,88 +23,8 @@
 
 
     <div class="container margin_60">
-
-        <div class="row">
-            <div class="col-lg-12 col-md-12">
-                <div id="filters_col">
-                    <a data-toggle="collapse" href="#collapseFilters" aria-expanded="false" aria-controls="collapseFilters" id="filters_col_bt"><i class="icon_set_1_icon-65"></i>筛选 <i class="icon-plus-1 pull-right"></i></a>
-                    <div class="collapse" id="collapseFilters">
-                        <div class="filter_type">
-                            <h6>价格</h6>
-                            <input type="text" id="range" name="range" value="">
-                        </div>
-                        <input type="hidden" value="{{$minprice}}" name="price[]" id="min_price" class="rangeSlider" >
-                        <input type="hidden" value="{{$maxprice}}" name="price[]" id="max_price" class="rangeSlider" >
-                        @if(isset($regionlist))
-                        <div class="filter_type regionA">
-                            <h6>地区</h6>
-                            <ul>
-                                @foreach($regionlist as $region )
-                                <li ><label><a href="javascript:void(0);" rel="{{$region->id}}" {!!($rid==$region->id) ?'class="btn_1" style="padding:3px 10px;"':"" !!}>{{$region->name}}</a></label></li>
-                                @endforeach
-                            </ul>
-                        </div>
-                        @endif
-
-                        @if(isset($regionclist))
-                        <div class="filter_type regionC">
-                            <h6>城市</h6>
-                            <ul>
-                               @foreach($regionclist as $region )
-                                    <li><label><a href="javascript:void(0);"  rel="{{$region->id}}" {!!($cid==$region->id) ?'class="btn_1" style="padding:3px 10px;"':"" !!}>{{$region->name}}</a></label></li>
-                                @endforeach
-
-                            </ul>
-                        </div>
-                        @endif
-                        @if(isset($regiondlist))
-                        <div class="filter_type regionD">
-                            <h6>城镇</h6>
-                            <ul>
-                                 @foreach($regiondlist as $region )
-                                    <li><label><a href="javascript:void(0);"  rel="{{$region->id}}" {!!($did==$region->id) ?'class="btn_1" style="padding:3px 10px;"':"" !!}>{{$region->name}}</a></label></li>
-                                @endforeach
-                            </ul>
-                        </div>
-                        @endif
-                        <div class="filter_type htype">
-                            <h6>类型</h6>
-                            <ul>
-                                <li><label><a href="javascript:void(0);" rel="0"  {!!($type==0) ?'class="btn_1" style="padding:3px 10px;"':"" !!}>全部</a></label></li>
-                                <li><label><a href="javascript:void(0);" rel="1"  {!!($type==1) ?'class="btn_1" style="padding:3px 10px;"':"" !!}>独立别墅</a></label></li>
-                                <li><label><a href="javascript:void(0);" rel="2"   {!!($type==2) ?'class="btn_1" style="padding:3px 10px;"':"" !!}>公寓</a></label></li>
-                                <li><label><a href="javascript:void(0);" rel="3"  {!!($type==3) ?'class="btn_1" style="padding:3px 10px;"':"" !!}>单元房</a></label></li>
-                                <li><label><a href="javascript:void(0);" rel="4"  {!!($type==4) ?'class="btn_1" style="padding:3px 10px;"':"" !!}>城市屋</a></label></li>
-                                <li><label><a href="javascript:void(0);" rel="5"  {!!($type==5) ?'class="btn_1" style="padding:3px 10px;"':"" !!} >排房</a></label></li>
-                                <li><label><a href="javascript:void(0);" rel="6"  {!!($type==6) ?'class="btn_1" style="padding:3px 10px;"':"" !!}>建地</a></label></li>
-                                <li><label><a href="javascript:void(0);" rel="7"   {!!($type==7) ?'class="btn_1" style="padding:3px 10px;"':"" !!}>Home</a></label></li>
-                                <li><label><a href="javascript:void(0);" rel="8"  {!!($type==8) ?'class="btn_1" style="padding:3px 10px;"':"" !!}>乡村别墅</a></label></li>
-                                <li><label><a href="javascript:void(0);" rel="9"  {!!($type==9) ?'class="btn_1" style="padding:3px 10px;"':"" !!}>乡村住宅建地</a></label></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <input id="select_region" name="region" type="hidden" value="{{$rid}}">
-                    <input id="select_regionc" name="region" type="hidden" value="{{$cid}}">
-                    <input id="select_regiond" name="region" type="hidden" value="{{$did}}">
-                    <input id="select_type" name="type" type="hidden" value="{{$type}}">
-                </div>
-            </div>
-        </div>
         <div class="row">
             <div class="col-md-8">
-                <div id="tools">
-                    <div class="row">
-                        <div class="col-md-3 col-sm-3 col-xs-6">
-                            <div class="styled-select-filters">
-                                <select name="sort_price" id="sort_price">
-                                    <option value="" <?php isset($sortPrice)? "selected":'' ?>>价格排序</option>
-                                    <option value="lower" <?php isset($sortPrice)&&($sortPrice=='lower')? "selected":'' ?>>从低到高</option>
-                                    <option value="higher" <?php isset($sortPrice)&&($sortPrice=='higher')? "selected":'' ?>>从高到低</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                </div><!--/tools -->
                 <?php $i=1; ?>
                 @foreach($properties as $property)
                     <div class="strip_all_tour_list wow fadeIn" data-wow-delay="0.<?php echo $i++; ?>s">
