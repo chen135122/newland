@@ -64,8 +64,7 @@
                 </div>
 
                 <hr>
-                <div class="row" style="margin-top:32px;">
-                <div id="ml" style="background-color: #333;font-size: 11px;">
+                <div id="ml" style="background-color: #333;font-size: 11px;margin-top:32px;">
                     <div  style="width:100%;margin-right: auto;margin-left: auto;">
                         <ul class="c_ul" style="margin: 0;padding: 0;color: #888;">
                             <li class="new_a" ><a href="#xcjj" onclick="removeClass('xcjj', this)">行程简介</a></li>
@@ -76,7 +75,6 @@
                             {{--<li><a href="#zxpl" onclick="removeClass('zxpl', this)">评论区域</a></li>--}}
                         </ul>
                     </div>
-                </div>
                 </div>
                 <div class="row">
                     <div class="col-md-3" id="xcjj">
