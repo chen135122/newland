@@ -93,6 +93,7 @@
                     </div>
                 </div>
                 <hr>
+                <div id="lightgallery">
                 <div class="row">
                     <div class="col-md-12"  id="intro">
                        {!! $property ->description !!}
@@ -115,6 +116,7 @@
                 </div>
                 <hr>
                 @endif
+                </div>
                 <div class="row">
                     <div class="col-md-12"  id="ldbz">
                         {!! $property ->ensure !!}
@@ -216,6 +218,9 @@
 <link href="/css/date_time_picker.css" rel="stylesheet">
 <link href="/css/owl.carousel.css" rel="stylesheet">
 <link href="/css/owl.theme.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="/css/default.css">
+    <link href="/dist/css/lightgallery.css" rel="stylesheet">
     <style>
         .main_title p {
             font-size: 14px !important;
@@ -446,28 +451,25 @@
         document.documentElement.scrollTop = document.body.scrollTop = $(thisId).offset().top-100-64;// - oBtn.offsetHeight;
         ev.preventDefault();
     }
-{{--var locationX=parseFloat({{$locationX}});--}}
-{{--var locationY=parseFloat({{$locationY}});--}}
-//alert(typeof(locationX));
-//    alert(locationX);
-////            center: {lat:locationX, lng:locationY},
-//    alert(locationY);
-//    function initMap() {
-//        map = new google.maps.Map(document.getElementById('map'), {
-//
-//            center: {lat: -45.023564, lng: 168.9689589},
-//            zoom: 8
-//        });
-//    }
-//    $(document).ready(function(){
-//        $(".carousel").owlCarousel({
-//            items : 4,
-//            itemsDesktop : [1199,3],
-//            itemsDesktopSmall : [979,3]
-//        });
-//        console.debug($(".carousel"));
-//    });
 </script>
-<!--Review modal validation -->
+    <script>window.jQuery || document.write('<script src="js/jquery-2.1.1.min.js"><\/script>')</script>
 
+
+    <script src="/js/picturefill.min.js"></script>
+    <script src="/dist/js/lightgallery.js"></script>
+    <script src="/dist/js/lg-fullscreen.js"></script>
+    <script src="/dist/js/lg-autoplay.js"></script>
+    <script src="/dist/js/lg-zoom.js"></script>
+    <script src="/dist/js/lg-hash.js"></script>
+    <script src="/dist/js/lg-pager.js"></script>
+    <script src="/js/jquery.mousewheel.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#lightgallery').find("img").each(function(){
+                $(this).attr("data-src",$(this).attr("src"))
+            });
+            $('#lightgallery').lightGallery();
+
+        });
+    </script>
 @endpush
