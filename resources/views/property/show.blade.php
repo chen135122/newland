@@ -466,7 +466,8 @@
     <script type="text/javascript">
         $(document).ready(function(){
             $('#lightgallery').find("img").each(function(){
-                $(this).attr("data-src",$(this).attr("src"))
+                $(this).css("cursor","pointer");
+                $(this).attr("data-src",$(this).attr("src"));
             });
             $('#lightgallery').lightGallery();
 
