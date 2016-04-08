@@ -5,7 +5,7 @@
 
 <!-- Mobile menu overlay mask -->
 <!-- Header================================================== -->
-<section class="parallax-window" data-parallax="scroll" data-image-src="img/home_bg_1.jpg" data-natural-width="1400" data-natural-height="470">
+<section class="parallax-window" data-parallax="scroll" data-image-src="img/banner_partner.jpg" data-natural-width="1400" data-natural-height="470">
     <div class="parallax-content-1">
         <div class="animated fadeInDown">
             <h1>合作伙伴</h1>

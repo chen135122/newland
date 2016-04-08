@@ -70,41 +70,17 @@
     </div>
     <!-- End Preload -->
     <div class="layer"></div>
-    <!-- Mobile menu overlay mask -->
     <!-- Header================================================== -->
     <header>
-        <div id="top_line">
-            <div class="container">
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6 col-xs-6"><i class="icon-phone"></i><strong>025-58761818</strong></div>
-                        <div class="col-md-6 col-sm-6 col-xs-6">
-                            <ul id="top_links">
-                                <li>
-                                    <div class="dropdown dropdown-access">
-                                        @if (auth()->user())
-                                            <a href="/percenter"> {{auth()->user()->mobile}}</a> |
-                                            <a href="/auth/logout"> 退出 </a>
-                                        @else
-                                            <a href="/auth/login"  id="access_link">登录</a>
-                                        @endif
-                                    </div>
-                                </li>
-                                <li><a href="/percenter" id="wishlist_link">收藏<span class="wishlist-num"></span></a></li>
-
-                            </ul>
-                        </div>
-                    </div><!-- End row -->
-                </div><!-- End container-->
-        </div>
         <div class="header_bg">
          <div class="container">
             <div class="row">
-                <div class="col-md-3 col-sm-3 col-xs-3" style="width:35%;">
+                <div class="col-md-2 col-sm-2 col-xs-3" style="width:25%;">
                     <div id="logo">
                          <a href="/"><img src="/img/logo_sticky.png" height="45" alt="All IN New Zealand" data-retina="true" class="logo_sticky"></a>
                     </div>
                 </div>
-                <nav class="col-md-9 col-sm-9 col-xs-9" style="width:65%;">
+                <nav class="col-md-8 col-sm-9 col-xs-9" style="width:65%;">
                     <a class="cmn-toggle-switch cmn-toggle-switch__htx open_close" href="javascript:void(0);"><span>Menu mobile</span></a>
                     <div class="main-menu">
                         <div id="header_menu">
@@ -152,6 +128,22 @@
                         </ul>
                     </div><!-- End main-menu -->
                 </nav>
+                <div class="col-md-1 col-sm-1 col-xs-6">
+                    <ul id="top_links">
+                        <li>
+                            <div class="dropdown dropdown-access">
+                                @if (auth()->user())
+                                    <a href="/percenter"> {{auth()->user()->mobile}}</a> |
+                                    <a href="/auth/logout"> 退出 </a>
+                                @else
+                                    <a href="/auth/login"  id="access_link">登录</a>
+                                @endif
+                            </div>
+                        </li>
+                        <li><a href="/percenter" id="wishlist_link">收藏<span class="wishlist-num"></span></a></li>
+
+                    </ul>
+                </div>
             </div>
         </div>
         </div>

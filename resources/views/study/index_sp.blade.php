@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('title')新西兰留学-中小学@stop
 @section('content')
-    <section class="parallax-window" data-parallax="scroll" data-image-src="img/hotels_bg.jpg" data-natural-width="1400" data-natural-height="470">
+    <section class="parallax-window" data-parallax="scroll" data-image-src="img/banner_01_krtr.jpg" data-natural-width="1400" data-natural-height="470">
         <div class="parallax-content-1">
             <div class="animated fadeInDown">
                 <h1>新西兰留学</h1>

@@ -380,7 +380,7 @@ a.btn_full_outline:hover {
 
 header {
     z-index: 99999;
-    padding: 5px 0;
+    padding:0;
 }
 
     header#plain, header.sticky {
@@ -414,7 +414,7 @@ header {
     }
 
 .sticky nav {
-    margin-top: 10px;
+    /*margin-top: 10px;*/
 }
 
 .sticky #logo {
@@ -435,7 +435,7 @@ ul#top_tools {
     }
 
 #top_line, ul#top_links a {
-    color: #fff;
+    color: #5a5a5a;
 }
 
 ul#top_tools li {
@@ -454,7 +454,7 @@ ul#top_tools li {
 }
 
 ul#top_links {
-    margin: 0;
+    margin-top: 10px;
     padding: 0;
     float: right;
 }
@@ -485,9 +485,6 @@ a#access_link, a#wishlist_link {
 
 ul#top_links li {
     display: inline-block;
-    border-left: 1px solid rgba(255,255,255,.3);
-    margin-right: 5px;
-    padding-left: 8px;
 }
 
     ul#top_links li:first-child {
