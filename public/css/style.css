@@ -389,7 +389,7 @@ header {
     }
 
         header #logo .logo_sticky, header.sticky #logo .logo_normal {
-            display: none;
+            /*display: none;*/
         }
 
         header.sticky #logo .logo_sticky {
@@ -449,7 +449,6 @@ ul#top_tools li {
     font-size: 11px;
     visibility: visible;
     opacity: 1;
-    margin-bottom: 5px;
     position: relative;
     z-index: 999999;
 }

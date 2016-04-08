@@ -39,10 +39,6 @@
             height:36px;
             overflow:hidden;
         }
-        .col-md-4 p {
-            font-size:14px;
-            color:coral;
-        }
         .col-md-3 > h4 span {
             color:lightcoral;
         }

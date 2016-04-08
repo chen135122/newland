@@ -45,6 +45,10 @@
         .main-menu ul li{
             margin-left:15px;
         }
+
+        .header_bg {background-image: url("http://tpl-b207a0dc.pic26.websiteonline.cn/upload/bj_xzdv.png")};
+        .sticky .header_bg{ background: none;}
+        p.footer_l{ font-size: 13px;line-height: 28px; color:#000;}
     </style>
 
     @stack('style')
@@ -68,36 +72,36 @@
     <div class="layer"></div>
     <!-- Mobile menu overlay mask -->
     <!-- Header================================================== -->
-    <header class="sticky">
+    <header>
         <div id="top_line">
             <div class="container">
-                <div class="row">
-                    <div class="col-md-6 col-sm-6 col-xs-6"><i class="icon-phone"></i><strong>025-58761818</strong></div>
-                    <div class="col-md-6 col-sm-6 col-xs-6">
-                        <ul id="top_links">
-                            <li>
-                                <div class="dropdown dropdown-access">
-                                    @if (auth()->user())
-                                        <a href="/percenter"> {{auth()->user()->mobile}}</a> |
-                                        <a href="/auth/logout"> 退出 </a>
-                                    @else
-                                        <a href="/auth/login"  id="access_link">登录</a>
-                                    @endif
-                                </div>
-                            </li>
-                            <li><a href="/percenter" id="wishlist_link">收藏<span class="wishlist-num"></span></a></li>
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 col-xs-6"><i class="icon-phone"></i><strong>025-58761818</strong></div>
+                        <div class="col-md-6 col-sm-6 col-xs-6">
+                            <ul id="top_links">
+                                <li>
+                                    <div class="dropdown dropdown-access">
+                                        @if (auth()->user())
+                                            <a href="/percenter"> {{auth()->user()->mobile}}</a> |
+                                            <a href="/auth/logout"> 退出 </a>
+                                        @else
+                                            <a href="/auth/login"  id="access_link">登录</a>
+                                        @endif
+                                    </div>
+                                </li>
+                                <li><a href="/percenter" id="wishlist_link">收藏<span class="wishlist-num"></span></a></li>
 
-                        </ul>
-                    </div>
-                </div><!-- End row -->
-            </div><!-- End container-->
-        </div><!-- End top line-->
-        <div class="container">
+                            </ul>
+                        </div>
+                    </div><!-- End row -->
+                </div><!-- End container-->
+        </div>
+        <div class="header_bg">
+         <div class="container">
             <div class="row">
                 <div class="col-md-3 col-sm-3 col-xs-3" style="width:35%;">
                     <div id="logo">
-                        <a href="/"><img src="/img/logo2.png" height="55" alt="All IN New Zealand" data-retina="true" class="logo_normal"></a>
-                        <a href="/"><img src="/img/logo_sticky.png" height="45" alt="All IN New Zealand" data-retina="true" class="logo_sticky"></a>
+                         <a href="/"><img src="/img/logo_sticky.png" height="45" alt="All IN New Zealand" data-retina="true" class="logo_sticky"></a>
                     </div>
                 </div>
                 <nav class="col-md-9 col-sm-9 col-xs-9" style="width:65%;">
@@ -137,38 +141,46 @@
 
                             </li>
                             <li class="submenu">
-                                <a href="javascript:void(0);" class="show-submenu"> <!--<i class="icon_set_1_icon-14"></i>--> 管家服务 </a>
+                                <a href="/about" class="show-submenu">关于我们 <i class="icon-down-open-mini"></i></a>
+                                <ul>
+                                    <li  style="margin-left: 0px;"><a href="/about">关于我们</a></li>
+                                    <li  style="margin-left: 0px;"><a href="/partner">合作伙伴</a></li>
+                                    <li  style="margin-left: 0px;"><a href="/faq">常见问题</a></li>
+                                </ul>
+
                             </li>
                         </ul>
                     </div><!-- End main-menu -->
                 </nav>
             </div>
-        </div><!-- container -->
-    </header><!-- End Header -->
+        </div>
+        </div>
+    </header>
 
 @yield('content')
 
   <footer>
         <div class="container">
             <div class="row">
-                <div class="col-md-4 col-sm-12 col-xs-12 ">
-                    <h3>需要帮助?</h3>
-                    <span  class="phone">+025-58761818</span>
-                    <a href="mailto:services@allinnewzealand.com" class="email_footer">services@allinnewzealand.com</a>
+                <div class="col-md-3 col-sm-12 col-xs-12 ">
+                    <img src="/img/logo_sticky.png" height="60" alt="All IN New Zealand" data-retina="true" class="logo_sticky">
                 </div>
-                <div class="col-md-2  col-sm-6 col-xs-6 " >
-                    <h3>关于我们</h3>
-                    <ul>
-                        <li><a href="/about">我们是谁</a></li>
-                        <li><a href="/faq">常见问题</a></li>
-                    </ul>
+                <div class="col-md-6  col-sm-6 col-xs-6 " >
+                    <p class="footer_l">
+                    客服热线：025-58761818 邮箱：services@allinnewzealand.com<br/>
+                    地址：江苏省南京市鼓楼区广州路189号民防大厦801<br/>
+                    几维说kiwi say 版权所有  备案号：000000000
+                    </p>
+                 {{--<li><a href="/faq">常见问题</a></li>--}}
+
                 </div>
-                <div class="col-md-2 col-sm-6 col-xs-6" >
-                    <h3>其他内容</h3>
-                    <ul>
-                        <li><a href="/news">最新资讯</a></li>
-                        <li><a href="/property">热门房产</a></li>
-                    </ul>
+                <div class="col-md-3 col-sm-6 col-xs-6" >
+                    <img src="/img/showqrcode.jpg" width="100" height="100"/>
+                    {{--<ul class="workmate">--}}
+                        {{--<li><img src="/img/icon-tencent.png"></li>--}}
+                        {{--<li><img src="/img/icon-wanguo.png"></li>--}}
+                        {{--<li><img src="/img/icon-xinjia.png"></li>--}}
+                    {{--</ul>--}}
                 </div>
             </div><!-- End row -->
 

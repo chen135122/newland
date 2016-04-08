@@ -10,16 +10,16 @@ $(window).load(function() { // makes sure the whole site is loaded
 /* ==============================================
 	Sticky nav
 =============================================== */
-//$(window).scroll(function(){
-//    'use strict';
-//    $('header').addClass("sticky");
-    //if ($(this).scrollTop() > 1){
-    //    $('header').addClass("sticky");
-    //}
-    //else{
-    //    $('header').removeClass("sticky");
-    //}
-//});
+$(window).scroll(function(){
+    'use strict';
+    $('header').addClass("sticky");
+    if ($(this).scrollTop() > 1){
+        $('header').addClass("sticky");
+    }
+    else{
+        $('header').removeClass("sticky");
+    }
+});
 
 /* ==============================================
 	Menu
