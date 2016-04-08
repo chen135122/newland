@@ -75,7 +75,7 @@
         <div class="header_bg">
          <div class="container">
             <div class="row">
-                <div class="col-md-2 col-sm-2 col-xs-3" style="width:25%;">
+                <div class="col-md-2 col-sm-2 col-xs-3">
                     <div id="logo">
                          <a href="/"><img src="/img/logo_sticky.png" height="45" alt="All IN New Zealand" data-retina="true" class="logo_sticky"></a>
                     </div>
@@ -128,21 +128,16 @@
                         </ul>
                     </div><!-- End main-menu -->
                 </nav>
-                <div class="col-md-1 col-sm-1 col-xs-6">
-                    <ul id="top_links">
-                        <li>
-                            <div class="dropdown dropdown-access">
-                                @if (auth()->user())
-                                    <a href="/percenter"> {{auth()->user()->mobile}}</a> |
+                <div class="col-md-2 col-sm-1 col-xs-6">
+                    <div class="top_links">
+                      @if (auth()->user())
+                                    <a href="/percenter"> {{auth()->user()->mobile}}</a>
                                     <a href="/auth/logout"> 退出 </a>
                                 @else
                                     <a href="/auth/login"  id="access_link">登录</a>
                                 @endif
-                            </div>
-                        </li>
-                        <li><a href="/percenter" id="wishlist_link">收藏<span class="wishlist-num"></span></a></li>
-
-                    </ul>
+                      <a href="/percenter" id="wishlist_link">收藏<span class="wishlist-num"></span></a>
+                    </div>
                 </div>
             </div>
         </div>
