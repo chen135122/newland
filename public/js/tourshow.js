@@ -130,7 +130,7 @@ window.onscroll = function () {
             }
         }
     }
-var height=$(".sticky").height(),pad=$(".sticky").outerHeight(),mlh=$("#ml").outerHeight();
+var height=$(".sticky").height(),pad=$(".sticky").outerHeight(),mlh=$("#ml").height();
     if (t > (top -100)) {
         var $xingc = $("#xingc");
         $xingc.css("position", "fixed").css("top", (pad+mlh)+"px").css("z-index", "9999");
