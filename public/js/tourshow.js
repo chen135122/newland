@@ -179,7 +179,7 @@ window.onscroll = function () {
     }
 }
 $(function () {
-    $("#tour_d div.form_title").each(function(){
+    $("#tour_d .form_title").each(function(){
         var topset=$(this).offset().top;
         arry.push(topset);
     });

@@ -665,6 +665,10 @@
 <script type="text/javascript" src="/js/uiMorphingButton_fixed.js"></script>
 <script type="text/javascript" src="/js/tourshow.js"></script>
 <script>
+    $(function(){
+        var per= 0,j=1;
+        per=j;
+    })
     function linkto(){
         var date=new Date($("#start_date").val());
         date.setDate(date.getDate()+1);

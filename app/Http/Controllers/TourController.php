@@ -54,14 +54,16 @@ class TourController extends Controller
             $travels = $travels->whereBetween('referenceprice', $price);
             $parames["price"]=$request->get('price');
         }
-        if ($request->get('category')) {
-            $travels = $travels->WhereIn('catid', $category);
-            $parames["category"]=$request->get('category');
+        if ($request->get("category")) {
+            $travels = $travels->WhereIn("catid", $category);
+            $parames["category"]=$request->get("category");
         }
 
-        $travels=$travels->paginate(5)->appends($parames);
-        $travelCategorys = TravelCategory::where('parentid', 0)->where("name", "like", '%' . '旅游' . '%')->first();
-        $categorys = TravelCategory::all()->where("parentid", $travelCategorys->id);
+        $travels=$travels->paginate(10)->appends($parames);
+        $travelCategorys = TravelCategory::where("parentid", 0)->where("name", "like", "%" . "旅游" . "%")->first();
+        $categorys = TravelCategory::all();
+        $id=$travelCategorys->id;
+        $categorys=$categorys->where("parentid",strval($id));
         $maxprice = Travel::where("id", ">", 0)->orderBy("referenceprice", "desc")->first()->referenceprice;
         if (!empty($price)) {
             $minprice = $price[0];
@@ -83,8 +85,8 @@ class TourController extends Controller
         $url = $result->url; // 二维码图片解析后的地址，开发者可根据该地址自行生成需要的二维码图片
         $allUrl=$qrcode->show($ticket);
         $rand= random_int(0,count($travels)-1);
-        return view('tour.index')->with(compact('travels'))->with(compact('categorys'))->with(compact('category'))
-            ->with(["maxprice" => $maxprice, "minprice" => $minprice, "toprice" => $toprice, "sortprice" => $sortprice,'allUrl'=>$allUrl,'rand'=>$rand]);
+        return view('tour.index')->with(compact("travels","categorys","category","travelCategorys"))
+            ->with(["maxprice" => $maxprice, "minprice" => $minprice, "toprice" => $toprice, "sortprice" => $sortprice,"allUrl"=>$allUrl,"rand"=>$rand]);
 
     }
 
@@ -98,7 +100,7 @@ class TourController extends Controller
             return view('home.index');
         $travelDay = $travel->day()->get(); //TravelDay::where("route_id",$travel->id);
         //$travelFeature=$travel->feature()->get();
-        $pic = $travel->travelImg()->get()->where("smalltype", 1);
+        $pic = $travel->travelImg()->get()->where("smalltype","1");
         //$pic=$pic::all()->where(['type'=>1]);
         $appId  = 'wxcf1588ee73525cea';
         $secret = '2d2e236464875cea7218559df7965b23';
@@ -112,8 +114,7 @@ class TourController extends Controller
         $expireSeconds = $result->expire_seconds; // 有效秒数
         $url = $result->url; // 二维码图片解析后的地址，开发者可根据该地址自行生成需要的二维码图片
         $allUrl=$qrcode->show($ticket);
-        return view('tour.show')->with(compact('travel'))->with(compact("travelDay", $travelDay))->with(compact('pic','allUrl'))
-            ->with(compact('Lastedarticle', $Lastedarticle))->with(compact('hotpropertys', $hotpropertys));
+        return view('tour.show')->with(compact("travel","travelDay","pic","allUrl","Lastedarticle","hotpropertys"));
         //->with(compact("travelFeature",$travelFeature));
     }
 
