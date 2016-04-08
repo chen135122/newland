@@ -67,31 +67,6 @@
     <div class="layer"></div>
     <!-- Mobile menu overlay mask -->
     <!-- Header================================================== -->
-    <header>
-        <div id="top_line">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 col-sm-6 col-xs-6"><i class="icon-phone"></i><strong>025-58761818</strong></div>
-                    <div class="col-md-6 col-sm-6 col-xs-6">
-                        <ul id="top_links">
-                            <li>
-                                <div class="dropdown dropdown-access">
-                                    @if (auth()->user())
-                                        <a href="/percenter"> {{auth()->user()->mobile}}</a> |
-                                        <a href="/auth/logout"> 退出 </a>
-                                    @else
-                                     <a href="/auth/login" class="dropdown-toggle" data-toggle="dropdown" id="access_link">登录</a>
-                                    @endif
-                                </div>
-                            </li>
-                            <li><a href="/percenter" id="wishlist_link">收藏<span class="wishlist-num"></span></a></li>
-                        </ul>
-                    </div>
-                </div><!-- End row -->
-            </div><!-- End container-->
-        </div><!-- End top line-->
-
-    </header><!-- End Header -->
 
 @yield('content')
 <footer>

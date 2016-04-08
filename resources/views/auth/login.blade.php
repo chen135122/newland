@@ -1,7 +1,11 @@
 @extends('layouts.login')
 
 @section('content')
+
     <section id="hero" class="login">
+        <div style="text-align: left;">
+        <img onclick="window.location='/'" src="/img/logo_sticky.png" height="45" style="margin: 20px 0 0 40px;cursor: pointer;">
+        </div>
         <div class="container">
             <div class="row">
                 <div class="col-md-5 col-md-offset-3 col-sm-5 col-sm-offset-3">
