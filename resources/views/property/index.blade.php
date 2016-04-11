@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('title')新西兰房产@stop
 @section('content')
-    <section class="parallax-window" data-parallax="scroll" data-image-src="/img/hotels_bg.jpg" data-natural-width="1400" data-natural-height="470">
+    <section class="parallax-window" data-parallax="scroll" data-image-src="/img/house_bg.jpg" data-natural-width="1400" data-natural-height="470">
         <div class="parallax-content-1">
             <div class="animated fadeInDown">
                 <h1>新西兰房产</h1>
@@ -59,7 +59,7 @@
                             <div class="col-lg-2 col-md-2 col-sm-2">
                                 <div class="price_list">
                                     <div>
-                                        <span class="price">NZ$<br/>{{$property->total_price}}起</span><span class="normal_price_list"></span><small>总价</small>
+                                        <span class="price_mod">NZ$<span class="price">{{$property->total_price}}</span>起</span><small>总价</small>
                                         <p><a href="/property/{{$property->id}}" class="btn_1">详情</a></p>
                                     </div>
                                 </div>
@@ -182,7 +182,7 @@
         .hold_room small {
             font-family:'Microsoft YaHei';
         }
-        .price_list .price{ font-size: 22px;}
+        .price_list .price{ margin-top: 5px;}
     </style>
 @endpush
 
@@ -191,10 +191,6 @@
     <!-- Check and radio inputs -->
     <script src="/js/icheck.js"></script>
     <script>
-        $('input').iCheck({
-            checkboxClass: 'icheckbox_square-grey',
-            radioClass: 'iradio_square-grey'
-        });
         var cutStr= function (str) {
             var newStr = new Array(str.length + parseInt(str.length / 3));
             var strArray = str.split("");
@@ -217,33 +213,17 @@
             }
             return newStr.join("")
         }
-        function su()
-        {
 
-            $("#min_price").val($(".irs-from").text().split('$')[1].replace(" ",""));
-            $("#max_price").val($(".irs-to").text().split('$')[1].trim().replace(" ",""));
-            form1.submit();
-        }
+
         $(function () {
-            'use strict';
-            $("#range").ionRangeSlider({
-                hide_min_max: true,
-                keyboard: true,
-                min: 0,
-                max:'{{$maxprice}}',
-                from: '{{$minprice}}',
-                to: '{{$toprice}}',
-                type: 'double',
-                step: 1,
-                prefix: "$",
-                grid: true
-            });
+            $(".price").each(function () {
 
-        });
+                var newPrice= $(this).text();
+                    newPrice = cutStr(newPrice);
+                    $(this).text(newPrice);
+            })
+        })
     </script>
-
-    <script src="/js/vue.min.js"></script>
-    <script src="/js/select.js"></script>
     <script type="text/javascript" charset="utf-8" src="/js/artdialog/dialog-plus-min.js"></script>
     <script type="text/javascript" src="/js/jQuery-Add-Favorites.js"></script>
     <script type="text/javascript">

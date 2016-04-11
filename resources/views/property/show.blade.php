@@ -3,7 +3,7 @@
     {{$property ->title}}
 @stop
 @section('content')
-    <section class="parallax-window" data-parallax="scroll" data-image-src="/img/single_hotel_bg_1.jpg" data-natural-width="1400" data-natural-height="470">
+    <section class="parallax-window" data-parallax="scroll" data-image-src="/img/house_bg.jpg" data-natural-width="1400" data-natural-height="470">
         <div class="parallax-content-2">
             <div class="container">
                 <div class="row">
@@ -15,7 +15,7 @@
                     </div>
                     <div class="col-md-4 col-sm-4">
                         <div id="price_single_main" class="hotel">
-                            <span><sup>NZ$</sup>{{$property ->total_price}}起</span>
+                            <div><sup>NZ$</sup><span class="price">{{$property ->total_price}}</span>起</div>
                         </div>
                     </div>
                 </div>
@@ -472,5 +472,34 @@
             $('#lightgallery').lightGallery();
 
         });
+        var cutStr= function (str) {
+            var newStr = new Array(str.length + parseInt(str.length / 3));
+            var strArray = str.split("");
+            newStr[newStr.length - 1] = strArray[strArray.length - 1];
+            var currentIndex = strArray.length - 1;
+            for (var i = newStr.length - 1; i >= 0; i--) {
+                if ((newStr.length - i) % 4 == 0) {
+                    if (i == 0)
+                    {
+                        if ((str.length % 3) != 0)
+                            newStr[i] = ",";
+                        else
+                            continue;
+                    }
+                    newStr[i] = ",";
+                }
+                else {
+                    newStr[i] = strArray[currentIndex--];
+                }
+            }
+            return newStr.join("")
+        }
+        $(function () {
+            $(".price").each(function () {
+                var newPrice=$(this).text();
+                    newPrice = cutStr(newPrice);
+                    $(this).text(newPrice);
+            })
+        })
     </script>
 @endpush

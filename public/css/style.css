@@ -1321,7 +1321,7 @@ ul#cat_nav {
         vertical-align: middle;
         text-align: center;
     }
-
+.price_list .price_mod{font-size: 16px; text-align: center;}
     .price_list p {
         padding: 0;
         margin: 0;
@@ -1464,7 +1464,7 @@ a#filters_col_bt {
     text-align: center;
 }
 
-#price_single_main span {
+#price_single_main div {
     font-size: 60px;
     color: #f60;
 }
