@@ -487,6 +487,12 @@
         font-size: 20px;
         padding: 2px 2px;
     }
+    #top_links{
+        float: right;
+    }
+    #top_links li{
+        float: left;
+    }
     /*.form-group div.col-sm-9{*/
         /*margin-bottom: 20px;*/
     /*}*/

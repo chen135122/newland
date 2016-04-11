@@ -219,7 +219,7 @@
                     </a>
                 </div>
                 <div class="hotel_title">
-                    <h3>{{$hotproperty->title}}</h3>
+                    <h3><strong>【基督城】</strong>{{$hotproperty->title}}</h3>
                 </div>
             </div><!-- End box -->
         </div>

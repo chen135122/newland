@@ -675,7 +675,10 @@
         date.setDate(date.getDate()+1);
         window.location="/order?num="+perNum+"&routid="+'{{$travel->id}}'+"&date="+ Date.parse(date)/1000;
     }
-    $("#start_date").datepicker("setStartDate",new Date());
+    var date=new Date();
+    date.setDate(date.getDate()+45);
+    $("#start_date").val(date.getFullYear()+"/"+(date.getMonth()+1)+"/"+date.getDate());
+    $("#start_date").datepicker("setStartDate",date);
 </script>
 <!-- Map -->
 {{--<script src="http://maps.google.cn/maps/api/js"></script>--}}
