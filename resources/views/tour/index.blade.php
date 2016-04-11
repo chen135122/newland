@@ -143,6 +143,11 @@
 <link href="/css/ion.rangeSlider.css" rel="stylesheet" >
 <link href="/css/ion.rangeSlider.skinFlat.css" rel="stylesheet">
 <style>
+    .tour_list_desc p,span{
+        font-size:12px !important;
+        font-family: "Microsoft YaHei"; !important;
+        color:#666 !important;
+    }
     .tour_list_desc h3 {
         line-height: 25px !important;
         font-size: 17px;
