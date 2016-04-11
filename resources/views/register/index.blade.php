@@ -37,9 +37,17 @@
                             <div class="form-group">
                                 <div class="col-sm-4" style="float: right;">
                                     <div id="pass-info" class="clearfix"></div>
+
                                     <input name="btnSubmit" id="btnSubmit" type="submit" class="btn_1 medium btn-success" value="提交注册" />
 
                                 </div>
+                                <div class="col-sm-4" style="float: left;margin-left: 100px;">
+                                    <div id="pass-info" class="clearfix"></div>
+
+                                    <input name="btnResult" style="float:left;" onclick="window.location='/'" id="btnResult" type="button" class="btn_1 medium btn-success" value="回到首页" />
+
+                                </div>
+
                             </div>
                         </form>
                     </div>

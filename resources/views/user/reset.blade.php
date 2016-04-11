@@ -43,6 +43,11 @@
                                     <input name="btnSubmit" id="btnSubmit" type="submit" class="btn_1 medium btn-success" value="重置密码" />
 
                                 </div>
+                                <div class="col-sm-4" style="float: left;margin-left: 100px;">
+                                    <div id="pass-info" class="clearfix"></div>
+                                    <input name="btnResult" style="float:left;" onclick="window.location='/'" id="btnResult" type="button" class="btn_1 medium btn-success" value="回到首页" />
+
+                                </div>
                             </div>
                             <input id="turl" type="hidden" value="" />
                         </form>

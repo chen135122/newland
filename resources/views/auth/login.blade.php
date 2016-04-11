@@ -36,6 +36,7 @@
                                     <div id="pass-info" class="clearfix"></div>
 
                                     <input name="btnSubmit" id="btnSubmit" type="submit" class="btn_1 medium btn-success" value="登录" />
+                                    <input name="btnResult" style="float:right;" onclick="window.location='/'" id="btnResult" type="button" class="btn_1 medium btn-success" value="回到首页" />
                                 </div>
                             </div>
                         </form>
