@@ -48,7 +48,7 @@
 
         .header_bg {background-image: url("http://tpl-b207a0dc.pic26.websiteonline.cn/upload/bj_xzdv.png")};
         .sticky .header_bg{ background: none;}
-        p.footer_l{ font-size: 13px;line-height: 28px; color:#000;}
+        p.footer_l{ font-size: 13px;line-height: 28px; color:#797979;}
     </style>
 
     @stack('style')
