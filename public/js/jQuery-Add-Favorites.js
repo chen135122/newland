@@ -2,7 +2,7 @@
 	$.extend($.fn,{
 	    Add: function (options) {
 	        var self = this,
-				$shop = $('#top_line'),
+				$shop = $('.header_bg'),
 				$title = $('.wishlist-title'),
 				$num = $('.wishlist-num');
 			var S={
@@ -20,9 +20,7 @@
 						X = $shop.offset().left+$shop.width()/2-$target.width()/2+10,
 						Y = $shop.offset().top;
 					if(dis){
-					   if ($('#floatOrder').length <= 0) {					      
-					       $('body').append('<div id="floatOrder"><i class="icon-heart" style="font-size: 35px;color: #82ca9c;"></i></div>');
-						};
+
 
 						//ajax添加到收藏夹 开始
 							$.ajax({
@@ -39,6 +37,9 @@
 								},
 								success: function(data, textStatus) {
 									if (data.status == 1) {
+										if ($('#floatOrder').length <= 0) {
+											$('body').append('<div id="floatOrder"><i class="icon-heart" style="font-size: 35px;color: #82ca9c;"></i></div>');
+										};
 										var $obj=$('#floatOrder');
 										if (!$obj.is(':animated')) {
 											$obj.css({ 'left': x, 'top': y }).animate({ 'left': X, 'top': Y - 80 }, 1000, function () {

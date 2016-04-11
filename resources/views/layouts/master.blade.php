@@ -46,9 +46,7 @@
             margin-left:15px;
         }
 
-        .header_bg {background-image: url("http://tpl-b207a0dc.pic26.websiteonline.cn/upload/bj_xzdv.png")};
-        .sticky .header_bg{ background: none;}
-        p.footer_l{ font-size: 13px;line-height: 28px; color:#797979;}
+
     </style>
 
     @stack('style')
@@ -158,33 +156,20 @@
                     地址：江苏省南京市鼓楼区广州路189号民防大厦801<br/>
                     几维说kiwi say 版权所有  备案号：000000000
                     </p>
-                 {{--<li><a href="/faq">常见问题</a></li>--}}
-
                 </div>
                 <div class="col-md-3 col-sm-6 col-xs-6" >
                     <img src="/img/showqrcode.jpg" width="100" height="100"/>
-                    {{--<ul class="workmate">--}}
-                        {{--<li><img src="/img/icon-tencent.png"></li>--}}
-                        {{--<li><img src="/img/icon-wanguo.png"></li>--}}
-                        {{--<li><img src="/img/icon-xinjia.png"></li>--}}
-                    {{--</ul>--}}
                 </div>
-            </div><!-- End row -->
+            </div>
 
-        </div><!-- End container -->
-    </footer><!-- End footer -->
-<div id="toTop"></div><!-- Back to top button -->
+        </div>
+    </footer>
+<div id="toTop"></div>
 <div id="rightArrow"><a href="javascript:;" title="在线客户"></a></div>
 <div id="floatDivBoxs">
     <div class="floatDtt">关注公众号</div>
     <div class="floatShadow">
-        {{--<ul class="floatDqq">--}}
-        {{--<li style="padding-left:0px;"><a target="_blank" href="tencent://message/?uin=1234567890&Site=sc.chinaz.com&Menu=yes"><img src="img/qq.png" align="absmiddle">&nbsp;&nbsp;在线客服1号</a></li>--}}
-        {{--<li style="padding-left:0px;"><a target="_blank" href="tencent://message/?uin=1234567890&Site=sc.chinaz.com&Menu=yes"><img src="img/qq.png" align="absmiddle">&nbsp;&nbsp;在线客服2号</a></li>--}}
-        {{--<li style="padding-left:0px;"><a target="_blank" href="tencent://message/?uin=1234567890&Site=sc.chinaz.com&Menu=yes"><img src="img/qq.png" align="absmiddle">&nbsp;&nbsp;在线客服3号</a></li>--}}
-        {{--</ul>--}}
-        {{--<div class="floatDtxt">热线电话</div>--}}
-        {{--<div class="floatDtel"><img src="img/online_phone.jpg" width="155" height="45" alt=""></div>--}}
+
         <div style="text-align:center;padding:10PX 0 5px 0;background:#EBEBEB;">
             <img src="{{$allUrl}}" width="76" height="76">
             <br>微信公众账号</div>

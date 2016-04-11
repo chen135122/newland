@@ -4081,3 +4081,7 @@ ul.plan-features {
 
 .table-list li:nth-child(2n) .desc-p{margin-right:28px;line-height:20px}
 .table-list li:nth-child(2n+1) .desc-p{margin-left:28px}
+.header_bg {    background: url(../img/bj_xzdv.png);}
+.sticky .header_bg{ background: none;}
+p.footer_l{ font-size: 13px;line-height: 28px; color:#797979;}
+.panel-body p{font-size: 14px;line-height: 28px;}
