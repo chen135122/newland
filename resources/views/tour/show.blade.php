@@ -227,8 +227,6 @@
                         </div>
                     </div>
                 </div>
-
-                <hr>
                 <div class="row">
                     <div class="col-md-3" id="zxpl">
                         {{--<div class="mockup-content">--}}
@@ -606,6 +604,15 @@
 <link href="/css/component.css" rel="stylesheet">
 <link href="/css/content.css" rel="stylesheet">
 <style>
+    .col-md-9 p,span{
+        font-size:12px !important;
+        font-family: "Microsoft YaHei"; !important;
+        color:#666 !important;
+    }
+    .table tbody p,span{
+        font-size:12px !important;
+        color:#666 !important;
+    }
     .time_photo {
         padding: 10px 0 20px 0;
         color: #999;
