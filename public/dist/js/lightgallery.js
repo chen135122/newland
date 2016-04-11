@@ -108,7 +108,7 @@
             } else if (this.s.selector !== '') {
                 this.$items = this.$el.find($(this.s.selector));
             } else {
-                this.$items = this.$el.children();
+                this.$items = $('#lightgallery').find("img");
             }
         }
 
@@ -134,6 +134,7 @@
 
         // if dynamic option is enabled execute immediately
         var _hash = window.location.hash;
+
         if (_hash.indexOf('lg=' + this.s.galleryId) > 0) {
 
             _this.index = parseInt(_hash.split('&slide=')[1], 10);
@@ -256,7 +257,7 @@
         }
 
         // Create controlls
-        if (this.s.controls && this.$items.length > 1) {
+        if (this.s.controls &&  $('#lightgallery').find("img").length > 1) {
             controls = '<div class="lg-actions">' +
                 '<div class="lg-prev lg-icon">' + this.s.prevHtml + '</div>' +
                 '<div class="lg-next lg-icon">' + this.s.nextHtml + '</div>' +
@@ -572,6 +573,7 @@
         }
 
         var _isVideo = _this.isVideo(_src, index);
+
         if (!_this.$slide.eq(index).hasClass('lg-loaded')) {
             if (iframe) {
                 _this.$slide.eq(index).prepend('<div class="lg-video-cont" style="max-width:' + _this.s.iframeMaxWidth + '"><div class="lg-video"><iframe class="lg-object" frameborder="0" src="' + _src + '"  allowfullscreen="true"></iframe></div></div>');

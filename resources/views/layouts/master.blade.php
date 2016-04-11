@@ -186,7 +186,7 @@
         {{--<div class="floatDtxt">热线电话</div>--}}
         {{--<div class="floatDtel"><img src="img/online_phone.jpg" width="155" height="45" alt=""></div>--}}
         <div style="text-align:center;padding:10PX 0 5px 0;background:#EBEBEB;">
-            <img src="{{$allUrl}}" width="106" height="106">
+            <img src="{{$allUrl}}" width="76" height="76">
             <br>微信公众账号</div>
     </div>
     <div class="floatDbg"></div>
@@ -199,13 +199,13 @@
     var flag=1;
     $('#rightArrow').click(function(){
         if(flag==1){
-            $("#floatDivBoxs").animate({right: '-175px'},300);
+            $("#floatDivBoxs").animate({right: '-105px'},300);
             $(this).animate({right: '-5px'},300);
-            $(this).css('background-position','-50px 0');
+            $(this).css('background-position','-30px 0');
             flag=0;
         }else{
             $("#floatDivBoxs").animate({right: '0'},300);
-            $(this).animate({right: '170px'},300);
+            $(this).animate({right: '100px'},300);
             $(this).css('background-position','0px 0');
             flag=1;
         }
