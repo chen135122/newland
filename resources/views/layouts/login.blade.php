@@ -72,8 +72,10 @@
 <footer>
     <div class="container">
         <div class="row">
-
-            <div class="col-md-9  col-sm-6 col-xs-6 " >
+            <div class="col-md-3 col-sm-12 col-xs-12 ">
+                <img src="/img/logo_sticky2.png" height="60" alt="All IN New Zealand" data-retina="true" class="logo_sticky">
+            </div>
+            <div class="col-md-6  col-sm-6 col-xs-6 " >
                 <p class="footer_l">
                     客服热线：025-58761818 邮箱：services@allinnewzealand.com<br/>
                     地址：江苏省南京市鼓楼区广州路189号民防大厦801<br/>

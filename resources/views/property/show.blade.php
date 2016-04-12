@@ -203,7 +203,7 @@
                     <i class="icon_set_1_icon-90"></i>
                     <h4>联系我们</h4>
                     <a href="tel://004542344599" class="phone">+025-58761818</a>
-                    <small>周一 至 周日 9.00am - 7.30pm</small>
+                    <small>周一 至 周五 8.30am - 18.30pm</small>
                 </div>
             </aside>
         </div><!--End row -->

@@ -133,7 +133,7 @@
                 </p>
                 <h4><span>房产置业</span></h4>
                 <p class="tp_detail" style="">
-                    无论是投资还是自住，我们提供新西兰全境最优质的房源
+                    我们提供新西兰全境最优质的房源，以及最有保障的服务
                 </p>
             </div>
             <div class="col-md-3 col-sm-6 col-xs-6  text-center"  style="cursor: pointer;" onclick="window.location='/tour'">
@@ -152,7 +152,7 @@
                 </p>
                 <h4><span>移民留学</span></h4>
                 <p class="tp_detail">
-                    从小学初中到大学, 我们提供最新的政策信息和最权威的咨询
+                    我们提供中小学和大学最权威的留学咨询，以及各类移民资讯
                 </p>
             </div>
             <div class="col-md-3 col-sm-6 col-xs-6  text-center"  style="cursor: pointer;" onclick="window.location='/about'">
@@ -161,7 +161,7 @@
                 </p>
                 <h4><span>关于我们</span></h4>
                 <p class="tp_detail">
-                    我们在新西兰和国内拥有顶级合作伙伴，提供全面的服务
+                    我们倾力打造新西兰各类服务平台，并拥有国内以及新西兰顶级合作伙伴
                 </p>
             </div>
         </div><!-- End row -->
