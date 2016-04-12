@@ -106,11 +106,10 @@
                             <li class="submenu">
                                 <a href="/news" class="show-submenu"><!--<i class="icon_set_1_icon-7"></i>--> 新闻资讯 <i class="icon-down-open-mini"></i></a>
                                 <ul>
-                                    <li  style="margin-left: 0px;"><a href="/news-21">房产</a></li>
-                                    <li  style="margin-left: 0px;"><a href="/news-22">旅游</a></li>
-                                    <li  style="margin-left: 0px;"><a href="/news-23">移民</a></li>
-                                    <li  style="margin-left: 0px;"><a href="/news-24">留学</a></li>
-                                    <li  style="margin-left: 0px;"><a href="/news-30">生活</a></li>
+                                    @foreach(\App\Models\ArticleCategory::all() as $category)
+                                      <li  style="margin-left: 0px;"><a href="/news-{{$category->id}}">{{$category->name}}</a></li>
+                                    @endforeach
+
                                 </ul>
 
                             </li>
