@@ -260,6 +260,9 @@
 <link href="/css/owl.carousel.css" rel="stylesheet">
 <link href="/css/owl.theme.css" rel="stylesheet">
 <style>
+    .c_ul li{
+        font-size: 16px !important;
+    }
     .time_photo {
         padding: 10px 0 20px 0;
         color: #999;

@@ -144,7 +144,12 @@
 <link href="/css/ion.rangeSlider.skinFlat.css" rel="stylesheet">
 <style>
 
-    .tour_list_desc span,p{
+    .tour_list_desc span{
+        font-size:12px !important;
+        font-family: "Microsoft YaHei"; !important;
+        color:#666 !important;
+    }
+    .tour_list_desc  span{
         font-size:12px !important;
         font-family: "Microsoft YaHei"; !important;
         color:#666 !important;
