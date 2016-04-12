@@ -602,15 +602,23 @@
 <link href="/css/component.css" rel="stylesheet">
 <link href="/css/content.css" rel="stylesheet">
 <style>
+    #price_single_main span {
+        font-size: 60px;
+        color: #f60;
+    }
     .c_ul li{
         font-size: 16px !important;
     }
-    .col-md-9 p,span{
+    .col-md-9 p, .col-md-9 span{
         font-size:16px !important;
         font-family: "Microsoft YaHei"; !important;
         color:#666 !important;
     }
-    .table thead,tbody  td,p,span{
+    .table tbody  td, .table tbody p, .table tbody span{
+        font-size:16px !important;
+        color:#666 !important;
+    }
+    .table thead  td, .table thead p, .table thead span{
         font-size:16px !important;
         color:#666 !important;
     }
