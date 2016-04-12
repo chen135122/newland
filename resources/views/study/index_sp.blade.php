@@ -330,6 +330,11 @@
         font-weight:normal;
         font-size:12px;
     }
+    .img_list a img {
+        transform: none !important;
+        width:133px !important;
+        height:133px !important;
+    }
 </style>
 
 <!-- Radio and check inputs -->
