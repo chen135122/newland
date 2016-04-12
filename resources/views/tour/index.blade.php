@@ -6,6 +6,7 @@
         <div class="parallax-content-1">
             <div class="animated fadeInDown">
                 <h1>新西兰旅游</h1>
+                <br>
                 <p>在新西兰遇见最好的自己</p>
             </div>
         </div>
@@ -107,7 +108,14 @@
                         <div class="col-lg-6 col-md-6 col-sm-6" style="cursor:pointer" onclick="window.location='/tour/{{$travel->id}}'">
                             <div class="tour_list_desc">
                                 <div class="rating">{{--<i class="icon-smile voted"></i><i class="icon-smile  voted"></i><i class="icon-smile  voted"></i><i class="icon-smile  voted"></i><i class="icon-smile"></i><small>(75)</small>--}}</div>
-                                <h3><strong>【{{$travel->bigtitle}}】</strong> {{$travel->title}}</h3><p>{!! strip_tags($travel->introduction)   !!}</p>
+                                <h3><strong>【{{$travel->bigtitle}}】</strong> {{$travel->title}}</h3>
+                                <p>
+                                    @if(!empty($travel->introduction))
+                                    {!! strip_tags($travel->introduction)   !!}
+                                    @else
+                                    {{$travel->title}}
+                                    @endif
+                                </p>
                             </div>
                         </div>
                         <div class="col-lg-2 col-md-2 col-sm-2">
