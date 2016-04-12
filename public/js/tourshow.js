@@ -57,13 +57,20 @@ var show = function (ulid) {
     var text = $("#sh").text();
     var length=$("#cat_nav li").length;
     if (text == "展开行程") {
-        if(length>10)
+        if(length>10||length<=10)
         {
          $("#cat_nav li").slice(0, 10).show();
          $("#tour_d .form_title").slice(0,10).show();
          $("#tour_d .form_title").slice(0, 10).next().show();
         }
+        if(length>10)
+        {
         $("#sh").text("+")
+        }
+        if(length<=10)
+        {
+            $("#sh").text("收起行程")
+        }
     }
    else if (text == "+"&&length>current*10)
     {
@@ -80,6 +87,8 @@ var show = function (ulid) {
     }
     else if(text == "收起行程") {
         // hide();
+        if(length>10)
+        {
         $("#cat_nav li").slice((current-1)*10, (current-1)*10+10).hide();
         $("#cat_nav li").slice(0, 2).show();
         $("#tour_d .form_title").slice(0,2).show();
@@ -87,6 +96,15 @@ var show = function (ulid) {
         $("#sh").parent().show();
         $("#tour_d .form_title").slice((current-1)*10, (current-1)*10+10).hide();
         $("#tour_d .form_title").slice((current-1)*10, (current-1)*10+10).next().hide();
+        }
+        else
+        {
+            $("#cat_nav li").slice(2,length-1).hide();
+            $("#tour_d .form_title").slice(2, 10).hide();
+            $("#tour_d .form_title").slice(2, 10).next().hide();
+            $("#tour_d .form_title").slice(0,2).show();
+            $("#tour_d .form_title").slice(0, 2).next().show();
+        }
         current=1;
         $("#sh").text("展开行程")
     }
