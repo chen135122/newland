@@ -172,7 +172,6 @@
                                                         </td>
                                                     </tr>
                                                 @endforeach
-
                                                 </tbody>
                                             </table>
                                         </div>
@@ -400,7 +399,6 @@
                             <div class="form-group">
                                 <label><i class="icon-calendar-7"></i> 出发日期</label>
                                 <input id="start_date" class="date-pick form-control" data-date-format="yyyy/M/d" type="text">
-                                <label>{{ $detail->start_time}}</label>
                             </div>
                         </div>
                         <div class="col-md-6 col-sm-6">
