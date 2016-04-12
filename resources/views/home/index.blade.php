@@ -133,7 +133,7 @@
                 </p>
                 <h4><span>房产置业</span></h4>
                 <p class="tp_detail" style="">
-                    精挑细选的每座大楼, 让您精确领略新西兰独特的家庭, 享受旅途的轻松惬意.
+                    无论是投资还是自住，我们提供新西兰全境最优质的房源
                 </p>
             </div>
             <div class="col-md-3 col-sm-6 col-xs-6  text-center"  style="cursor: pointer;" onclick="window.location='/tour'">
@@ -143,7 +143,7 @@
                 </p>
                 <h4><span>国际旅游</span></h4>
                 <p class="tp_detail">
-                    新西兰旅游,为您提供梦幻般的旅游,体验不一样的旅程.
+                    新西兰旅游,为您提供梦幻般的旅游,体验不一样的旅程
                 </p>
             </div>
             <div class="col-md-3 col-sm-6 col-xs-6 text-center"  style="cursor: pointer;" onclick="window.location='/study'">
@@ -152,7 +152,7 @@
                 </p>
                 <h4><span>移民留学</span></h4>
                 <p class="tp_detail">
-                    从小学初中到大学, 我们提供最新的政策信息和最权威的咨询.
+                    从小学初中到大学, 我们提供最新的政策信息和最权威的咨询
                 </p>
             </div>
             <div class="col-md-3 col-sm-6 col-xs-6  text-center"  style="cursor: pointer;" onclick="window.location='/about'">
@@ -161,7 +161,7 @@
                 </p>
                 <h4><span>关于我们</span></h4>
                 <p class="tp_detail">
-                    无论是投资自住, 还是留学深造, 我们用专业的知识, 为您提供最优的选择.
+                    我们在新西兰和国内拥有顶级合作伙伴，提供全面的服务
                 </p>
             </div>
         </div><!-- End row -->
