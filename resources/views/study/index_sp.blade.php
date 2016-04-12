@@ -334,6 +334,7 @@
         transform: none !important;
         width:133px !important;
         height:133px !important;
+        margin-top: 22px;
     }
     .img_list img {
         left: 10% !important;
