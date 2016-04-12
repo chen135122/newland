@@ -171,7 +171,7 @@
 
         <div style="text-align:center;padding:10PX 0 5px 0;background:#EBEBEB;">
             <img src="{{$allUrl}}" width="76" height="76">
-            <br>微信公众账号</div>
+            <br>微信公众号</div>
     </div>
     <div class="floatDbg"></div>
 </div>

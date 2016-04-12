@@ -194,7 +194,7 @@
                                 <thead>
                                 <tr>
                                     <th colspan="2">
-                                        美食推荐
+                                        {{--美食推荐--}}
                                     </th>
                                 </tr>
                                 </thead>
