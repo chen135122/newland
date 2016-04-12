@@ -77,7 +77,7 @@
 <div class="row" style="height:150px;">
     <div class="col-md-6 col-sm-6 col-xs-6" style="width:50%;">
         <div id="logo" style="margin-top:0;">
-            <a href="/"><img src="img/logo.png" width="160" height="54" alt="City tours" data-retina="true" class="logo_normal"></a>
+            <a href="/"><img src="img/logo_sticky.png" width="160" height="54" alt="City tours" data-retina="true" class="logo_normal"></a>
         </div>
     </div>
     <div class="col-md-6 col-sm-6 col-xs-6" style="width:50%;padding-top:10px;">
@@ -234,7 +234,7 @@
                 <i class="icon_set_1_icon-90"></i>
                 <h4>联系我们</h4>
                 <a href="tel://004542344599" class="phone">+025-58761818</a>
-                <small>周一 至 周五 8.30am - 18.30pm</small>
+                <small>周一 至 周日  8.30 - 18.30</small>
             </div>
         </aside><!-- End aside -->
 
