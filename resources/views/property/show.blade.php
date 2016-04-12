@@ -294,9 +294,10 @@
             /*height:30px;*/
             margin-top:0;
         }
-        #single_tour_desc .row p span{
-            font-size:16px !important; line-height: 28px; font-family: 'Microsoft YaHei' !important;}
-        #single_tour_desc .row p strong span { font-size:24px !important;font-family: 'Microsoft YaHei' !important;  line-height: 30px; text-align: center;}
+        /*#single_tour_desc .row p span{*/
+            /*font-size:16px !important; line-height: 28px; font-family: 'Microsoft YaHei' !important;}*/
+        /*#single_tour_desc .row p strong span { font-size:24px !important;font-family: 'Microsoft YaHei' !important;  line-height: 30px; text-align: center;}*/
+        /**/
         .c_ul li{
             display: inline-block;
             padding-right: 8px;
