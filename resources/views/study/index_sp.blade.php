@@ -336,7 +336,7 @@
         height:133px !important;
     }
     .img_list img {
-        left: -5% !important;
+        left: 10% !important;
     }
 </style>
 
