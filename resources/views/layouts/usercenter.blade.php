@@ -77,7 +77,7 @@
                 <p class="footer_l">
                     客服热线：025-58761818 邮箱：services@allinnewzealand.com<br/>
                     地址：江苏省南京市鼓楼区广州路189号民防大厦801<br/>
-                    几维说kiwi say 版权所有  备案号：000000000
+                    几维说kiwi say 版权所有
                 </p>
             </div>
             <div class="col-md-3 col-sm-6 col-xs-6" >
