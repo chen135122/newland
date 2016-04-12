@@ -13,6 +13,8 @@ Route::group([ 'middleware' => ['web', 'auth']], function () {
     //微信支付处理
     Route::get('wpay','\App\Http\Controllers\AlipayController@wpay');
     Route::get('topay/{id}','\App\Http\Controllers\AlipayController@topay');
+    Route::get('order', '\App\Http\Controllers\TourController@order');
+    Route::get('result', '\App\Http\Controllers\TourController@result');
 //    Route::get('xxx', function(){
 //        return (auth()->user());
 //    });
@@ -37,8 +39,7 @@ Route::group([ 'middleware' => ['web']], function () {
 
     Route::get('tour', '\App\Http\Controllers\TourController@index');
     Route::get('tour/{id}', '\App\Http\Controllers\TourController@show');
-    Route::get('order', '\App\Http\Controllers\TourController@order');
-    Route::get('result', '\App\Http\Controllers\TourController@result');
+
     Route::post('spay', '\App\Http\Controllers\TourController@pay');
     Route::post('create', '\App\Http\Controllers\TourController@create');
     Route::get('tprint/{id}', '\App\Http\Controllers\TourController@tprint');

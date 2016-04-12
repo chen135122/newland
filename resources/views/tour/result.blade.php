@@ -28,6 +28,12 @@
     <link href="css/jquery.switch.css" rel="stylesheet">
 
     <style>
+        #top_links{
+            float: right;
+        }
+        #top_links li{
+            float: left;
+        }
         .bs-wizard > .bs-wizard-step > .bs-wizard-dot:after {
             background-color:#e04f67;
         }
@@ -62,41 +68,20 @@
 <div class="row" style="height:150px;">
     <div class="col-md-6 col-sm-6 col-xs-6" style="width:50%;">
         <div id="logo" style="margin-top:0;">
-            <a href="index.html"><img src="img/logo.png" width="160" height="54" alt="City tours" data-retina="true" class="logo_normal"></a>
+            <a href="index.html"><img src="img/logo_sticky.png" width="160" height="54" alt="City tours" data-retina="true" class="logo_normal"></a>
         </div>
     </div>
     <div class="col-md-6 col-sm-6 col-xs-6" style="width:50%;padding-top:10px;">
         <ul id="top_links">
             <li>
                 <div class="dropdown dropdown-access">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:#000;font-family:'Microsoft YaHei';" id="access_link">登录</a>
-                    <div class="dropdown-menu">
-                        <div class="row">
-                            <div class="col-md-6 col-sm-6 col-xs-6">
-                                <a href="#" class="bt_facebook">
-                                    <i class="icon-facebook"></i>Facebook
-                                </a>
-                            </div>
-                            <div class="col-md-6 col-sm-6 col-xs-6">
-                                <a href="#" class="bt_paypal">
-                                    <i class="icon-paypal"></i>Paypal
-                                </a>
-                            </div>
-                        </div>
-                        <div class="login-or">
-                            <hr class="hr-or">
-                            <span class="span-or">or</span>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="inputUsernameEmail" placeholder="Email">
-                        </div>
-                        <div class="form-group">
-                            <input type="password" class="form-control" id="inputPassword" placeholder="Password">
-                        </div>
-                        <a id="forgot_pw" href="#">Forgot password?</a>
-                        <input type="submit" name="Sign_in" value="Sign in" id="Sign_in" class="button_drop">
-                        <input type="submit" name="Sign_up" value="Sign up" id="Sign_up" class="button_drop outline">
-                    </div>
+                    @if (auth()->user())
+
+                        <a href="/percenter" style="color:#000;font-family:'Microsoft YaHei';"> {{auth()->user()->mobile}}</a> |
+                        <a href="/auth/logout" style="color:#000;font-family:'Microsoft YaHei';"> 退出 </a>
+                    @else
+                        <a href="/auth/login"  style="color:#000;font-family:'Microsoft YaHei';" id="access_link">登录</a>
+                    @endif
                 </div>
             </li>
             <li><a href="wishlist.html" id="wishlist_link" style="color:#000;font-family:'Microsoft YaHei';">收藏</a></li>
@@ -237,7 +222,7 @@
                 <i class="icon_set_1_icon-90"></i>
                 <h4>联系我们</h4>
                 <a href="tel://004542344599" class="phone">+025-58761818</a>
-                <small>周一 至 周日 9.00am - 7.30pm</small>
+                <small>周一 至 周日  8.30 - 18.30</small>
             </div>
         </aside>
 
