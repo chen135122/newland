@@ -96,7 +96,7 @@
                                 <a href="/tour" class="show-submenu"><!--<i class="icon_set_1_icon-8"></i>--> 国际旅游 </a>
                             </li>
                             <li class="submenu">
-                                <a href="javascript:void(0);" class="show-submenu"><!--<i class="icon_set_1_icon-43"></i>--> 留学 <i class="icon-down-open-mini"></i></a>
+                                <a href="javascript:void(0);" class="show-submenu"><!--<i class="icon_set_1_icon-43"></i>--> 移民留学 <i class="icon-down-open-mini"></i></a>
                                 <ul>
                                     <li  style="margin-left: 0px;"><a href="/study">大学</a></li>
                                     <li  style="margin-left: 0px;"><a href="/study-sp">中小学</a></li>
@@ -143,26 +143,26 @@
 
 @yield('content')
 
-  <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3 col-sm-12 col-xs-12 ">
-                    <img src="/img/logo_sticky.png" height="60" alt="All IN New Zealand" data-retina="true" class="logo_sticky">
-                </div>
-                <div class="col-md-6  col-sm-6 col-xs-6 " >
-                    <p class="footer_l">
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-12 col-xs-12 ">
+                <img src="/img/logo_sticky2.png" height="60" alt="All IN New Zealand" data-retina="true" class="logo_sticky">
+            </div>
+            <div class="col-md-6  col-sm-6 col-xs-6 " >
+                <p class="footer_l">
                     客服热线：025-58761818 邮箱：services@allinnewzealand.com<br/>
                     地址：江苏省南京市鼓楼区广州路189号民防大厦801<br/>
                     几维说kiwi say 版权所有
-                    </p>
-                </div>
-                <div class="col-md-3 col-sm-6 col-xs-6" >
-                    <img src="/img/showqrcode.jpg" width="100" height="100"/>
-                </div>
+                </p>
             </div>
-
+            <div class="col-md-3 col-sm-6 col-xs-6" >
+                <img src="/img/showqrcode.jpg" width="100" height="100"/>
+            </div>
         </div>
-    </footer>
+
+    </div>
+</footer>
 <div id="toTop"></div>
 <div id="rightArrow"><a href="javascript:;" title="在线客户"></a></div>
 <div id="floatDivBoxs">

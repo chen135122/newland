@@ -71,7 +71,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-3 col-sm-12 col-xs-12 ">
-                <img src="/img/logo_sticky.png" height="60" alt="All IN New Zealand" data-retina="true" class="logo_sticky">
+                <img src="/img/logo_sticky2.png" height="60" alt="All IN New Zealand" data-retina="true" class="logo_sticky">
             </div>
             <div class="col-md-6  col-sm-6 col-xs-6 " >
                 <p class="footer_l">

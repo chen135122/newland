@@ -234,7 +234,7 @@
                 <i class="icon_set_1_icon-90"></i>
                 <h4>联系我们</h4>
                 <a href="tel://004542344599" class="phone">+025-58761818</a>
-                <small>周一 至 周日 9.00am - 7.30pm</small>
+                <small>周一 至 周五 8.30am - 18.30pm</small>
             </div>
         </aside><!-- End aside -->
 
@@ -244,48 +244,23 @@
 <footer>
     <div class="container">
         <div class="row">
-            <div class="col-md-4 col-sm-3">
-                <h3>需要帮助?</h3>
-                <a href="#" id="phone">+025-58761818</a>
-                <a href="#" id="email_footer">services@allinnewzealand.com</a>
+            <div class="col-md-3 col-sm-12 col-xs-12 ">
+                <img src="/img/logo_sticky2.png" height="60" alt="All IN New Zealand" data-retina="true" class="logo_sticky">
             </div>
-            <div class="col-md-2 col-sm-3" style="margin-left:10%;">
-                <h3>关于我们</h3>
-                <ul>
-                    <li><a href="#">我们是谁</a></li>
-                    <li><a href="/faq.html">常见问题</a></li>
-                    <li><a href="#">使用条款</a></li>
-                </ul>
+            <div class="col-md-6  col-sm-6 col-xs-6 " >
+                <p class="footer_l">
+                    客服热线：025-58761818 邮箱：services@allinnewzealand.com<br/>
+                    地址：江苏省南京市鼓楼区广州路189号民防大厦801<br/>
+                    几维说kiwi say 版权所有
+                </p>
             </div>
-            <div class="col-md-2 col-sm-3" style="margin-left:10%;">
-                <h3>其他内容</h3>
-                <ul>
-                    <li><a href="#">最新资讯</a></li>
-                    <li><a href="#">热门房产</a></li>
-                </ul>
+            <div class="col-md-3 col-sm-6 col-xs-6" >
+                <img src="/img/showqrcode.jpg" width="100" height="100"/>
             </div>
-        </div><!-- End row -->
-        <div class="row">
-            <div class="col-md-12">
-                <div id="social_footer">
-                    <ul>
-                        <li><a href="#"><i class="icon-facebook"></i></a></li>
-                        <li><a href="#"><i class="icon-twitter"></i></a></li>
-                        <li><a href="#"><i class="icon-google"></i></a></li>
-                        <li><a href="#"><i class="icon-instagram"></i></a></li>
-                        <li><a href="#"><i class="icon-pinterest"></i></a></li>
-                        <li><a href="#"><i class="icon-vimeo"></i></a></li>
-                        <li><a href="#"><i class="icon-youtube-play"></i></a></li>
-                        <li><a href="#"><i class="icon-linkedin"></i></a></li>
-                    </ul>
-                    <p>© All New Zealand 2016</p>
-                </div>
-            </div>
-        </div><!-- End row -->
-    </div><!-- End container -->
-</footer><!-- End footer -->
+        </div>
 
-
+    </div>
+</footer>
 
 <div id="toTop"></div><!-- Back to top button -->
 <!-- Jquery -->
