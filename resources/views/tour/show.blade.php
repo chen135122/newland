@@ -602,12 +602,15 @@
 <link href="/css/component.css" rel="stylesheet">
 <link href="/css/content.css" rel="stylesheet">
 <style>
+    .c_ul li{
+        font-size: 16px !important;
+    }
     .col-md-9 p,span{
         font-size:16px !important;
         font-family: "Microsoft YaHei"; !important;
         color:#666 !important;
     }
-    .table tbody p,span{
+    .table thead,tbody  p,span{
         font-size:16px !important;
         color:#666 !important;
     }

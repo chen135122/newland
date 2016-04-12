@@ -222,6 +222,9 @@
     <link rel="stylesheet" type="text/css" href="/css/default.css">
     <link href="/dist/css/lightgallery.css" rel="stylesheet">
     <style>
+        .c_ul li{
+            font-size: 16px !important;
+        }
         .main_title p {
             font-size: 14px !important;
             margin-top: 5px;
