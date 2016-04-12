@@ -107,7 +107,7 @@
                         <div class="col-lg-6 col-md-6 col-sm-6" style="cursor:pointer" onclick="window.location='/tour/{{$travel->id}}'">
                             <div class="tour_list_desc">
                                 <div class="rating">{{--<i class="icon-smile voted"></i><i class="icon-smile  voted"></i><i class="icon-smile  voted"></i><i class="icon-smile  voted"></i><i class="icon-smile"></i><small>(75)</small>--}}</div>
-                                <h3><strong>【{{$travel->bigtitle}}】</strong> {{$travel->title}}</h3><p>{!! $travel->introduction !!}</p>
+                                <h3><strong>【{{$travel->bigtitle}}】</strong> {{$travel->title}}</h3><p>{!! strip_tags($travel->introduction)   !!}</p>
                             </div>
                         </div>
                         <div class="col-lg-2 col-md-2 col-sm-2">
@@ -143,7 +143,8 @@
 <link href="/css/ion.rangeSlider.css" rel="stylesheet" >
 <link href="/css/ion.rangeSlider.skinFlat.css" rel="stylesheet">
 <style>
-    .tour_list_desc p,span{
+
+    .tour_list_desc span,p{
         font-size:12px !important;
         font-family: "Microsoft YaHei"; !important;
         color:#666 !important;
@@ -167,7 +168,7 @@
  }
  .tour_list_desc
  {
-	 height:180px;
+	 height:164px;
      overflow: hidden;
  }
  .price_list{

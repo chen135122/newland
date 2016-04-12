@@ -202,7 +202,7 @@
                                 @foreach($travel->cate()->get() as $cate)
                                     <tr>
                                         <td style="width: 50px;">
-                                            {{$cate->title}}
+                                            {{--{{$cate->title}}--}}
                                         </td>
                                         <td>
                                             {!! $cate->introduction !!}
