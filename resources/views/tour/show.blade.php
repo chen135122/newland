@@ -610,7 +610,7 @@
         font-family: "Microsoft YaHei"; !important;
         color:#666 !important;
     }
-    .table thead,tbody  p,span{
+    .table thead,tbody  td,p,span{
         font-size:16px !important;
         color:#666 !important;
     }
