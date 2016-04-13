@@ -48,7 +48,7 @@
                             <p>戴维森律师事务所是新西兰前四、南岛最大的律师事务所，提供移民、房产买卖、雇聘法律、遗产管理、财产保护等服务，常年为中国客户提供法律咨询服务，拥有大量经验，同时是我公司签约合作伙伴。 </p>
                         </div>
         </div>
-        <aside class="col-lg-3 col-md-3" style="margin-top: 45px;">
+        <aside class="col-lg-3 col-md-3" style="margin-top: 80px;">
 
             <div class="box_style_4">
                 <i class="icon_set_1_icon-57"></i>

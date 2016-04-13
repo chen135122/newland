@@ -85,7 +85,7 @@
 
                         </div>
         </div>
-        <aside class="col-lg-3 col-md-3" style="margin-top: 45px;">
+        <aside class="col-lg-3 col-md-3" style="margin-top: 80px;">
 
             <div class="box_style_4">
                 <i class="icon_set_1_icon-57"></i>
