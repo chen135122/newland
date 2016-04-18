@@ -87,10 +87,12 @@
                             <div class="rating"></div>
                             <h3>{{$study->cn_name}}</h3>
                             <ul>
-                                <li>英文名： {{$study->en_name}}</li>
-                                <li>地区： {{$study->regions->name}}.{{ $study->regions_city->name}}.{{ $study->regions_district->name}}</li>
-                                <li>费用： {{$study->fee_min}}-{{$study->fee_max}}</li>
-                                <li>ielts： {{$study->ielts_min}}-{{$study->ielts_max}}</li>
+                                <li>英文名：{{$study->en_name}}</li>
+                                <li>地区：{{$study->regions->name}}.{{ $study->regions_city->name}}.{{ $study->regions_district->name}}</li>
+                                <li>费用：¥{{$study->fee_min}}/年 @if($study->fee_max>0) - ¥{{$study->fee_max}}/年@endif</li>
+                                @if($study->ielts_min>0)
+                                <li>ielts：{{$study->ielts_min}}-{{$study->ielts_max}}</li>
+                                @endif
                             </ul>
                         </div>
                     </div>
