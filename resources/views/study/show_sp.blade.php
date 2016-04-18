@@ -41,7 +41,7 @@
         <div class="row">
             <div class="col-md-8" id="single_tour_desc">
                 <p class="visible-sm visible-xs"><a class="btn_map" data-toggle="collapse" href="#collapseMap" aria-expanded="false" aria-controls="collapseMap">查看地图</a></p>
-                @if($pic)
+                @if($pic.ob_get_length()>0)
                 <div id="img_carousel" class="slider-pro">
                     <div class="sp-slides">
                         @foreach($pic as $p)
