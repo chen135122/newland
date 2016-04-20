@@ -60,6 +60,7 @@
                         <input type="button" onclick="su()" value="确定" class="btn_full">
                     </div>
                     </form>
+
                 </div>
                 <div class="box_style_2">
                     <i class="icon_set_1_icon-57"></i>
@@ -303,7 +304,7 @@
       });
         var $option= $("#sort_price").children('option:selected');
         //$("#min_price").val($(".irs-from").text().split('$')[1].replace(" ",""));
-       var min_price=  $(".irs-from").text().split('$')[1].replace(" ",""),max_price=$(".irs-to").text().split('$')[1].trim().replace(" ","");
+       var min_price=  $(".irs-from").text().split('¥')[1].replace(" ",""),max_price=$(".irs-to").text().split('¥')[1].trim().replace(" ","");
         //$("#max_price").val($(".irs-to").text().split('$')[1].trim().replace(" ",""));
         window.location="/tour?sortPrice="+$option.val()+"&price="+min_price+"_"+max_price+"&category="+category;
        // form1.submit();
