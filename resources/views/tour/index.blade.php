@@ -320,7 +320,7 @@
             to: '{{$toprice}}',
             type: 'double',
             step: 1,
-            prefix: "$",
+            prefix: "¥",
             grid: true
         });
 
