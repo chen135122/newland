@@ -101,22 +101,19 @@
                                     </tr>
                                     <tr>
                                         <td>费用</td>
-                                        <td class="text-center">¥{{$study->fee_min}}/年 @if($study->fee_max>0) - ¥{{$study->fee_max}}/年@endif</td>
+                                        <td class="text-center">NZ${{$study->fee_min}}/年 @if($study->fee_max>0) - NZ${{$study->fee_max}}/年@endif</td>
                                     </tr>
                                     <tr>
                                         <td>ielts</td>
 
                                         <td class="text-center">{{$study->ielts_min}}-{{$study->ielts_max}}</td>
                                     </tr>
-                                 
+
                                     <tr>
                                         <td>offer发放速度(几周)</td>
                                         <td class="text-center">{{$study->offer_release_rate}}</td>
                                     </tr>
-                                    <tr>
-                                        <td>海外学生比例（百分比）</td>
-                                        <td class="text-center">{{$study->overseas_stu_rate}}</td>
-                                    </tr>
+
                                     <tr>
                                         <td>位置</td>
                                         <td class="text-center"> {{isset($study->regions->name)? $study->regions->name:""}}
