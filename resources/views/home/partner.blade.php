@@ -58,15 +58,13 @@
                  <div class="row">
                                 <div class="col-lg-4 col-md-4 col-sm-4">
                                     <div class="img_lists">
-                                        <img src="/img/icon-blank.jpg" class="img-thumbnail">
+                                        <img src="/img/icon-wanguo.png" class="img-thumbnail">
                                         </div>
                                  </div>
                                 <div class="col-lg-8 col-md-8 col-sm-8">
                                     <div class="list_desc">
-                                        <h3>西太平洋银行</h3>
-                                        <p>Westpac(西太平洋银行)是澳大利亚的第一家银行和第一家公司，在协助客户达成其财务目标方面，拥有192年的丰富经验。
-                                            作为澳大利亚的最大银行之一，Westpac 集团拥有 2,800 多台自动取款机(ATM)和近1,200 家分支行，遍布澳大利亚的主要城镇。
-                                            在亚洲和澳大利亚，有专门的团队通晓不同文化、不同语言及当地市场，同时也提供多种语言服务，协助新移民和新企业满足其银行服务需求。</p>
+                                        <h3>万国旅行社</h3>
+                                        <p>万国旅行社是新西兰旅行社协会(TAANZ)成员，专注新西兰旅游，留学、移民等业务，在各大主要城市拥有多家门店，资深的经验和优质的服务逐步成为客户信赖的旅行社。</p>
                                     </div>
                                  </div>
                             </div>
@@ -86,13 +84,15 @@
                  <div class="row">
                      <div class="col-lg-4 col-md-4 col-sm-4">
                          <div class="img_lists">
-                             <img src="/img/icon-tencent.png" class="img-thumbnail">
+                             <img src="/img/icon-blank.jpg" class="img-thumbnail">
                          </div>
                      </div>
                      <div class="col-lg-8 col-md-8 col-sm-8">
                          <div class="list_desc">
-                             <h3>大苏网</h3>
-                             <p>大苏网定位为江苏城市生活门户,把握城市脉搏,创造快乐生活,以南京为核心,覆盖整个江苏省,传播本地资讯和文化,为江苏省互联网用户提供最本地化的新闻行业资讯和生活。</p>
+                             <h3>西太平洋银行</h3>
+                             <p>Westpac(西太平洋银行)是澳大利亚的第一家银行和第一家公司，在协助客户达成其财务目标方面，拥有192年的丰富经验。
+                                 作为澳大利亚的最大银行之一，Westpac 集团拥有 2,800 多台自动取款机(ATM)和近1,200 家分支行，遍布澳大利亚的主要城镇。
+                                 在亚洲和澳大利亚，有专门的团队通晓不同文化、不同语言及当地市场，同时也提供多种语言服务，协助新移民和新企业满足其银行服务需求。</p>
                          </div>
                      </div>
                  </div>
