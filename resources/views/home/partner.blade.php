@@ -81,7 +81,19 @@
                          </div>
                      </div>
                  </div>
-
+                 <div class="row">
+                     <div class="col-lg-4 col-md-4 col-sm-4">
+                         <div class="img_lists">
+                             <img src="/img/icon-blank.jpg" class="img-thumbnail">
+                         </div>
+                     </div>
+                     <div class="col-lg-8 col-md-8 col-sm-8">
+                         <div class="list_desc">
+                             <h3>西太平洋银行</h3>
+                             <p>Westpac(西太平洋银行)是澳大利亚的第一家银行和第一家公司，在协助客户达成其财务目标方面，拥有192年的丰富经验，协助新移民和新企业满足其银行服务需求。</p>
+                         </div>
+                     </div>
+                 </div>
 
                         </div>
         </div>
