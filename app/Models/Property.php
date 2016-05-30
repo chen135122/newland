@@ -41,7 +41,7 @@ class Property extends BaseModel
     public function getIsTagsAttribute()
     {
         $item_id=$this->attributes['id'];
-        $models=DB::table('nz_tag')->where('item_id',$item_id)->where('tag_type',1)->lists('tag_name');
+        $models=DB::table('nz_tags')->where('item_id',$item_id)->where('tag_type',1)->lists('tag_name');
         return $models;
     }
 }

@@ -11,7 +11,6 @@
             </div>
         </div>
     </section>
-
     <div id="position">
         <div class="container">
             <ul>
@@ -20,9 +19,7 @@
             </ul>
         </div>
     </div>
-
     <div class="container margin_60">
-
         <div class="row">
             <aside class="col-lg-3 col-md-3">
                 <div id="filters_col">
@@ -35,6 +32,7 @@
                         </div>
                         <div class="filter_type">
                             <h6>分类</h6>
+
                             <ul>
                                 @foreach($categorys as $travelCategory)
                                 <?php $vs=false   ?>
@@ -53,14 +51,12 @@
                                 @endforeach
                             </ul>
                         </div>
-
                         <input type="hidden" value="{{$minprice}}" name="price[]" id="min_price" >
                         <input type="hidden" value="{{$maxprice}}" name="price[]" id="max_price">
                         <input type="hidden" value="" name="order" id="order">
                         <input type="button" onclick="su()" value="确定" class="btn_full">
                     </div>
                     </form>
-
                 </div>
                 <div class="box_style_2">
                     <i class="icon_set_1_icon-57"></i>
@@ -70,9 +66,7 @@
                 </div>
             </aside>
             <div class="col-lg-9 col-md-9">
-
                 <div id="tools">
-
                     <div class="row">
                         <div class="col-md-3 col-sm-3 col-xs-6">
                             <div class="styled-select-filters">
@@ -112,7 +106,7 @@
                                 <h3><strong>【{{$travel->bigtitle}}】</strong> {{$travel->title}}</h3>
                                 <p>
                                     @if(!empty($travel->introduction))
-                                    {!! strip_tags($travel->introduction)   !!}
+                                    {!!strip_tags($travel->introduction)!!}
                                     @else
                                     {{$travel->title}}
                                     @endif
@@ -125,7 +119,6 @@
                                     <span class="price">¥{{$travel->referenceprice}}</span><span class="normal_price_list"></span><small>{{$travel->singlem}}</small>
                                     <p><a href="/tour/{{$travel->id}}" class="btn_1">详情</a></p>
                                 </div>
-
                             </div>
                         </div>
                     </div>
@@ -136,9 +129,6 @@
                         {{$travels->render()}}
                     </div>
                 @endif
-
-                
-
             </div><!-- End col lg-9 -->
         </div>
     </div>
