@@ -3,7 +3,7 @@
     {{$property ->title}}
 @stop
 @section('content')
-    <section class="parallax-window" data-parallax="scroll" data-image-src="/img/house_bg.jpg" data-natural-width="1400" data-natural-height="470">
+    <section class="parallax-window" data-parallax="scroll" data-image-src="{{isset($property->headimg)?$property->headimg:''}}" data-natural-width="1400" data-natural-height="470">
         <div class="parallax-content-2">
             <div class="container">
                 <div class="row">
@@ -14,8 +14,8 @@
                          @endif
                     </div>
                     <div class="col-md-4 col-sm-4">
-                        <div id="price_single_main" class="hotel">
-                            <div><sup>NZ$</sup><span class="price">{{$property ->total_price}}</span>起</div>
+                        <div id="price_single_main" class="hotel" >
+                            <div style="font-size: 20px;"><sup>NZ$</sup><span class="price" style="font-size: 60px;">{{intval($property ->total_price)}}</span>起</div>
                         </div>
                     </div>
                 </div>
@@ -202,7 +202,7 @@
                 <div class="box_style_4">
                     <i class="icon_set_1_icon-90"></i>
                     <h4>联系我们</h4>
-                    <a href="tel://004542344599" class="phone">+025-58761818</a>
+                    <a style="color:#666;" href="tel://004542344599" class="phone">+025-58761818<span style="color:#85c99d;">转0</span></a>
                     <small>周一 至 周日  8.30 - 18.30</small>
                 </div>
             </aside>

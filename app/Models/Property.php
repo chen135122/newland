@@ -26,7 +26,7 @@ class Property extends BaseModel
 
     public function propertyImg()
     {
-        return   $query= $this->belongsTo ('App\Models\Image', 'id','itemid')->where("type",'=',2);
+        return   $query= $this->belongsTo ('App\Models\Image', 'id','itemid')->where("type",'=',2)->orderby("displayorder","asc");
     }
     public function getIsFavAttribute()
     {
