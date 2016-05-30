@@ -9,7 +9,7 @@ class Property extends BaseModel
 
     public function developers()
     {
-        return $this->hasOne('App\Models\Developer','id','developer_id');
+        return $this->hasOne('App\Models\Developer','id','developerid');
     }
     public function regions()
     {
