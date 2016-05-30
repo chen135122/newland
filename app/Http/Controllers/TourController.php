@@ -35,7 +35,7 @@ class TourController extends Controller
         }
         if(!empty($request->get('price')))
         {
-        $price = explode("_", $request->get('price'));// $request->get('price');
+            $price = explode("_", $request->get('price'));// $request->get('price');
         }
         if (!empty($sortprice =request()->get('sortPrice'))) {
             if ($sortprice == "2") {
@@ -59,7 +59,7 @@ class TourController extends Controller
             $parames["category"]=$request->get("category");
         }
 
-        $travels=$travels->paginate(10)->appends($parames);
+        $travels=$travels->paginate(5)->appends($parames);
         $travelCategorys = TravelCategory::where("parentid", 0)->where("name", "like", "%" . "旅游" . "%")->first();
         $categorys = TravelCategory::all();
         $id=$travelCategorys->id;
@@ -144,14 +144,12 @@ class TourController extends Controller
     {
         $perNum = $request->get("num");
         $date = $request->get("date");
-
         if (!empty($route = $request->get("routid"))) {
             $travel = Travel::where("id", $route)->first();
             $priceRange = PriceRange::where("routeid", $route)->where("endnum", ">", $perNum)->where("startnum", "<", $perNum);
         } else {
             return view('errors.404');
         }
-
         $priceBase = PriceBase::orderBy("displayorder")->get();
         $login=false;
         if(auth()->user())

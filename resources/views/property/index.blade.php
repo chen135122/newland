@@ -45,13 +45,13 @@
                             <div class="col-lg-6 col-md-6 col-sm-6" style="cursor:pointer" onclick="window.location='/property/{{$property->id}}'">
                                 <div class="tour_list_desc">
                                     <h3>{{$property->title}}</h3>
-                                    @if(isset($property->is_Tags )  )
-                                        <p>
-                                        @foreach($property->is_Tags as $tag )
-                                            {{$tag}}&nbsp;
-                                        @endforeach
-                                        </p>
-                                    @endif
+                                    {{--@if(isset($property->is_Tags))--}}
+                                        {{--<p>--}}
+                                        {{--@foreach($property->is_Tags as $tag )--}}
+                                            {{--{{$tag}}&nbsp;--}}
+                                        {{--@endforeach--}}
+                                        {{--</p>--}}
+                                    {{--@endif--}}
                                     <p>{{$property->regions->name}}-{{$property->regions_city->name}}-{{$property->regions_district->name}}</p>
 
                                 </div>
@@ -59,7 +59,7 @@
                             <div class="col-lg-2 col-md-2 col-sm-2">
                                 <div class="price_list">
                                     <div>
-                                        <span class="price_mod">NZ$<span class="price">{{$property->total_price}}</span>起</span><small>总价</small>
+                                        <span class="price_mod">NZ$<span class="price">{{intval($property->total_price)}}</span>起</span><small>总价</small>
                                         <p><a href="/property/{{$property->id}}" class="btn_1">详情</a></p>
                                     </div>
                                 </div>
@@ -96,6 +96,7 @@
                 </div>
                 <div class="box_style_1 expose">
                     <h3 class="inner">最新资讯</h3>
+                    @if(count($Lastedarticle)>0)
                     @foreach($Lastedarticle as $article2)
                         <div class="row">
                             <div class="col-md-6 col-sm-6 room">
@@ -109,7 +110,7 @@
                             </div>
                         </div>
                     @endforeach
-
+                    @endif
                     <br>
 
                     <a class="btn_full" href="/news">更多</a>
