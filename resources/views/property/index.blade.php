@@ -1,7 +1,19 @@
 @extends('layouts.master')
 @section('title')新西兰房产@stop
 @section('content')
+<<<<<<< HEAD
     <section class="parallax-window" data-parallax="scroll" data-image-src="{{isset($properties[0]->headimg)?$properties[0]->headimg:'/img/house_bg.jpg'}}" data-natural-width="1400" data-natural-height="470">
+=======
+    <section class="parallax-window" data-parallax="scroll"
+             <?php
+             $banner=\App\Models\Banner::where('title','房产')->first();
+              if($banner)
+                  echo  'data-image-src='.$banner->picurl;
+              else
+              echo "data-image-src='/img/house_bg.jpg'";
+             ?>
+             data-natural-width="1400" data-natural-height="470">
+>>>>>>> 1217982cbe05b75a0df8e70f2ad2cf3546142d6c
         <div class="parallax-content-1">
             <div class="animated fadeInDown">
                 <h1>新西兰房产</h1>
