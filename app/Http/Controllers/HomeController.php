@@ -60,7 +60,7 @@ class HomeController extends Controller
     //热门旅游
     public function Hottravels($n)
     {
-        $models= Travel::take($n)->select('id', 'title','bigtitle','picurl','referenceprice')->get();
+        $models= Travel::where(['publish'=>1,'ishot'=>1])->take($n)->select('id', 'title','bigtitle','picurl','referenceprice')->get();
         return $models;
     }
 

@@ -27,7 +27,7 @@ class TourController extends Controller
     {
         $parames=[];
         $travels = Travel::where("id", ">", 0)->orderBy("displayorder","asc");
-        $travels = $travels->where("status",1);
+        $travels = $travels->where("publish",1);
         $category=[];
         if(!empty($request->get('category')))
         {
@@ -60,7 +60,7 @@ class TourController extends Controller
         }
 
         $travels=$travels->paginate(5)->appends($parames);
-        $travelCategorys = TravelCategory::where("parentid", 0)->where("name", "like", "%" . "旅游" . "%")->first();
+        $travelCategorys = TravelCategory::where("parent_id", 0)->where("name", "like", "%" . "旅游" . "%")->first();
         $categorys = TravelCategory::all();
         $id=$travelCategorys->id;
         $categorys=$categorys->where("parentid",strval($id));
@@ -128,7 +128,7 @@ class TourController extends Controller
 
     public function LastedNews($n)
     {
-        $article = Article::where('status', 1)->orderBy('displayorder', 'desc')->take($n)->select('id', 'title', 'picurl', 'abstract')->get();
+        $article = Article::where('ishot',1)->where('publish',1)->orderBy('displayorder', 'desc')->take($n)->select('id', 'title', 'picurl', 'abstract')->get();
         return $article;
     }
 
