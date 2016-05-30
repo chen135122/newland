@@ -73,6 +73,11 @@ Route::group([ 'middleware' => ['web']], function () {
     Route::get('query','\App\Http\Controllers\AlipayController@query');
 });
 Route::get('debug', function(){
+    $banner=\App\Models\Banner::where('title','房产')->first();
+    if($banner)
+        echo  'data-image-src='.$banner->picurl;
+    else
+        echo "data-image-src='/img/house_bg.jpg'";
   return 16;
 });
 
