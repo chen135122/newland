@@ -116,7 +116,7 @@
                             <li class="submenu">
                                 <a href="/news" class="show-submenu"><!--<i class="icon_set_1_icon-7"></i>--> 新闻资讯 <i class="icon-down-open-mini"></i></a>
                                 <ul>
-                                    @foreach(\App\Models\ArticleCategory::all() as $category)
+                                    @foreach(\App\Models\ArticleCategory::where('parent_id',4)->select('id','name')->get() as $category)
                                       <li  style="margin-left: 0px;"><a href="/news-{{$category->id}}">{{$category->name}}</a></li>
                                     @endforeach
 

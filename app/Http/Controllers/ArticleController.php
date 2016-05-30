@@ -14,7 +14,7 @@ class ArticleController extends Controller
     {
 
     //        $articles = Article::where('status',1)->where('picurl','<>', '')->orderBy('displayorder', 'desc')->paginate(10);
-        $articles = Article::where('status',1)->where('picurl','<>', '')->orderBy('id', 'desc')->paginate(10);
+        $articles = Article::where('publish','1')->orderBy('displayorder', 'desc')->paginate(10);
         $Lastedarticle=$this->LastedNews(5);
         $hotpropertys=$this->HotProperty(4);
         $allUrl= $this->qrcode();
@@ -25,7 +25,7 @@ class ArticleController extends Controller
     public function index_type($type)
     {
         //        $articles = Article::where('status',1)->where('picurl','<>', '')->orderBy('displayorder', 'desc')->paginate(10);
-        $articles = Article::where('status',1)->where('catid',$type)->where('picurl','<>', '')->orderBy('id', 'desc')->paginate(10);
+        $articles = Article::where('publish',1)->where('catid',$type)->where('picurl','<>', '')->orderBy('id', 'desc')->paginate(10);
         $Lastedarticle=$this->LastedNews(5);
         $hotpropertys=$this->HotProperty(4);
         $typename=ArticleCategory::where('id',$type)->pluck('name')->first();
@@ -52,16 +52,16 @@ class ArticleController extends Controller
     {
         $Lastedarticle=$this->LastedNews(5);
         $hotpropertys=$this->HotProperty(4);
-        $article = Article::where('status',1)->where('id', $id)->first();
-        $prev= Article::where('status',1)->where('id', '<',$id)->select('id', 'title')->orderBy('id', 'desc')->first();
-        $next= Article::where('status',1)->where('id', '>', $id)->select('id', 'title')->first();
+        $article = Article::where('publish',1)->where('id', $id)->first();
+        $prev= Article::where('publish',1)->where('id', '<',$id)->select('id', 'title')->orderBy('id', 'desc')->first();
+        $next= Article::where('publish',1)->where('id', '>', $id)->select('id', 'title')->first();
         $allUrl= $this->qrcode();
         return view('article.show')->with(compact('article','prev','next','Lastedarticle','hotpropertys','allUrl'));
     }
     //最新资讯
     public function LastedNews($n)
     {
-        $article= Article::where('status',1)->orderBy('displayorder', 'desc')->take($n)->select('id', 'title','picurl','abstract')->get();
+        $article= Article::where('publish','1')->where('ishot',1)->orderBy('displayorder', 'desc')->orderBy('created_at', 'desc')->take($n)->select('id', 'title','picurl','abstract')->get();
         return $article;
     }
 
@@ -69,7 +69,7 @@ class ArticleController extends Controller
     //热门房产
     public function HotProperty($n)
     {
-        $property= Property::where('status',1)->orderBy('id', 'desc')->take($n)->select('id', 'title','picurl','address')->get();
+        $property= Property::where('publish','1')->where('ishot',1)->where('status', '<>', 10)->where('status', '<>', 14)->orderBy('created_at', 'desc')->take($n)->select('id', 'title','picurl','address')->get();
         return $property;
     }
 

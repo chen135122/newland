@@ -15,10 +15,10 @@ class PropertyController extends Controller
 {
     public function index(Request $request)
     {
-        $properties = Property::where('status', '<>', 0)->where('status', '<>', 4);
+        $properties = Property::where('publish','1')->where('status', '<>', 10)->where('status', '<>', 14);
         $Lastedarticle=$this->LastedNews(5);
         $hotpropertys=$this->HotProperty(4);
-        $properties=$properties->orderBy("id","desc")->paginate(5);
+        $properties=$properties->orderBy("created_at","desc")->paginate(5);
         $allUrl= $this->qrcode();
         return view('property.index')->with(compact('properties','Lastedarticle','hotpropertys','allUrl'));
     }
@@ -27,7 +27,7 @@ class PropertyController extends Controller
     {
         $Lastedarticle=$this->LastedNews(5);
         $hotpropertys=$this->HotProperty(4);
-        $property = Property::where('id', $id)->first();
+        $property = Property::where('id', $id)->where('status', '<>', 10)->where('status', '<>', 14)->first();
         $locationArray=explode(',',$property->location);
 
         $pic=$property->propertyImg()->get();
@@ -61,7 +61,7 @@ class PropertyController extends Controller
     //最新资讯
     public function LastedNews($n)
     {
-        $article= Article::where("id",">","0")->orderBy('displayorder', 'desc')->take($n)->select('id', 'title','picurl','abstract')->get();
+        $article= Article::where('publish','1')->where('ishot',1)->orderBy('displayorder', 'desc')->orderBy('created_at', 'desc')->take($n)->select('id', 'title','picurl','abstract')->get();
         return $article;
     }
 
@@ -69,7 +69,7 @@ class PropertyController extends Controller
     //热门房产
     public function HotProperty($n)
     {
-        $property= Property::orderBy('id', 'desc')->take($n)->select('id', 'title','picurl','address')->get();
+        $property= Property::where('publish','1')->where('ishot',1)->where('status', '<>', 10)->where('status', '<>', 14)->orderBy('created_at', 'desc')->take($n)->select('id', 'title','picurl','address')->get();
         return $property;
     }
 }
