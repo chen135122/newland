@@ -37,7 +37,6 @@ class Property extends BaseModel
         $count=DB::table('nz_collection')->where('itemid',$article_id)->where('uid',$user_id)->where('type',1)->count();
         return $count>0?true:false;
     }
-
     public function getIsTagsAttribute()
     {
         $item_id=$this->attributes['id'];

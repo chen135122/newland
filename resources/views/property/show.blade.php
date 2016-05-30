@@ -3,7 +3,7 @@
     {{$property ->title}}
 @stop
 @section('content')
-    <section class="parallax-window" data-parallax="scroll" data-image-src="{{isset($property->headimg)?$property->headimg:''}}" data-natural-width="1400" data-natural-height="470">
+    <section class="parallax-window" data-parallax="scroll" data-image-src="{{isset($property->headimg)?$property->headimg:'/img/house_bg.jpg'}}" data-natural-width="1400" data-natural-height="470">
         <div class="parallax-content-2">
             <div class="container">
                 <div class="row">
