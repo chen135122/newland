@@ -2,10 +2,13 @@
 
 namespace App\Models;
 use DB;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Property extends BaseModel
 {
     protected $table = 'nz_house';
+    protected $dates = ['deleted_at'];
+    use SoftDeletes;
 
     public function developers()
     {

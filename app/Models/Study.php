@@ -2,9 +2,12 @@
 
 namespace App\Models;
 use DB;
+use Illuminate\Database\Eloquent\SoftDeletes;
 class Study extends BaseModel
 {
     protected $table = 'nz_school';
+    protected $dates = ['deleted_at'];
+    use SoftDeletes;
     public function regions()
     {
         return $this->hasOne('App\Models\Region','id','region');

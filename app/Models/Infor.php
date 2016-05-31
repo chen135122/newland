@@ -2,9 +2,11 @@
 
 namespace App\Models;
 use Illuminate\Database\Eloquent\SoftDeletes;
-class Developer extends BaseModel
+
+
+class Infor extends BaseModel
 {
-    protected $table = 'nz_developers';
+    protected $table = 'nz_infor';
     protected $dates = ['deleted_at'];
     use SoftDeletes;
 
