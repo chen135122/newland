@@ -6,7 +6,7 @@ use DB;
 class Travel extends BaseModel
 {
     protected $table = 'nz_travel_route';
-
+    protected $dates = ['deleted_at'];
     public function day()
     {
         return $this->hasOne('App\Models\TravelDay', 'routeid','id');
@@ -36,6 +36,7 @@ class Travel extends BaseModel
 class TravelDay extends BaseModel
 {
     protected $table = 'nz_travel_day';
+    protected $dates = ['deleted_at'];
     public function dayDetail()
     {
         return $this->hasOne('App\Models\TravelDayDetail', 'dayid','id');
@@ -44,6 +45,7 @@ class TravelDay extends BaseModel
 class TravelDayDetail extends BaseModel
 {
     protected  $table='nz_travel_day_detail';
+    protected $dates = ['deleted_at'];
     public function detailImg()
     {
         return $this->hasOne('App\Models\Image', 'itemid','id')->where("type","=","1")->where("smalltype",2)->orderBy("displayorder","asc");
@@ -53,6 +55,7 @@ class TravelDayDetail extends BaseModel
 class Cate extends BaseModel
 {
     protected $table = 'nz_travel_food';
+    protected $dates = ['deleted_at'];
     public function foodImg()
     {
         return $this->hasOne('App\Models\Image', 'itemid','id')->where("type","=","1")->where("smalltype",3)->orderBy("displayorder","asc");
@@ -61,6 +64,7 @@ class Cate extends BaseModel
 class Feature extends  BaseModel
 {
     protected $table = 'nz_travel_feature';
+    protected $dates = ['deleted_at'];
 }
 
 
