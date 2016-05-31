@@ -25,7 +25,8 @@ Route::group([ 'middleware' => ['web']], function () {
     Route::post('tools/Favourite_add','\App\Http\Controllers\FavouriteController@postFavourite_add');
 
     Route::get('/',   '\App\Http\Controllers\HomeController@index');
-    Route::get('partner', '\App\Http\Controllers\HomeController@partner');
+    Route::get('partner', '\App\Http\Controllers\PartnerController@index');
+    Route::get('partner/{id}', '\App\Http\Controllers\PartnerController@show');
     Route::get('faq', '\App\Http\Controllers\HomeController@faq');
     Route::get('about', '\App\Http\Controllers\HomeController@about');
     Route::get('password/reset','\App\Http\Controllers\Auth\PasswordController@getReset');

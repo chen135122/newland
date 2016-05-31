@@ -26,13 +26,13 @@
 <div class="container">
 
     <div class="row">
-        <div class="col-lg-9 col-md-9" >
+        <div class="col-lg-8 col-md-8" >
             <h2 class="page-header">关于我们</h2>
               <div class="panel-cont">
                           {!! $content !!}
                             </div>
         </div>
-        <aside class="col-lg-3 col-md-3" style="margin-top: 80px;">
+        <aside class="col-lg-4 col-md-4" style="margin-top: 80px;">
             @include('layouts.partials.right_side')
         </aside>
     </div><!-- End row -->
