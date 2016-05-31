@@ -1,13 +1,11 @@
 <?php
-/**
- * Created by chitunet.com.
- * User: yin
- * Date: 2016/3/1
- * Time: 15:57
- */
+
 namespace App\Models;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Member extends BaseModel
 {
-    protected $table = 'nz_member';
+    protected $table = 'nz_customers';
+    protected $dates = ['deleted_at'];
+    use SoftDeletes;
 }

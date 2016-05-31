@@ -34,7 +34,12 @@ class HomeController extends Controller
     public function about()
     {
         $allUrl=$this->url();
-        return view('home.about')->with(compact('allUrl'));
+        $content='';
+        $model=\App\Models\Infor::where('title', '关于我们')->first();
+        if($model)
+            $content=$model->content;
+
+        return view('home.about')->with(compact('allUrl','content'));
     }
     public function partner()
     {

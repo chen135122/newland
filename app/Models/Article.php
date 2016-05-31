@@ -1,11 +1,14 @@
 <?php
 
 namespace App\Models;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use DB;
 
 class Article extends BaseModel
 {
     protected $table = 'nz_article';
+    protected $dates = ['deleted_at'];
+    use SoftDeletes;
 
     public function getCategory()
     {
