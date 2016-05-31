@@ -161,7 +161,7 @@
             </div>
             <div class="col-md-6  col-sm-6 col-xs-12" >
                 <p class="footer_l">
-                    客服热线：025-58761818 邮箱：services@allinnewzealand.com<br/>
+                    客服热线：025-58761818转0 邮箱：services@allinnewzealand.com<br/>
                     地址：江苏省南京市鼓楼区广州路189号民防大厦801<br/>
                     几维说kiwi say 版权所有
                 </p>
@@ -204,6 +204,16 @@
             flag=1;
         }
     });
+    $(function(){
+        setTimeout(wxHidden,5000);
+    })
+    function wxHidden()
+    {
+        $("#floatDivBoxs").animate({right: '-105px'},300);
+        $('#rightArrow').animate({right: '-5px'},300);
+        $('#rightArrow').css('background-position','-30px 0');
+        flag=0;
+    }
 </script>
 @stack('script')
 </body>

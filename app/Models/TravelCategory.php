@@ -8,6 +8,6 @@ class TravelCategory extends BaseModel
 
     // public function regions()
     // {
-        // return $this->belongsTo('App\Models\Region', 'region');
+    // return $this->belongsTo('App\Models\Region', 'region');
     // }
 }

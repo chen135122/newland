@@ -110,6 +110,52 @@ var show = function (ulid) {
     }
 
 }
+var cutStr= function (str) {
+    var newStr = new Array(str.length + parseInt(str.length / 3));
+    var strArray = str.split("");
+    newStr[newStr.length - 1] = strArray[strArray.length - 1];
+    var currentIndex = strArray.length - 1;
+    for (var i = newStr.length - 1; i >= 0; i--) {
+        if ((newStr.length - i) % 4 == 0) {
+            if (i == 0)
+            {
+                if ((str.length % 3) != 0)
+                    newStr[i] = ",";
+                else
+                    continue;
+            }
+            newStr[i] = ",";
+        }
+        else {
+            newStr[i] = strArray[currentIndex--];
+        }
+    }
+    //$(".price").val(newStr.join(""));
+    return newStr.join("")
+}
+$(function () {
+    $(".price").each(function () {
+        var price = $(this).text().split('$');//.split('¥')[0];
+        var newPrice;
+        if (price.length == 1) {
+            newPrice = price[0].split('¥')[1].trim();
+            newPrice = cutStr(newPrice);
+            $(this).text("¥"+newPrice);
+        }
+        else {
+            newPrice = price[1].trim();
+            newPrice = cutStr(newPrice);
+            $(this).text("$" + newPrice);
+        }
+    })
+//            $("#sort_price").change(function(){
+//                var $option=$(this).children('option:selected');
+//                if($option.index()!=0)
+//                {
+//                    window.location="/tour?sortPrice="+$option.val();
+//                }
+//            })
+})
 window.onresize = function () {
     var $width=$("#ml").width();
     var $ml = $("#ml"), $xingc = $("#xingc"), mpos = $ml.css("position"), xpos = $xingc.css("position");

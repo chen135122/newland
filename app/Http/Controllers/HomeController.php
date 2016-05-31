@@ -28,6 +28,7 @@ class HomeController extends Controller
 
     public function faq()
     {
+
         $allUrl=$this->url();
         return view('home.faq')->with(compact('allUrl'));
     }

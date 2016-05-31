@@ -32,9 +32,8 @@
                         </div>
                         <div class="filter_type">
                             <h6>分类</h6>
-
                             <ul>
-                                @foreach($categorys as $travelCategory)
+                                @foreach(\App\Models\TravelCategory::where('parent_id',2)->select('id','name')->get() as $travelCategory)
                                 <?php $vs=false   ?>
                                     @if(count($category)>0)
                                         @foreach($category as $key=>$value)
@@ -61,7 +60,7 @@
                 <div class="box_style_2">
                     <i class="icon_set_1_icon-57"></i>
                     <h4>联系我们</h4>
-                    <a href="tel://025-58761818" class="phone">+025-58761818</a>
+                    <a href="tel://025-58761818" class="phone" style="font-size: 23px;">+025-58761818<span style="color:#85c99d;">转0</span></a>
                     <small>周一 至 周日  8.30 - 18.30</small>
                 </div>
             </aside>
@@ -95,7 +94,8 @@
                             <div class="img_list">
                                 <a href="/tour/{{$travel->id}}">
                                     <div class=""></div><img src="{{$travel->picurl}}" alt="">
-                                    <div class="short_info"><i class="icon_set_1_icon-4"></i>{{$travel->start_place}} </div>
+                                    {{--<i class="icon_set_1_icon-4"></i>--}}
+                                    <div class="short_info">{{$travel->start_place}} </div>
                                 </a>
                             </div>
                         </div>
