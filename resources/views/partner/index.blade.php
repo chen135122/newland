@@ -38,7 +38,7 @@
                      </div>
                      <div class="col-lg-8 col-md-8 col-sm-8">
                          <div class="list_desc">
-                             <h3>{{$model->title}}</h3>
+                             <h3><a href="/partner/{{$model->id}}">{{$model->title}}</a></h3>
                              <p> {!!str_limit($model->abstract,350) !!}</p>
                          </div>
                      </div>

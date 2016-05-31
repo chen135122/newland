@@ -31,7 +31,7 @@
                 {!! $model ->content !!}
             </div>
         </div>
-        <aside class="col-lg-3 col-md-4" style="margin-top: 80px;">
+        <aside class="col-lg-4 col-md-4" style="margin-top: 80px;">
             @include('layouts.partials.right_side')
         </aside>
     </div><!-- End row -->
