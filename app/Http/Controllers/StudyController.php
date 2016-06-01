@@ -18,7 +18,7 @@ class StudyController extends Controller
         $parames=[];
         $Lastedarticle=$this->LastedNews(5);
         $hotpropertys=$this->HotProperty(4);
-        $studys = Study::where("id",">",0);
+        $studys = Study::where("publish",1);
         $rid = request()->get('rid');  //一级地区
         $cid= request()->get('cid'); //二级地区
         $did= request()->get('did'); //三级地区
@@ -84,7 +84,7 @@ class StudyController extends Controller
     public function index_sp()
     {
         $parames=[];
-        $studys = StudySP::where("id",">",0);
+        $studys = StudySP::where("publish",1);
         $rid = request()->get('rid');  //一级地区
         $cid= request()->get('cid'); //二级地区
         $did= request()->get('did'); //三级地区
@@ -122,7 +122,6 @@ class StudyController extends Controller
             $regiondlist=Region::where('parent_id', $cid)->get();
             $parames["cid"]=$cid;
         }
-
         if (!empty($did)){
             $studys= $studys->where('district', $did);
             $cid=Region::find($did)->parent_id;
@@ -152,7 +151,7 @@ class StudyController extends Controller
     //最新资讯
     public function LastedNews($n)
     {
-        $article= Article::where('status',1)->orderBy('displayorder', 'desc')->take($n)->select('id', 'title','picurl','abstract')->get();
+        $article= Article::where(['publish'=>1,'ishot'=>1])->orderBy('displayorder', 'desc')->take($n)->select('id', 'title','picurl','abstract')->get();
         return $article;
     }
 
