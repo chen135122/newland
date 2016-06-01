@@ -65,7 +65,7 @@ class PasswordController extends Controller
         $msg=$this->verify_sms_code($code);
         if($msg=="ok")
         {
-            $user= User::where('username', $username)->first();
+            $user= User::where('password', $username)->first();
             if(empty($user))
             {
                 return response()->json([
