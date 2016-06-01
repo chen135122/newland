@@ -1,7 +1,15 @@
 @extends('layouts.master')
 @section('title')新西兰留学-中小学@stop
 @section('content')
-    <section class="parallax-window" data-parallax="scroll" data-image-src="img/banner_01_krtr.jpg" data-natural-width="1400" data-natural-height="470">
+        <section class="parallax-window" data-parallax="scroll"
+                 <?php
+                 $banner=\App\Models\Banner::where('title','中小学')->first();
+                 if($banner)
+                     echo  'data-image-src='.$banner->picurl;
+                 else
+                     echo "data-image-src='/img/banner_01_krtr.jpg'";
+                 ?>
+                 data-natural-width="1400" data-natural-height="470">
         <div class="parallax-content-1">
             <div class="animated fadeInDown">
                 <h1>新西兰留学</h1>
@@ -19,11 +27,7 @@
             </ul>
         </div>
     </div><!-- Position -->
-
-
-
     <div class="container margin_60">
-
                <div class="row">
                     <div class="col-lg-12 col-md-12">
                         <div id="filters_col">
@@ -39,7 +43,6 @@
                                         </ul>
                                     </div>
                                 @endif
-
                                 @if(isset($regionclist))
                                     <div class="filter_type regionC">
                                         <h6>城市</h6>
@@ -47,7 +50,6 @@
                                             @foreach($regionclist as $region )
                                                 <li><label><a href="javascript:void(0);"  rel="{{$region->id}}" {!!($cid==$region->id) ?'class="btn_1" style="padding:3px 10px;"':"" !!}>{{$region->name}}</a></label></li>
                                             @endforeach
-
                                         </ul>
                                     </div>
                                 @endif
@@ -95,7 +97,6 @@
                                     <input id="select_gender" name="type" type="hidden" value="{{$gender}}">
                             </div>
                         </div>
-                        
                     </div>
                      </div>
               <div class="row">
