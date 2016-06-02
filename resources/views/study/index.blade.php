@@ -88,7 +88,19 @@
                             <h3>{{$study->cn_name}}</h3>
                             <ul>
                                 <li>英文名：{{$study->en_name}}</li>
-                                <li>地区：{{$study->regions->name}}.{{ $study->regions_city->name}}.{{ $study->regions_district->name}}</li>
+                                <li>地区：
+                                    <?php
+                                    if(isset($study->regions))
+                                        echo $study->regions->name.'&nbsp;';
+
+                                    if(isset($study->regions_city))
+                                        echo $study->regions_city->name.'&nbsp;';
+
+                                    if(isset($study->regions_district))
+                                        echo $study->regions_district->name.'&nbsp;';
+
+                                    ?>
+                                </li>
                                 <li>费用：NZ${{$study->fee_min}}/年 @if($study->fee_max>0) - NZ${{$study->fee_max}}/年@endif</li>
                                 @if($study->ielts_min>0)
                                 <li>ielts：{{$study->ielts_min}}-{{$study->ielts_max}}</li>
