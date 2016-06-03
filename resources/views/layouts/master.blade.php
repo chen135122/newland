@@ -163,7 +163,7 @@
                 <p class="footer_l">
                     客服热线：025-58761818转0 邮箱：services@allinnewzealand.com<br/>
                     地址：江苏省南京市鼓楼区广州路189号民防大厦801<br/>
-                    几维说kiwi say 版权所有
+                    南京布维金广投资管理有限公司 版权所有&nbsp;&nbsp;<a href="http://www.miitbeian.gov.cn" target="_blank">苏ICP备16007960号</a>
                 </p>
             </div>
             <div class="col-md-3 col-sm-6 col-xs-12" >
