@@ -40,7 +40,30 @@ class PropertyController extends Controller
             $locationY=168.9689589;
         }
         $allUrl= $this->qrcode();
-        return view('property.show')->with(compact('property','locationX','locationY','Lastedarticle','hotpropertys','pic','allUrl'));
+        $house_details=\App\Models\Infor::select('title', 'content')->get();
+        $zixun='';$anfang='';$qingsao='';$daizu='';$xintuo='';$liucheng='';
+        foreach($house_details as $house_detail){
+            if($house_detail->title=="咨询我们"){
+                $zixun=$house_detail->content;
+            }
+            if($house_detail->title=="安防服务"){
+                $anfang=$house_detail->content;
+            }
+            if($house_detail->title=="清扫服务"){
+                $qingsao=$house_detail->content;
+            }
+            if($house_detail->title=="代租服务"){
+                $daizu=$house_detail->content;
+            }
+            if($house_detail->title=="家庭信托"){
+                $xintuo=$house_detail->content;
+            }
+            if($house_detail->title=="购置流程"){
+                $liucheng=$house_detail->content;
+            }
+        }
+
+        return view('property.show')->with(compact('property','locationX','locationY','Lastedarticle','hotpropertys','pic','allUrl','zixun','anfang','qingsao','daizu','xintuo','liucheng'));
     }
 
     public  function  qrcode(){

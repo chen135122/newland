@@ -69,19 +69,29 @@
                     <div id="ml" style="background-color: #333;font-size: 11px;">
                         <div style="width:100%;margin-right: auto;margin-left: auto;">
                             <ul class="c_ul" style="margin: 0;padding: 0;color: #888;">
-                                <li class="new_a"><a onclick="removeClass('info', this)" href="#info">房源信息</a></li>
-                                <li class="new_a"><a onclick="removeClass('intro', this)" href="#intro">房源介绍</a></li>
-                                @if($property->peripheral_support)
-                                <li><a href="#cates" onclick="removeClass('cates', this)">周边配套</a></li>
+                                <li class="new_a"><a onclick="removeClass('info', this)" href="#info">项目信息</a></li>
+                                <li class="new_a"><a onclick="removeClass('intro', this)" href="#intro">项目特点</a></li>
+                                @if($liucheng)
+                                    <li><a href="#liucheng" onclick="removeClass('liucheng', this)">购置流程</a></li>
                                 @endif
-                                @if($property->selling_point)
-                                <li><a href="#xmmd" onclick="removeClass('xmmd', this)">项目卖点</a></li>
+                                @if($xintuo)
+                                    <li><a href="#xintuo" onclick="removeClass('xintuo', this)">家庭信托</a></li>
                                 @endif
-                                <li><a href="#ldbz" onclick="removeClass('ldbz', this)">房源保证</a></li>
-                                <li><a href="#tzys" onclick="removeClass('tzys', this)">投资优势</a></li>
-                                <li><a href="#hyzx" onclick="removeClass('hyzx', this)">会员尊享</a></li>
-                                <li><a href="#gfyh" onclick="removeClass('gfyh', this)">购房优惠</a></li>
+                                @if($daizu)
+                                    <li><a href="#daizu" onclick="removeClass('daizu', this)">代租服务</a></li>
+                                @endif
 
+                                @if($qingsao)
+                                    <li><a href="#qingsao" onclick="removeClass('qingsao', this)">清扫服务</a></li>
+                                @endif
+
+                                @if($anfang)
+                                    <li><a href="#anfang" onclick="removeClass('anfang', this)">安防服务</a></li>
+                                @endif
+                               
+                                @if($zixun)
+                                <li><a href="#zixun" onclick="removeClass('zixun', this)">咨询我们</a></li>
+                                @endif
                             </ul>
                         </div>
                     </div>
@@ -100,50 +110,56 @@
                     </div>
                 </div>
                 <hr>
-                @if($property->peripheral_support)
+                @if($liucheng)
                 <div class="row">
-                    <div class="col-md-12" id="cates">
-                        {!! $property ->peripheral_support !!}
+                    <div class="col-md-12" id="liucheng">
+                        {!! $liucheng!!}
                     </div>
                 </div>
                 <hr>
                 @endif
-                @if($property->selling_point)
+                @if($xintuo)
                 <div class="row">
-                    <div class="col-md-12"  id="xmmd">
-                        {!! $property ->selling_point !!}
+                    <div class="col-md-12"  id="xintuo">
+                        {!! $xintuo!!}
                     </div>
                 </div>
                 <hr>
                 @endif
                 </div>
+                @if($daizu)
                 <div class="row">
-                    <div class="col-md-12"  id="ldbz">
-                        {!! $property ->ensure !!}
-                    </div>
-                </div>
-                <hr>
-                @if($property->investment_advantage)
-                <div class="row">
-                    <div class="col-md-12" id="tzys">
-                        {!! $property ->investment_advantage !!}
+                    <div class="col-md-12"  id="daizu">
+                        {!! $daizu !!}
                     </div>
                 </div>
                 <hr>
                 @endif
+                @if($qingsao)
                 <div class="row">
-                    <div class="col-md-12" id="hyzx">
-                        {!! $property ->member_services !!}
+                    <div class="col-md-12" id="qingsao">
+                        {!!$qingsao !!}
                     </div>
                 </div>
                 <hr>
+                @endif
+                @if($anfang)
                 <div class="row">
-                    <div class="col-md-12" id="gfyh">
-                        {!! $property ->purchase_discount !!}
+                    <div class="col-md-12" id="anfang">
+                        {!!$anfang !!}
+                    </div>
+                </div>
+                <hr>
+                @endif
+                @if($zixun)
+                <div class="row">
+                    <div class="col-md-12" id="zixun">
+                        {!! $zixun !!}
                     </div>
                 </div>
 
                 <hr>
+                @endif
 
             </div>
 
@@ -324,7 +340,7 @@
         .table1 tbody tr td {
             border:none;
         }
-        .xmmd li{
+        .xintuo li{
             list-style:none;
             line-height:25px;
         }
