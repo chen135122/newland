@@ -214,47 +214,96 @@ class TourController extends Controller
 
     public function result(Request $request)
     {
-        $trade_no = $request->get("out_trade_no");
-        if (!empty($request->get("trade_status"))) {
-            $gateway = Omnipay::gateway();
-            $options = [
-                'request_params' => $_REQUEST,
-            ];
-
-            $response = $gateway->completePurchase($options)->send();
-            $upOrder = NewOrder::where("sn", $trade_no)->first();
-            if (($response->isSuccessful() && $response->isTradeStatusOk()) || ($request->get("is_success") == "T")) {
-                //支付成功后操作
-                $msg = "支付成功";
-                $upOrder->status = 2;
-
-            } else {
-                //支付失败通知.
-                $msg = "失败";
-                $upOrder->status = 5;
-
+        $num=$request->get("perNum");
+        $travel=Travel::where("id",$request->get("rout"))->first();
+        $order=new NewOrder();
+        $order->itemid=$request->get("rout");
+        $order->uid=auth()->user()->id;
+        $order->sn=date('Ymd').substr(implode(NULL, array_map('ord', str_split(substr(uniqid(), 7, 13), 1))), 0, 8);;
+        //$order->startdate=Carbon::now();
+        // $order->children=0;
+        $order-> totalprice=($travel->referenceprice);
+        //$order-> discount=0.0;
+        $order-> orderprice=$travel->oprice;
+        $order-> status=1;
+        $order->type=1;
+        $order->paytype=3;
+        $order-> created_at=Carbon::now();
+        $order-> created_by=1;
+        $order->num=$num;
+        $order->username=strval($request->get("username")) ;
+        $order->phone=strval($request->get("userPhone"));
+        $order->email=strval($request->get("userEmail"));
+        $order->remark=strval($request->get("content"));
+        $order->start_time=$request->get("startDate");
+        $order->save();
+        if($order->id>0)
+        {
+            $category=$request->get('baseprice');
+            if(count($category)>0) {
+                foreach ($category as $key => $value) {
+                    $base = PriceBase::where("id", $value)->first();
+                    $orderDetail = new OrderDetail();
+                    $orderDetail->orderid = $order->id;
+                    $orderDetail->title = $base->title;
+                    $orderDetail->price = $base->price;
+                    $orderDetail->num = $num;
+                    $orderDetail->created_at = Carbon::now();
+                    $orderDetail->created_by = 1;
+                    $orderDetail->updated_at = null;
+                    $orderDetail->updated_by = null;
+                    $orderDetail->save();
+                }
             }
-            $upOrder->save();
-        } else {
-            $upOrder = NewOrder::where("sn", $trade_no)->first();
-            if ($request->get("type") == "1") {
-                //支付成功后操作
-                $msg = "支付成功";
-                $upOrder->status = 2;
-
-            } else {
-                //支付失败通知.
-                $msg = "失败";
-                $upOrder->status = 5;
-
-            }
-            $upOrder->save();
+            $subject=  $request->get("subject");
         }
+        else
+            return redirect($request->get("url"));
+        $trade_no = $order->sn;
+        $upOrder = NewOrder::where("sn", $trade_no)->first();
+//        if (!empty($request->get("trade_status"))) {
+//            $gateway = Omnipay::gateway();
+//            $options = [
+//                'request_params' => $_REQUEST,
+//            ];
+//
+//            $response = $gateway->completePurchase($options)->send();
+//            $upOrder = NewOrder::where("sn", $trade_no)->first();
+//            if (($response->isSuccessful() && $response->isTradeStatusOk()) || ($request->get("is_success") == "T")) {
+//                //支付成功后操作
+//                $msg = "支付成功";
+//                $upOrder->status = 2;
+//
+//            } else {
+//                //支付失败通知.
+//                $msg = "失败";
+//                $upOrder->status = 5;
+//
+//            }
+//            $upOrder->status = 0;
+//            $upOrder->save();
+//        } else {
+//            $upOrder = NewOrder::where("sn", $trade_no)->first();
+//            if ($request->get("type") == "1") {
+//                //支付成功后操作
+//                $msg = "支付成功";
+//                $upOrder->status = 2;
+//
+//            } else {
+//                //支付失败通知.
+//                $msg = "失败";
+//                $upOrder->status = 5;
+//
+//            }
+//            $upOrder->save();
+//        }
+        $upOrder->status =1;
+        $upOrder->save();
         $order = NewOrder::where("sn", $trade_no)->first();
         $travel = $order->travel()->get()->first();
         $paytype = "";
         $paytype= $this->paytype($order->paytype);
-        return view('tour.result')->with(compact("order", $order))->with(compact("travel", $travel))->with("msg", $msg)->with("paytype", $paytype);;
+        return view('tour.result')->with(compact("order", $order))->with(compact("travel", $travel))->with("msg","未支付")->with("paytype", $paytype);;
     }
     public static function paytype($str){
         switch ($str) {

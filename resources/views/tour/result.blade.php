@@ -193,17 +193,17 @@
                             <strong>支付状态</strong>
                         </td>
                         <td>
-                            {{App\Http\Controllers\TourController::status($travel->status)}}
+                            {{App\Http\Controllers\TourController::status($order->status)}}
                         </td>
                     </tr>
-                    <tr>
-                        <td>
-                            <strong>支付类型</strong>
-                        </td>
-                        <td>
-                            {{$paytype}}
-                        </td>
-                    </tr>
+                    {{--<tr>--}}
+                        {{--<td>--}}
+                            {{--<strong>支付类型</strong>--}}
+                        {{--</td>--}}
+                        {{--<td>--}}
+                            {{--{{$paytype}}--}}
+                        {{--</td>--}}
+                    {{--</tr>--}}
                     </tbody>
                 </table>
             </div><!--End step -->

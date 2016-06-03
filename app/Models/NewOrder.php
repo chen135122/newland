@@ -10,6 +10,7 @@ namespace App\Models;
 class NewOrder extends BaseModel
 {
     protected $table = 'nz_order';
+    protected $guarded=['fileData'];
     public function travel()
     {
         return $this->belongsTo('App\Models\Travel','itemid','id');

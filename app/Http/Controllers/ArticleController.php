@@ -14,7 +14,7 @@ class ArticleController extends Controller
     {
 
     //        $articles = Article::where('status',1)->where('picurl','<>', '')->orderBy('displayorder', 'desc')->paginate(10);
-        $articles = Article::where('publish','1')->orderBy('displayorder', 'desc')->paginate(10);
+        $articles = Article::where('publish',1)->orderBy('displayorder', 'desc')->paginate(10);
         $Lastedarticle=$this->LastedNews(5);
         $hotpropertys=$this->HotProperty(4);
         $allUrl= $this->qrcode();
