@@ -80,7 +80,8 @@ class HomeController extends Controller
     public  function login()
     {
         if (isset($_REQUEST['code'])){
-           return redirect()->guest("https://api.weixin.qq.com/sns/oauth2/access_token?appid=wxcf1588ee73525cea&secret=2d2e236464875cea7218559df7965b23&code=013GJkR41uHyx02VWdT41dukR41GJkRT&grant_type=authorization_code");
+            $req="https://api.weixin.qq.com/sns/oauth2/access_token?appid=wxcf1588ee73525cea&secret=2d2e236464875cea7218559df7965b23&code=".$_REQUEST['code']."&grant_type=authorization_code";
+           return redirect()->guest($req);
         }else{
             echo "NO CODE";
         }
