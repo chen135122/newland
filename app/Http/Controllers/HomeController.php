@@ -89,11 +89,11 @@ class HomeController extends Controller
             //refresh_token	用户刷新access_token
             //openid	用户唯一标识，请注意，在未关注公众号时，用户访问公众号的网页，也会产生一个用户和公众号唯一的OpenID
             //scope	用户授权的作用域，使用逗号（,）分隔
-            $token= $arry["access_token"];
-            $oppenid= $arry["openid"];
+            $token= $arry->access_token;
+            $oppenid= $arry->openid;
             $userurl="https://api.weixin.qq.com/sns/userinfo?access_token=".$token."&openid=".$oppenid."";
             $userjson= file_get_contents($userurl);
-            dd($userjson);
+           echo $userjson;
         }else{
             echo "NO CODE";
         }
