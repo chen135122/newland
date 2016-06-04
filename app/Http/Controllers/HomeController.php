@@ -77,4 +77,12 @@ class HomeController extends Controller
         $property= $property->take($n)->select('id', 'title','picurl','total_price')->get();
         return $property;
     }
+    public  function login()
+    {
+        if (isset($_REQUEST['code'])){
+            dd($_REQUEST['code']);
+        }else{
+            echo "NO CODE";
+        }
+    }
 }

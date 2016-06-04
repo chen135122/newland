@@ -9,7 +9,8 @@
         "laravel/framework": "5.2.*",
         "ignited/laravel-omnipay": "2.*",
         "lokielse/omnipay-alipay": "dev-master",
-        "overtrue/laravel-wechat": "2.1.*"
+        "overtrue/laravel-wechat": "2.1.*",
+        "socialiteproviders/weixin": "^2.1"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
