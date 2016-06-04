@@ -81,7 +81,17 @@ class HomeController extends Controller
     {
         if (isset($_REQUEST['code'])){
             $req="https://api.weixin.qq.com/sns/oauth2/access_token?appid=wxcf1588ee73525cea&secret=2d2e236464875cea7218559df7965b23&code=".$_REQUEST['code']."&grant_type=authorization_code";
-           return redirect()->guest($req);
+            $arry=json_decode($req);
+            //返回json字符串
+            //access_token	网页授权接口调用凭证,注意：此access_token与基础支持的access_token不同
+            //expires_in	access_token接口调用凭证超时时间，单位（秒）
+            //refresh_token	用户刷新access_token
+            //openid	用户唯一标识，请注意，在未关注公众号时，用户访问公众号的网页，也会产生一个用户和公众号唯一的OpenID
+            //scope	用户授权的作用域，使用逗号（,）分隔
+            $token= $arry["access_token"];
+            $oppenid= $arry["openid"];
+            $userinfo="https://api.weixin.qq.com/sns/userinfo?access_token=".$token."&openid=".$oppenid."";
+          echo $userinfo;
         }else{
             echo "NO CODE";
         }
