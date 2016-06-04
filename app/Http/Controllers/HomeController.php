@@ -81,7 +81,8 @@ class HomeController extends Controller
     {
         if (isset($_REQUEST['code'])){
             $req="https://api.weixin.qq.com/sns/oauth2/access_token?appid=wxcf1588ee73525cea&secret=2d2e236464875cea7218559df7965b23&code=".$_REQUEST['code']."&grant_type=authorization_code";
-            $arry=json_decode($req);
+            $json= file_get_contents($req);
+            $arry=json_decode($json);
             //返回json字符串
             //access_token	网页授权接口调用凭证,注意：此access_token与基础支持的access_token不同
             //expires_in	access_token接口调用凭证超时时间，单位（秒）
@@ -90,10 +91,15 @@ class HomeController extends Controller
             //scope	用户授权的作用域，使用逗号（,）分隔
             $token= $arry["access_token"];
             $oppenid= $arry["openid"];
-            $userinfo="https://api.weixin.qq.com/sns/userinfo?access_token=".$token."&openid=".$oppenid."";
-          echo $userinfo;
+            $userurl="https://api.weixin.qq.com/sns/userinfo?access_token=".$token."&openid=".$oppenid."";
+            $userjson= file_get_contents($userurl);
+            dd($userjson);
         }else{
             echo "NO CODE";
         }
+    }
+    public function getArray($url)
+    {
+        return redirect()->guest($url);
     }
 }
