@@ -93,7 +93,11 @@ class HomeController extends Controller
             $oppenid= $arry->openid;
             $userurl="https://api.weixin.qq.com/sns/userinfo?access_token=".$token."&openid=".$oppenid."";
             $userjson= file_get_contents($userurl);
-           echo $userjson;
+            if(isset($userjson))
+            {
+                $userarry=json_decode($arry);
+                return view('home.index');
+            }
         }else{
             echo "NO CODE";
         }
