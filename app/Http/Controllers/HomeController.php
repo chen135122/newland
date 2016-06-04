@@ -95,7 +95,7 @@ class HomeController extends Controller
             $userjson= file_get_contents($userurl);
             if(isset($userjson))
             {
-                $userarry=json_decode($arry);
+                $userarry=json_decode($userjson);
                 return view('home.index');
             }
         }else{
