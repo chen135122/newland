@@ -17,7 +17,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-
+        $s= QrCode::generate("hellow");
         $hotpropertys=$this->HotProperty(3);
         $travels=$this->Hottravels(6);
         $HouseCount = Property::where('status', '<>', 0)->where('status', '<>', 4)->count();
@@ -49,6 +49,7 @@ class HomeController extends Controller
     }
     public  static  function url()
     {
+        $s= QrCode::generate("hellow");
         $appId  = 'wxcf1588ee73525cea';
         $secret = '2d2e236464875cea7218559df7965b23';
         $mchid = '1287337101';
@@ -99,7 +100,8 @@ class HomeController extends Controller
                 return view('home.index');
             }
         }else{
-            echo "NO CODE";
+            return view("home.login");
+            //echo "NO CODE";
         }
     }
     public function getArray($url)
