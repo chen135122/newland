@@ -41,6 +41,7 @@ Route::group([ 'middleware' => ['web']], function () {
     Route::get('tour', '\App\Http\Controllers\TourController@index');
     Route::get('tour/{id}', '\App\Http\Controllers\TourController@show');
     Route::get('login', '\App\Http\Controllers\HomeController@login');
+    Route::get('callback', '\App\Http\Controllers\HomeController@callback');
     Route::post('spay', '\App\Http\Controllers\TourController@pay');
     Route::post('create', '\App\Http\Controllers\TourController@create');
     Route::get('tprint/{id}', '\App\Http\Controllers\TourController@tprint');

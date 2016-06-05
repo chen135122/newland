@@ -78,6 +78,10 @@ class HomeController extends Controller
     }
     public  function login()
     {
+        return view("home.login");
+    }
+    public  function callback()
+    {
         if (isset($_REQUEST['code'])){
             $req="https://api.weixin.qq.com/sns/oauth2/access_token?appid=wxcf1588ee73525cea&secret=2d2e236464875cea7218559df7965b23&code=".$_REQUEST['code']."&grant_type=authorization_code";
             $json= file_get_contents($req);
@@ -98,7 +102,7 @@ class HomeController extends Controller
                 return view('home.login')->with("success","ok");
             }
         }else{
-           return "error";
+            return "error";
             //echo "NO CODE";
         }
     }
