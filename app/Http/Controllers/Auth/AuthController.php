@@ -114,15 +114,15 @@ class AuthController extends Controller
                 $userarry=json_decode($userjson);
                 $mobile=$userarry->openid;
                 $password=$userarry->openid;
-                $paramcount = User::where('mobile', '=',$mobile)->count();
-                if($paramcount<=0)
-                {
+                $paramcount = User::where('mobile',strval($mobile));
                 $user->password= $mobile;
                 $user->status=1;
                 $user->mobile=$mobile;
                 $user->nickname=$userarry->nickname;
                 $user->address=$userarry->country.",".$userarry->province.",".$userarry->city;
-                $user->save();
+                if(count($paramcount)<=0)
+                {
+                  $user->save();
                 }
             }
         }else{
