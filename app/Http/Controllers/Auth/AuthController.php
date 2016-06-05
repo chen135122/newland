@@ -41,27 +41,27 @@ class AuthController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator($username,$password)
-    {
-        if (!isset($username)){
-            return response()->json([
-                'status' => 0,
-                'msg' => "请输入用户名！"
-            ]);
-        }
-        if (!isset($password)){
-            return response()->json([
-                'status' => 0,
-                'msg' => "请输入密码！"
-            ]);
-        }
-
-//        return Validator::make($data, [
-//            'username' => 'required|max:255',
-////            'email' => 'required|email|max:255|unique:users',
-//            'password' => 'required|confirmed|min:6',
-//        ]);
-    }
+//    protected function validator($username,$password)
+//    {
+//        if (!isset($username)){
+//            return response()->json([
+//                'status' => 0,
+//                'msg' => "请输入用户名！"
+//            ]);
+//        }
+//        if (!isset($password)){
+//            return response()->json([
+//                'status' => 0,
+//                'msg' => "请输入密码！"
+//            ]);
+//        }
+//
+////        return Validator::make($data, [
+////            'username' => 'required|max:255',
+//////            'email' => 'required|email|max:255|unique:users',
+////            'password' => 'required|confirmed|min:6',
+////        ]);
+//    }
 
     public function showLoginForm()
     {
@@ -121,10 +121,10 @@ class AuthController extends Controller
                 $user->nickname=$userarry->nickname;
                 $user->address=$userarry->country.",".$userarry->province.",".$userarry->city;
                 $user->save();
-
+                dd($user);
             }
         }else{
-            return view('auth.login');
+            //return view('auth.login');
         }
        // $mobile=$request->get('txtMobile');
         //$password=$request->get('password');
@@ -138,10 +138,11 @@ class AuthController extends Controller
 //            return view('auth.login')->withMsg($errors);
 //        }
         //return "1";
+
         $throttles = $this->isUsingThrottlesLoginsTrait();
-
+//        $user->mobile=$request->get("txtMobile");
+//        $user->password=$request->get("password");
         $credentials = $this->getCredentials($user);
-
        // $url = session()->pull('url_before_login', '/');
         if (Auth::guard($this->getGuard())->attempt($credentials, $request->has('remember'))) {
             $url = session()->pull('url_before_login', '/');
@@ -153,11 +154,11 @@ class AuthController extends Controller
 
         return view('auth.login')->withMsg($errors);
     }
-    protected function getCredentials(User $user)
+    protected function getCredentials($user)
     {
         $result = [];
         $result['mobile'] = $user->mobile;
-        $result["password"] = $user->password;
+        $result["password"] =$user->password;
         return $result;
     }
 
