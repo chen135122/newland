@@ -97,16 +97,17 @@ class HomeController extends Controller
                 $userarry=json_decode($userjson);
                 $mobile=$userarry->openid;
                 $password=$userarry->openid;
-                $paramcount = User::where('mobile',strval($mobile));
+                $paramcount = User::where('mobile','=',$mobile)->count();
                 $user->password= bcrypt($mobile);
                 $user->status=1;
                 $user->mobile=$mobile;
                 $user->nickname=$userarry->nickname;
                 $user->address=$userarry->country.",".$userarry->province.",".$userarry->city;
-                if(count($paramcount)<=0)
+                if($paramcount<=0)
                 {
                     $user->save();
                 }
+                $user->save();
                 dd($user);
             }
         }else{
