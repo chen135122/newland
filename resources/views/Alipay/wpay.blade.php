@@ -57,6 +57,7 @@ elseif($unifiedOrderResult["code_url"] != NULL)
     //商户自行增加处理流程
     //......
 }
+
 ?>
 
 
@@ -136,8 +137,10 @@ elseif($unifiedOrderResult["code_url"] != NULL)
 <script>
     if(<?php echo $code_url != NULL; ?>)
     {
+
         var url = "<?php echo $code_url;?>";
         //参数1表示图像大小，取值范围1-10；参数2表示质量，取值范围'L','M','Q','H'
+        alert(url);
         var qr = qrcode(10, 'Q');
         qr.addData(url);
         qr.make();
