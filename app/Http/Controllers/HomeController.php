@@ -107,12 +107,11 @@ class HomeController extends Controller
                 {
                     $user->save();
                 }
+                dd($user);
             }
         }else{
             //return view('auth.login');
         }
-        $user->password="123456";
-        $user->mobile="13851555614";
         return redirect()->guest("/auth/login?txtMobile=".$user->mobile."&password=".$user->password);
     }
     public  function callback(Request $request)
