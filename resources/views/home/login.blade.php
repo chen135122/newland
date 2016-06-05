@@ -57,12 +57,11 @@
         setInterval("ajaxstatus()", 500);
     });
     function ajaxstatus() {
-        <?php
-        if(isset($_SESSION['code']))
-       {
-           header('/');
-       }
-        ?>
+       var $cookie=document.cookie.split('=')[1];
+        if($cookie!=""&&$cookie!=null)
+        {
+            window.location.href = "localhost:8000/index";
+        }
 //            $.ajax({
 //                url: "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxcf1588ee73525cea&redirect_uri=http://w.chitunet.com/callback&response_type=code&scope=snsapi_userinfo&state=1&connect_redirect=1#wechat_redirect",
 //                type: "POST",
