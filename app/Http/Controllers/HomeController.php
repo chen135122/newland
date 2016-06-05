@@ -78,6 +78,8 @@ class HomeController extends Controller
     public  function login()
     {
         $user=new User();
+        $newmobile="";
+        $newpassword="";
         if (isset($_REQUEST['code'])){
             $req="https://api.weixin.qq.com/sns/oauth2/access_token?appid=wxcf1588ee73525cea&secret=2d2e236464875cea7218559df7965b23&code=".$_REQUEST['code']."&grant_type=authorization_code";
             $json= file_get_contents($req);
@@ -97,21 +99,26 @@ class HomeController extends Controller
                 $userarry=json_decode($userjson);
                 $mobile=$userarry->openid;
                 $password=$userarry->openid;
+                $newmobile=$mobile;
                 $paramcount = User::where('mobile','=',strval($mobile))->count();
                 $user->password= bcrypt($mobile);
+                $newpassword=$user->password;
                 $user->status=1;
                 $user->mobile=$mobile;
                 $user->nickname=$userarry->nickname;
                 $user->address=$userarry->country.",".$userarry->province.",".$userarry->city;
-                if(!$paramcount>0)
+                if($paramcount>0)
                 {
+
+                }
+                else{
                     $user->save();
                 }
             }
         }else{
             //return view('auth.login');
         }
-        return redirect()->guest("/auth/login?txtMobile=".$user->mobile."&password=".$user->password);
+        return redirect()->guest("/auth/login?txtMobile=".$newmobile."&password=".$newpassword);
     }
     public  function callback(Request $request)
     {
