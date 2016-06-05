@@ -82,10 +82,8 @@ class HomeController extends Controller
     }
     public  function callback(Request $request)
     {
-        Session::put('usecode', 'value');
-        echo Session::get('usecode');
         if (isset($_REQUEST['code'])){
-            Session::put('usecode', 'value');  // 把username存在$_SESSION['code'] 里面
+            Session::put('usecode', $_REQUEST['code']);  // 把username存在$_SESSION['code'] 里面
             //session_destroy();               // 销毁session
             $req="https://api.weixin.qq.com/sns/oauth2/access_token?appid=wxcf1588ee73525cea&secret=2d2e236464875cea7218559df7965b23&code=".$_REQUEST['code']."&grant_type=authorization_code";
             $json= file_get_contents($req);
