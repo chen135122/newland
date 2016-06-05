@@ -14,7 +14,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'mobile', 'password',
+        'mobile'
     ];
 
     /**
@@ -26,10 +26,10 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function getAuthPassword()
-    {
-        return $this->password;
-    }
+//    public function getAuthPassword()
+//    {
+//        return $this->password;
+//    }
 
     public function articles(){
         return $this->belongsToMany('App\Models\Article','nz_collection','uid','itemid')->withPivot('type');
