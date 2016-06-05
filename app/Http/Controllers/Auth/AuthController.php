@@ -95,39 +95,6 @@ class AuthController extends Controller
     public function getLogin(Request $request)
     {
         $user=new User();
-        if (isset($_REQUEST['code'])){
-            $req="https://api.weixin.qq.com/sns/oauth2/access_token?appid=wxcf1588ee73525cea&secret=2d2e236464875cea7218559df7965b23&code=".$_REQUEST['code']."&grant_type=authorization_code";
-            $json= file_get_contents($req);
-            $arry=json_decode($json);
-            //返回json字符串
-            //access_token	网页授权接口调用凭证,注意：此access_token与基础支持的access_token不同
-            //expires_in	access_token接口调用凭证超时时间，单位（秒）
-            //refresh_token	用户刷新access_token
-            //openid	用户唯一标识，请注意，在未关注公众号时，用户访问公众号的网页，也会产生一个用户和公众号唯一的OpenID
-            //scope	用户授权的作用域，使用逗号（,）分隔
-            $token= $arry->access_token;
-            $oppenid= $arry->openid;
-            $userurl="https://api.weixin.qq.com/sns/userinfo?access_token=".$token."&openid=".$oppenid."";
-            $userjson= file_get_contents($userurl);
-            if(isset($userjson))
-            {
-                $userarry=json_decode($userjson);
-                $mobile=$userarry->openid;
-                $password=$userarry->openid;
-                $paramcount = User::where('mobile',strval($mobile));
-                $user->password= $mobile;
-                $user->status=1;
-                $user->mobile=$mobile;
-                $user->nickname=$userarry->nickname;
-                $user->address=$userarry->country.",".$userarry->province.",".$userarry->city;
-                if(count($paramcount)<=0)
-                {
-                  $user->save();
-                }
-            }
-        }else{
-            return view('auth.login');
-        }
        // $mobile=$request->get('txtMobile');
         //$password=$request->get('password');
 //        if (!$mobile){
@@ -142,11 +109,11 @@ class AuthController extends Controller
         //return "1";
 
         $throttles = $this->isUsingThrottlesLoginsTrait();
-//        $user->mobile=$request->get("txtMobile");
-//        $user->password=$request->get("password");
+        $user->mobile=$request->get("txtMobile");
+        $user->password=$request->get("password");
         $credentials = $this->getCredentials($user);
        // $url = session()->pull('url_before_login', '/');
-        if (Auth::guard($this->getGuard())->attempt($credentials, $request->has('remember'))) {
+        if (Auth::guard($this->getGuard())->attempt($credentials, $user)) {
             $url = session()->pull('url_before_login', '/');
 //            \Log::debug("get url".  $url);
             return redirect($url);
@@ -159,7 +126,7 @@ class AuthController extends Controller
     protected function getCredentials($user)
     {
         $result = [];
-        $result['mobile'] = $user->mobile;
+        $result['mobile']  = $user->mobile;
         $result["password"] =$user->password;
         return $result;
     }
