@@ -78,12 +78,14 @@ class HomeController extends Controller
     }
     public  function login()
     {
+        session_start();
         return view("home.login")->with("success","1");;
     }
     public  function callback(Request $request)
     {
+        session_start();
         if (isset($_REQUEST['code'])){
-            session_start();
+
             $_SESSION['usecode'] =$_REQUEST['code'];  // 把username存在$_SESSION['code'] 里面
             //session_destroy();               // 销毁session
             $req="https://api.weixin.qq.com/sns/oauth2/access_token?appid=wxcf1588ee73525cea&secret=2d2e236464875cea7218559df7965b23&code=".$_REQUEST['code']."&grant_type=authorization_code";
