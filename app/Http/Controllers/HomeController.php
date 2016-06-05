@@ -78,10 +78,12 @@ class HomeController extends Controller
     }
     public  function login()
     {
+
         return view("home.login")->with("success","1");;
     }
     public  function callback(Request $request)
     {
+        Session::put('usecode',"1");
         if (isset($_REQUEST['code'])){
             Session::put('usecode', $_REQUEST['code']);  // 把username存在$_SESSION['code'] 里面
             //session_destroy();               // 销毁session
