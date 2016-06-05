@@ -94,10 +94,7 @@
                                 <td>{{date("Y年n月d日", $order->start_time) }}</td>
                                 <td>支付状态:{{App\Http\Controllers\TourController::status($order->status)}}</td>
                             </tr>
-                            <tr>
-                                <td>支付类型:{{App\Http\Controllers\TourController::paytype($order->paytype)}}</td>
-                                <td></td>
-                            </tr>
+
                             </tbody>
                         </table>
                         <table class="table table-condensed">
