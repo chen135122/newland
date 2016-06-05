@@ -107,6 +107,7 @@ class HomeController extends Controller
                 $user->mobile=$mobile;
                 $user->nickname=$userarry->nickname;
                 $user->address=$userarry->country.",".$userarry->province.",".$userarry->city;
+                dd($paramcount);
                 if($paramcount>0)
                 {
 
