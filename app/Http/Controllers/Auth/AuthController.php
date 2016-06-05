@@ -157,8 +157,8 @@ class AuthController extends Controller
         }
 //        $errors=$this->getFailedLoginMessage();
         $errors='用户名或密码错误';
-
-        return view('auth.login')->withMsg($errors);
+        echo "2";
+       // return view('auth.login')->withMsg($errors);
     }
 
 
