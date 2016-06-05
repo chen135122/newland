@@ -121,10 +121,9 @@ class AuthController extends Controller
                 $user->nickname=$userarry->nickname;
                 $user->address=$userarry->country.",".$userarry->province.",".$userarry->city;
                 $user->save();
-                dd($user);
             }
         }else{
-            //return view('auth.login');
+            return view('auth.login');
         }
        // $mobile=$request->get('txtMobile');
         //$password=$request->get('password');
