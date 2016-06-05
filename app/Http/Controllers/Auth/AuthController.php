@@ -97,6 +97,7 @@ class AuthController extends Controller
         $user=new User();
         echo $_REQUEST['code'];
         if (isset($_REQUEST['code'])){
+
             $req="https://api.weixin.qq.com/sns/oauth2/access_token?appid=wxcf1588ee73525cea&secret=2d2e236464875cea7218559df7965b23&code=".$_REQUEST['code']."&grant_type=authorization_code";
             $json= file_get_contents($req);
             $arry=json_decode($json);
@@ -126,6 +127,7 @@ class AuthController extends Controller
                     $user->address=$userarry->country.",".$userarry->province.",".$userarry->city;
                     $user->save();
                 }
+                echo $_REQUEST['code'];
                 //$password=$request->get('password');
             }
         }else{
@@ -150,11 +152,11 @@ class AuthController extends Controller
         $credentials = $this->getCredentials($user);
 
        // $url = session()->pull('url_before_login', '/');
-        if (Auth::guard($this->getGuard())->attempt($credentials, $request->has('remember'))) {
-            $url = session()->pull('url_before_login', '/');
-//            \Log::debug("get url".  $url);
-            return redirect($url);
-        }
+//        if (Auth::guard($this->getGuard())->attempt($credentials, $request->has('remember'))) {
+//            $url = session()->pull('url_before_login', '/');
+////            \Log::debug("get url".  $url);
+//            return redirect($url);
+//        }
 //        $errors=$this->getFailedLoginMessage();
         $errors='用户名或密码错误';
         echo "2";
