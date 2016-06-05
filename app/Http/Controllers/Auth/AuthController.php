@@ -41,27 +41,27 @@ class AuthController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator($username,$password)
-    {
-        if (!isset($username)){
-            return response()->json([
-                'status' => 0,
-                'msg' => "请输入用户名！"
-            ]);
-        }
-        if (!isset($password)){
-            return response()->json([
-                'status' => 0,
-                'msg' => "请输入密码！"
-            ]);
-        }
+//    protected function validator($username,$password)
+//    {
+//        if (!isset($username)){
+//            return response()->json([
+//                'status' => 0,
+//                'msg' => "请输入用户名！"
+//            ]);
+//        }
+//        if (!isset($password)){
+//            return response()->json([
+//                'status' => 0,
+//                'msg' => "请输入密码！"
+//            ]);
+//        }
 
 //        return Validator::make($data, [
 //            'username' => 'required|max:255',
 ////            'email' => 'required|email|max:255|unique:users',
 //            'password' => 'required|confirmed|min:6',
 //        ]);
-    }
+  //  }
 
     public function showLoginForm()
     {

@@ -153,7 +153,8 @@ trait AuthenticatesUsers
      */
     protected function getCredentials(Request $request)
     {
-        return $request->only($this->loginUsername(), 'password');
+        //return $request->only($this->loginUsername(), 'password');
+        return $request->only($this->loginUsername());
     }
 
     /**

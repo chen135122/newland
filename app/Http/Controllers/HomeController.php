@@ -1,12 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
+namespace App\Http\Controllers\Auth;
+
+use App\User;
 use App\Models\Property;
 use App\Models\Travel;
 use Cookie;
 use Session;
 use Illuminate\Http\Request;
-use App\User;
 use Overtrue\Wechat\QRCode;
 use Overtrue\Wechat\Url;
 use App\Http\Requests;
@@ -144,7 +146,7 @@ class HomeController extends Controller
         }
 //        $errors=$this->getFailedLoginMessage();
         $errors='用户名或密码错误';
-        echo "2";
+        return view()
     }
     public  function callback(Request $request)
     {
