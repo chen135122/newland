@@ -54,7 +54,7 @@
 <script src="/js/jquery-1.11.2.min.js"></script>
 <script>
     $(document).ready(function () {
-        setInterval("ajaxstatus()", 3000);
+        setInterval("ajaxstatus()", 500);
     });
     function ajaxstatus() {
             $.ajax({
