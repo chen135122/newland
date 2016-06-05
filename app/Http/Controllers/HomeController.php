@@ -100,14 +100,14 @@ class HomeController extends Controller
                 $mobile=$userarry->openid;
                 $password=$userarry->openid;
                 $newmobile=$mobile;
-                $paramcount = User::where('mobile','=',strval($mobile))->count();
+                $paramcount = User::where('mobile','=',$userarry->openid)->count();
                 $user->password= bcrypt($mobile);
                 $newpassword=$user->password;
                 $user->status=1;
                 $user->mobile=$mobile;
                 $user->nickname=$userarry->nickname;
                 $user->address=$userarry->country.",".$userarry->province.",".$userarry->city;
-                dd($paramcount);
+                dd($userarry->openid);
                 if($paramcount>0)
                 {
 
