@@ -99,12 +99,13 @@ class HomeController extends Controller
             if(isset($userjson))
             {
                 $userarry=json_decode($userjson);
-                return view('home.login')->with("success","ok");
+                return $_REQUEST['code'];
             }
         }else{
-            return "error";
+            return "0";
             //echo "NO CODE";
         }
+        return "0";
     }
     public function getArray($url)
     {

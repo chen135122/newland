@@ -52,14 +52,27 @@
 <br>
 </body>
 <script src="/js/jquery-1.11.2.min.js"></script>
-<?php
-//$url=urldecode("https%3A%2F%2Fpassport.yhd.com%2Fwechat%2Fcallback.do");
-//$url=UrlEncode("https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxcf1588ee73525cea&redirect_uri=http://w.chitunet.com/login&response_type=code&scope=snsapi_userinfo&state=1&connect_redirect=1#wechat_redirect");
-?>
 <script>
-    if('{{$success}}'=="ok")
-    {
-        alert("1");
+    $(document).ready(function () {
+        setInterval("ajaxstatus()", 3000);
+    });
+    function ajaxstatus() {
+            $.ajax({
+                url: "callback",
+                type: "GET",
+                data: "",
+                success: function (data) {
+                    if (data!="0") { //订单状态为1表示支付成功
+                        window.location.href = "/"; //页面跳转
+                    }
+                    else {
+                        
+                    }
+                },
+                error: function () {
+                    //alert("O No~~~");
+                }
+            });
     }
 </script>
 </html>
