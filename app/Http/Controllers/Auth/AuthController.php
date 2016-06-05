@@ -41,27 +41,27 @@ class AuthController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-//    protected function validator($username,$password)
-//    {
-//        if (!isset($username)){
-//            return response()->json([
-//                'status' => 0,
-//                'msg' => "请输入用户名！"
-//            ]);
-//        }
-//        if (!isset($password)){
-//            return response()->json([
-//                'status' => 0,
-//                'msg' => "请输入密码！"
-//            ]);
-//        }
+    protected function validator($username,$password)
+    {
+        if (!isset($username)){
+            return response()->json([
+                'status' => 0,
+                'msg' => "请输入用户名！"
+            ]);
+        }
+        if (!isset($password)){
+            return response()->json([
+                'status' => 0,
+                'msg' => "请输入密码！"
+            ]);
+        }
 
 //        return Validator::make($data, [
 //            'username' => 'required|max:255',
 ////            'email' => 'required|email|max:255|unique:users',
 //            'password' => 'required|confirmed|min:6',
 //        ]);
-  //  }
+    }
 
     public function showLoginForm()
     {
@@ -92,13 +92,10 @@ class AuthController extends Controller
         ]);
     }
 
-    public function postLogin(Request $request)
+    public function getLogin(Request $request)
     {
-        return "1";
         $user=new User();
-        echo $_REQUEST['code'];
         if (isset($_REQUEST['code'])){
-
             $req="https://api.weixin.qq.com/sns/oauth2/access_token?appid=wxcf1588ee73525cea&secret=2d2e236464875cea7218559df7965b23&code=".$_REQUEST['code']."&grant_type=authorization_code";
             $json= file_get_contents($req);
             $arry=json_decode($json);
@@ -116,26 +113,19 @@ class AuthController extends Controller
             {
                 $userarry=json_decode($userjson);
                 $mobile=$userarry->openid;
+                $password=$userarry->openid;
                 $paramcount = User::where('mobile', '=',$mobile)->count();
-                if($paramcount<0)
-                {
+                $user->password= $mobile;
+                $user->status=1;
+                $user->mobile=$mobile;
+                $user->nickname=$userarry->nickname;
+                $user->address=$userarry->country.",".$userarry->province.",".$userarry->city;
+                $user->save();
 
-                    //$Passwords=bcrypt($txtPassword);
-                    $user->password="";
-                    $user->status=1;
-                    $user->mobile=$mobile;
-                    $user->nickname=$userarry->nickname;
-                    $user->address=$userarry->country.",".$userarry->province.",".$userarry->city;
-                    $user->save();
-                }
-                echo $_REQUEST['code'];
-                //$password=$request->get('password');
             }
         }else{
-            echo "1";
-            //return view('auth.login');
+            return view('auth.login');
         }
-
        // $mobile=$request->get('txtMobile');
         //$password=$request->get('password');
 //        if (!$mobile){
@@ -147,7 +137,7 @@ class AuthController extends Controller
 //            $errors="请输入密码！";
 //            return view('auth.login')->withMsg($errors);
 //        }
-
+        //return "1";
         $throttles = $this->isUsingThrottlesLoginsTrait();
 
         $credentials = $this->getCredentials($user);
@@ -160,17 +150,14 @@ class AuthController extends Controller
         }
 //        $errors=$this->getFailedLoginMessage();
         $errors='用户名或密码错误';
-        echo "2";
-       // return view('auth.login')->withMsg($errors);
+
+        return view('auth.login')->withMsg($errors);
     }
-
-
-
-    protected function getCredentials($user)
+    protected function getCredentials(User $user)
     {
         $result = [];
-        $result['mobile'] =$user->mobile;
-        //$result["password"] = $request->input("password");
+        $result['mobile'] = $user->mobile;
+        $result["password"] = $user->password;
         return $result;
     }
 

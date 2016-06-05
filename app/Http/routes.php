@@ -21,7 +21,7 @@ Route::group([ 'middleware' => ['web', 'auth']], function () {
 });
 
 Route::group([ 'middleware' => ['web']], function () {
-//    Route::post('/auth/login','\App\Http\Controllers\Auth\AuthController@postLogin');
+    //Route::get('/auth/login','\App\Http\Controllers\Auth\AuthController@getLogin');
     Route::post('tools/Favourite_add','\App\Http\Controllers\FavouriteController@postFavourite_add');
 
     Route::get('/',   '\App\Http\Controllers\HomeController@index');

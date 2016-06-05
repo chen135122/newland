@@ -18,7 +18,7 @@
                         {{--<h3>登录--}}
                         {{--</h3>--}}
                         {{--<hr>--}}
-                        {{--<form class="form-horizontal" action="/auth/login" method="post" id="loginform" name="loginform">--}}
+                        {{--<form class="form-horizontal" action="/auth/login" method="get" id="loginform" name="loginform">--}}
                             {{--<div class="form-group">--}}
                                 {{--<label for="name" class="col-sm-3 control-label">用户名</label>--}}
                                 {{--<div class="col-sm-9"><input type="text" class=" form-control" datatype="m"  placeholder="请输入手机号码" datatype="*" nullmsg="请输入手机号码" sucmsg=" " errormsg="请输入手机号码" id="txtMobile"  name="txtMobile">--}}
