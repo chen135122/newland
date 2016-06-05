@@ -62,11 +62,12 @@
                 type: "GET",
                 data: "",
                 success: function (data) {
+                    alert(data);
                     if (data!="0") { //订单状态为1表示支付成功
                         window.location.href = "/"; //页面跳转
                     }
                     else {
-                        
+                        alert()
                     }
                 },
                 error: function () {

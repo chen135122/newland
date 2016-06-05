@@ -105,7 +105,6 @@ class HomeController extends Controller
             return "0";
             //echo "NO CODE";
         }
-        return "0";
     }
     public function getArray($url)
     {
