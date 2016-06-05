@@ -94,24 +94,58 @@ class AuthController extends Controller
 
     public function postLogin(Request $request)
     {
+        $user=new User();
+        if (isset($_REQUEST['code'])){
+            $req="https://api.weixin.qq.com/sns/oauth2/access_token?appid=wxcf1588ee73525cea&secret=2d2e236464875cea7218559df7965b23&code=".$_REQUEST['code']."&grant_type=authorization_code";
+            $json= file_get_contents($req);
+            $arry=json_decode($json);
+            //返回json字符串
+            //access_token	网页授权接口调用凭证,注意：此access_token与基础支持的access_token不同
+            //expires_in	access_token接口调用凭证超时时间，单位（秒）
+            //refresh_token	用户刷新access_token
+            //openid	用户唯一标识，请注意，在未关注公众号时，用户访问公众号的网页，也会产生一个用户和公众号唯一的OpenID
+            //scope	用户授权的作用域，使用逗号（,）分隔
+            $token= $arry->access_token;
+            $oppenid= $arry->openid;
+            $userurl="https://api.weixin.qq.com/sns/userinfo?access_token=".$token."&openid=".$oppenid."";
+            $userjson= file_get_contents($userurl);
+            if(isset($userjson))
+            {
+                $userarry=json_decode($userjson);
+                $mobile=$userarry->openid;
+                $paramcount = User::where('mobile', '=',$mobile)->count();
+                if($paramcount<0)
+                {
 
-        $mobile=$request->get('txtMobile');
-        $password=$request->get('password');
-
-        if (!$mobile){
-
-           $errors="请输入手机号码！";
-            return view('auth.login')->withMsg($errors);
+                    //$Passwords=bcrypt($txtPassword);
+                    $user->password="";
+                    $user->status=1;
+                    $user->mobile=$mobile;
+                    $user->nickname=$userarry->nickname;
+                    $user->address=$userarry->country.",".$userarry->province.",".$userarry->city;
+                    $user->save();
+                }
+                //$password=$request->get('password');
+            }
+        }else{
+            return view('auth.login');
         }
 
-        if (!$password){
-            $errors="请输入密码！";
-            return view('auth.login')->withMsg($errors);
-        }
+       // $mobile=$request->get('txtMobile');
+        //$password=$request->get('password');
+//        if (!$mobile){
+//           $errors="请输入手机号码！";
+//            return view('auth.login')->withMsg($errors);
+//        }
+
+//        if (!$password){
+//            $errors="请输入密码！";
+//            return view('auth.login')->withMsg($errors);
+//        }
 
         $throttles = $this->isUsingThrottlesLoginsTrait();
 
-        $credentials = $this->getCredentials($request);
+        $credentials = $this->getCredentials($user);
 
        // $url = session()->pull('url_before_login', '/');
         if (Auth::guard($this->getGuard())->attempt($credentials, $request->has('remember'))) {
@@ -127,11 +161,11 @@ class AuthController extends Controller
 
 
 
-    protected function getCredentials(Request $request)
+    protected function getCredentials($user)
     {
         $result = [];
-        $result['mobile'] = $request->get("txtMobile");
-        $result["password"] = $request->input("password");
+        $result['mobile'] =$user->mobile;
+        //$result["password"] = $request->input("password");
         return $result;
     }
 
