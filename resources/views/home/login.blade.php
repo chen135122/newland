@@ -57,28 +57,22 @@
         setInterval("ajaxstatus()", 500);
     });
     function ajaxstatus() {
-       var $cookie=document.cookie.split('=')[1];
-        if($cookie!=""&&$cookie!=null)
-        {
-            window.location.href = "localhost:8000/index";
-        }
-//            $.ajax({
-//                url: "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxcf1588ee73525cea&redirect_uri=http://w.chitunet.com/callback&response_type=code&scope=snsapi_userinfo&state=1&connect_redirect=1#wechat_redirect",
-//                type: "POST",
-//                data: "",
-//                success: function (data) {
-//                    alert(data);
-//                    if (data!="0") { //订单状态为1表示支付成功
-//                        window.location.href = "/"; //页面跳转
-//                    }
-//                    else {
-//                        alert()
-//                    }
-//                },
-//                error: function () {
-//                    //alert("O No~~~");
-//                }
-//            });
+            $.ajax({
+                url: "getseesion",
+                type: "GET",
+                data: "",
+                success: function (data) {
+                    if (data!="0") { //订单状态为1表示支付成功
+                        window.location.href = "/"; //页面跳转
+                    }
+                    else {
+                        //alert("1")
+                    }
+                },
+                error: function () {
+                    //alert("O No~~~");
+                }
+            });
     }
 </script>
 </html>

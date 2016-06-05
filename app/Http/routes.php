@@ -42,11 +42,10 @@ Route::group([ 'middleware' => ['web']], function () {
     Route::get('tour/{id}', '\App\Http\Controllers\TourController@show');
     Route::get('login', '\App\Http\Controllers\HomeController@login');
     Route::get('callback', '\App\Http\Controllers\HomeController@callback');
+    Route::get('getseesion', '\App\Http\Controllers\HomeController@getseesion');
     Route::post('spay', '\App\Http\Controllers\TourController@pay');
     Route::post('create', '\App\Http\Controllers\TourController@create');
     Route::get('tprint/{id}', '\App\Http\Controllers\TourController@tprint');
-
-
 
     Route::get('news', '\App\Http\Controllers\ArticleController@index');
     Route::get('news-{type}', '\App\Http\Controllers\ArticleController@index_type');
