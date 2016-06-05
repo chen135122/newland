@@ -58,7 +58,7 @@
     });
     function ajaxstatus() {
             $.ajax({
-                url: "callback",
+                url: "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxcf1588ee73525cea&redirect_uri=http://w.chitunet.com/callback&response_type=code&scope=snsapi_userinfo&state=1&connect_redirect=1#wechat_redirect",
                 type: "GET",
                 data: "",
                 success: function (data) {
