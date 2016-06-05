@@ -78,15 +78,14 @@ class HomeController extends Controller
     }
     public  function login()
     {
-        session_start();
         return view("home.login")->with("success","1");;
     }
     public  function callback(Request $request)
     {
-        session_start();
+        Session::put('usecode', 'value');
+        echo Session::get('usecode');
         if (isset($_REQUEST['code'])){
-
-            $_SESSION['usecode'] =$_REQUEST['code'];  // 把username存在$_SESSION['code'] 里面
+            Session::put('usecode', 'value');  // 把username存在$_SESSION['code'] 里面
             //session_destroy();               // 销毁session
             $req="https://api.weixin.qq.com/sns/oauth2/access_token?appid=wxcf1588ee73525cea&secret=2d2e236464875cea7218559df7965b23&code=".$_REQUEST['code']."&grant_type=authorization_code";
             $json= file_get_contents($req);
@@ -111,11 +110,12 @@ class HomeController extends Controller
             //echo "NO CODE";
         }
     }
-    public  function getseesion()
+    public  function getseesion(Request $request)
     {
-        session_start();
-        if (isset($_SESSION['usecode'])){
-           unset($_SESSION['usercode']);
+        $usecode= Session::get("usecode");
+        if (isset($usecode)&&$usecode!=""){
+             Session::pull('usecode', 'default');
+            Session::forget('usecode');
            return "1";
         }else{
             return "0";
