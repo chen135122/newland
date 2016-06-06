@@ -55,10 +55,30 @@
     <script src="/js/common.js"></script>
     <script src="/js/Validform.js"></script>
     <script>
+        $(document).ready(function () {
+            setInterval("ajaxstatus()", 1000);
+        });
+        function ajaxstatus() {
+            $.ajax({
+                url: "/getlogstatus?uuid="+'{{$uuid}}',
+                type: "GET",
+                data: "",
+                success: function (data) {
+                    if (data=="1") { //确定登录
+                        window.location.href = "/";
+                    }
+                    else if(data=="2") {//取消登录
+                        alert("取消登录")
+                    }
+                    else {
 
-   //     $(function() {
-//            AjaxInitForm('#loginform', '#btnSubmit', 1);
-      //  });
+                    }
+                },
+                error: function () {
+                    //alert("O No~~~");
+                }
+            });
+        }
     </script>
     @endpush
     @push('style')

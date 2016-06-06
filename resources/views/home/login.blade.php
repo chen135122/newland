@@ -31,29 +31,30 @@
 <body>
 <aside class="col-lg-3 col-md-3">
     <div class="box_style_2">
-        <a class="btn_full" onclick="editstatus(2)">确认登录</a>
-        <a class="btn_full" onclick="Ceng(2)">取消登录</a>
+        <a class="btn_full" onclick="editstatus('{{$uuid}}','1','{{$userid}}')">确认登录</a>
+        <a class="btn_full" onclick="editstatus('{{$uuid}}','2','{{$userid}}')">取消登录</a>
     </div>
 </aside>
 <br>
 </body>
-<script src="/js/jquery-1.11.2.min.js"></script>
+<script src="/js/jquery-2.1.1.min.js"></script>
 <script>
     $(document).ready(function () {
         //setInterval("ajaxstatus()", 500);
     });
-    function editstatus($id)
+    function editstatus($id,$status,$userid)
     {
         $.ajax({
-            url: "status",
+            url: "getseesion?uuid="+$id+"&usestatus="+$status+"&userid="+$userid,
             type: "GET",
             data: "",
             success: function (data) {
-                if (data!="0") { //订单状态为1表示支付成功
-                    window.location.href = "/"; //页面跳转
+                alert(data);
+                if (data!="0") {
+                    alert("操作成功")
                 }
                 else {
-                    //alert("1")
+                    alert("操作错误")
                 }
             },
             error: function () {
@@ -61,23 +62,6 @@
             }
         });
     }
-    function ajaxstatus() {
-            $.ajax({
-                url: "getseesion",
-                type: "GET",
-                data: "",
-                success: function (data) {
-                    if (data!="0") { //订单状态为1表示支付成功
-                        window.location.href = "/"; //页面跳转
-                    }
-                    else {
-                        //alert("1")
-                    }
-                },
-                error: function () {
-                    //alert("O No~~~");
-                }
-            });
-    }
+
 </script>
 </html>

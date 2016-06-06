@@ -54,7 +54,7 @@
 <script src="/js/jquery-1.11.2.min.js"></script>
 <script>
     $(document).ready(function () {
-        setInterval("ajaxstatus()", 500);
+        //setInterval("ajaxstatus()", 500);
     });
     function ajaxstatus() {
             $.ajax({
@@ -63,7 +63,7 @@
                 data: "",
                 success: function (data) {
                     if (data!="0") { //订单状态为1表示支付成功
-                        window.location.href = "/"; //页面跳转
+                        //window.location.href = "/"; //页面跳转
                     }
                     else {
                         //alert("1")
