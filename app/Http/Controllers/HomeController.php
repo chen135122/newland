@@ -102,8 +102,8 @@ class HomeController extends Controller
                 $mobile=$userarry->openid;
                 $password=$userarry->openid;
                 $newmobile=$mobile;
-                $paramcount = User::where('mobile','=',$userarry->openid)->count();
-                $user->password= bcrypt($mobile);
+                $paramcount = User::where('mobile','=',strval($mobile))->get()->count();
+                $user->password= bcrypt("123456");
                 $newpassword=$user->password;
                 $user->status=1;
                 $user->mobile=$mobile;
@@ -111,7 +111,7 @@ class HomeController extends Controller
                 $user->address=$userarry->country.",".$userarry->province.",".$userarry->city;
                 if($paramcount>0)
                 {
-                    $userid=User::where('mobile','=',$mobile)->first()->id;
+                    $userid=User::where('mobile','=',strval($mobile))->first()->id;
                 }
                 else{
                     $user->save();
@@ -144,9 +144,16 @@ class HomeController extends Controller
     {
         $uuid=$request->get("uuid");
         $user=UserStatus::where("uuid",$uuid)->first();
+
         if(isset($user))
         {
-            return  strval($user->status);
+            $codeuser=User::where("id",$user->cusid)->first();
+            $array=[
+                "status"=>  $user->status,
+                "cusid"=>$user->cusid,
+                "mobile"=>$codeuser->mobile
+            ];
+            return  $array;
         }
         else{
             return "-1";

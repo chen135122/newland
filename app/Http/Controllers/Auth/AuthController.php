@@ -92,7 +92,6 @@ class AuthController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
-
     public function getLogin(Request $request)
     {
         $user=new User();
@@ -112,7 +111,9 @@ class AuthController extends Controller
         $throttles = $this->isUsingThrottlesLoginsTrait();
         $user->mobile=$request->get("txtMobile");
         $user->password=$request->get("password");
+
         $credentials = $this->getCredentials($user);
+
        // $url = session()->pull('url_before_login', '/');
         if (Auth::guard($this->getGuard())->attempt($credentials, $user)) {
             $url = session()->pull('url_before_login', '/');

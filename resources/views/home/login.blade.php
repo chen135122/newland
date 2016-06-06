@@ -49,7 +49,6 @@
             type: "GET",
             data: "",
             success: function (data) {
-                alert(data);
                 if (data!="0") {
                     alert("操作成功")
                 }

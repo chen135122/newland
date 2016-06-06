@@ -60,15 +60,21 @@
         });
         function ajaxstatus() {
             $.ajax({
-                url: "/getlogstatus?uuid="+'{{$uuid}}',
+                url: "/getlogstatus?uuid="+'{{$uuid}}',//+'{{$uuid}}',
                 type: "GET",
                 data: "",
                 success: function (data) {
-                    if (data=="1") { //确定登录
-                        window.location.href = "/";
-                    }
-                    else if(data=="2") {//取消登录
-                        alert("取消登录")
+                    if (data!="-1") { //确定
+                        $status=data["status"];
+                        $cusid=data["cusid"];
+                        $mobile=data["mobile"];
+                        if($status==1)
+                        {
+                           // $("#txtMobile").val($mobile);
+                            window.location.href = "login?txtMobile="+$mobile+"&password=123456";
+                        }
+                        else {
+                        }
                     }
                     else {
 
