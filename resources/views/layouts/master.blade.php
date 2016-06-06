@@ -138,7 +138,7 @@
                 <div class="col-md-2 col-sm-1 col-xs-6">
                     <div class="top_links">
                       @if (auth()->user())
-                                    <a href="/percenter"> {{auth()->user()->mobile}}</a>
+                                    <a href="/percenter"> {{auth()->user()->nickname}}</a>
                                     <a href="/auth/logout"> 退出 </a>
                                 @else
                                     <a href="/auth/login"  id="access_link">登录</a>
