@@ -106,12 +106,8 @@ class HomeController extends Controller
                 $user->mobile=$mobile;
                 $user->nickname=$userarry->nickname;
                 $user->address=$userarry->country.",".$userarry->province.",".$userarry->city;
-                if($paramcount>0)
+                if($paramcount<=0)
                 {
-                    dd("1".$paramcount.","+$userarry->openid);
-                }
-                else{
-                    dd("2".$paramcount+",".$userarry->openid);
                     $user->save();
                 }
             }
