@@ -123,7 +123,6 @@ class AuthController extends Controller
 //        $errors=$this->getFailedLoginMessage();
         $errors='用户名或密码错误';
         $uuid=sha1(date('Y-m-d H:i:s') . rand(0, 9999));
-
         return view('auth.login')->with("uuid",$uuid);
     }
     protected function getCredentials($user)
