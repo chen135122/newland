@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Property;
 use App\Models\Travel;
 use Cookie;
+use Overtrue\Wechat\Http;
 use Session;
 use Illuminate\Http\Request;
 use App\User;
@@ -93,12 +94,23 @@ class HomeController extends Controller
             //openid	用户唯一标识，请注意，在未关注公众号时，用户访问公众号的网页，也会产生一个用户和公众号唯一的OpenID
             //scope	用户授权的作用域，使用逗号（,）分隔
             $token= $arry->access_token;
-            $tokeJson=file_get_contents("https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wxbf7a6d0b392ce5dbsecret=dd1b309aef23dfd916867a21688ba4ea");
-            $tokeArray=json_decode($tokeJson);
-            $tk=$tokeArray->access_token;
-            dd($tk);
-            $mesage=file_get_contents("https://qyapi.weixin.qq.com/cgi-bin/message/send?access_token='".$tk."'");
-            dd($mesage);
+            //$tokeJson=file_get_contents("https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wxbf7a6d0b392ce5dbsecret=dd1b309aef23dfd916867a21688ba4ea");
+            //$tokeArray=json_decode($tokeJson);
+            //$tk=$tokeArray->access_token;
+            $ht=new Http();
+            $url=file_get_contents("https://qyapi.weixin.qq.com/cgi-bin/message/send?access_token='".$token."'");
+            $mesArry=[
+                     "touser"=>"UserID1|UserID2|UserID3",
+                     "toparty"=>" PartyID1 | PartyID2",
+                      "totag"=> "TagID1 | TagID2",
+                      "msgtype"=> "text",
+                      "agentid"=>"1",
+                       "text"=>[
+                                "content"=>"Holiday Request For Pony(http://xxxxx)"
+                       ],
+                      "safe"=>"0"
+            ];
+            $ht->get($url,$mesArry);
             $oppenid= $arry->openid;
             $userurl="https://api.weixin.qq.com/sns/userinfo?access_token=".$token."&openid=".$oppenid."";
             $userjson= file_get_contents($userurl);
