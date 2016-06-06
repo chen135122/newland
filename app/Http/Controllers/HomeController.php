@@ -75,8 +75,10 @@ class HomeController extends Controller
         $property= $property->take($n)->select('id', 'title','picurl','total_price')->get();
         return $property;
     }
-    public  function login()
+    public  function login(Request $request)
     {
+        $uuid=$request->get("uuid");
+        dd($uuid);
         $user=new User();
         $newmobile="";
         $newpassword="";
@@ -107,7 +109,6 @@ class HomeController extends Controller
                 $user->mobile=$mobile;
                 $user->nickname=$userarry->nickname;
                 $user->address=$userarry->country.",".$userarry->province.",".$userarry->city;
-                dd($userarry->openid);
                 if($paramcount>0)
                 {
 
@@ -119,9 +120,10 @@ class HomeController extends Controller
         }else{
             //return view('auth.login');
         }
-        return redirect()->guest("/auth/login?txtMobile=".$newmobile."&password=".$newpassword);
+        //return redirect()->guest("/auth/login?txtMobile=".$newmobile."&password=".$newpassword);
+        return view("home.login");
     }
-    public  function callback(Request $request)
+    public  function status(Request $request)
     {
 
         if (isset($_REQUEST['code'])){
