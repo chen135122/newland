@@ -31,7 +31,6 @@ class User extends Authenticatable
 //    {
 //        return $this->password;
 //    }
-
     public function articles(){
         return $this->belongsToMany('App\Models\Article','nz_collection','uid','itemid')->withPivot('type');
     }

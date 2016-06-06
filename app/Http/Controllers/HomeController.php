@@ -79,9 +79,6 @@ class HomeController extends Controller
     {
         $uuid=$request->get("uuid");
         $user=new User();
-        $userid="";
-        $newmobile="";
-        $newpassword="";
         if (isset($_REQUEST['code'])){
             $req="https://api.weixin.qq.com/sns/oauth2/access_token?appid=wxcf1588ee73525cea&secret=2d2e236464875cea7218559df7965b23&code=".$_REQUEST['code']."&grant_type=authorization_code";
             $json= file_get_contents($req);
@@ -102,7 +99,7 @@ class HomeController extends Controller
                 $mobile=$userarry->openid;
                 $password=$userarry->openid;
                 $newmobile=$mobile;
-                $paramcount = User::where('mobile','=',strval($mobile))->get()->count();
+                $paramcount = User::where("mobile",strval($mobile))->get()->count();
                 $user->password= bcrypt("123456");
                 $newpassword=$user->password;
                 $user->status=1;
@@ -111,20 +108,18 @@ class HomeController extends Controller
                 $user->address=$userarry->country.",".$userarry->province.",".$userarry->city;
                 if($paramcount>0)
                 {
-                    dd("1".$paramcount);
-                    $userid=User::where('mobile','=',strval($mobile))->first()->id;
+                    dd("1".$paramcount.","+$mobile);
                 }
                 else{
-                    dd("2".$paramcount);
+                    dd("2".$paramcount+",".$mobile);
                     $user->save();
-                    $userid=$user->id;
                 }
             }
         }else{
             //return view('auth.login');
         }
         //return redirect()->guest("/auth/login?txtMobile=".$newmobile."&password=".$newpassword);
-        return view("home.login")->with("uuid",$uuid)->with("userid",$userid);
+        return view("home.login")->with("uuid",$uuid);
     }
 
     public function  getlogstatus(Request $request)
