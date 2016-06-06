@@ -130,7 +130,6 @@
                                     <li  style="margin-left: 0px;"><a href="/partner">合作伙伴</a></li>
                                     <li  style="margin-left: 0px;"><a href="/faq">常见问题</a></li>
                                 </ul>
-
                             </li>
                         </ul>
                     </div><!-- End main-menu -->
