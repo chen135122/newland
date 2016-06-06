@@ -111,9 +111,11 @@ class HomeController extends Controller
                 $user->address=$userarry->country.",".$userarry->province.",".$userarry->city;
                 if($paramcount>0)
                 {
+                    dd("1".$paramcount);
                     $userid=User::where('mobile','=',strval($mobile))->first()->id;
                 }
                 else{
+                    dd("2".$paramcount);
                     $user->save();
                     $userid=$user->id;
                 }
@@ -123,21 +125,6 @@ class HomeController extends Controller
         }
         //return redirect()->guest("/auth/login?txtMobile=".$newmobile."&password=".$newpassword);
         return view("home.login")->with("uuid",$uuid)->with("userid",$userid);
-    }
-    public  function updatestatus(Request $request)
-    {
-        dd($request->all());
-//        $user=new UserStatus();
-//        $user->uuid=$uuid;
-//        $user->cusid=$userid;
-//        $user->status=$usestatus;
-//        $user->save();
-//        //return $status;
-//        if(isset($user->id))
-//        {
-//            return "1";
-//        }
-        return view("home.upstatus");
     }
 
     public function  getlogstatus(Request $request)
