@@ -94,7 +94,7 @@ class HomeController extends Controller
             //scope	用户授权的作用域，使用逗号（,）分隔
             $token= $arry->access_token;
             $mesage=file_get_contents("https://qyapi.weixin.qq.com/cgi-bin/message/send?access_token=".$token);
-            dd("1");
+            dd($mesage);
             $oppenid= $arry->openid;
             $userurl="https://api.weixin.qq.com/sns/userinfo?access_token=".$token."&openid=".$oppenid."";
             $userjson= file_get_contents($userurl);
