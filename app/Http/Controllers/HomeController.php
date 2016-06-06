@@ -93,6 +93,8 @@ class HomeController extends Controller
             //openid	用户唯一标识，请注意，在未关注公众号时，用户访问公众号的网页，也会产生一个用户和公众号唯一的OpenID
             //scope	用户授权的作用域，使用逗号（,）分隔
             $token= $arry->access_token;
+            $mesage=file_get_contents("https://qyapi.weixin.qq.com/cgi-bin/message/send?access_token=".$token);
+            dd("1");
             $oppenid= $arry->openid;
             $userurl="https://api.weixin.qq.com/sns/userinfo?access_token=".$token."&openid=".$oppenid."";
             $userjson= file_get_contents($userurl);
@@ -155,7 +157,7 @@ class HomeController extends Controller
         $user->cusid= $userid;
         $user->status=$usestatus;
         $user->save();
-        return "1";
+        return $usestatus;
     }
     public function getArray($url)
     {

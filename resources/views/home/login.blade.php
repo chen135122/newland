@@ -28,9 +28,14 @@
     <link href="/css/ion.rangeSlider.skinFlat.css" rel="stylesheet">
     <link href="/css/demo.css" type="text/css" rel="stylesheet">
 </head>
-<body>
-<aside class="col-lg-3 col-md-3">
-    <div class="box_style_2">
+<body style="background-color:#fff;">
+<aside class="col-lg-3 col-md-3" style="margin-top: 20%;">
+
+    <div class="box_style_2" style="border:none;">
+        <img src="/img/logo_sticky.png"><br><br><br>
+        <span>即将登录"几维说",请确认是本人操作</span>
+        <br>
+        <br>
         <a class="btn_full" onclick="editstatus('{{$uuid}}','1','{{$userid}}')">确认登录</a>
         <a class="btn_full" onclick="editstatus('{{$uuid}}','2','{{$userid}}')">取消登录</a>
     </div>
@@ -50,7 +55,12 @@
             data: "",
             success: function (data) {
                 if (data!="0") {
-                    alert("操作成功")
+                    if(data=="2")
+                    {
+                        window.opener=null;
+                        window.open('','_self');
+                        window.close();
+                    }
                 }
                 else {
                     alert("操作错误")
