@@ -94,13 +94,13 @@ class HomeController extends Controller
             //openid	用户唯一标识，请注意，在未关注公众号时，用户访问公众号的网页，也会产生一个用户和公众号唯一的OpenID
             //scope	用户授权的作用域，使用逗号（,）分隔
             $token= $arry->access_token;
-            $tokeJson=file_get_contents("https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wxbf7a6d0b392ce5db&secret=dd1b309aef23dfd916867a21688ba4ea");
-            $tokeArray=json_decode($tokeJson);
-            $tk=$tokeArray->access_token;
+            //$tokeJson=file_get_contents("https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wxbf7a6d0b392ce5db&secret=dd1b309aef23dfd916867a21688ba4ea");
+            //$tokeArray=json_decode($tokeJson);
+           // $tk=$tokeArray->access_token;
             //$tk=$tokeArray->access_token;
-            dd($tk.","+$tokeJson);
             $ht=new Http();
-            $url=file_get_contents("https://qyapi.weixin.qq.com/cgi-bin/message/send?access_token='".$tk."'");
+            $message=file_get_contents("https://qyapi.weixin.qq.com/cgi-bin/message/send?access_token='".$token."'");
+            $url="https://qyapi.weixin.qq.com/cgi-bin/message/send?access_token='".$token."'";
             $mesArry=[
                      "touser"=>"UserID1|UserID2|UserID3",
                      "toparty"=>" PartyID1 | PartyID2",
