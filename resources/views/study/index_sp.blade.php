@@ -13,8 +13,8 @@
         <div class="parallax-content-1">
             <div class="animated fadeInDown">
                 <h1>新西兰留学</h1>
-                <br>
                 <p>我们提供新西兰最新的学校体验</p>
+                @include('layouts.partials.search')
             </div>
         </div>
     </section><!-- End section -->
@@ -160,7 +160,7 @@
                                                   {{isset($study->regions->name)? $study->regions->name:""}}
                                                   {{isset($study->regions_city->name)? $study->regions_city->name:""}}
                                                   {{isset($study->regions_district->name)? $study->regions_district->name:""}}
-                                             </ul>
+                                              </li> </ul>
                                       </div>
                                   </div>
                                   <div class="col-lg-2 col-md-2 col-sm-2">

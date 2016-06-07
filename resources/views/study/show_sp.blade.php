@@ -5,6 +5,13 @@
 @section('content')
 
     <section class="parallax-window" data-parallax="scroll" data-image-src="{{empty($study->head_img)?$study->head_img:'/img/banner_01_krtr.jpg'}}" data-natural-width="1400" data-natural-height="470">
+        <div class="parallax-content-1">
+            <div class="animated fadeInDown">
+                <h1>查询</h1>
+                <p></p>
+                @include('layouts.partials.search')
+            </div>
+        </div>
         <div class="parallax-content-2">
             <div class="container">
                 <div class="row">

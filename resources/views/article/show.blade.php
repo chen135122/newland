@@ -7,8 +7,8 @@
     <div class="parallax-content-1">
         <div class="animated fadeInDown">
             <h1>新闻资讯</h1>
-            <br>
             <p>我们提供新西兰最新资讯，实时新闻信息</p>
+            @include('layouts.partials.search')
         </div>
     </div>
 </section><!-- End section -->

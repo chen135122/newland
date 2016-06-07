@@ -214,6 +214,30 @@
         flag=0;
     }
 </script>
+<script type="text/javascript">
+    $(document).ready(function(){
+
+        var $b = $('#query_button'),$i = $('#search_key');
+
+        $i.keyup(function(e){
+            if(e.keyCode == 13){
+                $b.click();
+            }
+        });
+
+        $b.click(function(){
+            if($('input[name="search_key"]').val()==""){
+                alert("搜索关键词不能为空");
+                return false;
+            }else{
+                var keyword = $('input[name="search_key"]').val();
+                window.location.href='/search?search_key='+encodeURI(keyword);
+                return false;
+            }
+        });
+
+    });
+</script>
 @stack('script')
 </body>
 

@@ -6,8 +6,8 @@
         <div class="parallax-content-1">
             <div class="animated fadeInDown">
                 <h1>新西兰旅游</h1>
-                <br>
                 <p>在新西兰遇见最好的自己</p>
+                @include('layouts.partials.search')
             </div>
         </div>
     </section>

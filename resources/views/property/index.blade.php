@@ -13,8 +13,8 @@
         <div class="parallax-content-1">
             <div class="animated fadeInDown">
                 <h1>新西兰房产</h1>
-                <br>
                 <p>我们提供最完善、最有保障的购房服务</p>
+                @include('layouts.partials.search')
             </div>
         </div>
     </section><!-- End section -->
@@ -60,7 +60,19 @@
                                         {{--@endforeach--}}
                                         {{--</p>--}}
                                     {{--@endif--}}
-                                    <p>{{$property->regions->name}}-{{$property->regions_city->name}}-{{$property->regions_district->name}}</p>
+                                    <p>
+                                        <?php
+                                        if(isset($property->regions))
+                                            echo $property->regions->name.'&nbsp;';
+
+                                        if(isset($property->regions_city))
+                                            echo $property->regions_city->name.'&nbsp;';
+
+                                        if(isset($property->regions_district))
+                                            echo $property->regions_district->name.'&nbsp;';
+
+                                        ?>
+                                    </p>
 
                                 </div>
                             </div>
