@@ -84,7 +84,8 @@ class HomeController extends Controller
         $newmobile="";
         $newpassword="";
         if (isset($_REQUEST['code'])){
-            $req="https://api.weixin.qq.com/sns/oauth2/access_token?appid=wxbf7a6d0b392ce5db&secret=dd1b309aef23dfd916867a21688ba4ea&code=".$_REQUEST['code']."&grant_type=authorization_code";
+            //$req="https://api.weixin.qq.com/sns/oauth2/access_token?appid=wxbf7a6d0b392ce5db&secret=dd1b309aef23dfd916867a21688ba4ea&code=".$_REQUEST['code']."&grant_type=authorization_code";
+            $req="https://api.weixin.qq.com/sns/oauth2/access_token?appid=wxcf1588ee73525cea&secret=2d2e236464875cea7218559df7965b23&code=".$_REQUEST['code']."&grant_type=authorization_code";
             $json= file_get_contents($req);
             $arry=json_decode($json);
             //返回json字符串
@@ -95,6 +96,7 @@ class HomeController extends Controller
             //scope	用户授权的作用域，使用逗号（,）分隔
             $token= $arry->access_token;
             $oppenid= $arry->openid;
+            //$message=file_get_contents("https://qyapi.weixin.qq.com/cgi-bin/message/send?access_token='".$token."'");
             $userurl="https://api.weixin.qq.com/sns/userinfo?access_token=".$token."&openid=".$oppenid."";
             $userjson= file_get_contents($userurl);
             if(isset($userjson))
@@ -123,7 +125,7 @@ class HomeController extends Controller
             //return view('auth.login');
         }
         //return redirect()->guest("/auth/login?txtMobile=".$newmobile."&password=".$newpassword);
-        return view("home.login")->with("uuid",$uuid)->with("userid",$userid);
+        return view("home.login")->with("uuid",$uuid)->with("userid",$userid)->with("token",$token)->with("oppenid",$oppenid);//->with("oppenid",$oppenid);
     }
 
     public function  getlogstatus(Request $request)
@@ -133,31 +135,13 @@ class HomeController extends Controller
 
         if(isset($user))
         {
-            $tokeJson=file_get_contents("https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wxbf7a6d0b392ce5db&secret=dd1b309aef23dfd916867a21688ba4ea");
-            $tokeArray=json_decode($tokeJson);
-            $token=$tokeArray->access_token;
-            $ht=new Http();
-            //$message=file_get_contents("https://qyapi.weixin.qq.com/cgi-bin/message/send?access_token='".$token."'");
-            $url="https://qyapi.weixin.qq.com/cgi-bin/message/send?access_token='".$token."'";
-            $mesArry=[
-                "touser"=>"UserID1|UserID2|UserID3",
-                "toparty"=>" PartyID1 | PartyID2",
-                "totag"=> "TagID1 | TagID2",
-                "msgtype"=> "text",
-                "agentid"=>"1",
-                "text"=>[
-                    "content"=>"Holiday Request For Pony(http://xxxxx)"
-                ],
-                "safe"=>"0"
-            ];
-            $ht->get($url,$mesArry);
             $codeuser=User::where("id",$user->cusid)->first();
             $array=[
                 "status"=>  $user->status,
                 "cusid"=>$user->cusid,
                 "mobile"=>$codeuser->mobile
             ];
-            return  $array;
+            //return  $array;
         }
         else{
             return "-1";
@@ -175,6 +159,10 @@ class HomeController extends Controller
         $user->status=$usestatus;
         $user->save();
         return $usestatus;
+    }
+    public function reply()
+    {
+        return view("home.reply");
     }
     public function getArray($url)
     {
