@@ -59,7 +59,8 @@
         }
         .white_bg .icon{ width: 100px;
             height:100px;}
-
+        .fadeInDown{ position: absolute; left:30%;top:270px;z-index: 10000; width:40%!important;}
+        .serarch-menu{width:435px;margin:130px auto 0;}
     </style>
 
 @endpush
@@ -131,6 +132,10 @@
                 </div>
             </li>
         </ul>
+        <div class="animated fadeInDown">
+            @include('layouts.partials.search')
+        </div>
+
         <div class="tp-bannertimer tp-bottom"></div>
     </div>
 </div>

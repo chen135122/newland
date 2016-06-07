@@ -13,8 +13,8 @@
         <div class="parallax-content-1">
             <div class="animated fadeInDown">
                 <h1>新西兰留学</h1>
-                <br>
                 <p>我们提供新西兰最新的学校体验</p>
+                @include('layouts.partials.search')
             </div>
         </div>
     </section><!-- End section -->

@@ -3,7 +3,7 @@
         <div class="input-group">
             <input type="text" placeholder="Search..." class="form-control" name="search_key">
                            <span class="input-group-btn">
-                            <button style="margin-left:0;" type="submit" class="btn btn-default">
+                            <button style="margin-left:0;" type="submit" class="btn btn-default" id="query_button">
                                 <i class="icon-search"></i>
                             </button>
                           </span>

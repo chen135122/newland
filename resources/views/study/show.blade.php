@@ -8,6 +8,13 @@
     @else
       <section class="parallax-window" data-parallax="scroll" data-image-src="/img/banner_school.jpg" data-natural-width="1400" data-natural-height="470">
             @endif
+          <div class="parallax-content-1">
+              <div class="animated fadeInDown">
+                  <h1>查询</h1>
+                  <p></p>
+                  @include('layouts.partials.search')
+              </div>
+          </div>
             <div class="parallax-content-2">
             <div class="container">
                 <div class="row">
