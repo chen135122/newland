@@ -11,7 +11,6 @@
 //    $result = _reply_customer($touser, $content);
 //}
 require_once app_path().'/WxPayPubHelper/WxTemplate.php';
-require_once 'WxTemplate.php';
 $tem=new WxTemplate();
 //$result1=$tem->getToken();
 //$result= __construct($APPID,$APPSECRET);

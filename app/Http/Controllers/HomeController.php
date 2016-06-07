@@ -13,6 +13,7 @@ use Overtrue\Wechat\Url;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\UserStatus;
+require_once app_path().'/WxPayPubHelper/WxTemplate.php';
 class HomeController extends Controller
 {
     public function index()
