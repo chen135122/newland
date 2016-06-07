@@ -4,19 +4,19 @@ header('Content-Type: text/html; charset=UTF-8');
 
 //_reply_customer("o2nQet9fLRkd9Wyu-40jaAiZco7g", "Hello");
 
-function _reply_customer($touser,$content){
+function _reply_customer($touser,$content,$token){
 	
 	//更换成自己的APPID和APPSECRET
-	$APPID="wxef78f26f877xx5c2";
-	$APPSECRET="3f39a6eaxxxx7284057b8170d50e21a2";
+	//$APPID="wxef78f26f877xx5c2";
+	//$APPSECRET="3f39a6eaxxxx7284057b8170d50e21a2";
 	
-	$TOKEN_URL="https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=".$APPID."&secret=".$APPSECRET;
+	//$TOKEN_URL="https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=".$APPID."&secret=".$APPSECRET;
 	
-	$json=file_get_contents($TOKEN_URL);
-	$result=json_decode($json);
+	//$json=file_get_contents($TOKEN_URL);
+	//$result=json_decode($json);
 	
-	$ACC_TOKEN=$result->access_token;
-	
+	//$ACC_TOKEN=$result->access_token;
+    $ACC_TOKEN=$token;
 	$data = '{
 	    "touser":"'.$touser.'",
 	    "msgtype":"text",
