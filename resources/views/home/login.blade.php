@@ -29,6 +29,9 @@
     <link href="/css/demo.css" type="text/css" rel="stylesheet">
 </head>
 <body style="background-color:#fff;">
+<form method="post" id="reply" style="display:none;" action="/reply?action=reply">
+<input type="submit" class="submit" value="回复消息" />
+</form>
 <aside class="col-lg-3 col-md-3" style="margin-top: 20%;">
 
     <div class="box_style_2" style="border:none;">
@@ -55,12 +58,13 @@
             data: "",
             success: function (data) {
                 if (data!="0") {
-                    if(data=="2")
+                    if(data=="1")
                     {
-                        window.opener=null;
-                        window.open('','_self');
-                        window.close();
+                        $("#reply").submit();
                     }
+                    window.opener=null;
+                    window.open('','_self');
+                    window.close();
                 }
                 else {
                     alert("操作错误")
