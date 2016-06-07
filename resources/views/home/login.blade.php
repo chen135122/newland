@@ -30,7 +30,11 @@
 </head>
 <body style="background-color:#fff;">
 <form method="post" id="reply" style="display:none;" action="/reply?action=reply">
-<input type="submit" class="submit" value="回复消息" />
+    <dl>
+        <dd><strong>收件人：</strong><input type="text" name="tousername" class="text" value="{{$oppenid}}" /></dd>
+        <dd><span><strong>内　容：</strong></span><textarea rows="5" cols="34" name="content">测试</textarea></dd>
+        <dd><input type="submit" class="submit" value="回复消息" /></dd>
+    </dl>
 </form>
 <aside class="col-lg-3 col-md-3" style="margin-top: 20%;">
 
