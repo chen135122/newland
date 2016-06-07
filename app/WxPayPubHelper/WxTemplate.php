@@ -114,7 +114,6 @@ class WxTemplate
         $url = "https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=".$token;
 
         $dataRes = $this->request_post($url,$data);
-        return $dataRes;
-        return json_decode($dataRes,true);
+        return json_decode($dataRes);
     }
 }

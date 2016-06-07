@@ -42,11 +42,9 @@ if($openid||$nickname)
           );
 }
 $result=$tem->doSend(urldecode(json_encode($template)));
-//$content="大家好";
-//$touser="onjnuslHgho_parKy-dJy-1kUlfc";
 ?>
 <script>
-    if('<?php $result->errcode?>'=="0")
+    if("<?php echo $result->errcode; ?>" =="0")
     {
         window.opener=null;
         window.open('','_self');
