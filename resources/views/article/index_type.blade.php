@@ -5,8 +5,9 @@
         <div class="parallax-content-1">
             <div class="animated fadeInDown">
                 <h1>{{ $typename}}</h1>
-                <br>
+
                 <p>我们提供新西兰最新资讯，实时{{ $typename}}信息</p>
+                @include('layouts.partials.search')
             </div>
         </div>
     </section><!-- End section -->

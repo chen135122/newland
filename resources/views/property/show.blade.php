@@ -4,6 +4,13 @@
 @stop
 @section('content')
     <section class="parallax-window" data-parallax="scroll" data-image-src="{{isset($property->headimg)?$property->headimg:'/img/house_bg.jpg'}}" data-natural-width="1400" data-natural-height="470">
+        <div class="parallax-content-1">
+            <div class="animated fadeInDown">
+
+
+                @include('layouts.partials.search')
+            </div>
+        </div>
         <div class="parallax-content-2">
             <div class="container">
                 <div class="row">

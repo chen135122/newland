@@ -4086,3 +4086,8 @@ ul.plan-features {
 .sticky .header_bg{ background: none;}
 p.footer_l{ font-size: 13px;line-height: 28px; color:#dddddd;}
 .panel-body p{font-size: 14px;line-height: 28px;}
+.fadeInDown {    background: url(../img/search_bg.png) center center no-repeat; width:535px; height:212px; margin:0 auto;}
+.parallax-window .serarch-menu {width:435px;margin:0 auto;}
+.fadeInDown h1{ font-size: 38px!important;}
+.fadeInDown p{margin:5px 0 10px;}
+/*.parallax-content-1 div h1{ padding-top: 60px;}*/

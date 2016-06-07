@@ -160,7 +160,7 @@
                                                   {{isset($study->regions->name)? $study->regions->name:""}}
                                                   {{isset($study->regions_city->name)? $study->regions_city->name:""}}
                                                   {{isset($study->regions_district->name)? $study->regions_district->name:""}}
-                                             </ul>
+                                              </li> </ul>
                                       </div>
                                   </div>
                                   <div class="col-lg-2 col-md-2 col-sm-2">

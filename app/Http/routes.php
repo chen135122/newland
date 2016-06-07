@@ -62,7 +62,7 @@ Route::group([ 'middleware' => ['web']], function () {
     Route::post('register', '\App\Http\Controllers\RegisterController@postUser_Register');
     Route::post('register/sendsms','\App\Http\Controllers\RegisterController@sendsms');
     Route::post('register/validate_mobile','\App\Http\Controllers\RegisterController@validate_mobile');
-
+    Route::get('search', '\App\Http\Controllers\SearchController@index');
 
     //支付后跳转页面
 

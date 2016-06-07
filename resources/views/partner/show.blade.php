@@ -10,6 +10,7 @@
         <div class="animated fadeInDown">
             <h1>合作伙伴</h1>
             <p></p>
+            @include('layouts.partials.search')
         </div>
     </div>
 </section><!-- End section -->
