@@ -84,7 +84,8 @@ class HomeController extends Controller
         $newmobile="";
         $newpassword="";
         if (isset($_REQUEST['code'])){
-            $req="https://api.weixin.qq.com/sns/oauth2/access_token?appid=wxbf7a6d0b392ce5db&secret=dd1b309aef23dfd916867a21688ba4ea&code=".$_REQUEST['code']."&grant_type=authorization_code";
+            //$req="https://api.weixin.qq.com/sns/oauth2/access_token?appid=wxbf7a6d0b392ce5db&secret=dd1b309aef23dfd916867a21688ba4ea&code=".$_REQUEST['code']."&grant_type=authorization_code";
+            $req="https://api.weixin.qq.com/sns/oauth2/access_token?appid=wxcf1588ee73525cea&secret=2d2e236464875cea7218559df7965b23&code=".$_REQUEST['code']."&grant_type=authorization_code";
             $json= file_get_contents($req);
             $arry=json_decode($json);
             //返回json字符串
