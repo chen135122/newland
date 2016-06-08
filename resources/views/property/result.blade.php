@@ -68,7 +68,7 @@
 <div class="row" style="height:150px;">
     <div class="col-md-6 col-sm-6 col-xs-6" style="width:50%;">
         <div id="logo" style="margin-top:0;">
-            <a href="index.html"><img src="img/logo_sticky.png" width="160" height="50" alt="City tours" data-retina="true" class="logo_normal"></a>
+            <a href="/"><img src="img/logo_sticky.png" width="160" height="50" alt="City tours" data-retina="true" class="logo_normal"></a>
         </div>
     </div>
     <div class="col-md-6 col-sm-6 col-xs-6" style="width:50%;padding-top:10px;">
@@ -158,52 +158,13 @@
                     </tr>
                     <tr>
                         <td>
-                            <strong>出发地</strong>
+                            <strong></strong>
                         </td>
                         <td>
-                            上海
+
                         </td>
                     </tr>
-                    <tr>
-                        <td>
-                            <strong>出发时间</strong>
-                        </td>
-                        <td>
-                            2016年3月26号
-                        </td>
-                    {{--</tr>--}}
-                    {{--<tr>--}}
-                        {{--<td>--}}
-                            {{--<strong>目的地</strong>--}}
-                        {{--</td>--}}
-                        {{--<td>--}}
-                            {{--新西兰--}}
-                        {{--</td>--}}
-                    {{--</tr>--}}
-                    {{--<tr>--}}
-                        {{--<td>--}}
-                            {{--<strong>抵达时间</strong>--}}
-                        {{--</td>--}}
-                        {{--<td>--}}
-                            {{--2015年12月1号--}}
-                        {{--</td>--}}
-                    {{--</tr>--}}
-                    <tr>
-                        <td>
-                            <strong>支付状态</strong>
-                        </td>
-                        <td>
-                            {{App\Http\Controllers\TourController::status($order->status)}}
-                        </td>
                     </tr>
-                    {{--<tr>--}}
-                        {{--<td>--}}
-                            {{--<strong>支付类型</strong>--}}
-                        {{--</td>--}}
-                        {{--<td>--}}
-                            {{--{{$paytype}}--}}
-                        {{--</td>--}}
-                    {{--</tr>--}}
                     </tbody>
                 </table>
             </div><!--End step -->

@@ -10,6 +10,8 @@ use Overtrue\Wechat\QRCode;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Models\NewOrder;
+use App\Models\OrderDetail;
 
 class PropertyController extends Controller
 {
@@ -94,5 +96,56 @@ class PropertyController extends Controller
     {
         $property= Property::where('publish','1')->where('ishot',1)->where('status', '<>', 10)->where('status', '<>', 14)->orderBy('created_at', 'desc')->take($n)->select('id', 'title','picurl','address')->get();
         return $property;
+    }
+
+    public function order(Request $request)
+    {
+        if (!empty($houseid = $request->get("houseid"))) {
+            $property = Property::where('publish','1')->where('status', '<>', 10)->where('status', '<>', 14)->where("id", $houseid)->first();
+       } else {
+            return view('errors.404');
+        }
+        $login=false;
+        if(auth()->user())
+            $login=true;
+        return view('property.order')->with(compact("property","houseid"))
+            ->with(["name"=>$property->title,"login"=>auth()->check()]);
+    }
+
+    public function create(Request $request)
+    {
+        try {
+            $property = Property::where("id", get("houseid"))->first();
+            $order = new NewOrder();
+            $order->itemid = $request->get("houseid");
+            $order->uid = 1;
+            $order->sn = date('Ymd') . substr(implode(NULL, array_map('ord', str_split(substr(uniqid(), 7, 13), 1))), 0, 8);;
+            $order->totalprice =$property->total_price;
+            $order->orderprice = 0;
+            $order->type = 1;
+            $order->paytype = 3;
+            $order->created_at = Carbon::now();
+            $order->created_by = 1;
+            $order->adults = strval($request->get("perNum"));
+            $order->username = strval($request->get("username"));
+            $order->phone = strval($request->get("userPhone"));
+            $order->email = strval($request->get("userEmail"));
+            $order->remark = strval($request->get("content"));
+//            $order->updated_at=Carbon::now();
+//            $order->paytime=null;
+//            $order->transid="12";
+            $order->save();
+            if ($order->id > 0) {
+                $orderDetail = new OrderDetail();
+                $orderDetail->orderid = $order->id;
+                $orderDetail->title = $property->title;
+                // $orderDetail->price=
+                $orderDetail->num = $request->get("perNum");
+            }
+            return $order->sn;
+        } catch (Exception $e) {
+            return 0;
+        }
+        return 0;
     }
 }

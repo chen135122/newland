@@ -85,7 +85,7 @@
             <div class="row">
                 <div class="col-md-2 col-sm-2 col-xs-3">
                     <div id="logo">
-                         <a href="/"><img src="/img/logo_sticky.png" height="55" alt="All IN New Zealand" data-retina="true" class="logo_sticky"></a>
+                         <a href="/"><img src="/img/logo_sticky.png" height="50" alt="All IN New Zealand" data-retina="true" class="logo_sticky"></a>
                     </div>
                 </div>
                 <nav class="col-md-8 col-sm-9 col-xs-9" style="width:65%;">

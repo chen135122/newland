@@ -15,6 +15,8 @@ Route::group([ 'middleware' => ['web', 'auth']], function () {
     Route::get('topay/{id}','\App\Http\Controllers\AlipayController@topay');
     Route::get('order', '\App\Http\Controllers\TourController@order');
     Route::get('result', '\App\Http\Controllers\TourController@result');
+//房产预订
+    Route::get('houseorder', '\App\Http\Controllers\PropertyController@order');
 //    Route::get('xxx', function(){
 //        return (auth()->user());
 //    });
@@ -48,6 +50,8 @@ Route::group([ 'middleware' => ['web']], function () {
     Route::post('spay', '\App\Http\Controllers\TourController@pay');
     Route::post('create', '\App\Http\Controllers\TourController@create');
     Route::get('tprint/{id}', '\App\Http\Controllers\TourController@tprint');
+
+    Route::post('property_create', '\App\Http\Controllers\PropertyController@create');
 
     Route::get('news', '\App\Http\Controllers\ArticleController@index');
     Route::get('news-{type}', '\App\Http\Controllers\ArticleController@index_type');

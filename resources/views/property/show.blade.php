@@ -173,6 +173,7 @@
             <aside class="col-md-4">
                 <p class="hidden-sm hidden-xs">
                     <a class="btn_map" data-toggle="collapse" href="#collapseMap" aria-expanded="false" aria-controls="collapseMap">查看地图</a>
+                   <br/> <a class="btn_full" href="/houseorder?houseid={{$property->id}}">马上预定</a>
                 </p>
                 <div class="box_style_1 expose">
                     <h3 class="inner">开发商介绍</h3>
@@ -486,6 +487,7 @@
     <script src="/dist/js/lg-pager.js"></script>
     <script src="/js/jquery.mousewheel.min.js"></script>
     <script type="text/javascript">
+
         $(document).ready(function(){
             $('#lightgallery').find("img").each(function(){
                 $(this).css("cursor","pointer");
