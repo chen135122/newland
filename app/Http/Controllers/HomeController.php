@@ -49,11 +49,8 @@ class HomeController extends Controller
     }
     public  static  function url()
     {
-        $appId  = 'wxcf1588ee73525cea';
-        $secret = '2d2e236464875cea7218559df7965b23';
-        $mchid = '1287337101';
-        //商户支付密钥Key。审核通过后，在微信发送的邮件中查看
-        $key = 'hpr825QaxxKQ9Ms3IhjQdsw8vnDl1w9s';
+        $appId  = 'wxbf7a6d0b392ce5db';
+        $secret = 'dd1b309aef23dfd916867a21688ba4ea';
         $qrcode = new QRCode($appId, $secret);
         $result = $qrcode->temporary(56, 6 * 24 * 3600);
 
@@ -85,8 +82,8 @@ class HomeController extends Controller
         $newmobile="";
         $newpassword="";
         if (isset($_REQUEST['code'])){
-            //$req="https://api.weixin.qq.com/sns/oauth2/access_token?appid=wxbf7a6d0b392ce5db&secret=dd1b309aef23dfd916867a21688ba4ea&code=".$_REQUEST['code']."&grant_type=authorization_code";
-            $req="https://api.weixin.qq.com/sns/oauth2/access_token?appid=wxcf1588ee73525cea&secret=2d2e236464875cea7218559df7965b23&code=".$_REQUEST['code']."&grant_type=authorization_code";
+            $req="https://api.weixin.qq.com/sns/oauth2/access_token?appid=wxbf7a6d0b392ce5db&secret=dd1b309aef23dfd916867a21688ba4ea&code=".$_REQUEST['code']."&grant_type=authorization_code";
+            //$req="https://api.weixin.qq.com/sns/oauth2/access_token?appid=wxcf1588ee73525cea&secret=2d2e236464875cea7218559df7965b23&code=".$_REQUEST['code']."&grant_type=authorization_code";
             $json= file_get_contents($req);
             $arry=json_decode($json);
             //返回json字符串

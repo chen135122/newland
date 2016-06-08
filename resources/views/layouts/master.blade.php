@@ -179,7 +179,18 @@
     <div class="floatShadow">
 
         <div style="text-align:center;padding:10PX 0 5px 0;background:#EBEBEB;">
-            <img src="{{$allUrl}}" width="76" height="76">
+            <img src="<?php
+            use Overtrue\Wechat\QRCode;
+            $appId  = 'wxbf7a6d0b392ce5db';
+            $secret = 'dd1b309aef23dfd916867a21688ba4ea';
+            $qrcode = new QRCode($appId, $secret);
+            $result = $qrcode->temporary(56, 6 * 24 * 3600);
+            $ticket = $result->ticket;// 或者 $result['ticket']
+            $expireSeconds = $result->expire_seconds; // 有效秒数
+            $url = $result->url; // 二维码图片解析后的地址，开发者可根据该地址自行生成需要的二维码图片
+            $allUrl=$qrcode->show($ticket);
+            echo $allUrl;
+            ?>" width="76" height="76">
             <br>微信公众号</div>
     </div>
     <div class="floatDbg"></div>
