@@ -60,7 +60,7 @@
         });
         function ajaxstatus() {
             $.ajax({
-                url: "/getlogstatus?uuid=7147e99ae3c3d9666d1038ff0821025bceedd6d1",//+'{{$uuid}}',
+                url: "/getlogstatus?uuid="+'{{$uuid}}',//+'{{$uuid}}',
                 type: "GET",
                 data: "",
                 success: function (data) {
