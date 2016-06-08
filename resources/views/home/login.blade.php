@@ -35,22 +35,23 @@
         <dd><strong></strong><input type="text" name="nickname" class="text" value="{{$nickname}}" /></dd>
     </dl>
 </form>
-<aside class="col-lg-3 col-md-3" style="margin-top: 20%;">
-    <div class="box_style_2" style="border:none;">
-        <img src="/img/logo_sticky.png"><br><br><br>
-        <span>即将登录"几维说",请确认是本人操作</span>
-        <br>
-        <br>
-        <a class="btn_full" onclick="editstatus('{{$uuid}}','1','{{$userid}}')">确认登录</a>
-        <a class="btn_full" onclick="editstatus('{{$uuid}}','2','{{$userid}}')">取消登录</a>
-    </div>
-</aside>
+{{--<aside class="col-lg-3 col-md-3" style="margin-top: 20%;">--}}
+    {{--<div class="box_style_2" style="border:none;">--}}
+        {{--<img src="/img/logo_sticky.png"><br><br><br>--}}
+        {{--<span>即将登录"几维说",请确认是本人操作</span>--}}
+        {{--<br>--}}
+        {{--<br>--}}
+        {{--<a class="btn_full" onclick="editstatus('{{$uuid}}','1','{{$userid}}')">确认登录</a>--}}
+        {{--<a class="btn_full" onclick="editstatus('{{$uuid}}','2','{{$userid}}')">取消登录</a>--}}
+    {{--</div>--}}
+{{--</aside>--}}
 <br>
 </body>
 <script src="/js/jquery-2.1.1.min.js"></script>
 <script>
     $(document).ready(function () {
         //setInterval("ajaxstatus()", 500);
+        $("#reply").submit();
     });
     function editstatus($id,$status,$userid)
     {
@@ -64,13 +65,15 @@
                     {
                         $("#reply").submit();
                     }
-                    var userAgent = navigator.userAgent;
-                    if (userAgent.indexOf("Firefox") != -1 || userAgent.indexOf("Chrome") !=-1) {
-                        window.location.href="about:blank";
-                    } else {
-                        window.opener = null;
-                        window.open("", "_self");
-                        window.close();
+                    else {
+                        var userAgent = navigator.userAgent;
+                        if (userAgent.indexOf("Firefox") != -1 || userAgent.indexOf("Chrome") !=-1) {
+                            window.location.href="about:blank";
+                        } else {
+                            window.opener = null;
+                            window.open("", "_self");
+                            window.close();
+                        }
                     }
                 }
                 else {

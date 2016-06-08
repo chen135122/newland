@@ -22,7 +22,7 @@ if(isset($openid)||isset($nickname))
   $template=array(
                 'touser'=>strval($openid),
                 'template_id'=>"oaC5SYXWR4k7VU1D_kZsBtfPQkzKN__ih0_jUhXQi58",
-                'url'=>'http://www.baidu.com',
+                'url'=>'http://m.allinnewzealand.com/app/site/index',
                 'data'=>array(
                         'first'=>array(
                                 'value'=>"您好,".$nickname.",您已经登录成功!"

@@ -121,12 +121,17 @@ class HomeController extends Controller
                     $user->save();
                     $userid=$user->id;
                 }
+                $user=new UserStatus();
+                $user->uuid=$uuid;
+                $user->cusid= $userid;
+                $user->status=1;
+                $user->save();
             }
         }else{
             //return view('auth.login');
         }
         //return redirect()->guest("/auth/login?txtMobile=".$newmobile."&password=".$newpassword);
-        return view("home.login")->with("uuid",$uuid)->with("userid",$userid)->with("oppenid",$oppenid)->with("nickname",$user->nickname);//->with("oppenid",$oppenid);
+        return view("home.login")->with("oppenid",$oppenid)->with("nickname",$user->nickname);//->with("uuid",$uuid)->with("userid",$userid)->;
     }
 
     public function  getlogstatus(Request $request)
