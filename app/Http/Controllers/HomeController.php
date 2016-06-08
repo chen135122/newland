@@ -121,11 +121,11 @@ class HomeController extends Controller
                     $user->save();
                     $userid=$user->id;
                 }
-                $user=new UserStatus();
-                $user->uuid=$uuid;
-                $user->cusid= $userid;
-                $user->status=1;
-                $user->save();
+                $usersta=new UserStatus();
+                $usersta->uuid=$uuid;
+                $usersta->cusid= $userid;
+                $usersta->status=1;
+                $usersta->save();
             }
         }else{
             //return view('auth.login');
