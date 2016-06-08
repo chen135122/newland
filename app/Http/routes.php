@@ -46,7 +46,7 @@ Route::group([ 'middleware' => ['web']], function () {
     Route::get('uptatus', '\App\Http\Controllers\HomeController@updatestatus');
     Route::get('getlogstatus', '\App\Http\Controllers\HomeController@getlogstatus');
     Route::get('getseesion', '\App\Http\Controllers\HomeController@getseesion');
-    Route::post('reply', '\App\Http\Controllers\HomeController@reply');
+    Route::get('reply', '\App\Http\Controllers\HomeController@reply');
     Route::post('spay', '\App\Http\Controllers\TourController@pay');
     Route::post('create', '\App\Http\Controllers\TourController@create');
     Route::get('tprint/{id}', '\App\Http\Controllers\TourController@tprint');

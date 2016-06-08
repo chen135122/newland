@@ -13,6 +13,7 @@ use Overtrue\Wechat\Url;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\UserStatus;
+require_once app_path().'/WxPayPubHelper/WxTemplate.php';
 class HomeController extends Controller
 {
     public function index()
@@ -125,7 +126,7 @@ class HomeController extends Controller
             //return view('auth.login');
         }
         //return redirect()->guest("/auth/login?txtMobile=".$newmobile."&password=".$newpassword);
-        return view("home.login")->with("uuid",$uuid)->with("userid",$userid)->with("token",$token)->with("oppenid",$oppenid);//->with("oppenid",$oppenid);
+        return view("home.login")->with("uuid",$uuid)->with("userid",$userid)->with("oppenid",$oppenid)->with("nickname",$user->nickname);//->with("oppenid",$oppenid);
     }
 
     public function  getlogstatus(Request $request)
@@ -141,7 +142,7 @@ class HomeController extends Controller
                 "cusid"=>$user->cusid,
                 "mobile"=>$codeuser->mobile
             ];
-            //return  $array;
+            return  $array;
         }
         else{
             return "-1";

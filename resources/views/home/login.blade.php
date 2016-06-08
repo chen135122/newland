@@ -29,17 +29,13 @@
     <link href="/css/demo.css" type="text/css" rel="stylesheet">
 </head>
 <body style="background-color:#fff;">
-<form method="post" id="reply" style="display:none;" action="/reply?action=reply">
+<form method="get" id="reply" style="display:none;" action="/reply">
     <dl>
-        <dd><strong>收件人：</strong><input type="text" name="tousername" class="text" value="{{$oppenid}}" /></dd>
-        <dd><strong>收件人：</strong><input type="text" name="token" class="text" value="{{$token}}" /></dd>
-
-        <dd><span><strong>内　容：</strong></span><textarea rows="5" cols="34" name="content">测试</textarea></dd>
-        <dd><input type="submit" class="submit" value="回复消息" /></dd>
+        <dd><strong></strong><input type="text" name="openid" class="text" value="{{$oppenid}}" /></dd>
+        <dd><strong></strong><input type="text" name="nickname" class="text" value="{{$nickname}}" /></dd>
     </dl>
 </form>
 <aside class="col-lg-3 col-md-3" style="margin-top: 20%;">
-
     <div class="box_style_2" style="border:none;">
         <img src="/img/logo_sticky.png"><br><br><br>
         <span>即将登录"几维说",请确认是本人操作</span>
