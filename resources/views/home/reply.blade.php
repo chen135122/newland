@@ -16,6 +16,7 @@ $tem=new WxTemplate();
 //$result= __construct($APPID,$APPSECRET);
 $openid=$_REQUEST['openid'];
 $nickname=$_REQUEST['nickname'];
+echo $openid.",".$nickname;
 if($openid||$nickname)
 {
   $template=array(

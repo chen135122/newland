@@ -142,7 +142,7 @@ class HomeController extends Controller
                 "cusid"=>$user->cusid,
                 "mobile"=>$codeuser->mobile
             ];
-            //return  $array;
+            return  $array;
         }
         else{
             return "-1";
