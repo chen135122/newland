@@ -16,16 +16,16 @@ $tem=new WxTemplate();
 //$result= __construct($APPID,$APPSECRET);
 $openid=$_REQUEST['openid'];
 $nickname=$_REQUEST['nickname'];
-echo $openid.",".$nickname;
-if($openid||$nickname)
+
+if(isset($openid)||isset($nickname))
 {
   $template=array(
-                'touser'=>"'.$openid.'",
+                'touser'=>strval($openid),
                 'template_id'=>"oaC5SYXWR4k7VU1D_kZsBtfPQkzKN__ih0_jUhXQi58",
                 'url'=>'http://www.baidu.com',
                 'data'=>array(
                         'first'=>array(
-                                'value'=>"您好,'.$nickname.',您已经登录成功!"
+                                'value'=>"您好,".$nickname.",您已经登录成功!"
                         ),
                         'keyword1'=>array(
                                 'value'=>"几维说",

@@ -126,7 +126,7 @@ class HomeController extends Controller
             //return view('auth.login');
         }
         //return redirect()->guest("/auth/login?txtMobile=".$newmobile."&password=".$newpassword);
-        return view("home.login")->with("uuid",$uuid)->with("userid",$userid)->with("oppenid",$oppenid)->with("nickname",$user->nickname);//->with("oppenid",$oppenid);
+        return view("home.login")->with("uuid",$uuid)->with("userid",$userid);//->with("oppenid",$oppenid)->with("nickname",$user->nickname);//->with("oppenid",$oppenid);
     }
 
     public function  getlogstatus(Request $request)
