@@ -122,11 +122,11 @@ class PropertyController extends Controller
             $order->sn = date('Ymd') . substr(implode(NULL, array_map('ord', str_split(substr(uniqid(), 7, 13), 1))), 0, 8);;
             $order->totalprice =$property->total_price;
             $order->orderprice = 0;
-            $order->type = 1;
+            $order->type = 2;
             $order->paytype = 3;
             $order->created_at = Carbon::now();
             $order->created_by = 1;
-            $order->adults = strval($request->get("perNum"));
+            $order->adults = 0;
             $order->username = strval($request->get("username"));
             $order->phone = strval($request->get("userPhone"));
             $order->email = strval($request->get("userEmail"));
@@ -140,12 +140,73 @@ class PropertyController extends Controller
                 $orderDetail->orderid = $order->id;
                 $orderDetail->title = $property->title;
                 // $orderDetail->price=
-                $orderDetail->num = $request->get("perNum");
+                $orderDetail->num = 0;
             }
             return $order->sn;
         } catch (Exception $e) {
             return 0;
         }
         return 0;
+    }
+    public function result(Request $request)
+    {
+        $property = Property::where("id", $request->get("houseid"))->first();
+        $num=0;
+//        $travel=Travel::where("id",$request->get("rout"))->first();
+        $order=new NewOrder();
+        $order->itemid=$request->get("houseid");
+        $order->uid=auth()->user()->id;
+        $order->sn=date('Ymd').substr(implode(NULL, array_map('ord', str_split(substr(uniqid(), 7, 13), 1))), 0, 8);;
+        //$order->startdate=Carbon::now();
+        // $order->children=0;
+        $order-> totalprice=0;
+        //$order-> discount=0.0;
+        $order-> orderprice=0;
+        $order-> status=1;
+        $order->type=2;
+        $order->paytype=3;
+//        $order-> created_at=Carbon::now();
+        $order-> created_by=1;
+        $order->num=$num;
+        $order->username=strval($request->get("username")) ;
+        $order->phone=strval($request->get("userPhone"));
+        $order->email=strval($request->get("userEmail"));
+        $order->remark=strval($request->get("content"));
+//        $order->start_time=$request->get("startDate");
+        $order->save();
+        if($order->id>0)
+        {
+
+
+                    $orderDetail = new OrderDetail();
+                    $orderDetail->orderid = $order->id;
+                    $orderDetail->title = $property->title;
+                    $orderDetail->price = $property->total_price;
+                    $orderDetail->num = $num;
+//                    $orderDetail->created_at = Carbon::now();
+                    $orderDetail->created_by = 1;
+//                    $orderDetail->updated_at = null;
+                    $orderDetail->updated_by = null;
+                    $orderDetail->save();
+            $subject=  $request->get("subject");
+        }
+        else
+            return redirect($request->get("url"));
+        $trade_no = $order->sn;
+        $upOrder = NewOrder::where("sn", $trade_no)->first();
+
+        $upOrder->status =1;
+        $upOrder->save();
+        $order = NewOrder::where("sn", $trade_no)->first();
+        $paytype = "";
+//        $paytype= $this->paytype($order->paytype);
+        return view('property.result')->with(compact("order", $order))->with(compact("property", $property))->with("msg","未支付")->with("paytype", $paytype);;
+    }
+    public function tprint($id)
+    {
+        $order = NewOrder::where("id", $id)->first();
+        $orderDetail = $order->detail()->get();
+        $property =Property::where("id", $order->itemid)->first();
+        return view('property.tprint')->with(compact("order","property","orderDetail"));
     }
 }
