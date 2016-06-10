@@ -87,6 +87,12 @@
                                 <div class="col-md-8">
                                     <h3><strong>名称：<a href="/property/{{$property->id}}" target="_blank">{{$property->title}}</a></strong></h3>
                                     <p> 房源价格：NZ${{$property->total_price}}<br>
+                                        联系人：{{$order->username}}<br>
+                                        手机号码：{{$order->phone}}<br>
+                                        电子邮件：{{$order->email}}<br>
+                                        @if($order->remark)
+                                        备注：{{$order->remark}}<br>
+                                        @endif
                                         支付状态：{{App\Http\Controllers\TourController::status($order->status)}}<br>创建时间:{{$order->created_at}}</p>
                                 </div>
                                 <div class="clearfix"></div>

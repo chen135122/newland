@@ -116,6 +116,7 @@ class PropertyController extends Controller
     {
         try {
             $property = Property::where("id", get("houseid"))->first();
+            $uid=auth()->user()->id;
             $order = new NewOrder();
             $order->itemid = $request->get("houseid");
             $order->uid = 1;
@@ -124,8 +125,8 @@ class PropertyController extends Controller
             $order->orderprice = 0;
             $order->type = 2;
             $order->paytype = 3;
-            $order->created_at = Carbon::now();
-            $order->created_by = 1;
+//            $order->created_at = Carbon::now();
+            $order->created_by = $uid;
             $order->adults = 0;
             $order->username = strval($request->get("username"));
             $order->phone = strval($request->get("userPhone"));
@@ -150,6 +151,7 @@ class PropertyController extends Controller
     }
     public function result(Request $request)
     {
+        $uid=auth()->user()->id;
         $property = Property::where("id", $request->get("houseid"))->first();
         $num=0;
 //        $travel=Travel::where("id",$request->get("rout"))->first();
@@ -166,7 +168,7 @@ class PropertyController extends Controller
         $order->type=2;
         $order->paytype=3;
 //        $order-> created_at=Carbon::now();
-        $order-> created_by=1;
+        $order-> created_by=$uid;
         $order->num=$num;
         $order->username=strval($request->get("username")) ;
         $order->phone=strval($request->get("userPhone"));
@@ -184,7 +186,7 @@ class PropertyController extends Controller
                     $orderDetail->price = $property->total_price;
                     $orderDetail->num = $num;
 //                    $orderDetail->created_at = Carbon::now();
-                    $orderDetail->created_by = 1;
+                    $orderDetail->created_by = $uid;
 //                    $orderDetail->updated_at = null;
                     $orderDetail->updated_by = null;
                     $orderDetail->save();

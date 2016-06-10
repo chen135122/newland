@@ -106,7 +106,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="text-left" colspan="2">
+                    <td class="text-left" colspan="2" style="margin-top: 20px;">
                         <a class="btn_full" onclick="Ceng(2)">预订</a>
                     </td>
                 </tr>
@@ -261,7 +261,7 @@
         float: left;
     }
     .btn_full{
-        width: 40% !important;
+        width: 30% !important;
     }
     /*.form-group div.col-sm-9{*/
         /*margin-bottom: 20px;*/
