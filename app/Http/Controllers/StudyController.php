@@ -22,7 +22,7 @@ class StudyController extends Controller
         $rid = request()->get('rid');  //一级地区
         $cid= request()->get('cid'); //二级地区
         $did= request()->get('did'); //三级地区
-        $regionlist=Region::where('parent_id', 0)->get();
+        $regionlist=Region::where('parent_id', 0)->where('iscn', 2)->get();
         if (!empty($rid)){
 
             $studys= $studys->where('region', $rid);
@@ -91,7 +91,7 @@ class StudyController extends Controller
         $type= request()->get('type'); //学校类型
         $nature= request()->get('nature'); //学校性质
         $gender= request()->get('gender'); //学校性别
-        $regionlist=Region::where('parent_id', 0)->get();
+        $regionlist=Region::where('parent_id', 0)->where('iscn', 2)->get();
         if (!empty($type)&&$type!=0){
             $studys= $studys->where('type', $type);
             $parames["type"]=$type;
