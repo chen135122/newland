@@ -379,7 +379,7 @@ a.btn_full_outline:hover {
 /*}*/
 
 header {
-    z-index: 1000;
+    z-index: 1000000;
     padding:0;
 }
 
