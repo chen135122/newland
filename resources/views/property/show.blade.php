@@ -106,7 +106,7 @@
 
                 <div class="row" style="margin-top:20px;">
                     <div class="col-md-12 titleDiv" id="info">
-                        <h4 class="title" >行程简介</h4>
+                        <h4 class="title" >项目信息</h4>
                     </div>
                     <div class="col-md-12">
                         {!! $property ->basic_infor !!}
@@ -114,7 +114,7 @@
                 </div>
                 <hr>
                 <div id="lightgallery">
-                    <div class="col-md-12 titleDiv" id="intro">
+                    <div class="col-md-12 titleDiv" id="intro" style="margin-left: 0px;">
                         <h4 class="title" >项目特点</h4>
                     </div>
                 <div class="row">
@@ -266,7 +266,7 @@
     <link href="/dist/css/lightgallery.css" rel="stylesheet">
     <style>
         .titleDiv{
-            border-bottom: 1px solid #f08326;margin:0px 0px 10px 15px;width: 96%;
+            border-bottom: 1px solid #f08326;margin:0px 0px 10px 15px;
         }
         .title{
             background-color:#f08326;width: 15%;padding:10px 10px 10px 10px;margin-left:-15px;text-align: center;color: #fff;margin-bottom:0;
