@@ -57,47 +57,7 @@
     </style>
 </head>
 <body>
-
-<!--[if lte IE 8]>
-<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a>.</p>
-<![endif]-->
-
-<div id="preloader">
-    <div class="sk-spinner sk-spinner-wave">
-        <div class="sk-rect1"></div>
-        <div class="sk-rect2"></div>
-        <div class="sk-rect3"></div>
-        <div class="sk-rect4"></div>
-        <div class="sk-rect5"></div>
-    </div>
-</div>
-<!-- End Preload -->
-
-<div class="layer"></div>
-<div class="row" style="height:150px;">
-    <div class="col-md-6 col-sm-6 col-xs-6" style="width:50%;">
-        <div id="logo" style="margin-top:0;">
-            <a href="/"><img src="img/logo_sticky.png" width="160" height="54" alt="City tours" data-retina="true" class="logo_normal"></a>
-        </div>
-    </div>
-    <div class="col-md-6 col-sm-6 col-xs-6" style="width:50%;padding-top:10px;">
-        <ul id="top_links">
-            <li>
-                <div class="dropdown dropdown-access">
-                    @if (auth()->user())
-
-                        <a href="/percenter" style="color:#000;font-family:'Microsoft YaHei';"> {{auth()->user()->mobile}}</a> |
-                        <a href="/auth/logout" style="color:#000;font-family:'Microsoft YaHei';"> 退出 </a>
-                    @else
-                        <a href="/auth/login"  style="color:#000;font-family:'Microsoft YaHei';" id="access_link">登录</a>
-                    @endif
-                </div>
-            </li>
-            <li><a href="/percenter?type=2" id="wishlist_link" style="color:#000;font-family:'Microsoft YaHei';">收藏</a></li>
-        </ul>
-    </div>
-</div>
-
+@include('layouts.partials.top')
 <section id="hero_2">
     <div class="intro_title animated fadeInDown">
 
@@ -109,7 +69,11 @@
                 <a href="#" class="bs-wizard-dot newc"></a>
             </div>
 
-
+            <div class="col-xs-4 bs-wizard-step active">
+                <div class="text-center bs-wizard-stepnum">提交</div>
+                <div class="progress" style="background-color:#82ca9c;"><div class="progress-bar" style="background-color:#e04f67;"></div></div>
+                <a href="#" class="bs-wizard-dot"></a>
+            </div>
             <div class="col-xs-4 bs-wizard-step disabled">
                 <div class="text-center bs-wizard-stepnum">完成</div>
                 <div class="progress" style="background-color:#82ca9c;"><div class="progress-bar"></div></div>
@@ -127,32 +91,32 @@
             <table id="sel_table" class="table table-striped options_cart">
                 <thead>
                 <tr>
-                    <th colspan="5">
-                        项目清单
+                    <th colspan="2">
+                        预定项目
                     </th>
                 </tr>
                 </thead>
+                <tbody>
+                <tr>
+                    <td class="text-left">
+                     <img src="{{$property->picurl}}" style="height: 100px; width:100px;">
+                    </td>
+                    <td class="text-left">
+                        {{$property->title}}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-left" colspan="2" style="margin-top: 20px;">
+                        <a class="btn_full" onclick="Ceng(2)">预订</a>
+                    </td>
+                </tr>
+
+                </tbody>
                 <tbody>
             </table>
         </div><!-- End col-md-8 -->
 
         <aside class="col-md-4">
-            <div class="box_style_1">
-                <h3 class="inner">- 合计 -</h3>
-                <table class="table table_summary">
-                    <tbody>
-                    <tr>
-                        <td>
-                            项目
-                        </td>
-                        <td class="text-right">
-                           {{$travel->title}}
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-                <a class="btn_full" onclick="Ceng(2)">预订</a>
-           </div>
             @include('layouts.partials.right_side')
         </aside>
 
@@ -196,7 +160,7 @@
         if ('{{$login}}') {
             document.getElementById('ceng').style.display = 'block';
             document.getElementById('close').style.display = 'block';
-           $("#orderform").attr("action", "/result");
+           $("#orderform").attr("action", "/houseresult");
         }
         else {
             window.location="/auth/login";
@@ -222,7 +186,7 @@
                     type: "post",
                     url: "/property_create",
                     dataType: "json",
-                    data: { 'houseid': $("#houseid").val(),"perNum":'{{$perNum}}',"username":$("#username").val(),"userPhone":$("#userPhone").val(),"userEmail":$("#userEmail").val(),"content":$("#txt_content").val()  },
+                    data: { 'houseid': $("#houseid").val(),"username":$("#username").val(),"userPhone":$("#userPhone").val(),"userEmail":$("#userEmail").val(),"content":$("#txt_content").val()  },
                     success: function(msg){
                         $("#orderform").submit();
                     }
@@ -251,9 +215,7 @@
                      <input  name="houseid" id="houseid" type="hidden" value="{{$houseid}}">
                     <input  name="subject" type="hidden" value="{{$name}}">
                     <input  name="total_fee" type="hidden" value="0">
-                    <input  name="startDate" type="hidden" value="{{$date}}">
                     <input  name="url" id="url" type="hidden" value="">
-                     <input  name="perNum" id="perNum" type="hidden" value="{{$perNum}}">
             <div class="form-group">
                 <label for="txtUserName" class="col-sm-3 control-label" >联系人姓名</label>
                     <div class="col-sm-9" ><input  name="username" id="username" class="date-pick form-control" style="width:90%;" placeholder="用户名不能为空"  datatype="s1-10"  nullmsg="用户名不能为空" sucmsg=" " id="txtUserName"  name="txtUserName" >
@@ -297,6 +259,9 @@
     }
     #top_links li{
         float: left;
+    }
+    .btn_full{
+        width: 30% !important;
     }
     /*.form-group div.col-sm-9{*/
         /*margin-bottom: 20px;*/

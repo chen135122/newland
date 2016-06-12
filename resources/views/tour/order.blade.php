@@ -57,47 +57,7 @@
     </style>
 </head>
 <body>
-
-<!--[if lte IE 8]>
-<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a>.</p>
-<![endif]-->
-
-<div id="preloader">
-    <div class="sk-spinner sk-spinner-wave">
-        <div class="sk-rect1"></div>
-        <div class="sk-rect2"></div>
-        <div class="sk-rect3"></div>
-        <div class="sk-rect4"></div>
-        <div class="sk-rect5"></div>
-    </div>
-</div>
-<!-- End Preload -->
-
-<div class="layer"></div>
-<div class="row" style="height:150px;">
-    <div class="col-md-6 col-sm-6 col-xs-6" style="width:50%;">
-        <div id="logo" style="margin-top:0;">
-            <a href="/"><img src="img/logo_sticky.png" width="160" height="50" alt="City tours" data-retina="true" class="logo_normal"></a>
-        </div>
-    </div>
-    <div class="col-md-6 col-sm-6 col-xs-6" style="width:50%;padding-top:10px;">
-        <ul id="top_links">
-            <li>
-                <div class="dropdown dropdown-access">
-                    @if (auth()->user())
-
-                        <a href="/percenter" style="color:#000;font-family:'Microsoft YaHei';"> {{auth()->user()->mobile}}</a> |
-                        <a href="/auth/logout" style="color:#000;font-family:'Microsoft YaHei';"> 退出 </a>
-                    @else
-                        <a href="/auth/login"  style="color:#000;font-family:'Microsoft YaHei';" id="access_link">登录</a>
-                    @endif
-                </div>
-            </li>
-            <li><a href="/percenter?type=2" id="wishlist_link" style="color:#000;font-family:'Microsoft YaHei';">收藏</a></li>
-        </ul>
-    </div>
-</div>
-
+@include('layouts.partials.top')
 <section id="hero_2">
     <div class="intro_title animated fadeInDown">
 

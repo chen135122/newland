@@ -15,6 +15,8 @@ Route::group([ 'middleware' => ['web', 'auth']], function () {
     Route::get('topay/{id}','\App\Http\Controllers\AlipayController@topay');
     Route::get('order', '\App\Http\Controllers\TourController@order');
     Route::get('result', '\App\Http\Controllers\TourController@result');
+
+    Route::get('houseresult', '\App\Http\Controllers\PropertyController@result');
 //房产预订
     Route::get('houseorder', '\App\Http\Controllers\PropertyController@order');
 //    Route::get('xxx', function(){
@@ -54,6 +56,7 @@ Route::group([ 'middleware' => ['web']], function () {
     Route::post('spay', '\App\Http\Controllers\TourController@pay');
     Route::post('create', '\App\Http\Controllers\TourController@create');
     Route::get('tprint/{id}', '\App\Http\Controllers\TourController@tprint');
+    Route::get('hprint/{id}', '\App\Http\Controllers\PropertyController@tprint');
 
     Route::post('property_create', '\App\Http\Controllers\PropertyController@create');
 

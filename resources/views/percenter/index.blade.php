@@ -69,11 +69,16 @@
                                 </div>
                                 <div class="col-md-2 col-sm-2">
                                     <div class="booking_buttons">
-                                        <a href="/tprint/{{$order->id}}" target="_blank" class="btn_2">详情</a>
-                                        @if($order->status==1)
-                                            <br>
-                                        <a href="/topay/{{$order->id}}" target="_blank" class="btn_2">去支付</a>
-                                            @endif
+                                        @if(($order->type)==1)
+                                            <a href="/tprint/{{$order->id}}" target="_blank" class="btn_2">详情</a>
+                                        @elseif(($order->type)==2)
+                                            <a href="/hprint/{{$order->id}}" target="_blank" class="btn_2">详情</a>
+                                        @endif
+
+                                        {{--@if($order->status==1)--}}
+                                            {{--<br>--}}
+                                        {{--<a href="/topay/{{$order->id}}" target="_blank" class="btn_2">去支付</a>--}}
+                                            {{--@endif--}}
                                     </div>
                                 </div>
                             </div><!-- End row -->
