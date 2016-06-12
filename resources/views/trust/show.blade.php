@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title')合作伙伴
+@section('title')家庭信托
 @stop
 @section('content')
 
@@ -8,7 +8,7 @@
 <section class="parallax-window" data-parallax="scroll" data-image-src="/img/banner_partner.jpg" data-natural-width="1400" data-natural-height="470">
     <div class="parallax-content-1">
         <div class="animated fadeInDown">
-            <h1>合作伙伴</h1>
+            <h1>家庭信托</h1>
             <p></p>
             @include('layouts.partials.search')
         </div>

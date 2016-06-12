@@ -13,7 +13,7 @@ class FamilyTrustController extends Controller
 
         $models = Partner::orderBy('displayorder', 'desc')->where("iswork",1)->paginate(10);
         $allUrl= $this->qrcode();
-        return view('partner.index')->with(compact('models','allUrl'));
+        return view('trust.index')->with(compact('models','allUrl'));
     }
 
 

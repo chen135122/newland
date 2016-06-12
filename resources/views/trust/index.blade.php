@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title')合作伙伴
+@section('title')家庭信托
 @stop
 @section('content')
 
@@ -19,7 +19,7 @@
     <div class="container">
         <ul>
             <li><a href="/">首页</a></li>
-            <li>合作伙伴</li>
+            <li>家庭信托</li>
         </ul>
     </div>
 </div>
@@ -28,7 +28,7 @@
 
     <div class="row">
         <div class="col-lg-8 col-md-8">
-            <h2 class="page-header">合作伙伴</h2>
+            <h2 class="page-header">家庭信托</h2>
              <div class="panel-cont">
                  @foreach($models as $model)
                  <div class="row">
