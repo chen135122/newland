@@ -6,12 +6,12 @@ use Illuminate\Http\Request;
 use Overtrue\Wechat\QRCode;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-class PartnerController extends Controller
+class FamilyTrustController extends Controller
 {
     public function index()
     {
 
-        $models = Partner::orderBy('displayorder', 'desc')->where("iswork",0)->paginate(10);
+        $models = Partner::orderBy('displayorder', 'desc')->where("iswork",1)->paginate(10);
         $allUrl= $this->qrcode();
         return view('partner.index')->with(compact('models','allUrl'));
     }

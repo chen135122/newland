@@ -128,6 +128,7 @@
                                 <ul>
                                     <li  style="margin-left: 0px;"><a href="/about">关于我们</a></li>
                                     <li  style="margin-left: 0px;"><a href="/partner">合作伙伴</a></li>
+                                    <li  style="margin-left: 0px;"><a href="/trust">家庭信托</a></li>
                                     <li  style="margin-left: 0px;"><a href="/faq">常见问题</a></li>
                                 </ul>
                             </li>

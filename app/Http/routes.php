@@ -29,6 +29,10 @@ Route::group([ 'middleware' => ['web']], function () {
     Route::get('/',   '\App\Http\Controllers\HomeController@index');
     Route::get('partner', '\App\Http\Controllers\PartnerController@index');
     Route::get('partner/{id}', '\App\Http\Controllers\PartnerController@show');
+
+    Route::get('trust', '\App\Http\Controllers\FamilyTrustController@index');
+    Route::get('trust/{id}', '\App\Http\Controllers\FamilyTrustController@show');
+
     Route::get('faq', '\App\Http\Controllers\HomeController@faq');
     Route::get('about', '\App\Http\Controllers\HomeController@about');
     Route::get('password/reset','\App\Http\Controllers\Auth\PasswordController@getReset');
