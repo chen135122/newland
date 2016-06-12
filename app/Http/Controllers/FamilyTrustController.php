@@ -36,7 +36,7 @@ class FamilyTrustController extends Controller
     {
         $model = Partner::where('id', $id)->first();
         $allUrl= $this->qrcode();
-        return view('partner.show')->with(compact('model','allUrl'));
+        return view('trust.show')->with(compact('model','allUrl'));
     }
 
 }

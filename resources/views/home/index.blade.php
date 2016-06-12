@@ -143,6 +143,15 @@
 <div class="white_bg">
     <div class="container margin_60">
         <div class="row">
+            <div class="col-md-3 col-sm-6 col-xs-6  text-center"  style="cursor: pointer;" onclick="window.location='/trust'">
+                <p>
+                    <img src="/img/icon-trust.png" class="icon">
+                </p>
+                <h4><span>家庭信托</span></h4>
+                <p class="tp_detail">
+                    我们倾力打造新西兰各类服务平台，并拥有国内以及新西兰顶级合作伙伴
+                </p>
+            </div>
             <div class="col-md-3 col-sm-6 col-xs-6 text-center" style="cursor: pointer;" onclick="window.location='/property'">
                 <p>
                  <img src="/img/icon-house.png" class="icon">
@@ -171,51 +180,40 @@
                     我们提供中小学和大学最权威的留学咨询，以及各类移民资讯
                 </p>
             </div>
-            <div class="col-md-3 col-sm-6 col-xs-6  text-center"  style="cursor: pointer;" onclick="window.location='/about'">
-                <p>
-                    <img src="/img/icon-trust.png" class="icon">
-                </p>
-                <h4><span>家庭信托</span></h4>
-                <p class="tp_detail">
-                    我们倾力打造新西兰各类服务平台，并拥有国内以及新西兰顶级合作伙伴
-                </p>
-            </div>
+
         </div><!-- End row -->
     </div><!-- End container -->
 </div><!-- End white_bg -->
 
 <div class="container margin_60">
-
     <div class="main_title">
-        <h2>新西兰 <span>最热</span> 旅游路线</h2>
-        <p>在接下来的行程里，您可以根据实际情况合理调整行程，在新西兰找到最棒的自己。</p>
+        <h2>新西兰 <span>家庭</span> 信托</h2>
+        <p>我们倾力打造新西兰各类服务平台，并拥有国内以及新西兰顶级合作伙伴</p>
     </div>
     <div class="row">
         <?php $i=1; ?>
-        @foreach($travels as $travel)
-                @if( $i<4)
-        <div class="col-md-4 col-sm-6 wow zoomIn" data-wow-delay="0.<?php echo $i++; ?>s">
-            <div class="tour_container">
-                <div class="img_container">
-                    <a href="tour/{{$travel->id}}">
-                        <img src="{{$travel->picurl}}" style="max-height:220px;min-height:220px;max-width: 360px;min-width:360px;" class="img-responsive" alt="">
-                        @if($travel->istop==1)) <div class="ribbon top_rated"></div> @endif
-                        <div class="short_info">
-                            <span class="price">￥{{$travel->referenceprice}}</span>
-                        </div>
-                    </a>
-                </div>
-                <div class="tour_title">
-                    <h3><strong>【{{$travel->bigtitle}}】</strong> {{$travel->title}}</h3>
-                </div>
+        @foreach($trusts as $trust)
+            <div class="col-md-4 col-sm-6 wow zoomIn" data-wow-delay="0.<?php echo $i++; ?>s">
+                <div class="hotel_container">
+                    <div class="img_container">
+                        <a href="/trust/{{$trust->id}}">
+                            <img src="{{$trust->picurl}}"  style="max-height:240px;min-height:240px;max-width: 360px;min-width:360px;" class="img-responsive" alt="">
+                            <div class="short_info hotel">
+                                家庭信托
+                            </div>
+                        </a>
+                    </div>
+                    <div class="hotel_title">
+                        <h3>{{$trust->title}}</h3>
+                    </div>
+                </div><!-- End box -->
             </div>
-        </div>
-      @endif
         @endforeach
     </div><!-- End row -->
-    <p class="text-center add_bottom_30">
-        <a href="/tour" class="btn_1 medium"><i class="icon-eye-7"></i>查看所有行程 ({{$travelsCount}}) </a>
+    <p class="text-center nopadding">
+        <a href="/trust" class="btn_1 medium"><i class="icon-eye-7"></i>查看所有家庭信托 ({{$trustsCount}}) </a>
     </p>
+
     <hr>
     <div class="main_title">
         <h2>新西兰 <span>最热</span> 房产</h2>
@@ -243,6 +241,37 @@
     </div><!-- End row -->
     <p class="text-center nopadding">
         <a href="/property" class="btn_1 medium"><i class="icon-eye-7"></i>查看所有房产 ({{$HouseCount}}) </a>
+    </p>
+    <hr>
+    <div class="main_title">
+        <h2>新西兰 <span>最热</span> 旅游路线</h2>
+        <p>在接下来的行程里，您可以根据实际情况合理调整行程，在新西兰找到最棒的自己。</p>
+    </div>
+    <div class="row">
+        <?php $i=1; ?>
+        @foreach($travels as $travel)
+            @if( $i<4)
+                <div class="col-md-4 col-sm-6 wow zoomIn" data-wow-delay="0.<?php echo $i++; ?>s">
+                    <div class="tour_container">
+                        <div class="img_container">
+                            <a href="tour/{{$travel->id}}">
+                                <img src="{{$travel->picurl}}" style="max-height:220px;min-height:220px;max-width: 360px;min-width:360px;" class="img-responsive" alt="">
+                                @if($travel->istop==1)) <div class="ribbon top_rated"></div> @endif
+                                <div class="short_info">
+                                    <span class="price">￥{{$travel->referenceprice}}</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="tour_title">
+                            <h3><strong>【{{$travel->bigtitle}}】</strong> {{$travel->title}}</h3>
+                        </div>
+                    </div>
+                </div>
+            @endif
+        @endforeach
+    </div><!-- End row -->
+    <p class="text-center add_bottom_30">
+        <a href="/tour" class="btn_1 medium"><i class="icon-eye-7"></i>查看所有行程 ({{$travelsCount}}) </a>
     </p>
 </div><!-- End container -->
 {{--<div id="rightArrow"><a href="javascript:;" title="在线客户"></a></div>--}}
