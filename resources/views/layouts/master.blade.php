@@ -88,7 +88,7 @@
                          <a href="/"><img src="/img/logo_sticky.png" height="50" alt="All IN New Zealand" data-retina="true" class="logo_sticky"></a>
                     </div>
                 </div>
-                <nav class="col-md-8 col-sm-9 col-xs-9" style="width:65%;">
+                <nav class="col-md-8 col-sm-9 col-xs-9" style="width:66%;">
                     <a class="cmn-toggle-switch cmn-toggle-switch__htx open_close" href="javascript:void(0);"><span>Menu mobile</span></a>
                     <div class="main-menu">
                         <div id="header_menu">
@@ -98,6 +98,9 @@
                         <ul class="head_type">
                             <li class="submenu">
                                 <a href="/" class="show-submenu"> <!--<i class="icon_set_1_icon-64"></i>--> 首页 </a>
+                            </li>
+                            <li class=" megamenu submenu">
+                                <a href="/trust" class="show-submenu-mega"> <!--<i class="icon_set_1_icon-2"></i>--> 家庭信托 </a>
                             </li>
                             <li class=" megamenu submenu">
                                 <a href="/property" class="show-submenu-mega"> <!--<i class="icon_set_1_icon-2"></i>--> 房产置业 </a>
@@ -128,7 +131,6 @@
                                 <ul>
                                     <li  style="margin-left: 0px;"><a href="/about">关于我们</a></li>
                                     <li  style="margin-left: 0px;"><a href="/partner">合作伙伴</a></li>
-                                    <li  style="margin-left: 0px;"><a href="/trust">家庭信托</a></li>
                                     <li  style="margin-left: 0px;"><a href="/faq">常见问题</a></li>
                                 </ul>
                             </li>

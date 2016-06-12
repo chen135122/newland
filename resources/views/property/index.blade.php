@@ -53,25 +53,23 @@
                             <div class="col-lg-6 col-md-6 col-sm-6" style="cursor:pointer" onclick="window.location='/property/{{$property->id}}'">
                                 <div class="tour_list_desc">
                                     <h3>{{$property->title}}</h3>
-                                    {{--@if(isset($property->is_Tags))--}}
-                                        {{--<p>--}}
-                                        {{--@foreach($property->is_Tags as $tag )--}}
-                                            {{--{{$tag}}&nbsp;--}}
-                                        {{--@endforeach--}}
-                                        {{--</p>--}}
-                                    {{--@endif--}}
+                                    @if(isset($property->tagsid))
+                                        @foreach(App\Models\Tag::getTag($property->tagsid)->get() as $tag )
+                                            {{$tag->name}}&nbsp;
+                                        @endforeach
+                                        </p>
+                                    @endif
                                     <p>
-                                        <?php
-                                        if(isset($property->regions))
-                                            echo $property->regions->name.'&nbsp;';
 
-                                        if(isset($property->regions_city))
-                                            echo $property->regions_city->name.'&nbsp;';
-
-                                        if(isset($property->regions_district))
-                                            echo $property->regions_district->name.'&nbsp;';
-
-                                        ?>
+                                        @if(isset($property->region))
+                                            {{App\Models\Region::getRegion($property->region).'&nbsp;'}}
+                                        @endif
+                                        @if(isset($property->city))
+                                           {{App\Models\Region::getRegion($property->city).'&nbsp;'}}
+                                        @endif
+                                        @if(isset($property->district))
+                                           {{App\Models\Region::getRegion($property->district).'&nbsp;'}}
+                                        @endif
                                     </p>
 
                                 </div>

@@ -34,7 +34,7 @@
                  <div class="row">
                      <div class="col-lg-4 col-md-4 col-sm-4">
                          <div class="img_lists">
-                             <a href="/partner/{{$model->id}}"> <img src="{{$model->picurl}}" class="img-thumbnail"></a>
+                             <a href="/trust/{{$model->id}}"> <img src="{{$model->picurl}}" class="img-thumbnail"></a>
                          </div>
                      </div>
                      <div class="col-lg-8 col-md-8 col-sm-8">

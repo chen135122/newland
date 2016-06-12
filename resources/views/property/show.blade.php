@@ -105,20 +105,29 @@
                 </div>
 
                 <div class="row" style="margin-top:20px;">
-                    <div class="col-md-12"  id="info">
+                    <div class="col-md-12 titleDiv" id="info">
+                        <h4 class="title" >行程简介</h4>
+                    </div>
+                    <div class="col-md-12">
                         {!! $property ->basic_infor !!}
                     </div>
                 </div>
                 <hr>
                 <div id="lightgallery">
+                    <div class="col-md-12 titleDiv" id="intro">
+                        <h4 class="title" >项目特点</h4>
+                    </div>
                 <div class="row">
-                    <div class="col-md-12"  id="intro">
+                    <div class="col-md-12">
                        {!! $property ->description !!}
                     </div>
                 </div>
                 <hr>
                 @if($liucheng)
                 <div class="row">
+                    <div class="col-md-12 titleDiv" id="liucheng">
+                        <h4 class="title" >购置流程</h4>
+                    </div>
                     <div class="col-md-12" id="liucheng">
                         {!! $liucheng!!}
                     </div>
@@ -127,6 +136,9 @@
                 @endif
                 @if($xintuo)
                 <div class="row">
+                    <div class="col-md-12 titleDiv" id="xintuo">
+                        <h4 class="title" >家庭信托</h4>
+                    </div>
                     <div class="col-md-12"  id="xintuo">
                         {!! $xintuo!!}
                     </div>
@@ -136,6 +148,9 @@
                 </div>
                 @if($daizu)
                 <div class="row">
+                    <div class="col-md-12 titleDiv" id="daizu">
+                        <h4 class="title" >代租服务</h4>
+                    </div>
                     <div class="col-md-12"  id="daizu">
                         {!! $daizu !!}
                     </div>
@@ -144,6 +159,9 @@
                 @endif
                 @if($qingsao)
                 <div class="row">
+                    <div class="col-md-12 titleDiv" id="qingsao">
+                        <h4 class="title" >清扫服务</h4>
+                    </div>
                     <div class="col-md-12" id="qingsao">
                         {!!$qingsao !!}
                     </div>
@@ -152,6 +170,9 @@
                 @endif
                 @if($anfang)
                 <div class="row">
+                    <div class="col-md-12 titleDiv" id="anfang">
+                        <h4 class="title" >安防服务</h4>
+                    </div>
                     <div class="col-md-12" id="anfang">
                         {!!$anfang !!}
                     </div>
@@ -160,6 +181,9 @@
                 @endif
                 @if($zixun)
                 <div class="row">
+                    <div class="col-md-12 titleDiv" id="zixun">
+                        <h4 class="title" >咨询我们</h4>
+                    </div>
                     <div class="col-md-12" id="zixun">
                         {!! $zixun !!}
                     </div>
@@ -241,6 +265,12 @@
     <link rel="stylesheet" type="text/css" href="/css/default.css">
     <link href="/dist/css/lightgallery.css" rel="stylesheet">
     <style>
+        .titleDiv{
+            border-bottom: 1px solid #f08326;margin:0px 0px 10px 15px;width: 96%;
+        }
+        .title{
+            background-color:#f08326;width: 15%;padding:10px 10px 10px 10px;margin-left:-15px;text-align: center;color: #fff;margin-bottom:0;
+        }
         .c_ul li{
             font-size: 16px !important;
         }

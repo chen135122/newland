@@ -173,9 +173,9 @@
             </div>
             <div class="col-md-3 col-sm-6 col-xs-6  text-center"  style="cursor: pointer;" onclick="window.location='/about'">
                 <p>
-                    <img src="/img/icon-aboutus.png" class="icon">
+                    <img src="/img/icon-trust.png" class="icon">
                 </p>
-                <h4><span>关于我们</span></h4>
+                <h4><span>家庭信托</span></h4>
                 <p class="tp_detail">
                     我们倾力打造新西兰各类服务平台，并拥有国内以及新西兰顶级合作伙伴
                 </p>
