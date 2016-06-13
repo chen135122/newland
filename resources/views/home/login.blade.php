@@ -29,12 +29,12 @@
     <link href="/css/demo.css" type="text/css" rel="stylesheet">
 </head>
 <body style="background-color:#fff;">
-<form method="get" id="reply" style="display:none;" action="/reply">
-    <dl>
-        <dd><strong></strong><input type="text" name="openid" class="text" value="{{$oppenid}}" /></dd>
-        <dd><strong></strong><input type="text" name="nickname" class="text" value="{{$nickname}}" /></dd>
-    </dl>
-</form>
+{{--<form method="get" id="reply" style="display:none;" action="/reply">--}}
+    {{--<dl>--}}
+        {{--<dd><strong></strong><input type="text" name="openid" class="text" value="{{$oppenid}}" /></dd>--}}
+        {{--<dd><strong></strong><input type="text" name="nickname" class="text" value="{{$nickname}}" /></dd>--}}
+    {{--</dl>--}}
+{{--</form>--}}
 {{--<aside class="col-lg-3 col-md-3" style="margin-top: 20%;">--}}
     {{--<div class="box_style_2" style="border:none;">--}}
         {{--<img src="/img/logo_sticky.png"><br><br><br>--}}
@@ -61,9 +61,11 @@
             data: "",
             success: function (data) {
                 if (data!="0") {
+                    window.location="http://m.allinnewzealand.com/app/site/index";
                     if(data=="1")
                     {
                         $("#reply").submit();
+                        //window.location="http://m.allinnewzealand.com/app/site/index";
                     }
                     else {
                         var userAgent = navigator.userAgent;

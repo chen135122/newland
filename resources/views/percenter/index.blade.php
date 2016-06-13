@@ -151,8 +151,42 @@
                     </div><!-- End row -->
                     <!--<button type="submit" class="btn_1 green">更改清单</button>-->
                 </section><!-- End section 2 -->
+                <section id="section-3">
+                    @foreach($salList as $sale)
+                        <div class="strip_booking">
+                            <div class="row">
+                                <div class="col-md-2 col-sm-2">
+                                    <div class="date">
+                                        <span class="month">{{App\Http\Controllers\PercenterController::Upper(date('n',strtotime($sale->created_at)),1) }}</span>
+                                        <span class="day"><strong>{{date('d', strtotime($sale->created_at))}}</strong>{{App\Http\Controllers\PercenterController::Upper(date('N', strtotime($sale->created_at)),2)}}</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-5">
+                                    <h3 class="hotel_booking">
+                                        {{$sale->title}}
+                                        <span>
+                                        </span>
+                                    </h3>
+                                </div>
+                                <div class="col-md-2 col-sm-3">
+                                    <ul class="info_booking">
+                                    </ul>
+                                </div>
+                                <div class="col-md-2 col-sm-2">
+                                    <div class="booking_buttons">
+                                        <a href="/show/{{$sale->id}}" target="_blank" class="btn_2">详情</a>
+                                    </div>
+                                </div>
+                            </div><!-- End row -->
+                        </div><!-- End strip booking -->
+                    @endforeach
 
-
+                    <div class="text-center">
+                        @if($type==1)
+                            {{$orderList->render()}}
+                        @endif
+                    </div>
+                </section>
                 <section id="section-4">
                     <div class="row">
                         <div class="col-md-6 col-sm-6">
@@ -268,42 +302,7 @@
 
                     <hr>
                 </section>
-                <section id="section-3">
-                    @foreach($salList as $sale)
-                        <div class="strip_booking">
-                            <div class="row">
-                                <div class="col-md-2 col-sm-2">
-                                    <div class="date">
-                                        <span class="month">{{App\Http\Controllers\PercenterController::Upper(date('n',strtotime($sale->created_at)),1) }}</span>
-                                        <span class="day"><strong>{{date('d', strtotime($sale->created_at))}}</strong>{{App\Http\Controllers\PercenterController::Upper(date('N', strtotime($sale->created_at)),2)}}</span>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-sm-5">
-                                    <h3 class="hotel_booking">
-                                       {{$sale->title}}
-                                        <span>
-                                        </span>
-                                    </h3>
-                                </div>
-                                <div class="col-md-2 col-sm-3">
-                                    <ul class="info_booking">
-                                    </ul>
-                                </div>
-                                <div class="col-md-2 col-sm-2">
-                                    <div class="booking_buttons">
-                                        <a href="/show/{{$sale->id}}" target="_blank" class="btn_2">详情</a>
-                                    </div>
-                                </div>
-                            </div><!-- End row -->
-                        </div><!-- End strip booking -->
-                    @endforeach
 
-                    <div class="text-center">
-                        @if($type==1)
-                            {{$orderList->render()}}
-                        @endif
-                    </div>
-                </section>
             </div><!-- End content -->
         </div><!-- End tabs -->
     </div><!-- end container -->
