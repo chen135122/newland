@@ -9,6 +9,8 @@ use App\Models\Travel;
 use App\Models\Study;
 use App\Models\StudySP;
 use App\Models\Member;
+use App\Models\SaleHouse;
+use App\Models\SaleService;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -99,6 +101,8 @@ class PercenterController  extends Controller
                 break;
         }
         $orderList=NewOrder::where('uid',$userid)->orderBy("created_at",'desc');
+        $salList=SaleHouse::where('cusid',$userid)->orderBy("created_at",'desc')->lists('id')->toArray();
+        $salSerList=SaleService::where('id','>',0)->orderBy('created_at','desc');
         if($type==2)
         {
             $models=$models->paginate(6)->appends(['crid' => $collection_type])->appends(['type' => $type]);
@@ -107,7 +111,12 @@ class PercenterController  extends Controller
         {
         $orderList=$orderList->paginate(5);
         }
-        return view('percenter.index')->with(compact('models','type','collection_type','count1','count2','count3','count4','count5','typeUrl','orderList','member'));
+        else if($type==3)
+        {
+
+            $salSerList=$salSerList->WhereIn('houseid',$salList)->paginate(5);
+        }
+        return view('percenter.index')->with(compact('models','type','collection_type','count1','count2','count3','count4','count5','typeUrl','orderList','member','salSerList'));
     }
     public  static  function  Upper($moth,$type)
     {
