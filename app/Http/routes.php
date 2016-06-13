@@ -5,6 +5,7 @@ Route::controller('auth', '\App\Http\Controllers\Auth\AuthController');
 Route::group([ 'middleware' => ['web', 'auth']], function () {
     Route::get('auth/logout','\App\Http\Controllers\Auth\AuthController@Logout');
     Route::get('percenter','\App\Http\Controllers\PercenterController@index');
+    Route::get('show/{id}','\App\Http\Controllers\PercenterController@show');
     Route::post('tools/Favourite_minus','\App\Http\Controllers\FavouriteController@postFavourite_minus');
     Route::post('edit','\App\Http\Controllers\PercenterController@edit');
 //    Route::post('tools/Favourite_add', '\App\Http\Controllers\FavouriteController@postFavourite_add');
@@ -31,7 +32,6 @@ Route::group([ 'middleware' => ['web']], function () {
     Route::get('/',   '\App\Http\Controllers\HomeController@index');
     Route::get('partner', '\App\Http\Controllers\PartnerController@index');
     Route::get('partner/{id}', '\App\Http\Controllers\PartnerController@show');
-
     Route::get('trust', '\App\Http\Controllers\FamilyTrustController@index');
     Route::get('trust/{id}', '\App\Http\Controllers\FamilyTrustController@show');
 

@@ -149,7 +149,7 @@
                 </p>
                 <h4><span>家庭信托</span></h4>
                 <p class="tp_detail">
-                    我们倾力打造新西兰各类服务平台，并拥有国内以及新西兰顶级合作伙伴
+                    我们为您提供专业的资产保护与传承规划服务
                 </p>
             </div>
             <div class="col-md-3 col-sm-6 col-xs-6 text-center" style="cursor: pointer;" onclick="window.location='/property'">

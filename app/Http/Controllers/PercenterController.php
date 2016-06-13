@@ -101,7 +101,7 @@ class PercenterController  extends Controller
                 break;
         }
         $orderList=NewOrder::where('uid',$userid)->orderBy("created_at",'desc');
-        $salList=SaleHouse::where('cusid',$userid)->orderBy("created_at",'desc')->lists('id')->toArray();
+        $salList=SaleHouse::where('cusid',$userid)->orderBy("created_at",'desc');
         $salSerList=SaleService::where('id','>',0)->orderBy('created_at','desc');
         if($type==2)
         {
@@ -113,10 +113,16 @@ class PercenterController  extends Controller
         }
         else if($type==3)
         {
-
-            $salSerList=$salSerList->WhereIn('houseid',$salList)->paginate(5);
+            $salList=$salList->paginate(5);
         }
-        return view('percenter.index')->with(compact('models','type','collection_type','count1','count2','count3','count4','count5','typeUrl','orderList','member','salSerList'));
+        return view('percenter.index')->with(compact('models','type','collection_type','count1','count2','count3','count4','count5','typeUrl','orderList','member','salList'));
+    }
+
+    public function show($id)
+    {
+        $salhouse=SaleHouse::find($id);
+        $salservice=SaleService::where("houseid",$id)->get();
+        return view('percenter.show')->with(compact('salhouse','salservice'));
     }
     public  static  function  Upper($moth,$type)
     {

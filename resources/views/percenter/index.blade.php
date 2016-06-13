@@ -10,7 +10,7 @@
 
                     <div class="dropdown dropdown-access">
                         @if (auth()->user())
-                            {{auth()->user()->mobile}}
+                            {{auth()->user()->nickname}}
                             <a href="/auth/logout"> 退出 </a>
                         @else
                             <a href="/auth/login" class="dropdown-toggle" data-toggle="dropdown" id="access_link">登录</a>
@@ -269,7 +269,7 @@
                     <hr>
                 </section>
                 <section id="section-3">
-                    @foreach($salSerList as $sale)
+                    @foreach($salList as $sale)
                         <div class="strip_booking">
                             <div class="row">
                                 <div class="col-md-2 col-sm-2">
@@ -280,36 +280,18 @@
                                 </div>
                                 <div class="col-md-6 col-sm-5">
                                     <h3 class="hotel_booking">
-                                       {{\App\Models\SaleHouse::find($sale->houseid)->title}}
+                                       {{$sale->title}}
                                         <span>
-                                          @if(($sale->type)==1)
-                                                <span style="color:Red;">支出</span>
-                                           @else
-                                                <span style="color:#f08326;">收入</span>
-                                           @endif
                                         </span>
                                     </h3>
                                 </div>
                                 <div class="col-md-2 col-sm-3">
                                     <ul class="info_booking">
-                                        <li><strong>金额</strong> {{$sale->price}}</li>
-                                        <li><strong>项目名称</strong>
-                                            {{$sale->title}}
-                                        </li>
                                     </ul>
                                 </div>
                                 <div class="col-md-2 col-sm-2">
                                     <div class="booking_buttons">
-                                        {{--@if(($order->type)==1)--}}
-                                            {{--<a href="/tprint/{{$order->id}}" target="_blank" class="btn_2">详情</a>--}}
-                                        {{--@elseif(($order->type)==2)--}}
-                                            {{--<a href="/hprint/{{$order->id}}" target="_blank" class="btn_2">详情</a>--}}
-                                        {{--@endif--}}
-
-                                        {{--@if($order->status==1)--}}
-                                        {{--<br>--}}
-                                        {{--<a href="/topay/{{$order->id}}" target="_blank" class="btn_2">去支付</a>--}}
-                                        {{--@endif--}}
+                                        <a href="/show/{{$sale->id}}" target="_blank" class="btn_2">详情</a>
                                     </div>
                                 </div>
                             </div><!-- End row -->
