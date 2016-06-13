@@ -72,6 +72,9 @@
                             类型
                         </th>
                         <th>
+                            收/支
+                        </th>
+                        <th>
                             价格
                         </th>
                         <th>
@@ -82,20 +85,25 @@
                     <tbody>
                     @foreach($salservice as $service)
                     <tr>
-                        <td style="width: 25%;">
+                        <td style="width: 20%;">
                             {{$service->title}}
                         </td>
-                        <td style="width: 25%;">
+                        <td style="width: 20%;">
+                            @if(!empty(\App\Models\Tag::find($service->tagid)))
+                            {{\App\Models\Tag::find($service->tagid)->name}}
+                            @endif
+                        </td>
+                        <td style="width: 20%;">
                             @if($service->type==0)
                                 收入
                             @else
                                 支出
                             @endif
                         </td>
-                        <td style="width: 25%;">
+                        <td style="width: 20%;">
                             {{$service->price}}
                         </td>
-                        <td style="width: 25%;">
+                        <td style="width: 20%;">
                             {{$service->message}}
                         </td>
                     </tr>
