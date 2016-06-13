@@ -19,7 +19,6 @@ $nickname=$_REQUEST['nickname'];
 
 if(isset($openid)||isset($nickname))
 {
-    echo $openid;
   $template=array(
                 'touser'=>strval($openid),
                 'template_id'=>"7AR3rz8WAIWyPEWjCXdh508G1z6-g1n4068Td2uWoIE",
@@ -44,11 +43,7 @@ if(isset($openid)||isset($nickname))
           );
 }
 $result=$tem->doSend(urldecode(json_encode($template)));
- echo json_encode($result);
 ?>
 <script>
-    if("<?php echo $result->errcode; ?>" =="0")
-    {
         window.location="http://m.allinnewzealand.com/app/site/index";
-    }
 </script>
