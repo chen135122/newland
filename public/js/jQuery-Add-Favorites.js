@@ -33,7 +33,10 @@
 								dataType: "json",
 								beforeSend: function(XMLHttpRequest) {
 									//发送前动作
-									$target.prop("disabled",true).text("...");
+									$target.removeAttr('href');
+
+									//$target.removeClass("icon-heart-empty");
+									//$target.addClass("icon-spin5");
 								},
 								success: function(data, textStatus) {
 									if (data.status == 1) {
@@ -52,19 +55,21 @@
 												});
 											});
 										};
-										$target.parent().remove();
+										//$target.parent().remove();
+										$target.prop("title","已添加到收藏");
+										$target.removeAttr('href');
 
-										//var d = dialog({content:data.msg}).show();
-										//setTimeout(function () {
-										//	d.close().remove();
-										//}, 2000);
+										$target.removeClass("icon-heart-empty");
+										$target.addClass("icon-heart");
+
+
 									} else {
-										$target.prop("disabled",true).text("+");
+
 										dialog({title:'提示', content:data.msg, okValue:'确定', ok:function (){}}).showModal();
 									}
 								},
 								error: function (XMLHttpRequest, textStatus, errorThrown) {
-									$target.prop("disabled",true).text("+");
+
 									dialog({title:'提示', content:"状态：" + textStatus + "；出错提示：" + errorThrown, okValue:'确定', ok:function (){}}).showModal();
 								},
 								timeout: 20000
