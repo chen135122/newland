@@ -78,6 +78,9 @@
                             价格
                         </th>
                         <th>
+                            时间
+                        </th>
+                        <th>
                             说明
                         </th>
                     </tr>
@@ -85,25 +88,28 @@
                     <tbody>
                     @foreach($salservice as $service)
                     <tr>
-                        <td style="width: 20%;">
+                        <td style="width:auto;">
                             {{$service->title}}
                         </td>
-                        <td style="width: 20%;">
+                        <td style="width: auto;">
                             @if(!empty(\App\Models\Tag::find($service->tagid)))
                             {{\App\Models\Tag::find($service->tagid)->name}}
                             @endif
                         </td>
-                        <td style="width: 20%;">
+                        <td style="width: auto;">
                             @if($service->type==0)
                                 收入
                             @else
                                 支出
                             @endif
                         </td>
-                        <td style="width: 20%;">
+                        <td style="width: auto;">
                             {{$service->price}}
                         </td>
-                        <td style="width: 20%;">
+                        <td style="width: auto;">
+                            {{$service->start_at}}
+                        </td>
+                        <td style="width: auto;">
                             {{$service->message}}
                         </td>
                     </tr>

@@ -21,18 +21,18 @@ if(isset($openid)||isset($nickname))
 {
   $template=array(
                 'touser'=>strval($openid),
-                'template_id'=>"oaC5SYXWR4k7VU1D_kZsBtfPQkzKN__ih0_jUhXQi58",
+                'template_id'=>"7AR3rz8WAIWyPEWjCXdh508G1z6-g1n4068Td2uWoIE",
                 'url'=>'http://m.allinnewzealand.com/app/site/index',
                 'data'=>array(
                         'first'=>array(
-                                'value'=>"您好,".$nickname.",您已经登录成功!"
+                                'value'=>"您好，您已在电脑端成功登录!"
                         ),
                         'keyword1'=>array(
-                                'value'=>"几维说",
+                                'value'=>"'.$nickname.'",
                                 //'color'=>"#743A3A",
                         ),
                         'keyword2'=>array(
-                                'value'=>"您已经通过PC扫码成功登录PC端",
+                                'value'=>date('y-m-d h:i:s',time()),
                                 //'color'=>"#743A3A",
                         ),
                         'remark'=>array(
