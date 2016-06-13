@@ -3,7 +3,15 @@
 {{$article ->title}}
 @stop
 @section('content')
-<section class="parallax-window" data-parallax="scroll" data-image-src="/img/banner_01news.jpg" data-natural-width="1400" data-natural-height="470">
+    <section class="parallax-window" data-parallax="scroll"
+             <?php
+             $banner=\App\Models\Banner::join('nz_category', 'nz_banner.catid', '=', 'nz_category.id')->where('name','资讯')->first();
+             if($banner)
+                 echo  'data-image-src='.$banner->picurl;
+             else
+                 echo "data-image-src='/img/banner_01news.jpg'";
+             ?>
+             data-natural-width="1400" data-natural-height="470">
     <div class="parallax-content-1">
         <div class="animated fadeInDown">
             <h1>新闻资讯</h1>

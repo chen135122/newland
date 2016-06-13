@@ -1,7 +1,15 @@
 @extends('layouts.master')
 @section('title')新西兰留学-大学@stop
 @section('content')
-    <section class="parallax-window" data-parallax="scroll" data-image-src="http://7xshae.com1.z0.glb.clouddn.com/image/20160406152609328815.jpg" data-natural-width="1400" data-natural-height="470">
+    <section class="parallax-window" data-parallax="scroll"
+             <?php
+             $banner=\App\Models\Banner::join('nz_category', 'nz_banner.catid', '=', 'nz_category.id')->where('name','留学-大学')->first();
+             if($banner)
+                 echo  'data-image-src='.$banner->picurl;
+             else
+                 echo "data-image-src='http://7xshae.com1.z0.glb.clouddn.com/image/20160406152609328815.jpg'";
+             ?>
+             data-natural-width="1400" data-natural-height="470">
         <div class="parallax-content-1">
             <div class="animated fadeInDown">
                 <h1>新西兰留学</h1>
