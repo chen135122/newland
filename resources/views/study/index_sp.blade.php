@@ -106,9 +106,11 @@
                           <div class="strip_all_tour_list wow fadeIn" data-wow-delay="0.<?php echo $i++; ?>s" >
                               <div class="row">
                                   <div class="col-lg-4 col-md-4 col-sm-4">
-                                      @if (!(auth()->check() &&$study->is_fav ))
-                                          <div class="wishlist"><a class="tooltip_flip tooltip-effect-1" href="javascript:void(0);" articleId="{{$study->id}}" typeid="5" title="添加到收藏">+</a></div>
-                                      @endif
+                                          @if ((auth()->check() &&$study->is_fav ))
+                                              <div class="wishlist"><a class="tooltip_flip tooltip-effect-1 icon-heart" href="javascript:void(0);" articleId="{{$study->id}}" typeid="5" title="已收藏"></a></div>
+                                          @else
+                                              <div class="wishlist"><a class="tooltip_flip tooltip-effect-1 icon-heart-empty" href="javascript:void(0);" articleId="{{$study->id}}" typeid="5" title="添加到收藏"></a></div>
+                                          @endif
                                       <div class="img_list">
                                           <a href="/study-sp/{{$study->id}}">
                                              <img src="{{$study->picurl}}" alt="">
