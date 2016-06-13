@@ -63,7 +63,8 @@
                 if (data!="0") {
                     if(data=="1")
                     {
-                        $("#reply").submit();
+                        //$("#reply").submit();
+                        window.location="http://m.allinnewzealand.com/app/site/index";
                     }
                     else {
                         var userAgent = navigator.userAgent;

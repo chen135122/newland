@@ -19,6 +19,7 @@ $nickname=$_REQUEST['nickname'];
 
 if(isset($openid)||isset($nickname))
 {
+    echo $openid;
   $template=array(
                 'touser'=>strval($openid),
                 'template_id'=>"7AR3rz8WAIWyPEWjCXdh508G1z6-g1n4068Td2uWoIE",
@@ -28,7 +29,7 @@ if(isset($openid)||isset($nickname))
                                 'value'=>"您好，您已在电脑端成功登录!"
                         ),
                         'keyword1'=>array(
-                                'value'=>"'.$nickname.'",
+                                'value'=>$nickname,
                                 //'color'=>"#743A3A",
                         ),
                         'keyword2'=>array(
@@ -43,6 +44,7 @@ if(isset($openid)||isset($nickname))
           );
 }
 $result=$tem->doSend(urldecode(json_encode($template)));
+ echo json_encode($result);
 ?>
 <script>
     if("<?php echo $result->errcode; ?>" =="0")
