@@ -18,7 +18,7 @@
     <div class="container">
         <ul>
             <li><a href="/">首页</a></li>
-            <li><a href="/partner">合作伙伴</a></li>
+            <li><a href="/partner">家庭信托</a></li>
         </ul>
     </div>
 </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Property;
 use App\Models\Travel;
+use App\Models\Partner;
 use Cookie;
 use Overtrue\Wechat\Http;
 use Session;
@@ -21,9 +22,12 @@ class HomeController extends Controller
         $hotpropertys=$this->HotProperty(3);
         $travels=$this->Hottravels(6);
         $HouseCount = Property::where('status', '<>', 0)->where('status', '<>', 4)->count();
-        $travelsCount = Travel::count();
+        $travelsCount = Travel::where(['publish'=>1,'ishot'=>1])->count();
+
+        $trusts = Partner::orderBy('displayorder', 'desc')->where("iswork",1)->take(3)->select('id', 'picurl','title')->get();
+        $trustsCount = Partner::where("iswork",1)->count();
         $allUrl=$this->url();
-        return view('home.index')->with(compact('hotpropertys','HouseCount','travels','travelsCount','allUrl'));
+        return view('home.index')->with(compact('hotpropertys','HouseCount','travels','travelsCount','allUrl','trusts','trustsCount'));
     }
 
     public function faq()
