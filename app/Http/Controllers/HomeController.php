@@ -80,11 +80,12 @@ class HomeController extends Controller
     }
     public  function login(Request $request)
     {
-        $uuid=$request->get("uuid");
+
         $user=new User();
         $userid="";
         $newmobile="";
         $newpassword="";
+
         if (isset($_REQUEST['code'])){
             $req="https://api.weixin.qq.com/sns/oauth2/access_token?appid=wxbf7a6d0b392ce5db&secret=dd1b309aef23dfd916867a21688ba4ea&code=".$_REQUEST['code']."&grant_type=authorization_code";
             //$req="https://api.weixin.qq.com/sns/oauth2/access_token?appid=wxcf1588ee73525cea&secret=2d2e236464875cea7218559df7965b23&code=".$_REQUEST['code']."&grant_type=authorization_code";
@@ -114,6 +115,7 @@ class HomeController extends Controller
                 $user->mobile=$mobile;
                 $user->nickname=$userarry->nickname;
                 $user->address=$userarry->country.",".$userarry->province.",".$userarry->city;
+                $user->headimg=$userarry->headimgurl;
                 if($paramcount>0)
                 {
                     $userid=User::where('mobile','=',strval($mobile))->first()->id;
@@ -122,11 +124,18 @@ class HomeController extends Controller
                     $user->save();
                     $userid=$user->id;
                 }
-                $usersta=new UserStatus();
-                $usersta->uuid=$uuid;
-                $usersta->cusid= $userid;
-                $usersta->status=1;
-                $usersta->save();
+                $uuid=$request->get("uuid");
+                if(isset($uuid)&&$uuid!=1)
+                {
+                    $usersta=new UserStatus();
+                    $usersta->uuid=$uuid;
+                    $usersta->cusid= $userid;
+                    $usersta->status=1;
+                    $usersta->save();
+                }
+                else{
+                  return redirect()->guest("http://m.chitunet.com/auth/login?txtMobile=".$mobile."&password=123456");
+                }
             }
         }else{
             //return view('auth.login');
