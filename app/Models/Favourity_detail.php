@@ -1,12 +1,15 @@
 <?php
 
 namespace App\Models;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Favourity_detail extends BaseModel
 {
 
     const TYPE_HOUSE = 0;
     protected $table = 'nz_collection';
+    protected $dates = ['deleted_at'];
+    use SoftDeletes;
 //    public $timestamps = false;
 
     public static function getTypeArray(){

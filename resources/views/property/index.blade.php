@@ -3,7 +3,7 @@
 @section('content')
     <section class="parallax-window" data-parallax="scroll"
              <?php
-             $banner=\App\Models\Banner::where('title','房产')->first();
+             $banner=\App\Models\Banner::join('nz_category', 'nz_banner.catid', '=', 'nz_category.id')->where('name','房产')->first();
               if($banner)
                   echo  'data-image-src='.$banner->picurl;
               else

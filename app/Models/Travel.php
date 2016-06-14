@@ -1,12 +1,14 @@
 <?php
 
 namespace App\Models;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use DB;
 
 class Travel extends BaseModel
 {
     protected $table = 'nz_travel_route';
     protected $dates = ['deleted_at'];
+    use SoftDeletes;
     public function day()
     {
         return $this->hasOne('App\Models\TravelDay', 'routeid','id');
