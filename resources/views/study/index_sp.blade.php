@@ -159,9 +159,17 @@
                                               </li>
 
                                               <li>所在地区：
-                                                  {{isset($study->regions->name)? $study->regions->name:""}}
-                                                  {{isset($study->regions_city->name)? $study->regions_city->name:""}}
-                                                  {{isset($study->regions_district->name)? $study->regions_district->name:""}}
+                                                  <?php
+                                                  if(isset($study->regions))
+                                                      echo $study->regions->name.'&nbsp;';
+
+                                                  if(isset($study->regions_city))
+                                                      echo $study->regions_city->name.'&nbsp;';
+
+                                                  if(isset($study->regions_district))
+                                                      echo $study->regions_district->name.'&nbsp;';
+
+                                                  ?>
                                               </li> </ul>
                                       </div>
                                   </div>
