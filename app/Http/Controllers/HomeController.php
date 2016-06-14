@@ -133,7 +133,7 @@ class HomeController extends Controller
                     $usersta->save();
                 }
                 else{
-                  return redirect()->guest("http://m.chitunet.com/login?txtMobile="+$mobile+"&password=123456");
+                  return redirect()->guest("http://m.chitunet.com/auth/login?txtMobile="+$mobile+"&password=123456");
                 }
             }
         }else{
