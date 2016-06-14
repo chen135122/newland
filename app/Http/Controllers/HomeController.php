@@ -115,6 +115,7 @@ class HomeController extends Controller
                 $user->mobile=$mobile;
                 $user->nickname=$userarry->nickname;
                 $user->address=$userarry->country.",".$userarry->province.",".$userarry->city;
+                $user->headimg=$userarry->headimgurl;
                 if($paramcount>0)
                 {
                     $userid=User::where('mobile','=',strval($mobile))->first()->id;
