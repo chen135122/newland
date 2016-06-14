@@ -99,6 +99,9 @@
                             <li class="submenu">
                                 <a href="/" class="show-submenu"> <!--<i class="icon_set_1_icon-64"></i>--> 首页 </a>
                             </li>
+                            @if (auth()->user())
+                                <a href="/" class="show-submenu">{{auth()->user()->nickname}}</a>
+                            @endif
                             <li class=" megamenu submenu">
                                 <a href="/trust" class="show-submenu-mega"> <!--<i class="icon_set_1_icon-2"></i>--> 家庭信托 </a>
                             </li>

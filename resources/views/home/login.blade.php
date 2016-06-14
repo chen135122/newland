@@ -51,7 +51,6 @@
 <script>
     $(document).ready(function () {
         //setInterval("ajaxstatus()", 500);
-        $("#reply").submit();
     });
     function editstatus($id,$status,$userid)
     {
