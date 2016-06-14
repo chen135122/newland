@@ -1,10 +1,13 @@
 <?php
 
 namespace App\Models;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Tag extends BaseModel
 {
     protected $table = 'nz_tags';
+    protected $dates = ['deleted_at'];
+    use SoftDeletes;
     public static function getTag($tagsid)
     {
 
