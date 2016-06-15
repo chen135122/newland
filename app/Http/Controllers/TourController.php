@@ -128,7 +128,7 @@ class TourController extends Controller
 
     public function LastedNews($n)
     {
-        $article = Article::where('ishot',1)->where('publish',1)->orderBy('displayorder', 'desc')->take($n)->select('id', 'title', 'picurl', 'abstract')->get();
+        $article = Article::where(['publish'=>1,'ishot'=>1])->orderBy('displayorder', 'desc')->take($n)->select('id', 'title', 'picurl', 'abstract')->get();
         return $article;
     }
 
@@ -136,7 +136,7 @@ class TourController extends Controller
     //热门房产
     public function HotProperty($n)
     {
-        $property = Property::orderBy('id', 'desc')->take($n)->select('id', 'title', 'picurl', 'address')->get();
+        $property = Property::where(['publish'=>1,'ishot'=>1])->orderBy('id', 'desc')->take($n)->select('id', 'title', 'picurl', 'address','tagsid')->get();
         return $property;
     }
 

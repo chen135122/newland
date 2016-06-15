@@ -97,7 +97,14 @@
                             <div class="rating"></div>
                             <h3>{{$study->cn_name}}</h3>
                             <ul>
-                                <li>英文名：{{$study->en_name}}</li>
+                                @if(isset($study->tagsid))
+                                    <li>
+                                        @foreach(App\Models\Tag::getTag($study->tagsid)->get() as $tag )
+                                            <span class="label label-info">{{$tag->name}}</span>    &nbsp;
+                                        @endforeach
+                                    </li>
+                                @endif
+                                    <li>英文名：{{$study->en_name}}</li>
                                 <li>地区：
                                     <?php
                                     if(isset($study->regions))
@@ -144,7 +151,14 @@
                                           <a href="/property/{{$hotproperty->id}}"><img src="{{$hotproperty->picurl}}" alt="{{$hotproperty->title}}" width="68" height="68" class="/img-circle"></a>
                                       </div>
                                       <div class="hold_room">
-                                          <h4><a href="/property/{{$hotproperty->id}}">{{str_replace('基督城','',$hotproperty->title)}}</a></h4>
+                                          <h4><a href="/property/{{$hotproperty->id}}">{{$hotproperty->title}}</a></h4>
+                                          @if(isset($hotproperty->tagsid))
+                                              <p class="tags">
+                                                  @foreach(App\Models\Tag::getTag($hotproperty->tagsid)->get() as $tag )
+                                                      <span class="label label-info">{{$tag->name}}</span>
+                                                  @endforeach
+                                              </p>
+                                          @endif
                                           <small>{{$hotproperty->address}}</small>
                                       </div>
                                   </div>
