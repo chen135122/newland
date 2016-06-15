@@ -4092,3 +4092,4 @@ p.footer_l{ font-size: 13px;line-height: 28px; color:#dddddd;}
 #hero_2 .fadeInDown,#hero_3 .fadeInDown{ background: none!important;}
 .hold_room p.tags{margin:0;}
 .hold_room  h4{margin-bottom: 5px;}
+.panel-cont{overflow: hidden;}
