@@ -107,13 +107,13 @@
                                     <li>英文名：{{$study->en_name}}</li>
                                 <li>地区：
                                     <?php
-                                    if(isset($study->regions))
+                                    if($study->regions)
                                         echo $study->regions->name.'&nbsp;';
 
-                                    if(isset($study->regions_city))
+                                    if($study->regions_city)
                                         echo $study->regions_city->name.'&nbsp;';
 
-                                    if(isset($study->regions_district))
+                                    if($study->regions_district)
                                         echo $study->regions_district->name.'&nbsp;';
 
                                     ?>
