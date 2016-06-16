@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title')家庭信托
+@section('title'){{$model ->title}}
 @stop
 @section('content')
 

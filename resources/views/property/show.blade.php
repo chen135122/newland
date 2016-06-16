@@ -19,6 +19,13 @@
                         @if(isset($property->address))
                         <span>{{$property ->address}}</span>
                          @endif
+                        @if(isset($property->tagsid))
+                            <p>
+                                @foreach(App\Models\Tag::getTag($property->tagsid)->get() as $tag )
+                                    <span class="label label-info">{{$tag->name}}</span>
+                                @endforeach
+                            </p>
+                        @endif
                     </div>
                     <div class="col-md-4 col-sm-4">
                         <div id="price_single_main" class="hotel" >
@@ -216,7 +223,14 @@
                                     <a href="/property/{{$hotproperty->id}}"><img src="{{$hotproperty->picurl}}" alt="{{$hotproperty->title}}" width="68" height="68" class="/img-circle"></a>
                                 </div>
                                 <div class="hold_room">
-                                    <h4><a href="/property/{{$hotproperty->id}}">{{str_replace('基督城','',$hotproperty->title)}}</a></h4>
+                                    <h4><a href="/property/{{$hotproperty->id}}">{{$hotproperty->title}}</a></h4>
+                                    @if(isset($hotproperty->tagsid))
+                                        <p class="tags">
+                                            @foreach(App\Models\Tag::getTag($hotproperty->tagsid)->get() as $tag )
+                                                <span class="label label-info">{{$tag->name}}</span>
+                                            @endforeach
+                                        </p>
+                                    @endif
                                     <small>{{$hotproperty->address}}</small>
                                 </div>
                             </div>
@@ -340,6 +354,7 @@
         }
         #single_tour_desc{
             border-right:1px solid #ccc;
+            padding:0 5px; overflow: hidden;
         }
         #single_tour_desc h3 {
             font-size:14px;

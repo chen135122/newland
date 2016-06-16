@@ -29,10 +29,10 @@
         <aside class="col-lg-3 col-md-3">
             <div class="box_style_cat">
                 <ul id="cat_nav">
-                    <li><a  class="active"><i class="icon_set_1_icon-95"></i>旅游</a></li>
-                    <li><a class="icon-booking"><i class="icon_set_1_icon-95"></i>房产</a></li>
-                    <li><a class="icon-booking"><i class="icon_set_1_icon-95"></i>留学</a></li>
-                    <li><a class="icon-booking"><i class="icon_set_1_icon-95"></i>资讯</a></li>
+                    <li><a  class="active"><i class="icon_set_1_icon-37"></i>旅游</a></li>
+                    <li><a class="icon-booking"><i class="icon_set_1_icon-23"></i>房产</a></li>
+                    <li><a class="icon-booking"><i class="icon_set_1_icon-30"></i>留学</a></li>
+                    <li><a class="icon-booking"><i class="icon_set_1_icon-87"></i>资讯</a></li>
                 </ul>
             </div>
 

@@ -57,8 +57,9 @@
                                 <div class="tour_list_desc">
                                     <h3>{{$property->title}}</h3>
                                     @if(isset($property->tagsid))
+                                        <p>
                                         @foreach(App\Models\Tag::getTag($property->tagsid)->get() as $tag )
-                                            {{$tag->name}}&nbsp;
+                                                <span class="label label-info">{{$tag->name}}</span>
                                         @endforeach
                                         </p>
                                     @endif
@@ -104,7 +105,14 @@
                                     <a href="/property/{{$hotproperty->id}}"><img src="{{$hotproperty->picurl}}" alt="{{$hotproperty->title}}" width="68" height="68" class="/img-circle"></a>
                                 </div>
                                 <div class="hold_room">
-                                    <h4><a href="/property/{{$hotproperty->id}}">{{str_replace('基督城','',$hotproperty->title)}}</a></h4>
+                                    <h4><a href="/property/{{$hotproperty->id}}">{{$hotproperty->title}}</a></h4>
+                                    @if(isset($hotproperty->tagsid))
+                                        <p class="tags">
+                                            @foreach(App\Models\Tag::getTag($hotproperty->tagsid)->get() as $tag )
+                                                <span class="label label-info">{{$tag->name}}</span>
+                                            @endforeach
+                                        </p>
+                                    @endif
                                     <small>{{$hotproperty->address}}</small>
                                 </div>
                             </div>

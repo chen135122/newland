@@ -159,7 +159,7 @@ class StudyController extends Controller
     //热门房产
     public function HotProperty($n)
     {
-        $property= Property::orderBy('id', 'desc')->take($n)->select('id', 'title','picurl','address')->get();
+        $property= Property::where(['publish'=>1,'ishot'=>1])->orderBy('id', 'desc')->take($n)->select('id', 'title','picurl','address','tagsid')->get();
         return $property;
     }
 }

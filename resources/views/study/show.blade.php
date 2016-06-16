@@ -23,6 +23,13 @@
                         {{isset($study->regions->name)? $study->regions->name:""}}
                         {{isset($study->regions_city->name)? $study->regions_city->name:""}}
                         {{isset($study->regions_district->name)? $study->regions_district->name:""}}
+                        @if(isset($study->tagsid))
+                            <p>
+                                @foreach(App\Models\Tag::getTag($study->tagsid)->get() as $tag )
+                                    <span class="label label-info">{{$tag->name}}</span>    &nbsp;
+                                @endforeach
+                            </p>
+                        @endif
                     </div>
 
                 </div>
@@ -212,7 +219,14 @@
                                     <a href="/property/{{$hotproperty->id}}"><img src="{{$hotproperty->picurl}}" alt="{{$hotproperty->title}}" width="68" height="68" class="/img-circle"></a>
                                 </div>
                                 <div class="hold_room">
-                                    <h4><a href="/property/{{$hotproperty->id}}">{{str_replace('基督城','',$hotproperty->title)}}</a></h4>
+                                    <h4><a href="/property/{{$hotproperty->id}}">{{$hotproperty->title}}</a></h4>
+                                    @if(isset($hotproperty->tagsid))
+                                        <p class="tags">
+                                            @foreach(App\Models\Tag::getTag($hotproperty->tagsid)->get() as $tag )
+                                                <span class="label label-info">{{$tag->name}}</span>
+                                            @endforeach
+                                        </p>
+                                    @endif
                                     <small>{{$hotproperty->address}}</small>
                                 </div>
                             </div>

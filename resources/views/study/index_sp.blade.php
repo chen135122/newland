@@ -159,9 +159,17 @@
                                               </li>
 
                                               <li>所在地区：
-                                                  {{isset($study->regions->name)? $study->regions->name:""}}
-                                                  {{isset($study->regions_city->name)? $study->regions_city->name:""}}
-                                                  {{isset($study->regions_district->name)? $study->regions_district->name:""}}
+                                                  <?php
+                                                  if($study->regions)
+                                                      echo $study->regions->name.'&nbsp;';
+
+                                                  if($study->regions_city)
+                                                      echo $study->regions_city->name.'&nbsp;';
+
+                                                  if($study->regions_district)
+                                                      echo $study->regions_district->name.'&nbsp;';
+
+                                                  ?>
                                               </li> </ul>
                                       </div>
                                   </div>
@@ -192,8 +200,15 @@
                                           <a href="/property/{{$hotproperty->id}}"><img src="{{$hotproperty->picurl}}" alt="{{$hotproperty->title}}" width="68" height="68" class="/img-circle"></a>
                                       </div>
                                       <div class="hold_room">
-                                          <h4><a href="/property/{{$hotproperty->id}}">{{str_replace('基督城','',$hotproperty->title)}}</a></h4>
-                                          <small>{{$hotproperty->address}}</small>
+                                          <h4><a href="/property/{{$hotproperty->id}}">{{$hotproperty->title}}</a></h4>
+                                          @if(isset($hotproperty->tagsid))
+                                              <p class="tags">
+                                                  @foreach(App\Models\Tag::getTag($hotproperty->tagsid)->get() as $tag )
+                                                      <span class="label label-info">{{$tag->name}}</span>
+                                                  @endforeach
+                                              </p>
+                                          @endif
+                                         <small>{{$hotproperty->address}}</small>
                                       </div>
                                   </div>
                               </div>
