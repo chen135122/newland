@@ -128,7 +128,7 @@ class TourController extends Controller
 
     public function LastedNews($n)
     {
-        $article = Article::where(['publish'=>1,'ishot'=>1])->orderBy('displayorder', 'desc')->take($n)->select('id', 'title', 'picurl', 'abstract')->get();
+        $article = Article::where(['publish'=>1,'ishot'=>1,'catid'=>6])->orderBy('displayorder', 'desc')->take($n)->select('id', 'title', 'picurl', 'abstract')->get();
         return $article;
     }
 
