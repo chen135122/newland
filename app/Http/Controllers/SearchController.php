@@ -7,11 +7,14 @@ use App\Models\StudySP;
 use App\Models\Travel;
 use App\Models\Property;
 use App\Models\Article;
+use App\Models\Faq;
 use App\Http\Requests;
 use Overtrue\Wechat\QRCode;
 use App\Http\Controllers\Controller;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
+use App\Models\Partner;
+use SebastianBergmann\Comparator\FactoryTest;
 
 
 class SearchController extends Controller
@@ -49,6 +52,12 @@ class SearchController extends Controller
             $articles =$articles->orwhere('content','like','%'.$search_key.'%');
             $articles =$articles->orderBy('displayorder', 'desc')->get();
 
+            $partners = Partner::where('title','like','%'.$search_key.'%');
+            $partners =$partners->orderBy('displayorder', 'desc')->get();
+
+            $faqs = Faq::where('title','like','%'.$search_key.'%');
+            $faqs =$faqs->orderBy('displayorder', 'desc')->get();
+
             foreach($properties as $property){
                 $short_info='';
                 $results[$row]['url']='/property/'.$property->id;
@@ -81,7 +90,7 @@ class SearchController extends Controller
                 $results[$row]['title']='<strong>【'.$travel->bigtitle.'】</strong>'.$travel->title;
                 $results[$row]['picurl']=$travel->picurl;
                 $results[$row]['module']='国际旅游';
-                $results[$row]['short_info']='<p>'.$short_info.'</p>';
+                $results[$row]['short_info']='<p>'.str_limit($short_info,350).'</p>';
                 $row++;
             }
             foreach($studys as $study){
@@ -163,6 +172,31 @@ class SearchController extends Controller
                 $results[$row]['picurl']=$article->picurl;
                 $results[$row]['module']='新闻资讯';
                 $results[$row]['short_info']='<p>'.str_limit($article->abstract,350).'</p>';
+                $row++;
+            }
+
+            foreach($partners as $partner){
+                $title="";
+                if($partner->iswork==0){
+                    $results[$row]['url']='/partner/'.$partner->id;
+                    $title="合作伙伴";
+                }else{
+                    $results[$row]['url']='/trust/'.$partner->id;
+                    $title="家庭信托";
+                }
+                $results[$row]['title']=$partner->title;
+                $results[$row]['picurl']=$partner->picurl;
+                $results[$row]['module']=$title;
+                $results[$row]['short_info']='<p>'.str_limit($partner->abstract,350).'</p>';
+                $row++;
+            }
+
+            foreach($faqs as $faq){
+                $results[$row]['url']='/faq';
+                $results[$row]['title']=$article->title;
+                $results[$row]['picurl']=$article->picurl;
+                $results[$row]['module']='常见问题';
+                $results[$row]['short_info']='';
                 $row++;
             }
         }

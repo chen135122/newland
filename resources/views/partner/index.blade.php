@@ -5,8 +5,16 @@
 
 <!-- Mobile menu overlay mask -->
 <!-- Header================================================== -->
-<section class="parallax-window" data-parallax="scroll" data-image-src="img/banner_partner.jpg" data-natural-width="1400" data-natural-height="470">
-    <div class="parallax-content-1">
+<section class="parallax-window" data-parallax="scroll"
+         <?php
+         $banner=\App\Models\Banner::join('nz_category', 'nz_banner.catid', '=', 'nz_category.id')->where('name','合作伙伴')->first();
+         if($banner)
+             echo  'data-image-src='.$banner->picurl;
+         else
+             echo "data-image-src='/img/banner_partner.jpg'";
+         ?>
+         data-natural-width="1400" data-natural-height="470">
+  <div class="parallax-content-1">
         <div class="animated fadeInDown">
             <h1>合作伙伴</h1>
             <p></p>

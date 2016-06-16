@@ -102,10 +102,7 @@
                                 @if($anfang)
                                     <li><a href="#anfang" onclick="removeClass('anfang', this)">安防服务</a></li>
                                 @endif
-                               
-                                @if($zixun)
                                 <li><a href="#zixun" onclick="removeClass('zixun', this)">咨询我们</a></li>
-                                @endif
                             </ul>
                         </div>
                     </div>
@@ -192,7 +189,7 @@
                         <h4 class="title" >咨询我们</h4>
                     </div>
                     <div class="col-md-12" id="zixun">
-                        {!! $zixun !!}
+                    {!! \App\Models\Infor::where('title', '关于我们')->first()->content !!}
                     </div>
                 </div>
 

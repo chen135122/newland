@@ -1,9 +1,16 @@
 @extends('layouts.master')
 
 @section('content')
-    {{--{{isset($travels[$rand])?$travels[$rand]->head_img:img/home_bg_1.jpg}}--}}
-    <section class="parallax-window" data-parallax="scroll" data-image-src="{{isset($head_img)?$head_img:img/home_bg_1.jpg}}" data-natural-width="1400" data-natural-height="470">
-        <div class="parallax-content-1">
+    <section class="parallax-window" data-parallax="scroll"
+             <?php
+             $banner=\App\Models\Banner::join('nz_category', 'nz_banner.catid', '=', 'nz_category.id')->where('name','旅游')->first();
+             if($banner)
+                 echo  'data-image-src='.$banner->picurl;
+             else
+                 echo "data-image-src='/img/home_bg_1.jpg'";
+             ?>
+             data-natural-width="1400" data-natural-height="470">
+     <div class="parallax-content-1">
             <div class="animated fadeInDown">
                 <h1>新西兰旅游</h1>
                 <p>在新西兰遇见最好的自己</p>
