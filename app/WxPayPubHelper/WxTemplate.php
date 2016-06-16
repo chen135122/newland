@@ -72,8 +72,8 @@ class WxTemplate
      */
      function getToken()
     {
-        $appId  = 'wxcf1588ee73525cea';
-        $secret = '2d2e236464875cea7218559df7965b23';
+        $appId  = 'wxbf7a6d0b392ce5db';
+        $secret = 'dd1b309aef23dfd916867a21688ba4ea';
 
         $TOKEN_URL="https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=".$appId."&secret=".$secret;
 

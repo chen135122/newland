@@ -1,6 +1,4 @@
-<?php
 
-?>
 <?php
 //require_once app_path().'/WxPayPubHelper/customer.php';
 //if(isset($_REQUEST['tousername'])||isset($_REQUEST['content']))
@@ -10,6 +8,7 @@
 //    //$token=$_POST["token"];
 //    $result = _reply_customer($touser, $content);
 //}
+header('Content-Type: text/html; charset=UTF-8');
 require_once app_path().'/WxPayPubHelper/WxTemplate.php';
 $tem=new WxTemplate();
 //$result1=$tem->getToken();
@@ -22,7 +21,7 @@ if(isset($openid)||isset($nickname))
   $template=array(
                 'touser'=>strval($openid),
                 'template_id'=>"7AR3rz8WAIWyPEWjCXdh508G1z6-g1n4068Td2uWoIE",
-                'url'=>'http://m.allinnewzealand.com/app/site/index',
+                'url'=>'http://m.allinnewzealand.com',
                 'data'=>array(
                         'first'=>array(
                                 'value'=>"您好，您已在电脑端成功登录!"
@@ -32,7 +31,7 @@ if(isset($openid)||isset($nickname))
                                 //'color'=>"#743A3A",
                         ),
                         'keyword2'=>array(
-                                'value'=>date('y-m-d h:i:s',time()),
+                                'value'=>date('Y-m-d h:i:s',time()),
                                 //'color'=>"#743A3A",
                         ),
                         'remark'=>array(
@@ -43,7 +42,11 @@ if(isset($openid)||isset($nickname))
           );
 }
 $result=$tem->doSend(urldecode(json_encode($template)));
+echo json_encode($result);
 ?>
 <script>
-        window.location="http://m.allinnewzealand.com/app/site/index";
+    if("<?php echo $result->errcode; ?>" =="0")
+    {
+        window.location="http://m.allinnewzealand.com";
+    }
 </script>
