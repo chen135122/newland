@@ -151,7 +151,7 @@ class StudyController extends Controller
     //最新资讯
     public function LastedNews($n)
     {
-        $article= Article::where(['publish'=>1,'ishot'=>1])->orderBy('displayorder', 'desc')->take($n)->select('id', 'title','picurl','abstract')->get();
+        $article= Article::where(['publish'=>1,'ishot'=>1,'catid'=>8])->orderBy('displayorder', 'desc')->take($n)->select('id', 'title','picurl','abstract')->get();
         return $article;
     }
 
