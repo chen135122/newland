@@ -61,6 +61,10 @@
             height:100px;}
         .fadeInDown{ position: absolute; left:30%;top:270px;z-index: 10000; width:40%!important;}
         .serarch-menu{width:435px;margin:130px auto 0;}
+
+        footer {
+            margin-top: 0 !important;
+        }
     </style>
 
 @endpush
@@ -198,9 +202,7 @@
                     <div class="img_container">
                         <a href="/trust/{{$trust->id}}">
                             <img src="{{$trust->picurl}}"  style="max-height:240px;min-height:240px;max-width: 360px;min-width:360px;" class="img-responsive" alt="">
-                            <div class="short_info hotel">
-                                家庭信托
-                            </div>
+
                         </a>
                     </div>
                     <div class="hotel_title">
@@ -228,7 +230,7 @@
                     <a href="/property/{{$hotproperty->id}}">
                         <img src="{{$hotproperty->picurl}}"  style="max-height:240px;min-height:240px;max-width: 360px;min-width:360px;" class="img-responsive" alt="">
                         <div class="short_info hotel">
-                            {{$hotproperty->address}}<span class="price">NZ${{$hotproperty->total_price}}起</span>
+                            {{$hotproperty->address}}<span class="price">NZ${{ceil($hotproperty->total_price)}}起</span>
                         </div>
                     </a>
                 </div>
