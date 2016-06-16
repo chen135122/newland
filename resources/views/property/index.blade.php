@@ -81,7 +81,7 @@
                             <div class="col-lg-2 col-md-2 col-sm-2">
                                 <div class="price_list">
                                     <div>
-                                        <span class="price_mod">NZ$<span class="price">{{intval($property->total_price)}}</span>起</span><small>总价</small>
+                                        {{--<span class="price_mod">NZ$<span class="price">{{intval($property->total_price)}}</span>起</span><small>总价</small>--}}
                                         <p><a href="/property/{{$property->id}}" class="btn_1">详情</a></p>
                                     </div>
                                 </div>
