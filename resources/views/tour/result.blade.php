@@ -83,15 +83,15 @@
             <div class="form_title">
                 <h3><strong><i class="icon-ok"></i></strong>感谢您! </h3>
                 <p>
-                    {{$travel->hugetitle}}
+                  {{$travel->hugetitle}}
                 </p>
                 <p>如果想要微信查看此行程，可以用微信扫描下方的二维码</p>
-              <div>{!!QrCode::size(300)->generate("http://m.allinnewzealand.com/tour/".$travel->id)!!}</div>
+              <div>{!!QrCode::size(200)->generate("http://m.allinnewzealand.com/tour/".$travel->id)!!}</div>
 
             </div>
             <div class="step">
                 <p>
-                    {{$travel->title}}
+                   {{$travel->title}}
                 </p>
             </div><!--End step -->
 

@@ -174,14 +174,14 @@
                             {{date("Y年n月d日",$date)}}
                         </td>
                     </tr>
-                    <tr class="total">
-                        <td>
-                            定金
-                        </td>
-                        <td class="text-right">
-                            {{($travel->oprice)*$perNum}}
-                        </td>
-                    </tr>
+                    {{--<tr class="total">--}}
+                        {{--<td>--}}
+                            {{--定金--}}
+                        {{--</td>--}}
+                        {{--<td class="text-right">--}}
+                            {{--{{($travel->oprice)*$perNum}}--}}
+                        {{--</td>--}}
+                    {{--</tr>--}}
                     </tbody>
                 </table>
 
