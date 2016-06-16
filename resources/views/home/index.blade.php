@@ -249,12 +249,12 @@
                     <a href="/property/{{$hotproperty->id}}">
                         <img src="{{$hotproperty->picurl}}"  style="max-height:240px;min-height:240px;max-width: 360px;min-width:360px;" class="img-responsive" alt="">
                         <div class="short_info hotel">
-                            {{$hotproperty->address}}<span class="price">NZ${{ceil($hotproperty->total_price)}}起</span>
+                            {{$hotproperty->address}}
                         </div>
                     </a>
                 </div>
                 <div class="hotel_title">
-                    <h3><strong>【基督城】</strong>{{$hotproperty->title}}</h3>
+                    <h3>{{$hotproperty->title}}</h3>
                 </div>
             </div><!-- End box -->
         </div>
