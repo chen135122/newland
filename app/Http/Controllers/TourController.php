@@ -47,7 +47,7 @@ class TourController extends Controller
             }
             $parames["sortPrice"]=request()->get('sortPrice');
         } else {
-            $travels = $travels->orderBy("created_at", "desc");
+            $travels = $travels->orderBy("displayorder", "desc","created_at", "desc");
         }
 
         if (!empty($request->get('price'))) {
