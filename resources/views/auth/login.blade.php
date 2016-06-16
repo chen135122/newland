@@ -9,7 +9,7 @@
         <div class="container">
             <div class="row">
                 <div align="center" id="qrcode">
-                    <div>{!!QrCode::size(300)->generate("https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxbf7a6d0b392ce5db&redirect_uri=http://w.chitunet.com/login?uuid=".$uuid."&response_type=code&scope=snsapi_userinfo&state=1&connect_redirect=1#wechat_redirect")!!}</div>
+                    <div>{!!QrCode::size(300)->generate("https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxbf7a6d0b392ce5db&redirect_uri=http://www.allinnewzealand.com/login?uuid=".$uuid."&response_type=code&scope=snsapi_userinfo&state=1&connect_redirect=1#wechat_redirect")!!}</div>
                 </div>
                 <br>
                 <br>
