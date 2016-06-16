@@ -190,12 +190,7 @@
 
                 <!--<a class="btn_full_outline" href="#"><i class="icon-right"></i> Continue shopping</a>-->
             </div>
-            <div class="box_style_4">
-                <i class="icon_set_1_icon-90"></i>
-                <h4>联系我们</h4>
-                <a href="tel://004542344599" class="phone">+025-58761818</a>
-                <small>周一 至 周日  8.30 - 18.30</small>
-            </div>
+            @include('layouts.partials.right_side')
         </aside><!-- End aside -->
 
     </div><!--End row -->
@@ -211,6 +206,7 @@
                 <p class="footer_l">
                     客服热线：025-58761818 邮箱：services@allinnewzealand.com<br/>
                     地址：江苏省南京市鼓楼区广州路189号民防大厦801<br/>
+                    产品体验店：江苏省南京市北京东路8号江苏省广播电视台2F<br/>
                     几维说kiwi say 版权所有
                 </p>
             </div>

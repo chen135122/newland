@@ -76,7 +76,7 @@
     <div class="tp-banner">
         <ul>
             <!-- SLIDE  -->
-            <li data-transition="fade" data-slotamount="7" data-masterspeed="500" data-saveperformance="on" data-title="Intro Slide">
+            <li style="cursor:pointer" onclick="self.location='http://www.rabbitpre.com/m/yzFfEJviw?lc=6&sui=NPF8Ui8k#'" data-transition="fade" data-slotamount="7" data-masterspeed="500" data-saveperformance="on" data-title="Intro Slide">
                 <!-- MAIN IMAGE -->
                 <img src="img/index_1.jpg" alt="slidebg1" data-lazyload="img/index11.jpg" data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
                 <!-- LAYER NR. 1 -->
@@ -92,7 +92,7 @@
                 </div>
                 <!-- LAYER NR. 3 -->
                 <div class="tp-caption customin tp-resizeme rs-parallaxlevel-0" data-x="center" data-y="center" data-hoffset="0" data-voffset="70" data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-speed="500" data-start="2900" data-easing="Power3.easeInOut" data-splitin="none" data-splitout="none" data-elementdelay="0.1" data-endelementdelay="0.1" data-linktoslide="next" style="z-index: 12;">
-                   <a href='http://www.rabbitpre.com/m/yzFfEJviw?lc=6&sui=NPF8Ui8k#' class="button_intro" target="_blank">诚邀您的参与</a>
+                   <a  class="button_intro" target="_blank">诚邀您的参与</a>
                 </div>
             </li>
             <li data-transition="fade" data-slotamount="7" data-masterspeed="500" data-saveperformance="on" data-title="Intro Slide">
