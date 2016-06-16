@@ -29,7 +29,7 @@
                     </div>
                     <div class="col-md-4 col-sm-4">
                         <div id="price_single_main" class="hotel" >
-                            <div style="font-size: 20px;"><sup>NZ$</sup><span class="price" style="font-size: 60px;">{{intval($property ->total_price)}}</span>起</div>
+                            {{--<div style="font-size: 20px;"><sup>NZ$</sup><span class="price" style="font-size: 60px;">{{intval($property ->total_price)}}</span>起</div>--}}
                         </div>
                     </div>
                 </div>
@@ -478,7 +478,11 @@
 <!-- Carousel -->
 <script src="/js/owl.carousel.min.js"></script>
 <script>
-
+    if(navigator.userAgent.toUpperCase().indexOf("FIREFOX"))
+    {
+        var $E = function(){var c=$E.caller; while(c.caller)c=c.caller; return c.arguments[0]};
+        __defineGetter__("event", $E);
+    }
     window.onscroll = function () {
 
         var t = document.documentElement.scrollTop || document.body.scrollTop;
@@ -509,9 +513,10 @@
             //$("#tour_d").css("margin-left", "0");
         }
     }
+
     function removeClass(id,obj)
     {
-        var ev = ev || window.event;
+        var ev = ev || window.event||event;
         var thisId = document.getElementById(id);
         document.documentElement.scrollTop = document.body.scrollTop = $(thisId).offset().top-100-64;// - oBtn.offsetHeight;
         ev.preventDefault();

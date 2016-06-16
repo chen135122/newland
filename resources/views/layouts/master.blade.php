@@ -106,7 +106,7 @@
                                 <a href="/property" class="show-submenu-mega"> <!--<i class="icon_set_1_icon-2"></i>--> 房产置业 </a>
                             </li>
                             <li class="submenu">
-                                <a href="/tour" class="show-submenu"><!--<i class="icon_set_1_icon-8"></i>--> 国际旅游 </a>
+                                <a href="/tour" class="show-submenu"><!--<i class="icon_set_1_icon-8"></i>--> 定制旅游 </a>
                             </li>
                             <li class="submenu">
                                 <a href="javascript:void(0);" class="show-submenu"><!--<i class="icon_set_1_icon-43"></i>--> 移民留学 <i class="icon-down-open-mini"></i></a>
@@ -140,7 +140,7 @@
                 <div class="col-md-2 col-sm-1 col-xs-6">
                     <div class="top_links">
                       @if (auth()->user())
-                                    <a href="/percenter"> {{auth()->user()->nickname}}</a>
+                                    <a href="/percenter">个人中心</a>
                                     <a href="/auth/logout"> 退出 </a>
                                 @else
                                     <a href="/auth/login"  id="access_link">登录</a>
@@ -165,6 +165,7 @@
                 <p class="footer_l">
                     客服热线：025-58761818转0 邮箱：services@allinnewzealand.com<br/>
                     地址：江苏省南京市鼓楼区广州路189号民防大厦801<br/>
+                    产品体验店：江苏省南京市北京东路8号江苏省广播电视台2F<br/>
                     南京布维金广投资管理有限公司 版权所有&nbsp;&nbsp;<a href="http://www.miitbeian.gov.cn" target="_blank">苏ICP备16007960号</a>
                 </p>
             </div>

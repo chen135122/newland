@@ -43,13 +43,7 @@
                     <li><a class="icon-booking"><i class="icon_set_1_icon-87"></i>资讯</a></li>
                 </ul>
             </div>
-
-            <div class="box_style_4">
-                <i class="icon_set_1_icon-57"></i>
-                <h4>联系我们</h4>
-                <a href="tel://025-58761818" class="phone" style="font-size: 21px;">+025-58761818<span style="color:#85c99d;">转0</span></a>
-                <small>周一 至 周日  8.30 - 18.30</small>
-            </div>
+            @include('layouts.partials.left_side')
         </aside><!--End aside -->
         <div>
         <section id="section-1">
