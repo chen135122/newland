@@ -77,7 +77,7 @@
     <div class="tp-banner">
         <ul>
             <!-- SLIDE  -->
-            <li style="cursor:pointer" onclick="self.location='http://www.rabbitpre.com/m/yzFfEJviw?lc=6&sui=NPF8Ui8k#'" data-transition="fade" data-slotamount="7" data-masterspeed="500" data-saveperformance="on" data-title="Intro Slide">
+            <li style="cursor:pointer" onclick="self.location='http://www.rabbitpre.com/m/yzFfEJviw?lc=6&sui=NPF8Ui8k&mobile=1'" data-transition="fade" data-slotamount="7" data-masterspeed="500" data-saveperformance="on" data-title="Intro Slide">
                 <!-- MAIN IMAGE -->
                 <img src="img/index_1.jpg" alt="slidebg1" data-lazyload="img/index11.jpg" data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
                 <!-- LAYER NR. 1 -->
