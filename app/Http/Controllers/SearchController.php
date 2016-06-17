@@ -194,7 +194,7 @@ class SearchController extends Controller
             foreach($faqs as $faq){
                 $results[$row]['url']='/faq';
                 $results[$row]['title']=$faq->title;
-                $results[$row]['picurl']=$faq->picurl;
+                $results[$row]['picurl']='';
                 $results[$row]['module']='常见问题';
                 $results[$row]['short_info']='';
                 $row++;

@@ -37,7 +37,9 @@
 
                             <div class="img_list">
                                 <a href="{{$model->url}}">
+                                    @if(isset($model->picurl))
                                     <div class=""></div><img src="{{$model->picurl}}" alt="">
+                                    @endif
                                     <div class="short_info">【{{$model->module}}】</div>
                                 </a>
                             </div>
