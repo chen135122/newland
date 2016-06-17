@@ -128,8 +128,14 @@ class HomeController extends Controller
                 if(isset($uuid))
                 {
 //                  return redirect()->guest("http://m.allinnewzealand.com/auth/login?txtMobile=".$mobile."&password=123456");
-                    if(strval($uuid)=="2"||strval($uuid)=="3")
-                      return redirect()->guest("http://m.allinnewzealand.com/auth/login?txtMobile=".$mobile."&password=123456&uuid='".$uuid."'");
+                    if(strval($uuid)=="2")
+                    {
+                        return redirect()->guest("http://m.allinnewzealand.com/auth/login?txtMobile=".$mobile."&password=123456&uuid=2");
+                    }
+                    elseif(strval($uuid)=="3")
+                    {
+                        return redirect()->guest("http://m.allinnewzealand.com/auth/login?txtMobile=".$mobile."&password=123456&uuid=3");
+                    }
                     else if(strval($uuid)=="1")
                         return redirect()->guest("http://m.allinnewzealand.com/auth/login?txtMobile=".$mobile."&password=123456");
                     else
