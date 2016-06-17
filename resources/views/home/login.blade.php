@@ -60,7 +60,6 @@
             data: "",
             success: function (data) {
                 if (data!="0") {
-                    window.location="http://m.allinnewzealand.com/app/site/index";
                     if(data=="1")
                     {
                         $("#reply").submit();
