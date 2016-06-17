@@ -55,13 +55,13 @@
         <div class="bs-wizard">
 
             <div class="col-xs-4 bs-wizard-step complete">
-                <div class="text-center bs-wizard-stepnum">订单</div>
+                <div class="text-center bs-wizard-stepnum">预订</div>
                 <div class="progress"><div class="progress-bar" style="background-color:#e04f67;"></div></div>
                 <a href="#" class="bs-wizard-dot"></a>
             </div>
             <!--style="background-color:#82ca9c;"-->
             <div class="col-xs-4 bs-wizard-step active">
-                <div class="text-center bs-wizard-stepnum">定金支付</div>
+                <div class="text-center bs-wizard-stepnum">意向订单</div>
                 <div class="progress" style="background-color:#e04f67;"><div class="progress-bar" style="background-color:#e04f67;"></div></div>
                 <a href="#" class="bs-wizard-dot"></a>
             </div>
@@ -85,11 +85,12 @@
                 <p>
                   {{$travel->hugetitle}}
                 </p>
-                <p>如果想要微信查看此行程，可以用微信扫描下方的二维码</p>
-              <div>{!!QrCode::size(200)->generate("http://m.allinnewzealand.com/tour/".$travel->id)!!}</div>
+
 
             </div>
             <div class="step">
+                <p>如果想要微信查看此行程，可以用微信扫描下方的二维码</p>
+                <div>{!!QrCode::size(200)->generate("http://m.allinnewzealand.com/tour/".$travel->id)!!}</div>
                 <p>
                    {{$travel->title}}
                 </p>
@@ -121,39 +122,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <strong>出发地</strong>
-                        </td>
-                        <td>
-                            上海
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <strong>出发时间</strong>
-                        </td>
-                        <td>
-                            2016年3月26号
-                        </td>
-                    {{--</tr>--}}
-                    {{--<tr>--}}
-                        {{--<td>--}}
-                            {{--<strong>目的地</strong>--}}
-                        {{--</td>--}}
-                        {{--<td>--}}
-                            {{--新西兰--}}
-                        {{--</td>--}}
-                    {{--</tr>--}}
-                    {{--<tr>--}}
-                        {{--<td>--}}
-                            {{--<strong>抵达时间</strong>--}}
-                        {{--</td>--}}
-                        {{--<td>--}}
-                            {{--2015年12月1号--}}
-                        {{--</td>--}}
-                    {{--</tr>--}}
-                    <tr>
-                        <td>
-                            <strong>支付状态</strong>
+                            <strong>订单状态</strong>
                         </td>
                         <td>
                             {{App\Http\Controllers\TourController::status($order->status)}}

@@ -128,7 +128,7 @@
                             <div class="box_style_cat">
                                 <ul id="cat_nav">
                                     @for($i=0;$i<count($travelDay);$i++)
-                                        <li><a href="#travelInfo_{{$i}}" onclick="removeClass('travelInfo_{{$i}}',this)">
+                                        <li class="newli"><a href="#travelInfo_{{$i}}" onclick="removeClass('travelInfo_{{$i}}',this)">
                                               第  {{$i+1}}  天
                                             </a></li>
                                      @endfor

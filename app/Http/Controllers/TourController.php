@@ -327,7 +327,7 @@ class TourController extends Controller
         $paytype = "";
         switch ($str) {
             case 1:
-                $paytype = "提交";
+                $paytype = "意向订单";
                 break;
             case 2:
                 $paytype = "已支付定金";

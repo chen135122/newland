@@ -190,7 +190,7 @@
                     <img src="/img/icon-tour.png" class="icon">
 
                 </p>
-                <h4><span>国际旅游</span></h4>
+                <h4><span>定制旅游</span></h4>
                 <p class="tp_detail">
                     新西兰旅游,为您提供梦幻般的旅游,体验不一样的旅程
                 </p>

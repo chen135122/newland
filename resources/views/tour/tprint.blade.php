@@ -92,7 +92,7 @@
                             </tr>
                             <tr>
                                 <td>{{date("Y年n月d日", $order->start_time) }}</td>
-                                <td>支付状态:{{App\Http\Controllers\TourController::status($order->status)}}</td>
+                                <td>订单状态:{{App\Http\Controllers\TourController::status($order->status)}}</td>
                             </tr>
 
                             </tbody>

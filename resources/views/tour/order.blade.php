@@ -64,13 +64,13 @@
         <div class="bs-wizard">
 
             <div class="col-xs-4 bs-wizard-step complete">
-                <div class="text-center bs-wizard-stepnum">订单</div>
+                <div class="text-center bs-wizard-stepnum">预订</div>
                 <div class="progress"><div class="progress-bar" style="background-color:#e04f67;"></div></div>
                 <a href="#" class="bs-wizard-dot newc"></a>
             </div>
 
             <div class="col-xs-4 bs-wizard-step active">
-                <div class="text-center bs-wizard-stepnum">定金支付</div>
+                <div class="text-center bs-wizard-stepnum">意向订单</div>
                 <div class="progress" style="background-color:#82ca9c;"><div class="progress-bar" style="background-color:#e04f67;"></div></div>
                 <a href="#" class="bs-wizard-dot"></a>
             </div>
@@ -160,7 +160,7 @@
                     </tr>
                     <tr>
                         <td>
-                            地点
+                            标题
                         </td>
                         <td class="text-right">
                            {{$travel->bigtitle}}
@@ -200,7 +200,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-3 col-sm-12 col-xs-12 ">
-                <img src="/img/logo_sticky2.png" height="60" alt="All IN New Zealand" data-retina="true" class="logo_sticky">
+                <img  src="/img/logo_sticky2.png" height="60" alt="All IN New Zealand" data-retina="true" class="logo_sticky">
             </div>
             <div class="col-md-6  col-sm-6 col-xs-6 " >
                 <p class="footer_l">

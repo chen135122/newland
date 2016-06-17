@@ -110,12 +110,14 @@
                             {{$service->start_at}}
                         </td>
                         <td style="width: auto;">
-                            {{$service->message}}
+                            {!! $service->message !!}
                         </td>
                     </tr>
+
                     @endforeach
                     </tbody>
                 </table>
+                <p style="text-align: right;">合计：{{array_sum($salservice->lists('price')->toArray())}}</p>
             </div><!--End step -->
         </div><!--End col-md-8 -->
 
