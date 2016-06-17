@@ -120,7 +120,7 @@
                         <div class="col-lg-2 col-md-2 col-sm-2">
                             <div class="price_list">
                                 <div>
-                                    <span class="price">¥{{$travel->referenceprice}}</span><span class="normal_price_list"></span><small>{{$travel->singlem}}</small>
+                                    <span class="price">¥{{ceil($travel->referenceprice)}}</span><span class="normal_price_list"></span><small>{{$travel->singlem}}</small>
                                     <p><a href="/tour/{{$travel->id}}" class="btn_1">详情</a></p>
                                 </div>
                             </div>
