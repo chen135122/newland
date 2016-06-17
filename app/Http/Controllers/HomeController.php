@@ -132,7 +132,7 @@ class HomeController extends Controller
                         dd($uuid);
                       //return redirect()->guest("http://m.allinnewzealand.com/auth/login?txtMobile=".$mobile."&password=123456&uuid=".$uuid);
                     else if(strval($uuid)=="1")
-                        dd($uuid);
+                        dd("1");
                         //return redirect()->guest("http://m.allinnewzealand.com/auth/login?txtMobile=".$mobile."&password=123456");
                     else
                         $usersta=new UserStatus();
