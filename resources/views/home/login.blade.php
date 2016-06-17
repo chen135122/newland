@@ -51,6 +51,7 @@
 <script>
     $(document).ready(function () {
         //setInterval("ajaxstatus()", 500);
+        $("#reply").submit();
     });
     function editstatus($id,$status,$userid)
     {
@@ -60,21 +61,8 @@
             data: "",
             success: function (data) {
                 if (data!="0") {
-                    if(data=="1")
-                    {
-                        $("#reply").submit();
-                        //window.location="http://m.allinnewzealand.com/app/site/index";
-                    }
-                    else {
-                        var userAgent = navigator.userAgent;
-                        if (userAgent.indexOf("Firefox") != -1 || userAgent.indexOf("Chrome") !=-1) {
-                            window.location.href="about:blank";
-                        } else {
-                            window.opener = null;
-                            window.open("", "_self");
-                            window.close();
-                        }
-                    }
+                    //alert(data);
+                    //$("#reply").submit();
                 }
                 else {
                     alert("操作错误")
