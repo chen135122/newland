@@ -127,7 +127,6 @@ class HomeController extends Controller
                 $uuid=$request->get("uuid");
                 if(isset($uuid))
                 {
-                    dd($uuid);
 //                  return redirect()->guest("http://m.allinnewzealand.com/auth/login?txtMobile=".$mobile."&password=123456");
                     if($uuid==2||$uuid==3)
                       return redirect()->guest("http://m.allinnewzealand.com/auth/login?txtMobile=".$mobile."&password=123456&uuid=".$uuid);
