@@ -134,7 +134,15 @@ class HomeController extends Controller
                     $usersta->save();
                 }
                 else{
-                  return redirect()->guest("http://m.allinnewzealand.com/auth/login?txtMobile=".$mobile."&password=123456");
+
+//                  return redirect()->guest("http://m.allinnewzealand.com/auth/login?txtMobile=".$mobile."&password=123456");
+                    if($uuid==2||$uuid==3)
+                      return redirect()->guest("http://m.allinnewzealand.com/auth/login?txtMobile=".$mobile."&password=123456"."&uuid=".$uuid);
+                    else
+                        return redirect()->guest("http://m.allinnewzealand.com/auth/login?txtMobile=".$mobile."&password=123456");
+
+
+
                 }
             }
         }else{
