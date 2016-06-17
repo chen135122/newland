@@ -225,7 +225,7 @@ class TourController extends Controller
         $order-> totalprice=($travel->referenceprice);
         //$order-> discount=0.0;
         $order-> orderprice=$travel->oprice;
-        $order-> status=1;
+        $order-> status=2;
         $order->type=1;
         $order->paytype=3;
         $order-> created_at=Carbon::now();
@@ -327,19 +327,25 @@ class TourController extends Controller
         $paytype = "";
         switch ($str) {
             case 1:
-                $paytype = "意向订单";
+                $paytype = "预订";
                 break;
             case 2:
-                $paytype = "已支付定金";
+                $paytype = "意向订单";
                 break;
             case 3:
-                $paytype = "完成订单";
-                break;
-            case 4:
                 $paytype = "取消订单";
                 break;
+            case 4:
+                $paytype = "线下支付";
+                break;
             case 5:
-                $paytype = "支付失败";
+                $paytype = "线下退单";
+                break;
+            case 6:
+                $paytype = "线下退单完成";
+                break;
+            case 7:
+                $paytype = "线下交易完成";
                 break;
         }
         return $paytype;
