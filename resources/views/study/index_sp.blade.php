@@ -101,9 +101,9 @@
                      </div>
               <div class="row">
                   <div class="col-lg-8 col-md-8">
-                      <?php $i=1; ?>
+
 					   @foreach($studys as $study)
-                          <div class="strip_all_tour_list wow fadeIn" data-wow-delay="0.<?php echo $i++; ?>s" >
+                          <div class="strip_all_tour_list wow fadeIn" >
                               <div class="row">
                                   <div class="col-lg-4 col-md-4 col-sm-4">
                                           @if ((auth()->check() &&$study->is_fav ))
