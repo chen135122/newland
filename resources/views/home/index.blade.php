@@ -215,9 +215,9 @@
         <p>我们倾力打造新西兰各类服务平台，并拥有国内以及新西兰顶级合作伙伴</p>
     </div>
     <div class="row">
-        <?php $i=1; ?>
+
         @foreach($trusts as $trust)
-            <div class="col-md-4 col-sm-6 wow zoomIn" data-wow-delay="0.<?php echo $i++; ?>s">
+            <div class="col-md-4 col-sm-6 wow zoomIn">
                 <div class="hotel_container">
                     <div class="img_container">
                         <a href="/trust/{{$trust->id}}">
@@ -242,9 +242,8 @@
         <p>我们提供的不仅是房屋买卖交易的桥梁, 我们更加注重开发和创建一个公平开放的合作平台</p>
     </div>
     <div class="row">
-        <?php $i=1; ?>
         @foreach($hotpropertys as $hotproperty)
-        <div class="col-md-4 col-sm-6 wow zoomIn" data-wow-delay="0.<?php echo $i++; ?>s">
+        <div class="col-md-4 col-sm-6 wow zoomIn">
             <div class="hotel_container">
                 <div class="img_container">
                     <a href="/property/{{$hotproperty->id}}">
@@ -270,10 +269,8 @@
         <p>在接下来的行程里，您可以根据实际情况合理调整行程，在新西兰找到最棒的自己。</p>
     </div>
     <div class="row">
-        <?php $i=1; ?>
         @foreach($travels as $travel)
-            @if( $i<4)
-                <div class="col-md-4 col-sm-6 wow zoomIn" data-wow-delay="0.<?php echo $i++; ?>s">
+                <div class="col-md-4 col-sm-6 wow zoomIn">
                     <div class="tour_container">
                         <div class="img_container">
                             <a href="tour/{{$travel->id}}">
@@ -289,7 +286,7 @@
                         </div>
                     </div>
                 </div>
-            @endif
+
         @endforeach
     </div><!-- End row -->
     <p class="text-center add_bottom_30">

@@ -33,9 +33,9 @@
     <div class="container margin_60">
         <div class="row">
             <div class="col-md-8">
-                <?php $i=1; ?>
+
                 @foreach($properties as $property)
-                    <div class="strip_all_tour_list wow fadeIn" data-wow-delay="0.<?php echo $i++; ?>s">
+                    <div class="strip_all_tour_list wow fadeIn" >
                         <div class="row">
                             <div class="col-lg-4 col-md-4 col-sm-4">
                                  @if ((auth()->check() &&$property->is_fav ))
@@ -64,16 +64,7 @@
                                         </p>
                                     @endif
                                     <p>
-
-                                        @if(isset($property->region))
-                                            {{App\Models\Region::getRegion($property->region).'&nbsp;'}}
-                                        @endif
-                                        @if(isset($property->city))
-                                           {{App\Models\Region::getRegion($property->city).'&nbsp;'}}
-                                        @endif
-                                        @if(isset($property->district))
-                                           {{App\Models\Region::getRegion($property->district).'&nbsp;'}}
-                                        @endif
+                                    <p> {!!str_limit($property->expound,180) !!}</p>
                                     </p>
 
                                 </div>
@@ -163,7 +154,7 @@
 <link href="/css/ion.rangeSlider.css" rel="stylesheet" >
 <link href="/css/ion.rangeSlider.skinFlat.css" rel="stylesheet">
     <style>
-        .tour_list_desc h3{ margin-top: 40px;}
+        .tour_list_desc h3{ margin-top: 20px;}
         .strip_all_tour_list .img_list img{
             width:320px; height: 240px;
         }
@@ -209,6 +200,8 @@
             font-family:'Microsoft YaHei';
         }
         .price_list .price{ margin-top: 5px;}
+        .tour_list_desc p{ font-size:14px;
+            line-height:24px;;}
     </style>
 @endpush
 
