@@ -42,7 +42,6 @@ if(isset($openid)||isset($nickname))
           );
 }
 $result=$tem->doSend(urldecode(json_encode($template)));
-echo json_encode($result);
 ?>
 <script>
     if("<?php echo $result->errcode; ?>" =="0")
