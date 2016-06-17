@@ -125,24 +125,19 @@ class HomeController extends Controller
                     $userid=$user->id;
                 }
                 $uuid=$request->get("uuid");
-                if(isset($uuid)&&$uuid!=1)
+                if(isset($uuid))
                 {
-                    $usersta=new UserStatus();
-                    $usersta->uuid=$uuid;
-                    $usersta->cusid= $userid;
-                    $usersta->status=1;
-                    $usersta->save();
-                }
-                else{
-
 //                  return redirect()->guest("http://m.allinnewzealand.com/auth/login?txtMobile=".$mobile."&password=123456");
                     if($uuid==2||$uuid==3)
                       return redirect()->guest("http://m.allinnewzealand.com/auth/login?txtMobile=".$mobile."&password=123456"."&uuid=".$uuid);
-                    else
+                    else if($uuid==1)
                         return redirect()->guest("http://m.allinnewzealand.com/auth/login?txtMobile=".$mobile."&password=123456");
-
-
-
+                    else
+                        $usersta=new UserStatus();
+                        $usersta->uuid=$uuid;
+                        $usersta->cusid= $userid;
+                        $usersta->status=1;
+                        $usersta->save();
                 }
             }
         }else{
