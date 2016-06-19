@@ -137,12 +137,7 @@
                 <hr>
                 <a class="btn_full_outline" href="/hprint/{{$order->id}}" target="_blank">订单信息</a>
             </div>
-            <div class="box_style_4">
-                <i class="icon_set_1_icon-90"></i>
-                <h4>联系我们</h4>
-                <a href="tel://004542344599" class="phone">+025-58761818</a>
-                <small>周一 至 周日  8.30 - 18.30</small>
-            </div>
+            @include('layouts.partials.right_side')
         </aside>
 
     </div><!--End row -->

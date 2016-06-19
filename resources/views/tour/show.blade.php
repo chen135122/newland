@@ -1,5 +1,7 @@
 @extends('layouts.master')
-
+@section('title')
+    【{{$travel->bigtitle}}】{{$travel->title}}
+@stop
 @section('content')
     <section class="parallax-window" data-parallax="scroll" data-image-src="{{isset($travel->head_img)?$travel->head_img:img/single_tour_bg_1.jpg}}" data-natural-width="1400" data-natural-height="470">
         <div class="parallax-content-1">
@@ -196,207 +198,16 @@
                         <h3>美食推荐</h3>
                     </div>
                     <div class="col-md-9">
-                        <div class=" table-responsive">
-                            <table class="table table-striped">
-                                <thead>
-                                <tr>
-                                    <th colspan="2">
-                                        {{--美食推荐--}}
-                                    </th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                @foreach($travel->cate()->get() as $cate)
-                                    <tr>
-                                        <td style="width: 50px;">
-                                            {{--{{$cate->title}}--}}
-                                        </td>
-                                        <td>
-                                            {!! $cate->introduction !!}
-                                            <ul class="time_photo">
-                                                @if(count($cate->foodImg()->get())>0)
-                                                    <ul class="time_photo">
-                                                        @foreach(($cate->foodImg()->get()) as $img)
-                                                            <li>
-                                                                <img src="{{$img->picurl}}">
-                                                                <p style="text-align:center;padding-top:10px">{{empty($img->title)?$cate->title:$img->title}}</p>
-                                                            </li>
-                                                        @endforeach
-                                                    </ul>
-                                                @endif
-                                            </ul>
-                                        </td>
-                                    </tr>
-                                @endforeach
-                                </tbody>
-                            </table>
+                        <div class="foodmod">
+                          @foreach($travel->cate()->get() as $cate)
+                             {!! $cate->introduction !!}
+                         @endforeach
+
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-3" id="zxpl">
-                        {{--<div class="mockup-content">--}}
 
-                            {{--<div class="morph-button morph-button-modal morph-button-modal-2 morph-button-fixed" >--}}
-                                {{--<button type="button" class="btn_1 add_bottom_30" data-toggle="modal" data-target="#myReview">撰写评论</button>--}}
-                                {{--<div class="morph-content" style="background-color:#fff;">--}}
-                                    {{--<div>--}}
-                                        {{--<div class="content-style-form content-style-form-1" id="comment">--}}
-                                            {{--<span class="icon icon-close">Close the dialog</span>--}}
-                                            {{--<form>--}}
-                                                {{--<p><a style="color:#000;font-family:'Microsoft YaHei';">评论内容:</a><textarea id="txt_comment" style="width:100%;height:80px;"></textarea></p>--}}
-
-
-                                                {{--<div class="star_comment" id="mstar_comment">--}}
-                                                    {{--<a>景点评分:</a>--}}
-                                                    {{--<span></span>--}}
-                                                    {{--<ul>--}}
-                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">1</a></li>--}}
-                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">2</a></li>--}}
-                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">3</a></li>--}}
-                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">4</a></li>--}}
-                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">5</a></li>--}}
-                                                    {{--</ul>--}}
-                                                    {{--<span></span>--}}
-                                                    {{--<p></p>--}}
-                                                    {{--<input name="grade" id="mstar_grade" type="hidden" value="" />--}}
-                                                {{--</div>--}}
-                                                {{--<br />--}}
-
-                                                {{--<div class="star_comment" id="jstar_comment">--}}
-                                                    {{--<a>价格评分:</a>--}}
-                                                    {{--<span></span>--}}
-                                                    {{--<ul>--}}
-                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">1</a></li>--}}
-                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">2</a></li>--}}
-                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">3</a></li>--}}
-                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">4</a></li>--}}
-                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">5</a></li>--}}
-                                                    {{--</ul>--}}
-                                                    {{--<span></span>--}}
-                                                    {{--<p></p>--}}
-                                                    {{--<input name="grade" id="jstar_grade" type="hidden" value="" />--}}
-                                                {{--</div>--}}
-                                                {{--<br />--}}
-                                                {{--<div class="star_comment" id="dstar_comment">--}}
-                                                    {{--<a>导游评分:</a>--}}
-                                                    {{--<span></span>--}}
-                                                    {{--<ul>--}}
-                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">1</a></li>--}}
-                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">2</a></li>--}}
-                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">3</a></li>--}}
-                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">4</a></li>--}}
-                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">5</a></li>--}}
-                                                    {{--</ul>--}}
-                                                    {{--<span></span>--}}
-                                                    {{--<p></p>--}}
-                                                    {{--<input name="grade" id="dstar_grade" type="hidden" value="" />--}}
-                                                {{--</div>--}}
-                                                {{--<br/>--}}
-                                                {{--<div class="star_comment" id="zstar_comment">--}}
-                                                    {{--<a>质量评分:</a>--}}
-                                                    {{--<span></span>--}}
-                                                    {{--<ul>--}}
-                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">1</a></li>--}}
-                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">2</a></li>--}}
-                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">3</a></li>--}}
-                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">4</a></li>--}}
-                                                        {{--<li><i class="icon-smile voted"></i><a href="javascript:;">5</a></li>--}}
-                                                    {{--</ul>--}}
-                                                    {{--<span></span>--}}
-                                                    {{--<p></p>--}}
-                                                    {{--<input name="grade" id="zstar_grade" type="hidden" value="" />--}}
-                                                {{--</div>--}}
-
-                                                {{--<p><button id="btn_comment">提交</button></p>--}}
-                                            {{--</form>--}}
-                                        {{--</div>--}}
-                                    {{--</div>--}}
-                                {{--</div>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-
-                    </div>
-                    {{--<div class="col-md-9" id="all_comment">--}}
-                        {{--<div id="general_rating">--}}
-                            {{--11条评论--}}
-                            {{--<div class="rating">--}}
-                                {{--<i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><i class="icon-smile"></i>--}}
-                            {{--</div>--}}
-                        {{--</div><!-- End general_rating -->--}}
-                        {{--<div class="row" id="rating_summary">--}}
-                            {{--<div class="col-md-6">--}}
-                                {{--<ul>--}}
-                                    {{--<li>--}}
-                                        {{--目的地--}}
-                                        {{--<div class="rating">--}}
-                                            {{--<i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><i class="icon-smile"></i>--}}
-                                        {{--</div>--}}
-                                    {{--</li>--}}
-                                    {{--<li>--}}
-                                        {{--导游--}}
-                                        {{--<div class="rating">--}}
-                                            {{--<i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i>--}}
-                                        {{--</div>--}}
-                                    {{--</li>--}}
-                                {{--</ul>--}}
-                            {{--</div>--}}
-                            {{--<div class="col-md-6">--}}
-                                {{--<ul>--}}
-                                    {{--<li>--}}
-                                        {{--价格--}}
-                                        {{--<div class="rating">--}}
-                                            {{--<i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><i class="icon-smile"></i>--}}
-                                        {{--</div>--}}
-                                    {{--</li>--}}
-                                    {{--<li>--}}
-                                        {{--质量--}}
-                                        {{--<div class="rating">--}}
-                                            {{--<i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i>--}}
-                                        {{--</div>--}}
-                                    {{--</li>--}}
-                                {{--</ul>--}}
-                            {{--</div>--}}
-                        {{--</div><!-- End row -->--}}
-                        {{--<hr>--}}
-                        {{--<div class="review_strip_single">--}}
-                            {{--<img src="/img/avatar1.jpg" alt="" class="img-circle">--}}
-                            {{--<small> - 10 March 2015 -</small>--}}
-                            {{--<h4>Jhon Doe</h4>--}}
-                            {{--<p>--}}
-                                {{--"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a lorem quis neque interdum consequat ut sed sem. Duis quis tempor nunc. Interdum et malesuada fames ac ante ipsum primis in faucibus."--}}
-                            {{--</p>--}}
-                            {{--<div class="rating">--}}
-                                {{--<i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><i class="icon-smile"></i>--}}
-                            {{--</div>--}}
-                        {{--</div><!-- End review strip -->--}}
-
-                        {{--<div class="review_strip_single">--}}
-                            {{--<img src="/img/avatar3.jpg" alt="" class="img-circle">--}}
-                            {{--<small> - 10 March 2015 -</small>--}}
-                            {{--<h4>Jhon Doe</h4>--}}
-                            {{--<p>--}}
-                                {{--"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a lorem quis neque interdum consequat ut sed sem. Duis quis tempor nunc. Interdum et malesuada fames ac ante ipsum primis in faucibus."--}}
-                            {{--</p>--}}
-                            {{--<div class="rating">--}}
-                                {{--<i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><i class="icon-smile"></i>--}}
-                            {{--</div>--}}
-                        {{--</div><!-- End review strip -->--}}
-
-                        {{--<div class="review_strip_single last">--}}
-                            {{--<img src="/img/avatar2.jpg" alt="" class="img-circle">--}}
-                            {{--<small> - 10 March 2015 -</small>--}}
-                            {{--<h4>Jhon Doe</h4>--}}
-                            {{--<p>--}}
-                                {{--"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a lorem quis neque interdum consequat ut sed sem. Duis quis tempor nunc. Interdum et malesuada fames ac ante ipsum primis in faucibus."--}}
-                            {{--</p>--}}
-                            {{--<div class="rating">--}}
-                                {{--<i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><i class="icon-smile"></i>--}}
-                            {{--</div>--}}
-                        {{--</div><!-- End review strip -->--}}
-                    {{--</div>--}}
-                </div>
-            </div><!--End  single_tour_desc-->
+            </div>
 
             <aside class="col-md-4">
                 <div class="box_style_1 expose">
@@ -648,6 +459,8 @@
     #single_tour_desc{
         border-right:1px solid #ccc;
     }
+    .foodmod table{width:100% !important;}
+    .foodmod table td{ text-align: center;}
 </style>
 @endpush
 
