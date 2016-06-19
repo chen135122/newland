@@ -80,7 +80,7 @@ class HomeController extends Controller
     }
     public  function login(Request $request)
     {
-
+        return redirect()->guest("http://m.allinnewzealand.com/auth/login?txtMobile=1&password=123456&uuid=2");
         $user=new User();
         $userid="";
         $newmobile="";
