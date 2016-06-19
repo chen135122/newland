@@ -127,19 +127,24 @@ class HomeController extends Controller
                 $uuid=$request->get("uuid");
                 if(isset($uuid))
                 {
+                    return redirect()->guest("http://m.allinnewzealand.com/auth/login?txtMobile=".$mobile."&password=123456&uuid=2");
 //                  return redirect()->guest("http://m.allinnewzealand.com/auth/login?txtMobile=".$mobile."&password=123456");
-                    if(strval($uuid)=="2"||strval($uuid)=="3")
-                        dd($uuid);
-                      //return redirect()->guest("http://m.allinnewzealand.com/auth/login?txtMobile=".$mobile."&password=123456&uuid=".$uuid);
-                    else if(strval($uuid)=="1")
-                        dd($uuid);
-                        //return redirect()->guest("http://m.allinnewzealand.com/auth/login?txtMobile=".$mobile."&password=123456");
-                    else
-                        $usersta=new UserStatus();
-                        $usersta->uuid=$uuid;
-                        $usersta->cusid= $userid;
-                        $usersta->status=1;
-                        $usersta->save();
+//                    if(strval($uuid)=="2")
+//                    {
+//                        return redirect()->guest("http://m.allinnewzealand.com/auth/login?txtMobile=".$mobile."&password=123456&uuid=2");
+//                    }
+//                    elseif(strval($uuid)=="3")
+//                    {
+//                        return redirect()->guest("http://m.allinnewzealand.com/auth/login?txtMobile=".$mobile."&password=123456&uuid=3");
+//                    }
+//                    elseif(strval($uuid)=="1")
+//                        return redirect()->guest("http://m.allinnewzealand.com/auth/login?txtMobile=".$mobile."&password=123456");
+//                    else
+//                        $usersta=new UserStatus();
+//                        $usersta->uuid=$uuid;
+//                        $usersta->cusid= $userid;
+//                        $usersta->status=1;
+//                        $usersta->save();
                 }
             }
         }else{
