@@ -84,12 +84,13 @@
                             </tr>
                             <tr>
                                 <td>人数:×{{$order->num}}</td>
-                                <td class="text-center">价格:{{$order->orderprice}}×{{$order->num}}={{$order->orderprice*$order->num}}</td>
-                            </tr>
-                            <tr>
-                                <td>定金:{{$order->orderprice*$order->num}}</td>
+                                {{--<td class="text-center">价格:{{$order->orderprice}}×{{$order->num}}={{$order->orderprice*$order->num}}</td>--}}
                                 <td class="text-center">旅游天数:{{count($travel->day()->get())}}天</td>
                             </tr>
+                            {{--<tr>--}}
+                                {{--<td>定金:{{$order->orderprice*$order->num}}</td>--}}
+                                {{--<td class="text-center">旅游天数:{{count($travel->day()->get())}}天</td>--}}
+                            {{--</tr>--}}
                             <tr>
                                 <td>{{date("Y年n月d日", $order->start_time) }}</td>
                                 <td>订单状态:{{App\Http\Controllers\TourController::status($order->status)}}</td>
