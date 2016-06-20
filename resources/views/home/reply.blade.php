@@ -44,8 +44,5 @@ if(isset($openid)||isset($nickname))
 $result=$tem->doSend(urldecode(json_encode($template)));
 ?>
 <script>
-    if("<?php echo $result->errcode; ?>" =="0")
-    {
-        window.location="http://m.allinnewzealand.com";
-    }
+    window.location="http://m.allinnewzealand.com";
 </script>
