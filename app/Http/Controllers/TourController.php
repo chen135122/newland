@@ -297,7 +297,7 @@ class TourController extends Controller
 //            }
 //            $upOrder->save();
 //        }
-        $upOrder->status =1;
+        $upOrder->status =2;
         $upOrder->save();
         $order = NewOrder::where("sn", $trade_no)->first();
         $travel = $order->travel()->get()->first();

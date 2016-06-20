@@ -277,7 +277,7 @@
                                 <img src="{{$travel->picurl}}" style="max-height:220px;min-height:220px;max-width: 360px;min-width:360px;" class="img-responsive" alt="">
                                 @if($travel->istop==1)) <div class="ribbon top_rated"></div> @endif
                                 <div class="short_info">
-                                    <span class="price">￥{{$travel->referenceprice}}</span>
+                                    <span class="price">￥{{ceil($travel->referenceprice)}}</span>
                                 </div>
                             </a>
                         </div>
@@ -292,26 +292,7 @@
     <p class="text-center add_bottom_30">
         <a href="/tour" class="btn_1 medium"><i class="icon-eye-7"></i>查看所有行程 ({{$travelsCount}}) </a>
     </p>
-</div><!-- End container -->
-{{--<div id="rightArrow"><a href="javascript:;" title="在线客户"></a></div>--}}
-{{--<div id="floatDivBoxs">--}}
-    {{--<div class="floatDtt">关注公众号</div>--}}
-    {{--<div class="floatShadow">--}}
-        {{--<ul class="floatDqq">--}}
-            {{--<li style="padding-left:0px;"><a target="_blank" href="tencent://message/?uin=1234567890&Site=sc.chinaz.com&Menu=yes"><img src="img/qq.png" align="absmiddle">&nbsp;&nbsp;在线客服1号</a></li>--}}
-            {{--<li style="padding-left:0px;"><a target="_blank" href="tencent://message/?uin=1234567890&Site=sc.chinaz.com&Menu=yes"><img src="img/qq.png" align="absmiddle">&nbsp;&nbsp;在线客服2号</a></li>--}}
-            {{--<li style="padding-left:0px;"><a target="_blank" href="tencent://message/?uin=1234567890&Site=sc.chinaz.com&Menu=yes"><img src="img/qq.png" align="absmiddle">&nbsp;&nbsp;在线客服3号</a></li>--}}
-        {{--</ul>--}}
-        {{--<div class="floatDtxt">热线电话</div>--}}
-        {{--<div class="floatDtel"><img src="img/online_phone.jpg" width="155" height="45" alt=""></div>--}}
-        {{--<div style="text-align:center;padding:10PX 0 5px 0;background:#EBEBEB;">--}}
-            {{--<img src="{{$allUrl}}" width="106" height="106">--}}
-            {{--<br>微信公众账号</div>--}}
-    {{--</div>--}}
-    {{--<div class="floatDbg"></div>--}}
-{{--</div>--}}
-
-
+</div>
 <section class="promo_full">
     <div class="promo_full_wp magnific">
         <div>
