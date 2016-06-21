@@ -4094,3 +4094,6 @@ p.footer_l{ font-size: 13px;line-height: 28px; color:#dddddd;}
 .hold_room p.tags{margin:0;}
 .hold_room  h4{margin-bottom: 5px;}
 .panel-cont{overflow: hidden;}
+.panel-cont a{  color: #136ec2;
+    text-decoration: none;}
+.panel-cont a:hover{ text-decoration: underline; color: #136ec2;}
