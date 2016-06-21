@@ -74,7 +74,7 @@ class HomeController extends Controller
     //热门房产
     public function HotProperty($n)
     {
-        $property = Property::where('status', '<>', 0)->where('status', '<>', 4);
+        $property = Property::where(['publish'=>1,'ishot'=>1])->where('status', '<>', 10)->where('status', '<>', 14)->orderBy('created_at', 'desc');
         $property= $property->take($n)->select('id', 'title','picurl','total_price')->get();
         return $property;
     }
