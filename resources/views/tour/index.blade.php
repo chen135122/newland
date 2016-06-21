@@ -222,6 +222,7 @@
     .irs-with-grid{
         width: 95%;
     }
+
 </style>
 @endpush
 

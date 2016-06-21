@@ -423,7 +423,7 @@
 <style>
     #price_single_main span {
         font-size: 60px;
-        color: #f60;
+        color: #e74c3c;
     }
     .c_ul li{
         font-size: 16px !important;
