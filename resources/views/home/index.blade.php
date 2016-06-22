@@ -59,7 +59,7 @@
         }
         .white_bg .icon{ width: 100px;
             height:100px;}
-        .fadeInDown{ position: absolute; left:30%;top:270px;z-index: 10000; width:40%!important;}
+        .fadeInDown{ position: absolute; left:30%;top:270px;z-index: 999; width:40%!important;}
         .serarch-menu{width:435px;margin:130px auto 0;}
 
         footer {
