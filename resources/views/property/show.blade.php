@@ -112,7 +112,7 @@
                     <div class="col-md-12 titleDiv" id="info">
                         <h4 class="title" >项目信息</h4>
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-12 houseitem">
                         {!! $property ->basic_infor !!}
                     </div>
                 </div>
@@ -122,7 +122,7 @@
                         <h4 class="title" >项目特点</h4>
                     </div>
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-12 houseitem">
                        {!! $property ->description !!}
                     </div>
                 </div>
@@ -132,7 +132,7 @@
                     <div class="col-md-12 titleDiv" id="liucheng">
                         <h4 class="title" >购置流程</h4>
                     </div>
-                    <div class="col-md-12" id="liucheng">
+                    <div class="col-md-12 houseitem">
                         {!! $liucheng!!}
                     </div>
                 </div>
@@ -143,7 +143,7 @@
                     <div class="col-md-12 titleDiv" id="xintuo">
                         <h4 class="title" >家庭信托</h4>
                     </div>
-                    <div class="col-md-12"  id="xintuo">
+                    <div class="col-md-12 houseitem">
                         {!! $xintuo!!}
                     </div>
                 </div>
@@ -155,7 +155,7 @@
                     <div class="col-md-12 titleDiv" id="daizu">
                         <h4 class="title" >代租服务</h4>
                     </div>
-                    <div class="col-md-12 daizu"  id="daizu">
+                    <div class="col-md-12 houseitem">
                         {!! $daizu !!}
                     </div>
                 </div>
@@ -166,7 +166,7 @@
                     <div class="col-md-12 titleDiv" id="qingsao">
                         <h4 class="title" >清扫服务</h4>
                     </div>
-                    <div class="col-md-12" id="qingsao">
+                    <div class="col-md-12 houseitem">
                         {!!$qingsao !!}
                     </div>
                 </div>
@@ -177,7 +177,7 @@
                     <div class="col-md-12 titleDiv" id="anfang">
                         <h4 class="title" >安防服务</h4>
                     </div>
-                    <div class="col-md-12" id="anfang">
+                    <div class="col-md-12 houseitem">
                         {!!$anfang !!}
                     </div>
                 </div>
@@ -188,7 +188,7 @@
                     <div class="col-md-12 titleDiv" id="zixun">
                         <h4 class="title" >咨询我们</h4>
                     </div>
-                    <div class="col-md-12" id="zixun">
+                    <div class="col-md-12 houseitem">
                     {!! \App\Models\Infor::where('title', '关于我们')->first()->content !!}
                     </div>
                 </div>
@@ -398,6 +398,9 @@
         .col-md-9 p{
             font-family:inherit;
         }
+        .houseitem ol{ list-style-type:decimal; font-family: 微软雅黑; margin-left: 15px;;
+            font-size: 16px; }
+        p{line-height: 26px;}
     </style>
 @endpush
 
