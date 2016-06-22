@@ -28,7 +28,7 @@ class PropertyController extends Controller
     public function show($id)
     {
         $Lastedarticle=$this->LastedNews(5);
-        $hotpropertys=$this->HotProperty(4);
+        $hotpropertys=$this->HotProperty(4,$id);
         $property = Property::where('id', $id)->where('status', '<>', 10)->where('status', '<>', 14)->first();
         $locationArray=explode(',',$property->location);
 
@@ -92,9 +92,13 @@ class PropertyController extends Controller
 
 
     //热门房产
-    public function HotProperty($n)
+    public function HotProperty($n,$id=null)
     {
-        $property= Property::where('publish','1')->where('ishot',1)->where('status', '<>', 10)->where('status', '<>', 14)->orderBy('created_at', 'desc')->take($n)->select('id', 'title','picurl','address','tagsid')->get();
+        if($id!=null)
+          $property= Property::where('publish','1')->where('ishot',1)->where('status', '<>', 10)->where('status', '<>', 14)->where('id', '<>', $id)->orderBy('created_at', 'desc')->take($n)->select('id', 'title','picurl','address','tagsid')->get();
+       else
+          $property= Property::where('publish','1')->where('ishot',1)->where('status', '<>', 10)->where('status', '<>', 14)->orderBy('created_at', 'desc')->take($n)->select('id', 'title','picurl','address','tagsid')->get();
+
         return $property;
     }
 
