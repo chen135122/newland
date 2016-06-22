@@ -461,6 +461,8 @@
     }
     .foodmod table{width:100% !important;}
     .foodmod table td{ text-align: center;}
+    .foodmod img{ max-width:550px;}
+    .foodmod p{ margin:5px 0;}
 </style>
 @endpush
 

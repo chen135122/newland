@@ -155,7 +155,7 @@
                     <div class="col-md-12 titleDiv" id="daizu">
                         <h4 class="title" >代租服务</h4>
                     </div>
-                    <div class="col-md-12"  id="daizu">
+                    <div class="col-md-12 daizu"  id="daizu">
                         {!! $daizu !!}
                     </div>
                 </div>
@@ -193,7 +193,6 @@
                     </div>
                 </div>
 
-                <hr>
                 @endif
 
             </div>
@@ -276,6 +275,8 @@
     <link rel="stylesheet" type="text/css" href="/css/default.css">
     <link href="/dist/css/lightgallery.css" rel="stylesheet">
     <style>
+        .daizu ol{ list-style-type:decimal; font-family: 微软雅黑; margin-left: 15px;;
+            font-size: 16px; }
         .titleDiv{
             border-bottom: 1px solid #f08326;margin:0px 0px 10px 15px;
         }
