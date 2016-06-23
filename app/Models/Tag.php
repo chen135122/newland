@@ -17,4 +17,13 @@ class Tag extends BaseModel
         $tagsList=$tagsList->Wherein("id",$tagsArray);
         return $tagsList;
     }
+
+    public static function getTop2Tag($tagsid)
+    {
+
+        $tagsArray=explode(',', $tagsid);
+        $tagsArray= array_filter($tagsArray);
+        $tagsList=\App\Models\Tag::Wherein("id",$tagsArray)->take(2);
+        return $tagsList;
+    }
 }

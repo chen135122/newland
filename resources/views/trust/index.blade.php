@@ -48,7 +48,7 @@
                      <div class="col-lg-8 col-md-8 col-sm-8">
                          <div class="list_desc">
                              <h3><a href="/trust/{{$model->id}}">{{$model->title}}</a></h3>
-                             <p> {!!str_limit($model->abstract,180) !!}</p>
+                             <p> {!!str_limit($model->abstract,125) !!}</p>
                          </div>
                      </div>
                  </div>
@@ -65,6 +65,6 @@
         .list_desc p{line-height: 22px; padding: 10px 20px 0 0; font-size: 14px;}
         .panel-cont .row{}
         .panel-cont .img_lists{ min-height: 160px;}
-        .list_desc h3{ margin-top: 10px;}
+        .list_desc h3{ margin-top: 20px;}
     </style>
 @endsection

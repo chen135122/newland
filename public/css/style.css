@@ -4097,3 +4097,25 @@ p.footer_l{ font-size: 13px;line-height: 28px; color:#dddddd;}
 .panel-cont a{  color: #136ec2;
     text-decoration: none;}
 .panel-cont a:hover{ text-decoration: underline; color: #136ec2;}
+.label-info{font-size: 14px;}
+
+.closemap .close {position:absolute; right:50px; display:block;top:470px;
+    color: #FFF;
+    cursor: pointer;
+    float: right;
+    font-size: 24px;
+    height: 47px;
+    line-height: 27px;
+    padding: 10px 0;
+    text-align: center;
+    width: 50px;
+    text-decoration: none !important;
+    outline: medium none; opacity: 1;
+}
+.closemap .close:hover {
+    /*color: #FFF;*/
+}
+.closemap .close:after {
+    content: "\e070";
+}
+#xintuo,#liucheng,#daizu,#qingsao,#anfang,#zixun{display: none;}

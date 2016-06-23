@@ -6,10 +6,9 @@
 <!--<![endif]-->
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Ansonika">
-    <title>@yield('title','几维说 - 新西兰旅游置业')</title>
+    <title>@yield('title','几维说- 梦想生活从这里起航')</title>
     <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
     <!-- BASE CSS -->
     <link href="/css/base.css" rel="stylesheet">

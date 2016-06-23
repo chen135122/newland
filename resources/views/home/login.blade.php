@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Ansonika">
-    <title>All In New Zealand - 新西兰旅游置业</title>
+    <title>几维说- 梦想生活从这里起航</title>
     <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
     <!-- BASE CSS -->
     <link href="/css/base.css" rel="stylesheet">

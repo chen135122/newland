@@ -6,9 +6,9 @@
     <section class="parallax-window" data-parallax="scroll" data-image-src="{{isset($property->headimg)?$property->headimg:'/img/house_bg.jpg'}}" data-natural-width="1400" data-natural-height="470">
         <div class="parallax-content-1">
             <div class="animated fadeInDown">
-                <h1>查询</h1>
-                <p></p>
-                @include('layouts.partials.search')
+                {{--<h1>查询</h1>--}}
+                {{--<p></p>--}}
+                {{--@include('layouts.partials.search')--}}
             </div>
         </div>
         <div class="parallax-content-2">
@@ -50,6 +50,7 @@
 
     <div class="collapse" id="collapseMap">
         <div id="map"></div>
+        <div class="closemap"><span class="close lg-icon"></span></div>
     </div><!-- End Map -->
 
     <div class="container margin_60">
@@ -84,7 +85,7 @@
                         <div style="width:100%;margin-right: auto;margin-left: auto;">
                             <ul class="c_ul" style="margin: 0;padding: 0;color: #888;">
                                 <li class="new_a"><a onclick="removeClass('info', this)" href="#info">项目信息</a></li>
-                                <li class="new_a"><a onclick="removeClass('intro', this)" href="#intro">项目特点</a></li>
+                                <li><a onclick="removeClass('intro', this)" href="#intro">项目特点</a></li>
                                 @if($liucheng)
                                     <li><a href="#liucheng" onclick="removeClass('liucheng', this)">购置流程</a></li>
                                 @endif
@@ -107,85 +108,84 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="row" style="margin-top:20px;">
-                    <div class="col-md-12 titleDiv" id="info">
+                <div id="lightgallery">
+                <div class="row" style="margin-top:20px;"  id="info">
+                    <div class="col-md-12 titleDiv">
                         <h4 class="title" >项目信息</h4>
                     </div>
                     <div class="col-md-12 houseitem">
                         {!! $property ->basic_infor !!}
                     </div>
                 </div>
-                <hr>
-                <div id="lightgallery">
-                    <div class="col-md-12 titleDiv" id="intro" style="margin-left: 0px;">
-                        <h4 class="title" >项目特点</h4>
+
+                    <div class="row" id="intro">
+                        <div class="col-md-12 titleDiv"  style="margin-left: 0px;">
+                            <h4 class="title" >项目特点</h4>
+                        </div>
+
+                        <div class="col-md-12 houseitem">
+                            {!! $property ->description !!}
+                        </div>
                     </div>
-                <div class="row">
-                    <div class="col-md-12 houseitem">
-                       {!! $property ->description !!}
-                    </div>
-                </div>
-                <hr>
+
                 @if($liucheng)
-                <div class="row">
-                    <div class="col-md-12 titleDiv" id="liucheng">
+                <div class="row" id="liucheng">
+                    <div class="col-md-12 titleDiv" >
                         <h4 class="title" >购置流程</h4>
                     </div>
                     <div class="col-md-12 houseitem">
                         {!! $liucheng!!}
                     </div>
                 </div>
-                <hr>
+
                 @endif
                 @if($xintuo)
-                <div class="row">
-                    <div class="col-md-12 titleDiv" id="xintuo">
+                <div class="row"  id="xintuo">
+                    <div class="col-md-12 titleDiv">
                         <h4 class="title" >家庭信托</h4>
                     </div>
                     <div class="col-md-12 houseitem">
                         {!! $xintuo!!}
                     </div>
                 </div>
-                <hr>
                 @endif
-                </div>
+
                 @if($daizu)
-                <div class="row">
-                    <div class="col-md-12 titleDiv" id="daizu">
+                <div class="row"  id="daizu">
+                    <div class="col-md-12 titleDiv">
                         <h4 class="title" >代租服务</h4>
                     </div>
                     <div class="col-md-12 houseitem">
                         {!! $daizu !!}
                     </div>
                 </div>
-                <hr>
+
                 @endif
                 @if($qingsao)
-                <div class="row">
-                    <div class="col-md-12 titleDiv" id="qingsao">
+                <div class="row" id="qingsao">
+                    <div class="col-md-12 titleDiv" >
                         <h4 class="title" >清扫服务</h4>
                     </div>
                     <div class="col-md-12 houseitem">
                         {!!$qingsao !!}
                     </div>
                 </div>
-                <hr>
+
                 @endif
                 @if($anfang)
-                <div class="row">
-                    <div class="col-md-12 titleDiv" id="anfang">
+                <div class="row"  id="anfang">
+                    <div class="col-md-12 titleDiv">
                         <h4 class="title" >安防服务</h4>
                     </div>
                     <div class="col-md-12 houseitem">
                         {!!$anfang !!}
                     </div>
                 </div>
-                <hr>
+
                 @endif
                 @if($zixun)
-                <div class="row">
-                    <div class="col-md-12 titleDiv" id="zixun">
+                <div class="row" id="zixun">
+                    <div class="col-md-12 titleDiv" >
                         <h4 class="title" >咨询我们</h4>
                     </div>
                     <div class="col-md-12 houseitem">
@@ -194,13 +194,13 @@
                 </div>
 
                 @endif
-
+                </div>
             </div>
 
             <aside class="col-md-4">
-                <p class="hidden-sm hidden-xs">
+                <p class="hidden-sm hidden-xs map">
                     <a class="btn_map" data-toggle="collapse" href="#collapseMap" aria-expanded="false" aria-controls="collapseMap">查看地图</a>
-                   <br/> <a class="btn_full" href="/houseorder?houseid={{$property->id}}">马上预定</a>
+                  <a class="btn_full" href="/houseorder?houseid={{$property->id}}">马上预定</a>
                 </p>
                 <div class="box_style_1 expose">
                     <h3 class="inner">开发商介绍</h3>
@@ -216,18 +216,18 @@
                         <div class="row">
                             <div class="col-md-6 col-sm-6 room">
                                 <div>
-                                    <a href="/property/{{$hotproperty->id}}"><img src="{{$hotproperty->picurl}}" alt="{{$hotproperty->title}}" width="68" height="68" class="/img-circle"></a>
+                                    <a href="/property/{{$hotproperty->id}}"><img src="{{$hotproperty->picurl}}" alt="{{$hotproperty->title}}" width="70" height="70" class="/img-circle"></a>
                                 </div>
                                 <div class="hold_room">
-                                    <h4><a href="/property/{{$hotproperty->id}}">{{$hotproperty->title}}</a></h4>
+                                    <h4><a href="/property/{{$hotproperty->id}}">{!!str_limit(strip_tags($hotproperty->title),45) !!}</a></h4>
                                     @if(isset($hotproperty->tagsid))
                                         <p class="tags">
-                                            @foreach(App\Models\Tag::getTag($hotproperty->tagsid)->get() as $tag )
+                                            @foreach(App\Models\Tag::getTop2Tag($hotproperty->tagsid)->get() as $tag )
                                                 <span class="label label-info">{{$tag->name}}</span>
                                             @endforeach
                                         </p>
                                     @endif
-                                    <small>{{$hotproperty->address}}</small>
+
                                 </div>
                             </div>
                         </div>
@@ -377,6 +377,7 @@
         .c_ul li a{
             color:#fff;
         }
+        .c_ul li.new_a{ background-color: #666;}
         .strip_all_tour_list { padding:10px;
         }
         .table-condensed tbody tr:first-child td{
@@ -401,6 +402,9 @@
         .houseitem ol{ list-style-type:decimal; font-family: 微软雅黑; margin-left: 15px;;
             font-size: 16px; }
         p{line-height: 26px;}
+        .parallax-content-2 p{margin:5px 0;}
+        .container p.map a{ margin-bottom:10px;}
+        .fadeInDown{ background: none;}
     </style>
 @endpush
 
@@ -456,6 +460,13 @@
         map = new google.maps.Map(document.getElementById("collapseMap"), myOptions);
     }
     $( document ).ready(function( $ ) {
+        $(".closemap .close").on("click",function(){
+            $('#collapseMap').collapse('hide');
+        });
+
+        $(".c_ul li").on("click",function(){
+
+        });
         $( '#img_carousel' ).sliderPro({
             width: 960,
             height: 500,
@@ -490,11 +501,18 @@
     window.onscroll = function () {
 
         var t = document.documentElement.scrollTop || document.body.scrollTop;
-        var ml_top = $("#info").offset().top,pad=$(".sticky").outerHeight(),mlh=$("#ml").outerHeight();
-        if (t > (ml_top -143))
+        var ml_top = $("#lightgallery").offset().top,pad=$(".sticky").outerHeight(),mlh=$("#ml").outerHeight();
+
+       var y= ml_top -143;
+        console.log('ml_top-143='+y);
+        console.log('t='+t);
+        if (t > y)
         {
+            console.log('pad='+pad);
             var $width=$("#ml").width();
             var $ml = $("#ml");
+//
+//            $("#ml").css("position","fixed");
             $ml.css("position", "fixed").css("top", pad+"px").css("z-index", "999");
             if (window.outerHeight === screen.availHeight || window.outerWidth === screen.availWidth) {
                 $ml.css("width", $width+"px");
@@ -510,6 +528,7 @@
                 }
 
             }
+            $("#ml").css("position", "relative").css("top", "").css("width", "");
             //$("#ml").css("position", "fixed").css("top", "30px").css("z-index", "999").css("width", "56%");
         }
         else {
@@ -520,10 +539,15 @@
 
     function removeClass(id,obj)
     {
+
         var ev = ev || window.event||event;
         var thisId = document.getElementById(id);
-        document.documentElement.scrollTop = document.body.scrollTop = $(thisId).offset().top-100-64;// - oBtn.offsetHeight;
         ev.preventDefault();
+        $(obj).parent().addClass("new_a");
+        $(obj).parent().siblings().removeClass("new_a");
+
+        $(thisId).show();
+        $(thisId).siblings().hide();
     }
 </script>
     {{--<script>window.jQuery || document.write('<script src="js/jquery-2.1.1.min.js"><\/script>')</script>--}}
