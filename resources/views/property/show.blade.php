@@ -504,11 +504,9 @@
         var ml_top = $("#lightgallery").offset().top,pad=$(".sticky").outerHeight(),mlh=$("#ml").outerHeight();
 
        var y= ml_top -143;
-        console.log('ml_top-143='+y);
-        console.log('t='+t);
         if (t > y)
         {
-            console.log('pad='+pad);
+
             var $width=$("#ml").width();
             var $ml = $("#ml");
 //

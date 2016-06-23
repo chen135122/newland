@@ -21,7 +21,7 @@ if(isset($openid)||isset($nickname))
   $template=array(
                 'touser'=>strval($openid),
                 'template_id'=>"7AR3rz8WAIWyPEWjCXdh508G1z6-g1n4068Td2uWoIE",
-                'url'=>'http://m.allinnewzealand.com',
+                'url'=>'http://m.kiwisay.cn',
                 'data'=>array(
                         'first'=>array(
                                 'value'=>"您好，您已在电脑端成功登录!"
@@ -44,5 +44,5 @@ if(isset($openid)||isset($nickname))
 $result=$tem->doSend(urldecode(json_encode($template)));
 ?>
 <script>
-    window.location="http://m.allinnewzealand.com";
+    window.location="http://m.kiwisay.cn";
 </script>

@@ -129,14 +129,14 @@ class HomeController extends Controller
                 {
                         if(strval($uuid)=="2")
                         {
-                           return redirect()->guest("http://m.allinnewzealand.com/auth/login?txtMobile=".$mobile."&password=123456&uuid=2");
+                           return redirect()->guest("http://m.kiwisay.cn/auth/login?txtMobile=".$mobile."&password=123456&uuid=2");
                         }
                         elseif(strval($uuid)=="3")
                         {
-                            return redirect()->guest("http://m.allinnewzealand.com/auth/login?txtMobile=".$mobile."&password=123456&uuid=3");
+                            return redirect()->guest("http://m.kiwisay.cn/auth/login?txtMobile=".$mobile."&password=123456&uuid=3");
                         }
                        elseif(strval($uuid)=="1")
-                            return redirect()->guest("http://m.allinnewzealand.com/auth/login?txtMobile=".$mobile."&password=123456");
+                            return redirect()->guest("http://m.kiwisay.cn/auth/login?txtMobile=".$mobile."&password=123456");
                        else
                        {
                             $usersta=new UserStatus();
