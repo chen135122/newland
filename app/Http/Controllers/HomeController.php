@@ -112,6 +112,7 @@ class HomeController extends Controller
                 $newpassword=$user->password;
                 $user->status=1;
                 $user->mobile=$mobile;
+                $user->gender=$userarry->sex;
                 $user->nickname=$userarry->nickname;
                 $user->address=$userarry->country.",".$userarry->province.",".$userarry->city;
                 $user->headimg=$userarry->headimgurl;
