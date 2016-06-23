@@ -89,7 +89,7 @@
 
         </div><!-- End col lg-9 -->
         </section>
-        <section id="section-2" style="display: none;">
+        <section id="section-2">
                 <div class="col-lg-9 col-md-9" id="faq">
                     <h2>房产</h2>
                     <div class="panel-group" id="accordion">
@@ -132,7 +132,7 @@
 
                 </div><!-- End col lg-9 -->
             </section>
-        <section id="section-3" style="display: none;">
+        <section id="section-3" >
             <div class="col-lg-9 col-md-9" id="faq">
                 <h2>留学</h2>
                 <div class="panel-group" id="accordion">
@@ -174,7 +174,7 @@
                 </div>
             </div><!-- End col lg-9 -->
         </section>
-        <section id="section-4" style="display: none;">
+        <section id="section-4">
                 <div class="col-lg-9 col-md-9" id="faq">
                     <h2>资讯</h2>
                     <div class="panel-group" id="accordion">
