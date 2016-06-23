@@ -40,7 +40,7 @@
             overflow:hidden;
         }
         .col-md-3 > h4 span {
-            color:lightcoral;
+            color:#5e8734;
         }
         .tour_title > h3, .hotel_title > h3 {
             line-height: 19px !important;

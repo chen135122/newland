@@ -119,7 +119,7 @@
                 </div>
 
                     <div class="row" id="intro">
-                        <div class="col-md-12 titleDiv"  style="margin-left: 0px;">
+                        <div class="col-md-12 titleDiv">
                             <h4 class="title" >项目特点</h4>
                         </div>
 
@@ -504,15 +504,12 @@
         var ml_top = $("#lightgallery").offset().top,pad=$(".sticky").outerHeight(),mlh=$("#ml").outerHeight();
 
        var y= ml_top -143;
-        console.log('ml_top-143='+y);
-        console.log('t='+t);
+
         if (t > y)
         {
-            console.log('pad='+pad);
+
             var $width=$("#ml").width();
             var $ml = $("#ml");
-//
-//            $("#ml").css("position","fixed");
             $ml.css("position", "fixed").css("top", pad+"px").css("z-index", "999");
             if (window.outerHeight === screen.availHeight || window.outerWidth === screen.availWidth) {
                 $ml.css("width", $width+"px");
@@ -528,12 +525,9 @@
                 }
 
             }
-            $("#ml").css("position", "relative").css("top", "").css("width", "");
-            //$("#ml").css("position", "fixed").css("top", "30px").css("z-index", "999").css("width", "56%");
         }
         else {
             $("#ml").css("position", "relative").css("top", "").css("width", "");
-            //$("#tour_d").css("margin-left", "0");
         }
     }
 
