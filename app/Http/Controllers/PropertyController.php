@@ -20,7 +20,7 @@ class PropertyController extends Controller
         $properties = Property::where('publish','1')->where('status', '<>', 10)->where('status', '<>', 14);
         $Lastedarticle=$this->LastedNews(5);
         $hotpropertys=$this->HotProperty(4);
-        $properties=$properties->orderBy("created_at","desc")->paginate(5);
+        $properties=$properties->orderBy("displayorder","desc")->orderBy("created_at","desc")->paginate(5);
         $allUrl= $this->qrcode();
         return view('property.index')->with(compact('properties','Lastedarticle','hotpropertys','allUrl'));
     }
