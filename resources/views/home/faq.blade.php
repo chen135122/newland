@@ -40,7 +40,7 @@
                     <li><a  class="active"><i class="icon_set_1_icon-37"></i>旅游</a></li>
                     <li><a class="icon-booking"><i class="icon_set_1_icon-23"></i>房产</a></li>
                     <li><a class="icon-booking"><i class="icon_set_1_icon-30"></i>留学</a></li>
-                    <li><a class="icon-booking"><i class="icon_set_1_icon-87"></i>资讯</a></li>
+                    <li><a class="icon-booking"><i class="icon_set_1_icon-87"></i>移民</a></li>
                 </ul>
             </div>
             @include('layouts.partials.left_side')
@@ -54,10 +54,10 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h4 class="panel-title">
-                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo $i ?>">暂时没有数据！</a>
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapsea<?php echo $i ?>">暂时没有数据！</a>
                             </h4>
                         </div>
-                        <div id="collapse<?php echo $i ?>" class="panel-collapse collapse">
+                        <div id="collapsea<?php echo $i ?>" class="panel-collapse collapse">
                             <div class="panel-body">
                                 　　{!! $faq->content !!}
                             </div>
@@ -74,10 +74,10 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo $i ?>">{{$faq->title}}<i class="indicator pull-right icon-plus"></i></a>
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapsea<?php echo $i ?>">{{$faq->title}}<i class="indicator pull-right icon-plus"></i></a>
                         </h4>
                     </div>
-                    <div id="collapse<?php echo $i ?>" class="panel-collapse collapse">
+                    <div id="collapsea<?php echo $i ?>" class="panel-collapse collapse">
                         <div class="panel-body">
                         　　{!! $faq->content !!}
                         </div>
@@ -89,7 +89,7 @@
 
         </div><!-- End col lg-9 -->
         </section>
-        <section id="section-2">
+        <section id="section-2" style="display: none;">
                 <div class="col-lg-9 col-md-9" id="faq">
                     <h2>房产</h2>
                     <div class="panel-group" id="accordion">
@@ -97,10 +97,10 @@
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
-                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo $i ?>">暂时没有数据！</a>
+                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse22<?php echo $i ?>">暂时没有数据！</a>
                                 </h4>
                             </div>
-                            <div id="collapse<?php echo $i ?>" class="panel-collapse collapse">
+                            <div id="collapse22<?php echo $i ?>" class="panel-collapse collapse">
                                 <div class="panel-body">
                                     　　{!! $faq->content !!}
                                 </div>
@@ -117,10 +117,10 @@
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <h4 class="panel-title">
-                                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo $i ?>">{{$faq->title}}<i class="indicator pull-right icon-plus"></i></a>
+                                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse22<?php echo $i ?>">{{$faq->title}}<i class="indicator pull-right icon-plus"></i></a>
                                     </h4>
                                 </div>
-                                <div id="collapse<?php echo $i ?>" class="panel-collapse collapse">
+                                <div id="collapse22<?php echo $i ?>" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         　　{!! $faq->content !!}
                                     </div>
@@ -132,18 +132,18 @@
 
                 </div><!-- End col lg-9 -->
             </section>
-        <section id="section-3" >
+        <section id="section-3" style="display: none;" >
             <div class="col-lg-9 col-md-9" id="faq">
                 <h2>留学</h2>
                 <div class="panel-group" id="accordion">
-                    @if(count(App\Models\Faq::where("type",2)->orderby("displayorder","asc")->select('title','content')->get())<=0)
+                    @if(count(App\Models\Faq::where("type",3)->orderby("displayorder","asc")->select('title','content')->get())<=0)
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
-                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo $i ?>">暂时没有数据！</a>
+                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse33<?php echo $i ?>">暂时没有数据！</a>
                                 </h4>
                             </div>
-                            <div id="collapse<?php echo $i ?>" class="panel-collapse collapse">
+                            <div id="collapsec33<?php echo $i ?>" class="panel-collapse collapse">
                                 <div class="panel-body">
                                     　　{!! $faq->content !!}
                                 </div>
@@ -160,10 +160,10 @@
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
-                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo $i ?>">{{$faq->title}}<i class="indicator pull-right icon-plus"></i></a>
+                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse33<?php echo $i ?>">{{$faq->title}}<i class="indicator pull-right icon-plus"></i></a>
                                 </h4>
                             </div>
-                            <div id="collapse<?php echo $i ?>" class="panel-collapse collapse">
+                            <div id="collapse33<?php echo $i ?>" class="panel-collapse collapse">
                                 <div class="panel-body">
                                     　　{!! $faq->content !!}
                                 </div>
@@ -174,18 +174,18 @@
                 </div>
             </div><!-- End col lg-9 -->
         </section>
-        <section id="section-4">
+        <section id="section-4" style="display: none;">
                 <div class="col-lg-9 col-md-9" id="faq">
-                    <h2>资讯</h2>
+                    <h2>移民</h2>
                     <div class="panel-group" id="accordion">
-                        @if(count(App\Models\Faq::where("type",2)->orderby("displayorder","asc")->select('title','content')->get())<=0)
+                        @if(count(App\Models\Faq::where("type",4)->orderby("displayorder","asc")->select('title','content')->get())<=0)
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <h4 class="panel-title">
-                                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo $i ?>">暂时没有数据！</a>
+                                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse44<?php echo $i ?>">暂时没有数据！</a>
                                     </h4>
                                 </div>
-                                <div id="collapse<?php echo $i ?>" class="panel-collapse collapse">
+                                <div id="collapse44<?php echo $i ?>" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         　　{!! $faq->content !!}
                                     </div>
@@ -202,10 +202,10 @@
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <h4 class="panel-title">
-                                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo $i ?>">{{$faq->title}}<i class="indicator pull-right icon-plus"></i></a>
+                                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse44<?php echo $i ?>">{{$faq->title}}<i class="indicator pull-right icon-plus"></i></a>
                                     </h4>
                                 </div>
-                                <div id="collapse<?php echo $i ?>" class="panel-collapse collapse">
+                                <div id="collapse44<?php echo $i ?>" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         　　{!! $faq->content !!}
                                     </div>
