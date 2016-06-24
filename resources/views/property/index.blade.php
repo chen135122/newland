@@ -202,7 +202,7 @@
         .price_list .price{ margin-top: 5px;}
         .tour_list_desc p{ font-size:14px;
             line-height:24px;;}
-
+        .strip_all_tour_list .label-info{line-height:2.2;}
     </style>
 @endpush
 

@@ -532,7 +532,7 @@
 
     function removeClass(id,obj)
     {
-
+        $('body,html').animate({scrollTop:1000},20);
         var ev = ev || window.event||event;
         var thisId = document.getElementById(id);
         ev.preventDefault();

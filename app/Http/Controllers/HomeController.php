@@ -20,7 +20,7 @@ class HomeController extends Controller
     public function index()
     {
         $hotpropertys=$this->HotProperty(3);
-        $travels=$this->Hottravels(6);
+        $travels=$this->Hottravels(3);
         $HouseCount = Property::where('status', '<>', 0)->where('status', '<>', 4)->count();
         $travelsCount = Travel::where(['publish'=>1,'ishot'=>1])->count();
 
