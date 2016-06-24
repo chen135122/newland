@@ -65,5 +65,6 @@
         .list_desc p{line-height: 22px; padding: 10px 20px 0 0; font-size: 14px;}
         .panel-cont .row{}
         .panel-cont .img_lists{ min-height: 160px;}
+        .parallax-content-1 div h1{ color:#666!important;}
     </style>
 @endsection
