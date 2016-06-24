@@ -64,7 +64,7 @@
         .panel-body img{ width: 220px; height:116px;}
         .list_desc p{line-height: 22px; padding: 10px 20px 0 0; font-size: 14px;}
         .panel-cont .row{}
-        .panel-cont .img_lists{ min-height: 160px;}
+        .panel-cont .img_lists{  margin-bottom: 15px;}
         .list_desc h3{ margin-top: 20px;}
     </style>
 @endsection
