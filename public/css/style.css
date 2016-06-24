@@ -2115,6 +2115,8 @@ ul#contact-info {
     font-size: 12px;
     background: url(../img/bg_login.jpg) center center no-repeat;
     background-size: cover;
+
+    /*-webkit-filter: blur(5px); filter: blur(5px);*/
 }
 
 #login {

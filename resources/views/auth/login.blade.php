@@ -92,5 +92,7 @@
     <link href="/js/artdialog/ui-dialog.css" rel="stylesheet" type="text/css" />
     <style type="text/css">
         .form-group{ margin-bottom: 5px;}
+        footer{ margin-top:0;}
+
     </style>
     @endpush
