@@ -487,7 +487,9 @@
 
 
 <!-- Map -->
-    <script src="http://ditu.google.cn/maps/api/js"></script>
+    <script src="http://ditu.google.cn/maps/api/js?v=3&key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&sensor=false"></script>
+    {{--<script src="https://developers.google.com/maps/documentation/javascript/?hl=zh-cn"></script>--}}
+    {{--<script src="http://ditu.google.cn/maps/api/js"></script>--}}
     <script src="/js/map.js"></script>
 {{--<script src="/js/infobox.js"></script>--}}
 <!-- Carousel -->
