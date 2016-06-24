@@ -487,7 +487,7 @@
 
 
 <!-- Map -->
-    <script src="http://maps.google.cn/maps/api/js"></script>
+    <script src="http://maps.google.com/maps/api/js"></script>
     <script src="/js/map.js"></script>
 {{--<script src="/js/infobox.js"></script>--}}
 <!-- Carousel -->
@@ -504,10 +504,6 @@
         var ml_top = $("#lightgallery").offset().top,pad=$(".sticky").outerHeight(),mlh=$("#ml").outerHeight();
 
        var y= ml_top -143;
-<<<<<<< HEAD
-=======
-
->>>>>>> a471f5d0d2cb5935cff038d72fa668a632cb6ca3
         if (t > y)
         {
 
