@@ -27,7 +27,8 @@ class HomeController extends Controller
         $trusts = Partner::orderBy('displayorder', 'desc')->where("iswork",1)->take(3)->select('id', 'picurl','title')->get();
         $trustsCount = Partner::where("iswork",1)->count();
         $allUrl=$this->url();
-        return view('home.index')->with(compact('hotpropertys','HouseCount','travels','travelsCount','allUrl','trusts','trustsCount'));
+        $banners=\App\Models\Banner::join('nz_category', 'nz_banner.catid', '=', 'nz_category.id')->where('name','首页')->get();
+        return view('home.index')->with(compact('hotpropertys','HouseCount','travels','travelsCount','allUrl','trusts','trustsCount','banners'));
     }
 
     public function faq()
