@@ -4084,7 +4084,7 @@ ul.plan-features {
 .table-list li:nth-child(2n+1) .desc-p{margin-left:28px}
 .header_bg {    background: url(../img/bj_xzdv.png);}
 .sticky .header_bg{ background: none;}
-p.footer_l{ font-size: 13px;line-height: 28px; color:#dddddd;}
+p.footer_l{ font-size: 13px;line-height: 28px; color:#dddddd;margin-top: 10px;}
 .panel-body p{font-size: 14px;line-height: 28px;}
 .fadeInDown {    background: url(../img/search_bg.png) center center no-repeat; width:535px; height:212px; margin:0 auto;}
 .parallax-window .serarch-menu {width:435px;margin:0 auto;}
