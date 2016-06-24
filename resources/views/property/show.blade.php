@@ -487,7 +487,11 @@
 
 
 <!-- Map -->
+<<<<<<< HEAD
     <script src="http://maps.googleapis.cn/maps/api/js"></script>
+=======
+    <script src="http://ditu.google.cn/maps/api/js"></script>
+>>>>>>> cb77ce50a06ee8345adb4e357886c516768d3583
     <script src="/js/map.js"></script>
 {{--<script src="/js/infobox.js"></script>--}}
 <!-- Carousel -->
