@@ -487,7 +487,7 @@
 
 
 <!-- Map -->
-    <script src="http://maps.google.com/maps/api/js"></script>
+    <script src="http://maps.google.cn/maps/api/js"></script>
     <script src="/js/map.js"></script>
 {{--<script src="/js/infobox.js"></script>--}}
 <!-- Carousel -->
