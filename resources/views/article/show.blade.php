@@ -29,7 +29,7 @@
         </ul>
     </div>
 </div><!-- Position -->
-<div class="container margin_60">
+<div class="container margin_30">
     <div class="row">
         <div class="col-md-8 articleContent">
             <h1 class="title">{{$article ->title}}</h1>
@@ -46,21 +46,20 @@
             <hr>
 
             <div class="view_pagetitle">
-                <span><strong>上一篇:</strong>
+                上一篇:
                     @if($next)
                         <a href="/news/{{$next->id}}">{{$next->title}}</a>
                     @else
                         没有了...
                     @endif
-                </span><br />
-                <span><strong>下一篇:</strong>
+              <br />
+                下一篇:
                     @if($prev)
                         <a href="/news/{{$prev->id}}">{{$prev->title}}</a>
                     @else
                         没有了...
                     @endif
-
-                </span><br />
+            <br />
             </div>
 
         </div>
@@ -119,12 +118,7 @@
 @endsection
 
 @push('style')
-<!-- Radio and check inputs -->
-<link href="/css/skins/square/grey.css" rel="stylesheet">
-
-<!-- Range slider -->
-<link href="/css/ion.rangeSlider.css" rel="stylesheet" >
-<link href="/css/ion.rangeSlider.skinFlat.css" rel="stylesheet">
+<link href="/dist/css/lightgallery.css" rel="stylesheet">
 <style>
     .main_title p {
         font-size: 14px !important;
@@ -156,20 +150,16 @@
 
 </style>
 @endpush
-
 @push('script')
-<!-- Specific scripts -->
-<!-- Check and radio inputs -->
-<script src="/js/icheck.js"></script>
-<script>
-    $('input').iCheck({
-        checkboxClass: 'icheckbox_square-grey',
-        radioClass: 'iradio_square-grey'
+<script src="/dist/js/lightgallery.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#lightgallery').find("img").each(function(){
+            $(this).css("cursor","pointer");
+            $(this).attr("data-src",$(this).attr("src"));
+        });
+        $('#lightgallery').lightGallery();
+
     });
-</script>
-
-<script src="/js/vue.min.js"></script>
-<script>
-
 </script>
 @endpush

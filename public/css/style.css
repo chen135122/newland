@@ -4036,7 +4036,7 @@ ul.plan-features {
     font-size: 24px ;
 }
 .articleContent .date{ text-align:center;    margin-bottom:10px;}
-.articleContent .abstract{ border-radius: 5px;font-size:14px; line-height:1.8; background-color:#eee; padding: 10px; }
+.articleContent .abstract{ border-radius: 5px;font-size:14px; line-height:1.8; background-color:#eee; padding: 10px; margin-bottom: 10px; }
 .articleContent .img_wrapper{ overflow: hidden; margin-bottom: 20px;}
 .view_pagetitle { line-height:30px;}
 .room {
@@ -4127,3 +4127,5 @@ p.footer_l{ font-size: 13px;line-height: 28px; color:#dddddd;margin-top: 10px;}
     content: "\e070";
 }
 #xintuo,#liucheng,#daizu,#qingsao,#anfang,#zixun{display: none;}
+.view_pagetitle{font-size: 14px;}
+footer .logo_sticky{margin-top: 15px;}

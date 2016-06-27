@@ -85,128 +85,128 @@
                         </ul>
                     </div>
                 </div>
-
-                <div class="row">
-                    <div class="col-md-3" id="xcjj">
-                        <h3>行程简介</h3>
-                    </div>
-                    <div class="col-md-9">
-                        <h4></h4>
-                        {!!$travel->introduction !!}
-                        {{--<h4>行程特色</h4>--}}
-                        {{--<p>--}}
-                            {{--以上报价仅供参考，可能会因为不同的出发城市及时间会有所浮动--}}
-                        {{--</p>--}}
-
-                    </div>
-                </div>
-                <hr>
-                <div class="row">
-                    <div class="col-md-3" id="cpts">
-                        <h3>产品特色</h3>
-                    </div>
-                    <div class="col-md-9">
-                        <h4></h4>
-                            {!! $travel->feature !!}
-                    </div>
-                </div>
-                <hr>
-                <div class="row">
-                    <div class="col-md-3" id="hbxx">
-                        <h3>费用包含</h3>
-                    </div>
-                    <div class="col-md-9">
-                        <h4></h4>
-                        {!!$travel->feeinclude!!}
-                    </div>
-                </div>
-
-                <hr>
-
-                <div class="container margin_60">
-
-                    <div class="row" id="tour_xc">
-                        <aside id="xingc" class="col-lg-3 col-md-3" style="width:10%;">
-                            <div class="box_style_cat">
-                                <ul id="cat_nav">
-                                    @for($i=0;$i<count($travelDay);$i++)
-                                        <li class="newli"><a href="#travelInfo_{{$i}}" onclick="removeClass('travelInfo_{{$i}}',this)">
-                                              第  {{$i+1}}  天
-                                            </a></li>
-                                     @endfor
-                                </ul>
-                            </div>
-                        </aside>
-                        <div class="col-md-3" id="xcjs">
-                            <h3>行程介绍</h3>
+                <div id="lightgallery">
+                    <div class="row">
+                        <div class="col-md-3" id="xcjj">
+                            <h3>行程简介</h3>
                         </div>
-                        <div class="col-md-8 add_bottom_15" id="tour_d" style="">
-                            @for($i=0;$i<count($travelDay);$i++)
-                            <div class="form_title" id="travelInfo_{{$i}}">
-                                <h3><strong>{{$i+1}}</strong>DAY{{$i+1}}</h3>
+                        <div class="col-md-9">
+                            <h4></h4>
+                            {!!$travel->introduction !!}
+                            {{--<h4>行程特色</h4>--}}
+                            {{--<p>--}}
+                                {{--以上报价仅供参考，可能会因为不同的出发城市及时间会有所浮动--}}
+                            {{--</p>--}}
+
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-3" id="cpts">
+                            <h3>产品特色</h3>
+                        </div>
+                        <div class="col-md-9">
+                            <h4></h4>
+                                {!! $travel->feature !!}
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-3" id="hbxx">
+                            <h3>费用包含</h3>
+                        </div>
+                        <div class="col-md-9">
+                            <h4></h4>
+                            {!!$travel->feeinclude!!}
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="container margin_60">
+
+                        <div class="row" id="tour_xc">
+                            <aside id="xingc" class="col-lg-3 col-md-3" style="width:10%;">
+                                <div class="box_style_cat">
+                                    <ul id="cat_nav">
+                                        @for($i=0;$i<count($travelDay);$i++)
+                                            <li class="newli"><a href="#travelInfo_{{$i}}" onclick="removeClass('travelInfo_{{$i}}',this)">
+                                                  第  {{$i+1}}  天
+                                                </a></li>
+                                         @endfor
+                                    </ul>
+                                </div>
+                            </aside>
+                            <div class="col-md-3" id="xcjs">
+                                <h3>行程介绍</h3>
                             </div>
-                                <div class="step">
-                                    <div class="row">
-                                        <div class=" table-responsive">
-                                            <table class="table table-striped">
-                                                <thead>
-                                                <tr>
-                                                    <th colspan="2">
-                                                        第{{$i+1}}天:{{$travelDay[$i]->title}}
-                                                    </th>
-                                                </tr>
-                                                </thead>
-                                                <tbody>
-                                                @foreach(($travelDay[$i]->dayDetail()->get()) as $detail)
+                            <div class="col-md-8 add_bottom_15" id="tour_d" style="">
+                                @for($i=0;$i<count($travelDay);$i++)
+                                <div class="form_title" id="travelInfo_{{$i}}">
+                                    <h3><strong>{{$i+1}}</strong>DAY{{$i+1}}</h3>
+                                </div>
+                                    <div class="step">
+                                        <div class="row">
+                                            <div class=" table-responsive">
+                                                <table class="table table-striped">
+                                                    <thead>
                                                     <tr>
-                                                        <td style="width: 100px;">
-                                                            {{$detail->title}}
-                                                        </td>
-                                                        <td>
-                                                            @if(!empty($detail->introduction))
-                                                                {!! $detail->introduction !!}
-                                                                @else
-                                                                {{$detail->title}}
-                                                                @endif
-                                                             @if(count($detail->detailImg()->get())>0)
-                                                                    <ul class="time_photo">
-                                                                        @foreach(($detail->detailImg()->get()) as $img)
-                                                                            <li>
-                                                                                <img src="{{$img->picurl}}">
-                                                                                <p style="text-align:center;padding-top:10px;font-family:'Microsoft YaHei' ">{{empty($img->title)?$travelDay[$i]->title:$img->title}}</p>
-                                                                            </li>
-                                                                            @endforeach
-                                                                    </ul>
-                                                                @endif
-                                                        </td>
+                                                        <th colspan="2">
+                                                            第{{$i+1}}天:{{$travelDay[$i]->title}}
+                                                        </th>
                                                     </tr>
-                                                @endforeach
-                                                </tbody>
-                                            </table>
+                                                    </thead>
+                                                    <tbody>
+                                                    @foreach(($travelDay[$i]->dayDetail()->get()) as $detail)
+                                                        <tr>
+                                                            <td style="width: 100px;">
+                                                                {{$detail->title}}
+                                                            </td>
+                                                            <td>
+                                                                @if(!empty($detail->introduction))
+                                                                    {!! $detail->introduction !!}
+                                                                    @else
+                                                                    {{$detail->title}}
+                                                                    @endif
+                                                                 @if(count($detail->detailImg()->get())>0)
+                                                                        <ul class="time_photo">
+                                                                            @foreach(($detail->detailImg()->get()) as $img)
+                                                                                <li>
+                                                                                    <img src="{{$img->picurl}}">
+                                                                                    <p style="text-align:center;padding-top:10px;font-family:'Microsoft YaHei' ">{{empty($img->title)?$travelDay[$i]->title:$img->title}}</p>
+                                                                                </li>
+                                                                                @endforeach
+                                                                        </ul>
+                                                                    @endif
+                                                            </td>
+                                                        </tr>
+                                                    @endforeach
+                                                    </tbody>
+                                                </table>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            @endfor
-                        </div>
-                    </div><!--End row -->
-                </div>
-
-                <hr>
-
-                <div class="row">
-                    <div class="col-md-3" id="mstj">
-                        <h3>美食推荐</h3>
+                                @endfor
+                            </div>
+                        </div><!--End row -->
                     </div>
-                    <div class="col-md-9">
-                        <div class="foodmod">
-                          @foreach($travel->cate()->get() as $cate)
-                             {!! $cate->introduction !!}
-                         @endforeach
 
+                    <hr>
+
+                    <div class="row">
+                        <div class="col-md-3" id="mstj">
+                            <h3>美食推荐</h3>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="foodmod">
+                              @foreach($travel->cate()->get() as $cate)
+                                 {!! $cate->introduction !!}
+                             @endforeach
+
+                            </div>
                         </div>
                     </div>
-                </div>
-
+                    </div>
             </div>
 
             <aside class="col-md-4">
@@ -420,6 +420,7 @@
 {{--<link href="/css/owl.theme.css" rel="stylesheet">--}}
 <link href="/css/component.css" rel="stylesheet">
 <link href="/css/content.css" rel="stylesheet">
+<link href="/dist/css/lightgallery.css" rel="stylesheet">
 <style>
     #price_single_main span {
         font-size: 60px;
@@ -469,7 +470,16 @@
 @push('script')
 <!-- Specific scripts -->
 <script src="/js/icheck.js"></script>
+<script src="/dist/js/lightgallery.js"></script>
 <script>
+    $(document).ready(function(){
+        $('#lightgallery').find("img").each(function(){
+            $(this).css("cursor","pointer");
+            $(this).attr("data-src",$(this).attr("src"));
+        });
+        $('#lightgallery').lightGallery();
+
+    });
     $('input').iCheck({
         checkboxClass: 'icheckbox_square-grey',
         radioClass: 'iradio_square-grey'

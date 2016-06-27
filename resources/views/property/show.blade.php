@@ -14,7 +14,7 @@
         <div class="parallax-content-2">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-8 col-sm-8">
+                    <div class="col-md-12 col-sm-12">
                          <h1>{{$property ->title}}</h1>
                         @if(isset($property->address))
                         <span>{{$property ->address}}</span>
@@ -27,11 +27,7 @@
                             </p>
                         @endif
                     </div>
-                    <div class="col-md-4 col-sm-4">
-                        <div id="price_single_main" class="hotel" >
-                            {{--<div style="font-size: 20px;"><sup>NZ$</sup><span class="price" style="font-size: 60px;">{{intval($property ->total_price)}}</span>起</div>--}}
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </div>
@@ -205,7 +201,7 @@
                 <div class="box_style_1 expose">
                     <h3 class="inner">开发商介绍</h3>
                     <div class="row">
-                        <small> {!! $property->developers->intro !!}</small>
+                        {!! $property->developers->intro !!}
                     </div>
 
                 </div>

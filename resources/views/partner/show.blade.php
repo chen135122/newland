@@ -36,7 +36,7 @@
     <div class="row">
         <div class="col-lg-8 col-md-8" >
             <h2 class="page-header">{{$model ->title}}</h2>
-            <div class="panel-cont">
+            <div class="panel-cont" id="lightgallery">
                 {!! $model ->content !!}
             </div>
         </div>
@@ -45,11 +45,28 @@
         </aside>
     </div><!-- End row -->
 </div><!-- End container -->
-    <style>
-        .panel-body img{ width: 220px; height:116px;}
-        .list_desc p{line-height: 22px; padding: 10px 20px 0 0; font-size: 14px;}
-        .panel-cont .row{}
-        .panel-cont .img_lists{ min-height: 160px;}
-        .parallax-content-1 div h1{ color:#666!important;}
-    </style>
+
 @endsection
+@push('style')
+<link href="/dist/css/lightgallery.css" rel="stylesheet">
+<style>
+    .panel-body img{ width: 220px; height:116px;}
+    .list_desc p{line-height: 22px; padding: 10px 20px 0 0; font-size: 14px;}
+    .panel-cont .row{}
+    .panel-cont .img_lists{ min-height: 160px;}
+    .parallax-content-1 div h1{ color:#666!important;}
+</style>
+@endpush
+@push('script')
+<script src="/dist/js/lightgallery.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#lightgallery').find("img").each(function(){
+            $(this).css("cursor","pointer");
+            $(this).attr("data-src",$(this).attr("src"));
+        });
+        $('#lightgallery').lightGallery();
+
+    });
+</script>
+@endpush
