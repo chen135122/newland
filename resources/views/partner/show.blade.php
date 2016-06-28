@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title')合作伙伴
+@section('title'){{$model ->title}}
 @stop
 @section('content')
 

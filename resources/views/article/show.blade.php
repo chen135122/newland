@@ -40,7 +40,7 @@
             @if($article ->abstract)
             <p class="abstract">{!!$article ->abstract !!}</p>
             @endif
-            <div class="artibody">
+            <div class="artibody"  id="lightgallery">
                 {!! $article ->content !!}
             </div>
             <hr>
