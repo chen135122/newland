@@ -19,8 +19,8 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $hotpropertys=$this->HotProperty(4);
-        $travels=$this->Hottravels(4);
+        $hotpropertys=$this->HotProperty(3);
+        $travels=$this->Hottravels(3);
         $HouseCount = Property::where('status', '<>', 0)->where('status', '<>', 4)->count();
         $travelsCount = Travel::where(['publish'=>1,'ishot'=>1])->count();
 
@@ -75,7 +75,7 @@ class HomeController extends Controller
     //热门房产
     public function HotProperty($n)
     {
-        $property = Property::where(['publish'=>1,'ishot'=>1])->where('status', '<>', 10)->where('status', '<>', 14)->orderBy('created_at', 'desc');
+        $property = Property::where(['publish'=>1,'ishot'=>1])->where('status', '<>', 10)->where('status', '<>', 14)->orderBy("displayorder","desc")->orderBy("created_at","desc");
         $property= $property->take($n)->select('id', 'title','picurl','total_price')->get();
         return $property;
     }

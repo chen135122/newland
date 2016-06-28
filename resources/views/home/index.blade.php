@@ -192,7 +192,7 @@
     </div>
     <div class="row">
         @foreach($hotpropertys as $hotproperty)
-        <div class="col-md-3 col-sm-6 wow zoomIn">
+        <div class="col-md-4 col-sm-6 wow zoomIn">
             <div class="hotel_container">
                 <div class="img_container">
                     <a href="/property/{{$hotproperty->id}}">
@@ -201,7 +201,7 @@
                     </a>
                 </div>
                 <div class="hotel_title">
-                    <h3>{{$hotproperty->title}}</h3>
+                    <h3>{!!str_limit($hotproperty->title,40) !!}</h3>
                 </div>
             </div><!-- End box -->
         </div>
@@ -217,11 +217,11 @@
     </div>
     <div class="row">
         @foreach($travels as $travel)
-                <div class="col-md-3 col-sm-6 wow zoomIn">
+                <div class="col-md-4 col-sm-6 wow zoomIn">
                     <div class="tour_container">
                         <div class="img_container">
                             <a href="tour/{{$travel->id}}">
-                                <img src="{{$travel->picurl}}" style="max-height:220px;min-height:220px;max-width: 360px;min-width:360px;" class="img-responsive" alt="">
+                                <img src="{{$travel->picurl}}" class="img-responsive" alt="【{{$travel->bigtitle}}】 {{$travel->title}}">
                                 @if($travel->istop==1)) <div class="ribbon top_rated"></div> @endif
                                 <div class="short_info">
                                     <span class="price">￥{{ceil($travel->referenceprice)}}</span>

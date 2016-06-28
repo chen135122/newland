@@ -2782,15 +2782,15 @@ ul.list_order {
     position: relative;
     overflow: hidden;
     border: 1px solid #fff;
-    height:252px;
+    max-height:346px;
     /*overflow: hidden;*/
 }
 
 .img_container a img{
-    width:262px; height: 252px;margin: 0 auto;
+    width:362px; height: 346px;margin: 0 auto;
 }
 .img_container a:hover img {
-    width:291px; height: 260px;
+    width:382px; height: 364px;
     transform: scale(1.1);
     -webkit-transform: scale(1.1);
     -moz-transform:scale(1.1);
