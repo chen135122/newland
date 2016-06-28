@@ -192,14 +192,12 @@
     </div>
     <div class="row">
         @foreach($hotpropertys as $hotproperty)
-        <div class="col-md-4 col-sm-6 wow zoomIn">
+        <div class="col-md-3 col-sm-6 wow zoomIn">
             <div class="hotel_container">
                 <div class="img_container">
                     <a href="/property/{{$hotproperty->id}}">
-                        <img src="{{$hotproperty->picurl}}"  style="max-height:240px;min-height:240px;max-width: 360px;min-width:360px;" class="img-responsive" alt="">
-                        <div class="short_info hotel">
-                            {{$hotproperty->address}}
-                        </div>
+                        <img src="{{$hotproperty->picurl}}" class="img-responsive" alt="{{$hotproperty->title}}">
+
                     </a>
                 </div>
                 <div class="hotel_title">
@@ -219,7 +217,7 @@
     </div>
     <div class="row">
         @foreach($travels as $travel)
-                <div class="col-md-4 col-sm-6 wow zoomIn">
+                <div class="col-md-3 col-sm-6 wow zoomIn">
                     <div class="tour_container">
                         <div class="img_container">
                             <a href="tour/{{$travel->id}}">

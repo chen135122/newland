@@ -155,9 +155,7 @@
 <link href="/css/ion.rangeSlider.skinFlat.css" rel="stylesheet">
     <style>
         .tour_list_desc h3{ margin-top: 20px;}
-        .strip_all_tour_list .img_list img{
-            width:320px; height: 240px;
-        }
+
         .main_title p {
             font-size: 14px !important;
             margin-top: 5px;

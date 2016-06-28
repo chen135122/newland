@@ -179,12 +179,12 @@
 	 height:147px;
      overflow: hidden;
  }
- .price_list{
-	 height:160px;
- }
- .img_list img{
-	 height:160px;
-}
+ /*.price_list{*/
+	 /*height:160px;*/
+ /*}*/
+ /*.img_list img{*/
+	 /*height:160px;*/
+/*}*/
     .price_list{
         font-size: 23px !important;
     }

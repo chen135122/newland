@@ -212,10 +212,6 @@
         <link href='http://fonts.useso.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
 
 <style>
-
-    .strip_all_tour_list .img_list img{
-        width:320px; height: 240px;
-    }
     .main_title p {
         font-size: 14px !important;
         margin-top: 5px;

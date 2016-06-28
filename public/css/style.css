@@ -1239,19 +1239,23 @@ ul#cat_nav {
     .img_list img {
         width: auto;
         position: absolute;
-        left: -10%;
+        left: 0;
     }
-
+.strip_all_tour_list .img_list img{
+    width:229px; height: 220px;
+}
     .img_list a img {
-        -webkit-transform: scale(1.2);
-        transform: scale(1.2);
+        -webkit-transform: scale(1);
+        transform: scale(1);
         -webkit-transition: all .7s ease;
         transition: all .7s ease;
     }
 
     .img_list a:hover img {
-        -webkit-transform: scale(1);
-        transform: scale(1);
+        width:254px; height: 244px;
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
+        -moz-transform:scale(1.1);
     }
 
     .img_list .short_info {
@@ -2778,8 +2782,25 @@ ul.list_order {
     position: relative;
     overflow: hidden;
     border: 1px solid #fff;
+    height:252px;
+    /*overflow: hidden;*/
 }
 
+.img_container a img{
+    width:262px; height: 252px;margin: 0 auto;
+}
+.img_container a:hover img {
+    width:291px; height: 260px;
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -moz-transform:scale(1.1);
+}
+.img_container a img {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: all .7s ease;
+    transition: all .7s ease;
+}
 .tour_container .tour_title {
     padding: 15px;
     position: relative;
@@ -2855,20 +2876,20 @@ ul.list_order {
     font-style: normal;
 }
 
-.img_container a:hover img {
-    -webkit-transform: scale(1);
-    transform: scale(1);
-}
+/*.img_container a:hover img {*/
+    /*-webkit-transform: scale(1);*/
+    /*transform: scale(1);*/
+/*}*/
 
-.img_container img {
-    -webkit-transform: scale(1.2);
-    transform: scale(1.2);
-    -webkit-transition: all .7s ease;
-    transition: all .7s ease;
-}
-.hotel_container .img_container img {
-    /*max-height: 120px;*/
-}
+/*.img_container img {*/
+    /*-webkit-transform: scale(1.2);*/
+    /*transform: scale(1.2);*/
+    /*-webkit-transition: all .7s ease;*/
+    /*transition: all .7s ease;*/
+/*}*/
+/*.hotel_container .img_container img {*/
+    /*!*max-height: 120px;*!*/
+/*}*/
 .short_info {
     position: absolute;
     left: 0;
