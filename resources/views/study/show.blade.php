@@ -216,7 +216,7 @@
                         <div class="row">
                             <div class="col-md-6 col-sm-6 room">
                                 <div>
-                                    <a href="/property/{{$hotproperty->id}}"><img src="{{$hotproperty->picurl}}" alt="{{$hotproperty->title}}" width="70" height="70" class="/img-circle"></a>
+                                    <a href="/property/{{$hotproperty->id}}"><img src="{{$hotproperty->picurl}}" alt="{{$hotproperty->title}}" class="img-circle"></a>
                                 </div>
                                 <div class="hold_room">
                                     <h4><a href="/property/{{$hotproperty->id}}">{!!str_limit(strip_tags($hotproperty->title),45) !!}</a></h4>
@@ -243,7 +243,7 @@
                         <div class="row">
                             <div class="col-md-6 col-sm-6 room">
                                 <div>
-                                    <img src="{{$article2->picurl}}" alt="" width="68" height="68" class="/img-circle">
+                                    <img src="{{$article2->picurl}}" alt="" width="68" height="68" class="img-circle">
                                 </div>
                                 <div class="hold_room">
                                     <h4><a href="/news/{{$article2->id}}">{{$article2->title}}</a></h4>

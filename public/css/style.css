@@ -1232,7 +1232,7 @@ ul#cat_nav {
 
 .img_list {
     overflow: hidden;
-    min-height: 220px;
+    min-height: 191px;
     position: relative;
 }
 
@@ -1242,7 +1242,7 @@ ul#cat_nav {
         left: 0;
     }
 .strip_all_tour_list .img_list img{
-    width:229px; height: 220px;
+    width:229px; height: 172px;
 }
     .img_list a img {
         -webkit-transform: scale(1);
@@ -1252,7 +1252,7 @@ ul#cat_nav {
     }
 
     .img_list a:hover img {
-        width:254px; height: 244px;
+        width:254px; height:191px;
         -webkit-transform: scale(1.1);
         transform: scale(1.1);
         -moz-transform:scale(1.1);
@@ -1271,7 +1271,7 @@ ul#cat_nav {
 .tour_list_desc {
     padding: 10px 20px 0 0;
     border-right: 1px solid #ededed;
-    height: 220px;
+    height: 191px;
     line-height: 17px;
 }
 
@@ -1305,7 +1305,7 @@ ul#cat_nav {
 }
 .price_list {
     display: table;
-    height: 220px;
+    height: 191px;
     font-size: 38px;
     color: #e74c3c;
     width: 100%;
@@ -2787,10 +2787,10 @@ ul.list_order {
 }
 
 .img_container a img{
-    width:362px; height: 346px;margin: 0 auto;
+    width:362px; height: 272px;margin: 0 auto;
 }
 .img_container a:hover img {
-    width:382px; height: 364px;
+    width:372px; height: 279px;
     transform: scale(1.1);
     -webkit-transform: scale(1.1);
     -moz-transform:scale(1.1);
@@ -4150,3 +4150,4 @@ p.footer_l{ font-size: 13px;line-height: 28px; color:#dddddd;margin-top: 10px;}
 #xintuo,#liucheng,#daizu,#qingsao,#anfang,#zixun{display: none;}
 .view_pagetitle{font-size: 14px;}
 footer .logo_sticky{margin-top: 15px;}
+.expose .img-circle{border-radius: 0; width:93px; height: 70px;}
