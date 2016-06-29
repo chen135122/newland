@@ -1232,7 +1232,7 @@ ul#cat_nav {
 
 .img_list {
     overflow: hidden;
-    min-height: 191px;
+    height: 172px;
     position: relative;
 }
 
@@ -1271,20 +1271,20 @@ ul#cat_nav {
 .tour_list_desc {
     padding: 10px 20px 0 0;
     border-right: 1px solid #ededed;
-    height: 191px;
+    height: 172px;
     line-height: 17px;
 }
 
     .tour_list_desc h3 {
         font-size: 18px;
         line-height: 20px;
-        margin-top: 0;
+        margin-top: 10px;
         margin-bottom: 10px;
     }
 .style_list_desc {
     padding: 10px 20px 0 0;
     border-right: 1px solid #ededed;
-    height: 180px;
+    height: 172px;
     line-height: 17px;
 }
 
@@ -1305,7 +1305,7 @@ ul#cat_nav {
 }
 .price_list {
     display: table;
-    height: 191px;
+    height: 172px;
     font-size: 38px;
     color: #e74c3c;
     width: 100%;
@@ -2782,7 +2782,7 @@ ul.list_order {
     position: relative;
     overflow: hidden;
     border: 1px solid #fff;
-    max-height:346px;
+    max-height:272px;
     /*overflow: hidden;*/
 }
 

@@ -52,8 +52,8 @@
                             <div class="clearfix visible-xs-block"></div>
                             <div class="col-lg-6 col-md-6 col-sm-6" style="cursor:pointer" onclick="window.location='/news/{{$article->id}}'">
                                 <div class="tour_list_desc">
-                                    <h3>{{$article->title}}</h3>
-                                    <p> {!!str_limit($article->abstract,350) !!}</p>
+                                    <h3>{!!str_limit(strip_tags($article->title),40) !!}</h3>
+                                    <p> {!!str_limit($article->abstract,250) !!}</p>
                                 </div>
                             </div>
                             <div class="col-lg-2 col-md-2 col-sm-2">

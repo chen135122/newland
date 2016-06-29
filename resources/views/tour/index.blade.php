@@ -97,8 +97,7 @@
                                 @endif
                             <div class="img_list">
                                 <a href="/tour/{{$travel->id}}">
-                                    <div class=""></div><img src="{{$travel->picurl}}" alt="">
-                                    {{--<i class="icon_set_1_icon-4"></i>--}}
+                                    <div class=""></div><img src="{{$travel->picurl}}" alt=" {{$travel->title}}">
                                     <div class="short_info">{{$travel->start_place}} </div>
                                 </a>
                             </div>
@@ -110,7 +109,7 @@
                                 <h3><strong>【{{$travel->bigtitle}}】</strong> {{$travel->title}}</h3>
                                 <p>
                                     @if(!empty($travel->introduction))
-                                    {!!strip_tags($travel->introduction)!!}
+                                        {!!str_limit(strip_tags($travel->introduction),200) !!}
                                     @else
                                     {{$travel->title}}
                                     @endif
@@ -165,20 +164,12 @@
         height:3em;
     }
 	.col-lg-6{
-		width:55%;
+		width:48%;
 	}
-	.col-lg-4
-	{
-		width:26.33333333%;
-	}
-	 .img_list{
-	 min-height:180px;
- }
- .tour_list_desc
- {
-	 height:147px;
-     overflow: hidden;
- }
+	 /*.img_list{*/
+	 /*min-height:180px;*/
+ /*}*/
+
  /*.price_list{*/
 	 /*height:160px;*/
  /*}*/
@@ -222,7 +213,7 @@
     .irs-with-grid{
         width: 95%;
     }
-
+    .strip_all_tour_list .col-md-4{width:260px !important;}
 </style>
 @endpush
 
