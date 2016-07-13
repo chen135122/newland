@@ -78,8 +78,8 @@
         <ul>
             @foreach($banners as $banner)
 
-            @if(isset($banner->link))
-                <li style="cursor:pointer" onclick="self.location='http://www.rabbitpre.com/m/yzFfEJviw?lc=6&sui=NPF8Ui8k#'" data-transition="fade" data-slotamount="7" data-masterspeed="500" data-saveperformance="on" data-title="Intro Slide">
+            @if($banner->link)
+                <li style="cursor:pointer" onclick="self.location='{{$banner->link}}'" data-transition="fade" data-slotamount="7" data-masterspeed="500" data-saveperformance="on" data-title="Intro Slide">
 
             @else
                 <li data-transition="fade" data-slotamount="7" data-masterspeed="500" data-saveperformance="on" data-title="Intro Slide">
