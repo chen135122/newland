@@ -1276,7 +1276,7 @@ ul#cat_nav {
 }
 
     .tour_list_desc h3 {
-        font-size: 18px;
+        font-size: 16px ;
         line-height: 20px;
         margin-top: 10px;
         margin-bottom: 10px;
@@ -4123,11 +4123,12 @@ p.footer_l{ font-size: 13px;line-height: 28px; color:#dddddd;margin-top: 10px;}
 .hold_room p.tags{margin:0;}
 .hold_room  h4{margin-bottom: 5px;}
 .panel-cont{overflow: hidden;}
-.panel-cont a{  color: #136ec2;
+.panel-cont a{  color: #333;  font-family:'Microsoft YaHei',Arial,sans-serif;
+    font-size:18px;
     text-decoration: none;}
-.panel-cont a:hover{ text-decoration: underline; color: #136ec2;}
+.panel-cont a:hover{ text-decoration: underline;}
 .label-info{font-size: 14px;}
-
+.container .page-header{font-family:'Microsoft YaHei',Arial,sans-serif;}
 .closemap .close {position:absolute; right:50px; display:block;top:470px;
     color: #FFF;
     cursor: pointer;

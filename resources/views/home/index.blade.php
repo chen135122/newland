@@ -144,11 +144,11 @@
                     新西兰旅游,为您提供梦幻般的旅游,体验不一样的旅程
                 </p>
             </div>
-            <div class="col-md-3 col-sm-6 col-xs-6 text-center"  style="cursor: pointer;" onclick="window.location='/study'">
+            <div class="col-md-3 col-sm-6 col-xs-6 text-center"  style="cursor: pointer;" onclick="window.location='/immigrant'">
                 <p>
                     <img src="/img/icon-school.png" class="icon">
                 </p>
-                <h4><span>移民留学</span></h4>
+                <h4><span>新西兰移民</span></h4>
                 <p class="tp_detail">
                     我们提供中小学和大学最权威的留学咨询，以及各类移民资讯
                 </p>

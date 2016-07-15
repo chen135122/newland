@@ -65,6 +65,6 @@
         .list_desc p{line-height: 22px; padding: 10px 20px 0 0; font-size: 14px;}
         .panel-cont .row{}
         .panel-cont .img_lists{  margin-bottom: 15px;}
-        .list_desc h3{ margin-top: 20px;}
+        .list_desc h3{ margin-top: 40px;}
     </style>
 @endsection
