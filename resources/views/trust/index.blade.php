@@ -66,5 +66,9 @@
         .panel-cont .row{}
         .panel-cont .img_lists{  margin-bottom: 15px;}
         .list_desc h3{ margin-top: 20px;}
+        .container .panel-cont .row{
+            box-shadow:1px 1px 0 0 #eee;border:1px solid #eee;border-radius:3px;border-top:none;
+            margin-bottom: 15px;
+        }
     </style>
 @endsection
