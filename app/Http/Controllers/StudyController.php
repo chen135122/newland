@@ -50,7 +50,7 @@ class StudyController extends Controller
             $regiondlist=Region::where('parent_id', $cid)->get();
             $parames["did"]=$did;
         }
-        $studys = $studys->paginate(5)->appends($parames);
+        $studys = $studys->orderBy('displayorder', 'asc')->paginate(5)->appends($parames);
         $allUrl= $this->qrcode();
         return view('study.index')->with(compact('studys','regionlist','regionclist','regiondlist','rid','cid','did','Lastedarticle','hotpropertys','allUrl'));
     }
@@ -131,7 +131,7 @@ class StudyController extends Controller
             $parames["did"]=$did;
         }
 
-        $studys = $studys->paginate(5)->appends($parames);
+        $studys = $studys->orderBy('displayorder', 'asc')->paginate(5)->appends($parames);
         $Lastedarticle=$this->LastedNews(5);
         $hotpropertys=$this->HotProperty(4);
         $allUrl= $this->qrcode();
@@ -151,7 +151,7 @@ class StudyController extends Controller
     //最新资讯
     public function LastedNews($n)
     {
-        $article= Article::where(['publish'=>1,'ishot'=>1,'catid'=>8])->orderBy('displayorder', 'desc')->take($n)->select('id', 'title','picurl','abstract')->get();
+        $article= Article::where(['publish'=>1,'ishot'=>1,'catid'=>8])->orderBy('displayorder', 'asc')->take($n)->select('id', 'title','picurl','abstract')->get();
         return $article;
     }
 
@@ -159,7 +159,7 @@ class StudyController extends Controller
     //热门房产
     public function HotProperty($n)
     {
-        $property= Property::where(['publish'=>1,'ishot'=>1])->orderBy('id', 'desc')->take($n)->select('id', 'title','picurl','address','tagsid')->get();
+        $property= Property::where(['publish'=>1,'ishot'=>1])->orderBy('displayorder', 'asc')->take($n)->select('id', 'title','picurl','address','tagsid')->get();
         return $property;
     }
 }

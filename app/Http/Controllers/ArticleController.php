@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 use App\Models\Property;
 use App\Models\Article;
+use App\Models\Study;
+use App\Models\StudySP;
+use App\Models\Travel;
 use App\Models\ArticleCategory;
 use Illuminate\Http\Request;
 use Overtrue\Wechat\QRCode;
@@ -12,9 +15,7 @@ class ArticleController extends Controller
 {
     public function index()
     {
-
-    //        $articles = Article::where('status',1)->where('picurl','<>', '')->orderBy('displayorder', 'desc')->paginate(10);
-        $articles = Article::where('publish',1)->orderBy('displayorder', 'desc')->paginate(10);
+        $articles = Article::where('publish',1)->orderBy('displayorder', 'asc')->paginate(10);
         $Lastedarticle=$this->LastedNews(5);
         $hotpropertys=$this->HotProperty(4);
         $allUrl= $this->qrcode();
@@ -24,13 +25,15 @@ class ArticleController extends Controller
 
     public function index_type($type)
     {
-        //        $articles = Article::where('status',1)->where('picurl','<>', '')->orderBy('displayorder', 'desc')->paginate(10);
-        $articles = Article::where('publish',1)->where('catid',$type)->where('picurl','<>', '')->orderBy('id', 'desc')->paginate(10);
+        $articles = Article::where('publish',1)->where('catid',$type)->where('picurl','<>', '')->orderBy('displayorder', 'asc')->paginate(10);
         $Lastedarticle=$this->LastedNews(5);
         $hotpropertys=$this->HotProperty(4);
         $typename=ArticleCategory::where('id',$type)->pluck('name')->first();
         $allUrl= $this->qrcode();
-        return view('article.index_type')->with(compact('articles','Lastedarticle','hotpropertys','type','typename','allUrl'));
+        $hottours=$this->HotTour();
+        $hotSchools=$this->HotSchools();
+        $studysp=$this->HotXiaoXue();
+        return view('article.index_type')->with(compact('articles','Lastedarticle','hotpropertys','type','typename','allUrl','hottours','hotSchools','studysp'));
 
     }
     public  function  qrcode(){
@@ -53,7 +56,7 @@ class ArticleController extends Controller
         $Lastedarticle=$this->LastedNews(5);
         $hotpropertys=$this->HotProperty(4);
         $article = Article::where('publish',1)->where('id', $id)->first();
-        $prev= Article::where('publish',1)->where('id', '<',$id)->select('id', 'title')->orderBy('id', 'desc')->first();
+        $prev= Article::where('publish',1)->where('id', '<',$id)->select('id', 'title')->orderBy('id', 'asc')->first();
         $next= Article::where('publish',1)->where('id', '>', $id)->select('id', 'title')->first();
         $allUrl= $this->qrcode();
         return view('article.show')->with(compact('article','prev','next','Lastedarticle','hotpropertys','allUrl'));
@@ -61,7 +64,7 @@ class ArticleController extends Controller
     //最新资讯
     public function LastedNews($n)
     {
-        $article= Article::where(['publish'=>1,'ishot'=>1])->orderBy('displayorder', 'desc')->orderBy('created_at', 'desc')->take($n)->select('id', 'title','picurl','abstract')->get();
+        $article= Article::where(['publish'=>1,'ishot'=>1])->orderBy('displayorder', 'asc')->orderBy('created_at', 'asc')->take($n)->select('id', 'title','picurl','abstract')->get();
         return $article;
     }
 
@@ -69,8 +72,29 @@ class ArticleController extends Controller
     //热门房产
     public function HotProperty($n)
     {
-        $property= Property::where(['publish'=>1,'ishot'=>1])->where('status', '<>', 10)->where('status', '<>', 14)->orderBy('created_at', 'desc')->take($n)->select('id', 'title','picurl','address','tagsid')->get();
+        $property= Property::where(['publish'=>1,'ishot'=>1])->where('status', '<>', 10)->where('status', '<>', 14)->orderBy('created_at', 'asc')->take($n)->select('id', 'title','picurl','address','tagsid')->get();
         return $property;
+    }
+
+    //热门旅游
+    public function HotTour()
+    {
+        $travels= Travel::where(['publish'=>1,'ishot'=>1])->orderBy("displayorder","asc")->select('id', 'title','picurl')->get();
+        return $travels;
+    }
+
+    //热门学校
+    public function HotSchools()
+    {
+        $schools= Study::where(['publish'=>1,'ishot'=>1])->orderBy('created_at', 'asc')->select('id', 'cn_name','logo','tagsid')->get();
+        return $schools;
+    }
+
+    //热门学校
+    public function HotXiaoXue()
+    {
+        $studysp= StudySP::where(['publish'=>1,'ishot'=>1])->orderBy('created_at', 'asc')->select('id', 'name','picurl')->get();
+        return $studysp;
     }
 
 }

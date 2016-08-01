@@ -43,11 +43,11 @@ class TourController extends Controller
             } else if ($sortprice == "1") {
                 $travels = $travels->orderBy("referenceprice", "asc");
             } else {
-                $travels = $travels->orderBy("created_at", "desc");
+                $travels = $travels->orderBy("displayorder", "asc");
             }
             $parames["sortPrice"]=request()->get('sortPrice');
         } else {
-            $travels = $travels->orderBy("displayorder", "desc","created_at", "desc");
+            $travels = $travels->orderBy("displayorder", "asc","created_at", "desc");
         }
 
         if (!empty($request->get('price'))) {
@@ -128,7 +128,7 @@ class TourController extends Controller
 
     public function LastedNews($n)
     {
-        $article = Article::where(['publish'=>1,'ishot'=>1,'catid'=>6])->orderBy('displayorder', 'desc')->take($n)->select('id', 'title', 'picurl', 'abstract')->get();
+        $article = Article::where(['publish'=>1,'ishot'=>1,'catid'=>6])->orderBy('displayorder', 'asc')->take($n)->select('id', 'title', 'picurl', 'abstract')->get();
         return $article;
     }
 
@@ -136,7 +136,7 @@ class TourController extends Controller
     //热门房产
     public function HotProperty($n)
     {
-        $property = Property::where(['publish'=>1,'ishot'=>1])->where('status', '<>', 10)->where('status', '<>', 14)->orderBy('created_at', 'desc')->take($n)->select('id', 'title', 'picurl', 'address','tagsid')->get();
+        $property = Property::where(['publish'=>1,'ishot'=>1])->where('status', '<>', 10)->where('status', '<>', 14)->orderBy('displayorder', 'asc')->take($n)->select('id', 'title', 'picurl', 'address','tagsid')->get();
         return $property;
     }
 

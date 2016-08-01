@@ -20,7 +20,7 @@ class PropertyController extends Controller
         $properties = Property::where('publish','1')->where('status', '<>', 10)->where('status', '<>', 14);
         $Lastedarticle=$this->LastedNews(5);
         $hotpropertys=$this->HotProperty(4);
-        $properties=$properties->orderBy("displayorder","desc")->orderBy("created_at","desc")->paginate(5);
+        $properties=$properties->orderBy("displayorder","asc")->orderBy("created_at","desc")->paginate(5);
         $allUrl= $this->qrcode();
         return view('property.index')->with(compact('properties','Lastedarticle','hotpropertys','allUrl'));
     }
@@ -86,7 +86,7 @@ class PropertyController extends Controller
     //最新资讯
     public function LastedNews($n)
     {
-        $article= Article::where(['publish'=>1,'ishot'=>1,'catid'=>5])->orderBy('displayorder', 'desc')->orderBy('created_at', 'desc')->take($n)->select('id', 'title','picurl','abstract')->get();
+        $article= Article::where(['publish'=>1,'ishot'=>1,'catid'=>5])->orderBy('displayorder', 'asc')->orderBy('created_at', 'desc')->take($n)->select('id', 'title','picurl','abstract')->get();
         return $article;
     }
 
@@ -95,9 +95,9 @@ class PropertyController extends Controller
     public function HotProperty($n,$id=null)
     {
         if($id!=null)
-          $property= Property::where('publish','1')->where('ishot',1)->where('status', '<>', 10)->where('status', '<>', 14)->where('id', '<>', $id)->orderBy('created_at', 'desc')->take($n)->select('id', 'title','picurl','address','tagsid')->get();
+          $property= Property::where('publish','1')->where('ishot',1)->where('status', '<>', 10)->where('status', '<>', 14)->where('id', '<>', $id)->orderBy('displayorder', 'asc')->take($n)->select('id', 'title','picurl','address','tagsid')->get();
        else
-          $property= Property::where('publish','1')->where('ishot',1)->where('status', '<>', 10)->where('status', '<>', 14)->orderBy('created_at', 'desc')->take($n)->select('id', 'title','picurl','address','tagsid')->get();
+          $property= Property::where('publish','1')->where('ishot',1)->where('status', '<>', 10)->where('status', '<>', 14)->orderBy('displayorder', 'asc')->take($n)->select('id', 'title','picurl','address','tagsid')->get();
 
         return $property;
     }

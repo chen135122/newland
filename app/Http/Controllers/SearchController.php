@@ -50,13 +50,13 @@ class SearchController extends Controller
             $articles =$articles->orwhere('abstract','like','%'.$search_key.'%');
             $articles =$articles->orwhere('author','like','%'.$search_key.'%');
             $articles =$articles->orwhere('content','like','%'.$search_key.'%');
-            $articles =$articles->orderBy('displayorder', 'desc')->get();
+            $articles =$articles->orderBy('displayorder', 'asc')->get();
 
             $partners = Partner::where('title','like','%'.$search_key.'%');
-            $partners =$partners->orderBy('displayorder', 'desc')->get();
+            $partners =$partners->orderBy('displayorder', 'asc')->get();
 
             $faqs = Faq::where('title','like','%'.$search_key.'%');
-            $faqs =$faqs->orderBy('displayorder', 'desc')->get();
+            $faqs =$faqs->orderBy('displayorder', 'asc')->get();
 
             foreach($properties as $property){
                 $short_info='';
@@ -225,7 +225,7 @@ class SearchController extends Controller
     //最新资讯
     public function LastedNews($n)
     {
-        $article= Article::where('publish','1')->where('ishot',1)->orderBy('displayorder', 'desc')->orderBy('created_at', 'desc')->take($n)->select('id', 'title','picurl','abstract')->get();
+        $article= Article::where('publish','1')->where('ishot',1)->orderBy('displayorder', 'asc')->orderBy('created_at', 'desc')->take($n)->select('id', 'title','picurl','abstract')->get();
         return $article;
     }
 
@@ -233,7 +233,7 @@ class SearchController extends Controller
     //热门房产
     public function HotProperty($n)
     {
-        $property= Property::where('publish','1')->where('ishot',1)->where('status', '<>', 10)->where('status', '<>', 14)->orderBy('created_at', 'desc')->take($n)->select('id', 'title','picurl','address','tagsid')->get();
+        $property= Property::where('publish','1')->where('ishot',1)->where('status', '<>', 10)->where('status', '<>', 14)->orderBy('displayorder', 'asc')->take($n)->select('id', 'title','picurl','address','tagsid')->get();
         return $property;
     }
 

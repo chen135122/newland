@@ -75,6 +75,83 @@
                 </div>
             </div>
             <aside class="col-md-4">
+                @if($type==6)
+                    <div class="box_style_1 expose">
+                        <h3 class="inner">推荐行程</h3>
+                        @foreach($hottours as $travel)
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6 room">
+                                    <div>
+                                        <img src="{{$travel->picurl}}" alt="" width="68" height="68" class="img-circle">
+                                    </div>
+                                    <div class="hold_room">
+                                        <h4><a href="/tour/{{$travel->id}}">{{$travel->title}}</a></h4>
+
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+
+                        <br>
+                        <a class="btn_full" href="/tour">更多</a>
+                    </div>
+                @endif
+                    @if($type==7)
+                        <div class="box_style_1 expose">
+                            <h3 class="inner">移民途径</h3>
+                                <div class="row">
+                                    <div class="col-md-12 col-sm-12">
+                                        <a href="/immigrant/26"><img src="/img/touzi.jpg" alt="投资移民" width="300" height="167" style="margin-bottom: 10px;"></a>
+                                        <a href="/immigrant/25"><img src="/img/chuangye.jpg" alt="创业移民" width="300" height="167" style="margin-bottom: 10px;"></a>
+                                        <a href="/immigrant/24"><img src="/img/jishu.jpg" alt="技术移民" width="300" height="167" style="margin-bottom: 10px;"></a>
+                                     </div>
+                                </div>
+
+
+                            <br>
+                            <a class="btn_full" href="/immigrant">更多</a>
+                        </div>
+                    @endif
+                    @if($type==8)
+                        <div class="box_style_1 expose">
+                            <h3 class="inner">移民留学</h3>
+                            @foreach($hotSchools as $hotSchool)
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-6 room">
+                                        <div>
+                                            <a href="/study/{{$hotSchool->id}}"><img src="{{$hotSchool->logo}}" alt="{{$hotSchool->cn_name}}" class="img-circle"></a>
+                                        </div>
+                                        <div class="hold_room">
+                                            <h4><a href="/study/{{$hotSchool->id}}">{!!str_limit(strip_tags($hotSchool->cn_name),45) !!}</a></h4>
+                                            @if(isset($hotSchool->tagsid))
+                                                <p class="tags">
+                                                    @foreach(App\Models\Tag::getTop2Tag($hotSchool->tagsid)->get() as $tag )
+                                                        <span class="label label-info">{{$tag->name}}</span>
+                                                    @endforeach
+                                                </p>
+                                            @endif
+
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                            @foreach($studysp as $xiaoxue)
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-6 room">
+                                        <div>
+                                            <a href="/study-sp/{{$xiaoxue->id}}"><img src="{{$xiaoxue->picurl}}" alt="{{$xiaoxue->name}}" class="img-circle"></a>
+                                        </div>
+                                        <div class="hold_room">
+                                            <h4><a href="/study-sp/{{$xiaoxue->id}}">{!!str_limit(strip_tags($xiaoxue->name),45) !!}</a></h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+
+                            <br>
+                            <a class="btn_full" href="/tour">更多</a>
+                        </div>
+                    @endif
                 <div class="box_style_1 expose">
                     <h3 class="inner">热门房产</h3>
                     @foreach($hotpropertys as $hotproperty)
@@ -121,6 +198,7 @@
                     <br>
                     <a class="btn_full" href="/news">更多</a>
                 </div>
+
                 @include('layouts.partials.right_side')
             </aside>
             </div>

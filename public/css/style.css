@@ -4120,8 +4120,8 @@ p.footer_l{ font-size: 13px;line-height: 28px; color:#dddddd;margin-top: 10px;}
 .fadeInDown h1{ font-size: 38px!important;}
 .fadeInDown p{margin:5px 0 10px;}
 #hero_2 .fadeInDown,#hero_3 .fadeInDown{ background: none!important;}
-.hold_room p.tags{margin:0;}
-.hold_room  h4{margin-bottom: 5px;}
+.hold_room p.tags{margin:0; text-align: left;}
+.hold_room  h4{margin-bottom: 5px;text-align: left;}
 .panel-cont{overflow: hidden;}
 .panel-cont a{  color: #136ec2;  font-family:'Microsoft YaHei',Arial,sans-serif;
     font-size:18px;
@@ -4153,3 +4153,9 @@ p.footer_l{ font-size: 13px;line-height: 28px; color:#dddddd;margin-top: 10px;}
 .view_pagetitle{font-size: 14px;}
 footer .logo_sticky{margin-top: 15px;}
 .expose .img-circle{border-radius: 0; width:93px; height: 70px;}
+.picMarquee-top{ margin:0 auto; width:100%;overflow:hidden; position:relative; }
+.picMarquee-top  ul{ overflow:hidden; zoom:1; }
+.picMarquee-top  ul li{ text-align:center; zoom:1; margin-bottom: 10px; margin-bottom: 10px; overflow: hidden;  }
+.picMarquee-top ul li .pic{ text-align:center; }
+.picMarquee-top ul li .pic img{ width:100%;display:block;height:240px; }
+.picMarquee-top ul li .pic a:hover img{ border-color:#999;  }

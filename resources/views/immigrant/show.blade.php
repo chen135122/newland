@@ -41,6 +41,63 @@
             </div>
         </div>
         <aside class="col-lg-4 col-md-4" style="margin-top: 80px;">
+            <div class="box_style_4 expose">
+                <h3 class="inner">热门房产</h3>
+                @foreach($hotpropertys as $hotproperty)
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 room">
+                            <div>
+                                <a href="/property/{{$hotproperty->id}}"><img src="{{$hotproperty->picurl}}" alt="{{$hotproperty->title}}" class="img-circle"></a>
+                            </div>
+                            <div class="hold_room">
+                                <h4><a href="/property/{{$hotproperty->id}}">{!!str_limit(strip_tags($hotproperty->title),45) !!}</a></h4>
+                                @if(isset($hotproperty->tagsid))
+                                    <p class="tags">
+                                        @foreach(App\Models\Tag::getTop2Tag($hotproperty->tagsid)->get() as $tag )
+                                            <span class="label label-info">{{$tag->name}}</span>
+                                        @endforeach
+                                    </p>
+                                @endif
+
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+
+                <br>
+
+                <a class="btn_full" href="/property">更多</a>
+            </div>
+            <div class="box_style_4 expose">
+                <h3 class="inner">著名学校</h3>
+                @foreach($hotSchools as $hotSchool)
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 room">
+                            <div>
+                                <a href="/study/{{$hotSchool->id}}"><img src="{{$hotSchool->logo}}" alt="{{$hotSchool->cn_name}}" class="img-circle"></a>
+                            </div>
+                            <div class="hold_room">
+                                <h4><a href="/study/{{$hotSchool->id}}">{!!str_limit(strip_tags($hotSchool->cn_name),45) !!}</a></h4>
+                                @if(isset($hotSchool->tagsid))
+                                    <p class="tags">
+                                        @foreach(App\Models\Tag::getTop2Tag($hotSchool->tagsid)->get() as $tag )
+                                            <span class="label label-info">{{$tag->name}}</span>
+                                        @endforeach
+                                    </p>
+                                @endif
+
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+
+                <br>
+
+                <a class="btn_full" href="/study">更多</a>
+            </div>
+            <div class="box_style_4">
+                <a href="/news/106"><img src="/img/yiming.jpg"></a>
+            </div>
             @include('layouts.partials.right_side')
         </aside>
     </div>

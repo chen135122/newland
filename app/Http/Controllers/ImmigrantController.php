@@ -2,18 +2,22 @@
 
 namespace App\Http\Controllers;
 use App\Models\Partner;
+use App\Models\Property;
 use Illuminate\Http\Request;
 use Overtrue\Wechat\QRCode;
 use App\Http\Requests;
+use App\Models\Study;
 use App\Http\Controllers\Controller;
 class ImmigrantController extends Controller
 {
     public function index()
     {
 
-        $models = Partner::orderBy('displayorder', 'desc')->where("iswork",2)->paginate(10);
+        $models = Partner::orderBy('displayorder', 'asc')->where("iswork",2)->paginate(10);
         $allUrl= $this->qrcode();
-        return view('immigrant.index')->with(compact('models','allUrl'));
+        $hotpropertys=$this->HotProperty(4);
+        $hotSchools=$this->HotSchools(4);
+        return view('immigrant.index')->with(compact('models','allUrl','hotpropertys','hotSchools'));
     }
 
 
@@ -34,9 +38,32 @@ class ImmigrantController extends Controller
     }
     public function show($id)
     {
+        $hotpropertys=$this->HotProperty(4);
+        $hotSchools=$this->HotSchools(4);
         $model = Partner::where('id', $id)->first();
         $allUrl= $this->qrcode();
-        return view('immigrant.show')->with(compact('model','allUrl'));
+        return view('immigrant.show')->with(compact('model','allUrl','hotpropertys','hotSchools'));
     }
 
+    //热门房产
+    public function HotProperty($n,$id=null)
+    {
+        if($id!=null)
+            $property= Property::where('publish','1')->where('ishot',1)->where('status', '<>', 10)->where('status', '<>', 14)->where('id', '<>', $id)->orderBy('displayorder', 'asc')->take($n)->select('id', 'title','picurl','address','tagsid')->get();
+        else
+            $property= Property::where('publish','1')->where('ishot',1)->where('status', '<>', 10)->where('status', '<>', 14)->orderBy('displayorder', 'asc')->take($n)->select('id', 'title','picurl','address','tagsid')->get();
+
+        return $property;
+    }
+
+    //热门学校
+    public function HotSchools($n,$id=null)
+    {
+        if($id!=null)
+            $schools= Study::where('publish','1')->where('ishot',1)->orderBy('created_at', 'asc')->take($n)->select('id', 'cn_name','logo','tagsid')->get();
+        else
+            $schools= Study::where('publish','1')->where('ishot',1)->orderBy('created_at', 'asc')->take($n)->select('id', 'cn_name','logo','tagsid')->get();
+
+        return $schools;
+    }
 }

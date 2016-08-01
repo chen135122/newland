@@ -5,15 +5,17 @@ use App\Models\Partner;
 use Illuminate\Http\Request;
 use Overtrue\Wechat\QRCode;
 use App\Http\Requests;
+use App\Models\Property;
 use App\Http\Controllers\Controller;
 class FamilyTrustController extends Controller
 {
     public function index()
     {
 
-        $models = Partner::orderBy('displayorder', 'desc')->where("iswork",1)->paginate(10);
+        $models = Partner::orderBy('displayorder', 'asc')->where("iswork",1)->paginate(10);
         $allUrl= $this->qrcode();
-        return view('trust.index')->with(compact('models','allUrl'));
+        $hotpropertys=$this->HotProperty(4);
+        return view('trust.index')->with(compact('models','allUrl','hotpropertys'));
     }
 
 
@@ -36,7 +38,17 @@ class FamilyTrustController extends Controller
     {
         $model = Partner::where('id', $id)->first();
         $allUrl= $this->qrcode();
-        return view('trust.show')->with(compact('model','allUrl'));
+        $hotpropertys=$this->HotProperty(4);
+        return view('trust.show')->with(compact('model','allUrl','hotpropertys'));
     }
+    //热门房产
+    public function HotProperty($n,$id=null)
+    {
+        if($id!=null)
+            $property= Property::where('publish','1')->where('ishot',1)->where('status', '<>', 10)->where('status', '<>', 14)->where('id', '<>', $id)->orderBy('created_at', 'asc')->take($n)->select('id', 'title','picurl','address','tagsid')->get();
+        else
+            $property= Property::where('publish','1')->where('ishot',1)->where('status', '<>', 10)->where('status', '<>', 14)->orderBy('created_at', 'asc')->take($n)->select('id', 'title','picurl','address','tagsid')->get();
 
+        return $property;
+    }
 }
