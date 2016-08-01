@@ -24,7 +24,7 @@ class HomeController extends Controller
         $HouseCount = Property::where('status', '<>', 0)->where('status', '<>', 4)->count();
         $travelsCount = Travel::where(['publish'=>1,'ishot'=>1])->count();
 
-        $trusts = Partner::orderBy('displayorder', 'desc')->where("iswork",1)->take(3)->select('id', 'picurl','title')->get();
+        $trusts = Partner::orderBy('displayorder', 'asc')->where("iswork",1)->take(3)->select('id', 'picurl','title')->get();
         $trustsCount = Partner::where("iswork",1)->count();
         $allUrl=$this->url();
         $banners=\App\Models\Banner::join('nz_category', 'nz_banner.catid', '=', 'nz_category.id')->where('name','首页')->orderBy('nz_banner.displayorder', 'desc')->get();
@@ -68,14 +68,14 @@ class HomeController extends Controller
     //热门旅游
     public function Hottravels($n)
     {
-        $models= Travel::where(['publish'=>1,'ishot'=>1])->take($n)->select('id', 'title','bigtitle','picurl','referenceprice')->get();
+        $models= Travel::where(['publish'=>1,'ishot'=>1])->orderBy("displayorder","asc")->take($n)->select('id', 'title','bigtitle','picurl','referenceprice')->get();
         return $models;
     }
 
     //热门房产
     public function HotProperty($n)
     {
-        $property = Property::where(['publish'=>1,'ishot'=>1])->where('status', '<>', 10)->where('status', '<>', 14)->orderBy("displayorder","desc")->orderBy("created_at","desc");
+        $property = Property::where(['publish'=>1,'ishot'=>1])->where('status', '<>', 10)->where('status', '<>', 14)->orderBy("displayorder","asc")->orderBy("created_at","desc");
         $property= $property->take($n)->select('id', 'title','picurl','total_price')->get();
         return $property;
     }

@@ -50,7 +50,7 @@ class StudyController extends Controller
             $regiondlist=Region::where('parent_id', $cid)->get();
             $parames["did"]=$did;
         }
-        $studys = $studys->orderBy('displayorder', 'asc')->paginate(5)->appends($parames);
+        $studys = $studys->paginate(5)->appends($parames);
         $allUrl= $this->qrcode();
         return view('study.index')->with(compact('studys','regionlist','regionclist','regiondlist','rid','cid','did','Lastedarticle','hotpropertys','allUrl'));
     }
@@ -131,7 +131,7 @@ class StudyController extends Controller
             $parames["did"]=$did;
         }
 
-        $studys = $studys->orderBy('displayorder', 'asc')->paginate(5)->appends($parames);
+        $studys = $studys->paginate(5)->appends($parames);
         $Lastedarticle=$this->LastedNews(5);
         $hotpropertys=$this->HotProperty(4);
         $allUrl= $this->qrcode();
