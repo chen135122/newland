@@ -152,6 +152,13 @@
                             <a class="btn_full" href="/tour">更多</a>
                         </div>
                     @endif
+                    @if($type==9)
+                       <div class="row">
+                            <div class="col-md-12 col-sm-12">
+                              <a href="https://wap.koudaitong.com/v2/showcase/homepage?alias=xu0xkqz4" target="_blank"><img src="/img/chanpin.jpg" alt="新西兰商品直邮" width="360" height="200" style="margin-bottom: 10px;"></a>
+                             </div>
+                        </div>
+                    @endif
                 <div class="box_style_1 expose">
                     <h3 class="inner">热门房产</h3>
                     @foreach($hotpropertys as $hotproperty)
