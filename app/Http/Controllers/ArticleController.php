@@ -15,7 +15,7 @@ class ArticleController extends Controller
 {
     public function index()
     {
-        $articles = Article::where('publish',1)->orderBy('displayorder', 'asc')->paginate(10);
+        $articles = Article::where('publish',1)->orderBy('displayorder', 'asc')->orderBy('created_at', 'desc')->paginate(10);
         $Lastedarticle=$this->LastedNews(5);
         $hotpropertys=$this->HotProperty(4);
         $allUrl= $this->qrcode();
@@ -25,7 +25,7 @@ class ArticleController extends Controller
 
     public function index_type($type)
     {
-        $articles = Article::where('publish',1)->where('catid',$type)->where('picurl','<>', '')->orderBy('displayorder', 'asc')->paginate(10);
+        $articles = Article::where('publish',1)->where('catid',$type)->where('picurl','<>', '')->orderBy('displayorder', 'asc')->orderBy('created_at', 'desc')->paginate(10);
         $Lastedarticle=$this->LastedNews(5);
         $hotpropertys=$this->HotProperty(4);
         $typename=ArticleCategory::where('id',$type)->pluck('name')->first();
@@ -64,7 +64,7 @@ class ArticleController extends Controller
     //最新资讯
     public function LastedNews($n)
     {
-        $article= Article::where(['publish'=>1,'ishot'=>1])->orderBy('displayorder', 'asc')->orderBy('created_at', 'asc')->take($n)->select('id', 'title','picurl','abstract')->get();
+        $article= Article::where(['publish'=>1,'ishot'=>1])->orderBy('displayorder', 'asc')->orderBy('created_at', 'desc')->take($n)->select('id', 'title','picurl','abstract')->get();
         return $article;
     }
 
