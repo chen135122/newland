@@ -160,7 +160,7 @@
 
 <div class="container margin_60">
     <div class="main_title">
-        <h2>新西兰 <span>家庭</span> 信托</h2>
+        <h2>新西兰 <span>家庭信托</span></h2>
         <p>我们倾力打造新西兰各类服务平台，并拥有国内以及新西兰顶级合作伙伴</p>
     </div>
     <div class="row">
@@ -212,7 +212,7 @@
     </p>
     <hr>
     <div class="main_title">
-        <h2>新西兰 <span>最热</span> 旅游路线</h2>
+        <h2>新西兰 <span>最新</span> 旅游路线</h2>
         <p>在接下来的行程里，您可以根据实际情况合理调整行程，在新西兰找到最棒的自己。</p>
     </div>
     <div class="row">
