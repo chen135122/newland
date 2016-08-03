@@ -8,6 +8,7 @@
         .main_title p {
             /*font-size: 14px !important;*/
             margin-top: 15px!important;
+            text-align:left;
 
         }
 
