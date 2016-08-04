@@ -8,8 +8,6 @@
         .main_title p {
             /*font-size: 14px !important;*/
             margin-top: 15px!important;
-            text-align:left;
-
         }
 
         .main-menu a {
@@ -123,7 +121,7 @@
                 </p>
                 <h4><span>家庭信托</span></h4>
                 <p class="tp_detail">
-                    我们为您提供专业的资产保护与传承规划服务
+                    我们为你提供专业的资产保护与传承规划服务
                 </p>
             </div>
             <div class="col-md-3 col-sm-6 col-xs-6 text-center" style="cursor: pointer;" onclick="window.location='/property'">
@@ -132,7 +130,7 @@
                 </p>
                 <h4><span>房产置业</span></h4>
                 <p class="tp_detail" style="">
-                    我们提供新西兰全境最优质的房源，以及最有保障的服务
+                    为您提供新西兰全境最优质的房源及最有保障的服务
                 </p>
             </div>
             <div class="col-md-3 col-sm-6 col-xs-6  text-center"  style="cursor: pointer;" onclick="window.location='/tour'">
@@ -142,7 +140,7 @@
                 </p>
                 <h4><span>定制旅游</span></h4>
                 <p class="tp_detail">
-                    新西兰旅游,为您提供梦幻般的旅游,体验不一样的旅程
+                    为您提供梦幻般的旅游，体验不一样的旅程
                 </p>
             </div>
             <div class="col-md-3 col-sm-6 col-xs-6 text-center"  style="cursor: pointer;" onclick="window.location='/immigrant'">
@@ -151,7 +149,7 @@
                 </p>
                 <h4><span>新西兰移民</span></h4>
                 <p class="tp_detail">
-                    我们提供中小学和大学最权威的留学咨询，以及各类移民资讯
+                    为您提供中小学及大学最权威的留学咨询和移民辅导服务
                 </p>
             </div>
 
@@ -161,8 +159,8 @@
 
 <div class="container margin_60">
     <div class="main_title">
-        <h2>新西兰 <span>家庭信托</span></h2>
-        <p>我们倾力打造新西兰各类服务平台，并拥有国内以及新西兰顶级合作伙伴</p>
+        <h2>新西兰<span>家庭信托</span></h2>
+        <p>我们倾力打造新西兰各类服务平台，并拥有国内及新西兰顶级合作伙伴</p>
     </div>
     <div class="row">
 
@@ -188,8 +186,8 @@
 
     <hr>
     <div class="main_title">
-        <h2>新西兰 <span>最热</span> 房产</h2>
-        <p>我们提供的不仅是房屋买卖交易的桥梁, 我们更加注重开发和创建一个公平开放的合作平台</p>
+        <h2>新西兰<span>最热</span>房产</h2>
+        <p>我们提供的不仅是房屋买卖交易的桥梁，更加注重创建一个公平开放的合作平台</p>
     </div>
     <div class="row">
         @foreach($hotpropertys as $hotproperty)
@@ -213,8 +211,8 @@
     </p>
     <hr>
     <div class="main_title">
-        <h2>新西兰 <span>最新</span> 旅游路线</h2>
-        <p>在接下来的行程里，您可以根据实际情况合理调整行程，在新西兰找到最棒的自己。</p>
+        <h2>新西兰 <span>最新</span>旅游路线</h2>
+        <p>在接下来的行程里，您可以根据实际情况合理调整行程，体验不一样的新西兰</p>
     </div>
     <div class="row">
         @foreach($travels as $travel)
