@@ -7,8 +7,8 @@ header('Content-Type: text/html; charset=UTF-8');
 function _reply_customer($touser,$content){
 	
 	//更换成自己的APPID和APPSECRET
-    $APPID="wxcf1588ee73525cea";
-    $APPSECRET="2d2e236464875cea7218559df7965b23";
+    $APPID="wxbf7a6d0b392ce5db";
+    $APPSECRET="dd1b309aef23dfd916867a21688ba4ea";
 
     $TOKEN_URL="https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=".$APPID."&secret=".$APPSECRET;
 	

@@ -32,7 +32,7 @@
 </head>
 <body style="background-color: #f9f9f9;">
 <div align="center" id="qrcode">
-    <div>{!!QrCode::size(300)->generate("https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxcf1588ee73525cea&redirect_uri=http://w.chitunet.com/callback&response_type=code&scope=snsapi_userinfo&state=1&connect_redirect=1#wechat_redirect")!!}</div>
+    <div>{!!QrCode::size(300)->generate("https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxbf7a6d0b392ce5db&redirect_uri=http://w.chitunet.com/callback&response_type=code&scope=snsapi_userinfo&state=1&connect_redirect=1#wechat_redirect")!!}</div>
 </div>
 <div align="center">
     <aside class="col-md-4">

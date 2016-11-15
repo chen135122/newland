@@ -66,8 +66,8 @@ class StudyController extends Controller
         return view('study.show')->with(compact('study','Lastedarticle','hotpropertys','pic','allUrl'));
     }
     public  function  qrcode(){
-        $appId  = 'wxcf1588ee73525cea';
-        $secret = '2d2e236464875cea7218559df7965b23';
+        $appId  = 'wxbf7a6d0b392ce5db';
+        $secret = 'dd1b309aef23dfd916867a21688ba4ea';
         $mchid = '1287337101';
         //商户支付密钥Key。审核通过后，在微信发送的邮件中查看
         $key = 'hpr825QaxxKQ9Ms3IhjQdsw8vnDl1w9s';
