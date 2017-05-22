@@ -30,7 +30,14 @@ class HomeController extends Controller
         $banners = \App\Models\Banner::join('nz_category', 'nz_banner.catid', '=', 'nz_category.id')->where('name','首页')->orderBy('nz_banner.displayorder', 'desc')->get();
         $hotpropertys = Partner::orderBy('displayorder')->where("iswork", 3)->take(3)->get();
         $HouseCount   = Partner::where("iswork", 3)->count();
-        return view('home.index')->with(compact('hotpropertys','HouseCount','travels','travelsCount','allUrl','trusts','trustsCount','banners'));
+
+        $hotels = Partner::orderBy('displayorder')->where("iswork", EntityController::TYPE_HOTEL)->take(3)->get();
+        $hotelCount   = Partner::where("iswork", EntityController::TYPE_HOTEL)->count();
+
+        $goods = Partner::orderBy('displayorder')->where("iswork", EntityController::TYPE_GOOD)->take(3)->get();
+        $goodCount   = Partner::where("iswork", EntityController::TYPE_GOOD)->count();
+
+        return view('home.index')->with(compact('hotels','hotelCount', 'goods', 'goodCount', 'travels','travelsCount','allUrl','trusts','trustsCount','banners'));
     }
 
     public function faq()

@@ -164,24 +164,24 @@
     </div>
     <div class="row">
 
-        @foreach($trusts as $trust)
+        @foreach($hotels as $hotel)
             <div class="col-md-4 col-sm-6 wow zoomIn">
                 <div class="hotel_container">
                     <div class="img_container">
-                        <a href="/trust/{{$trust->id}}">
-                            <img src="{{$trust->picurl}}"  style="max-height:240px;min-height:240px;max-width: 360px;min-width:360px;" class="img-responsive" alt="">
+                        <a href="/hotel/{{$hotel->id}}">
+                            <img src="{{$hotel->picurl}}"  style="max-height:240px;min-height:240px;max-width: 360px;min-width:360px;" class="img-responsive" alt="">
 
                         </a>
                     </div>
                     <div class="hotel_title">
-                        <h3>{{$trust->title}}</h3>
+                        <h3>{{$hotel->title}}</h3>
                     </div>
                 </div><!-- End box -->
             </div>
         @endforeach
     </div><!-- End row -->
     <p class="text-center nopadding">
-        <a href="/hotel" class="btn_1 medium"><i class="icon-eye-7"></i>查看所有旅馆加盟&管理 ({{$trustsCount}}) </a>
+        <a href="/hotel" class="btn_1 medium"><i class="icon-eye-7"></i>查看所有旅馆加盟&管理 ({{$hotelCount}}) </a>
     </p>
 
     <hr>
@@ -190,24 +190,23 @@
         <p>为您提供新西兰全境最优质的商品</p>
     </div>
     <div class="row">
-        @foreach($hotpropertys as $hotproperty)
+        @foreach($goods as $good)
         <div class="col-md-4 col-sm-6 wow zoomIn">
             <div class="hotel_container">
                 <div class="img_container">
-                    <a href="/good/{{$hotproperty->id}}">
-                        <img src="{{$hotproperty->picurl}}" class="img-responsive" alt="{{$hotproperty->title}}">
-
+                    <a href="/good/{{$good->id}}">
+                        <img src="{{$good->picurl}}" class="img-responsive" alt="{{$good->title}}">
                     </a>
                 </div>
                 <div class="hotel_title">
-                    <h3>{!!str_limit($hotproperty->title, 40) !!}</h3>
+                    <h3>{!!str_limit($good->title, 40) !!}</h3>
                 </div>
             </div><!-- End box -->
         </div>
         @endforeach
     </div><!-- End row -->
     <p class="text-center nopadding">
-        <a href="/good" class="btn_1 medium"><i class="icon-eye-7"></i>查看所有进口商品 ({{$HouseCount}}) </a>
+        <a href="/good" class="btn_1 medium"><i class="icon-eye-7"></i>查看所有进口商品 ({{$goodCount}}) </a>
     </p>
     <hr>
     <div class="main_title">
