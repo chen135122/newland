@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title')家庭信托
+@section('title')旅馆加盟
 @stop
 @section('content')
 
@@ -7,7 +7,7 @@
 <!-- Header================================================== -->
 <section class="parallax-window" data-parallax="scroll"
          <?php
-         $banner=\App\Models\Banner::join('nz_category', 'nz_banner.catid', '=', 'nz_category.id')->where('name','家庭信托')->first();
+         $banner=\App\Models\Banner::join('nz_category', 'nz_banner.catid', '=', 'nz_category.id')->where('name','旅馆加盟')->first();
          if($banner)
              echo  'data-image-src='.$banner->picurl;
          else
@@ -16,7 +16,7 @@
          data-natural-width="1400" data-natural-height="470">
    <div class="parallax-content-1">
         <div class="animated fadeInDown">
-            <h1>家庭信托</h1>
+            <h1>旅馆加盟</h1>
             <p></p>
             @include('layouts.partials.search')
         </div>
@@ -27,7 +27,7 @@
     <div class="container">
         <ul>
             <li><a href="/">首页</a></li>
-            <li>家庭信托</li>
+            <li>旅馆加盟</li>
         </ul>
     </div>
 </div>
@@ -36,7 +36,7 @@
 
     <div class="row">
         <div class="col-lg-8 col-md-8">
-            <h2 class="page-header">家庭信托</h2>
+            <h2 class="page-header">旅馆加盟&管理</h2>
              <div class="panel-cont">
                  @foreach($models as $model)
                  <div class="row">

@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title')新西兰房产@stop
+@section('title')进口商品代理@stop
 @section('content')
     <section class="parallax-window" data-parallax="scroll"
              <?php
@@ -12,8 +12,8 @@
              data-natural-width="1400" data-natural-height="470">
         <div class="parallax-content-1">
             <div class="animated fadeInDown">
-                <h1>新西兰房产</h1>
-                <p>我们提供最完善、最有保障的购房服务</p>
+                <h1>进口商品代理</h1>
+                <p>我们提供最完善、最有保障的商品代理服务</p>
                 @include('layouts.partials.search')
             </div>
         </div>
@@ -23,7 +23,7 @@
         <div class="container">
             <ul>
                 <li><a href="/">首页</a></li>
-                <li><a href="/property">新西兰房产</a></li>
+                <li><a href="/property">进口商品代理</a></li>
             </ul>
         </div>
     </div><!-- Position -->
