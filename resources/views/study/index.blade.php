@@ -12,8 +12,8 @@
              data-natural-width="1400" data-natural-height="470">
         <div class="parallax-content-1">
             <div class="animated fadeInDown">
-                <h1>新西兰留学</h1>
-                <p>我们提供新西兰最新的学校体验</p>
+                <h1>新西兰全线业务</h1>
+                <p>为您提供新西兰一站式全线服务</p>
                 @include('layouts.partials.search')
             </div>
         </div>
