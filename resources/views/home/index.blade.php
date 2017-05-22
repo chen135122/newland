@@ -93,7 +93,7 @@
                         <div class="tp_d">
                             <br>
                             <br>
-                            旅游 买房 留学 服务
+                            旅馆加盟、商品代理、旅游、全线业务
                         </div>
                     </div>
                     <!-- LAYER NR. 3 -->
@@ -117,39 +117,39 @@
         <div class="row">
             <div class="col-md-3 col-sm-6 col-xs-6  text-center"  style="cursor: pointer;" onclick="window.location='/trust'">
                 <p>
-                    <img src="/img/icon-trust.png" class="icon">
+                    <img src="/img/icon_car.png" class="icon">
                 </p>
-                <h4><span>家庭信托</span></h4>
+                <h4><span>连锁汽车旅馆加盟&管理</span></h4>
                 <p class="tp_detail">
-                    我们为你提供专业的资产保护与传承规划服务
+                    我们为你提供专业的连锁汽车旅馆加盟和管理
                 </p>
             </div>
             <div class="col-md-3 col-sm-6 col-xs-6 text-center" style="cursor: pointer;" onclick="window.location='/property'">
                 <p>
-                 <img src="/img/icon-house.png" class="icon">
+                 <img src="/img/icon_good.png" class="icon">
                 </p>
-                <h4><span>房产置业</span></h4>
+                <h4><span>进口商品代理</span></h4>
                 <p class="tp_detail" style="">
-                    为您提供新西兰全境最优质的房源及最有保障的服务
+                    为您提供新西兰全境最优质的商品
                 </p>
             </div>
             <div class="col-md-3 col-sm-6 col-xs-6  text-center"  style="cursor: pointer;" onclick="window.location='/tour'">
                 <p>
-                    <img src="/img/icon-tour.png" class="icon">
+                    <img src="/img/icon_plane.png" class="icon">
 
                 </p>
-                <h4><span>定制旅游</span></h4>
+                <h4><span>新西兰旅游</span></h4>
                 <p class="tp_detail">
                     为您提供梦幻般的旅游，体验不一样的旅程
                 </p>
             </div>
             <div class="col-md-3 col-sm-6 col-xs-6 text-center"  style="cursor: pointer;" onclick="window.location='/immigrant'">
                 <p>
-                    <img src="/img/icon-school.png" class="icon">
+                    <img src="/img/icon_newzealand.png" class="icon">
                 </p>
-                <h4><span>新西兰移民</span></h4>
+                <h4><span>新西兰全线业务</span></h4>
                 <p class="tp_detail">
-                    为您提供中小学及大学最权威的留学咨询和移民辅导服务
+                    为您提供新西兰一站式全线服务
                 </p>
             </div>
 
@@ -159,8 +159,8 @@
 
 <div class="container margin_60">
     <div class="main_title">
-        <h2>新西兰<span>家庭信托</span></h2>
-        <p>我们倾力打造新西兰各类服务平台，并拥有国内及新西兰顶级合作伙伴</p>
+        <h2>旅馆加盟&管理</h2>
+        <p>我们倾力打造新西兰旅馆加盟&管理服务平台，并拥有国内及新西兰顶级合作伙伴</p>
     </div>
     <div class="row">
 
@@ -181,12 +181,12 @@
         @endforeach
     </div><!-- End row -->
     <p class="text-center nopadding">
-        <a href="/trust" class="btn_1 medium"><i class="icon-eye-7"></i>查看所有家庭信托 ({{$trustsCount}}) </a>
+        <a href="/trust" class="btn_1 medium"><i class="icon-eye-7"></i>查看所有旅馆加盟&管理 ({{$trustsCount}}) </a>
     </p>
 
     <hr>
     <div class="main_title">
-        <h2>新西兰<span>最热</span>房产</h2>
+        <h2>进口商品代理</h2>
         <p>我们提供的不仅是房屋买卖交易的桥梁，更加注重创建一个公平开放的合作平台</p>
     </div>
     <div class="row">
@@ -207,11 +207,11 @@
         @endforeach
     </div><!-- End row -->
     <p class="text-center nopadding">
-        <a href="/property" class="btn_1 medium"><i class="icon-eye-7"></i>查看所有房产 ({{$HouseCount}}) </a>
+        <a href="/property" class="btn_1 medium"><i class="icon-eye-7"></i>查看所有进口商品 ({{$HouseCount}}) </a>
     </p>
     <hr>
     <div class="main_title">
-        <h2>新西兰 <span>最新</span>旅游路线</h2>
+        <h2>新西兰旅游</h2>
         <p>在接下来的行程里，您可以根据实际情况合理调整行程，体验不一样的新西兰</p>
     </div>
     <div class="row">

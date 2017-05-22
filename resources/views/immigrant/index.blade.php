@@ -55,8 +55,8 @@
                  @endforeach
             </div>
         </div>
-        <aside class="col-lg-4 col-md-4" style="margin-top: 80px;">
-            <div class="box_style_4 expose">
+        <aside class="col-lg-4 col-md-4 hide" style="margin-top: 80px;">
+            <div class="box_style_4 expose ">
                 <h3 class="inner">热门房产</h3>
                 @foreach($hotpropertys as $hotproperty)
                     <div class="row">

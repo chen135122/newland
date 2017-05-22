@@ -86,7 +86,7 @@
                     {{$properties->render()}}
                 </div>
             </div>
-            <aside class="col-md-4">
+            <aside class="col-md-4 hide ">
                 <div class="box_style_1 expose">
                     <h3 class="inner">热门房产</h3>
                     @foreach($hotpropertys as $hotproperty)

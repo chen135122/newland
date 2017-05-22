@@ -13,11 +13,6 @@
     <!-- BASE CSS -->
     <link href="/css/base.css" rel="stylesheet">
     <link href="/css/newewm.css" rel="stylesheet">
-    <!-- Google web fonts -->
-    {{--<link href='http://fonts.useso.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>--}}
-    {{--<link href='http://fonts.useso.com/css?family=Gochi+Hand' rel='stylesheet' type='text/css'>--}}
-    {{--<link href='http://fonts.useso.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>--}}
-
 
     <!--[if lt IE 9]>
     <script src="/js/html5shiv.min.js"></script>
@@ -99,25 +94,20 @@
                                 <a href="/" class="show-submenu"> <!--<i class="icon_set_1_icon-64"></i>--> 首页 </a>
                             </li>
                             <li class=" megamenu submenu">
-                                <a href="/trust" class="show-submenu-mega"> <!--<i class="icon_set_1_icon-2"></i>--> 家庭信托 </a>
+                                <a href="/trust" class="show-submenu-mega"> <!--<i class="icon_set_1_icon-2"></i>--> 旅馆加盟 </a>
                             </li>
                             <li class=" megamenu submenu">
-                                <a href="/property" class="show-submenu-mega"> <!--<i class="icon_set_1_icon-2"></i>--> 房产置业 </a>
+                                <a href="/property" class="show-submenu-mega"> <!--<i class="icon_set_1_icon-2"></i>--> 进口商品代理 </a>
                             </li>
                             <li class="submenu">
-                                <a href="/tour" class="show-submenu"><!--<i class="icon_set_1_icon-8"></i>--> 定制旅游 </a>
+                                <a href="/tour" class="show-submenu"><!--<i class="icon_set_1_icon-8"></i>--> 旅游 </a>
                             </li>
                             <li class="submenu">
-                                <a href="javascript:void(0);" class="show-submenu"><!--<i class="icon_set_1_icon-43"></i>--> 移民留学 <i class="icon-down-open-mini"></i></a>
-                                <ul>
-                                    <li  style="margin-left: 0px;"><a href="/immigrant">移民</a></li>
-                                    <li  style="margin-left: 0px;"><a href="/study">大学</a></li>
-                                    <li  style="margin-left: 0px;"><a href="/study-sp">中小学</a></li>
-                                </ul>
+                                <a href="/tour" class="show-submenu"><!--<i class="icon_set_1_icon-8"></i>--> 新西兰业务 </a>
                             </li>
 
                             <li class="submenu">
-                                <a href="/news" class="show-submenu"><!--<i class="icon_set_1_icon-7"></i>--> 新闻资讯 <i class="icon-down-open-mini"></i></a>
+                                <a href="/news" class="show-submenu"><!--<i class="icon_set_1_icon-7"></i>--> 咨询 <i class="icon-down-open-mini"></i></a>
                                 <ul>
                                     @foreach(\App\Models\ArticleCategory::where('parent_id',4)->select('id','name')->get() as $category)
                                       <li  style="margin-left: 0px;"><a href="/news-{{$category->id}}">{{$category->name}}</a></li>

@@ -54,7 +54,7 @@
                 </div>
 
             </div>
-            <div class="box_style_4 expose">
+            <div class="box_style_4 expose hide">
                 <h3 class="inner">热门房产</h3>
                 @foreach($hotpropertys as $hotproperty)
                     <div class="row">

@@ -210,7 +210,7 @@
                 </p>
 
 
-                <div class="box_style_1 expose">
+                <div class="box_style_1 expose hide">
                     <h3 class="inner">热门房产</h3>
                     @foreach($hotpropertys as $hotproperty)
                         <div class="row">

@@ -17,10 +17,6 @@
     <link href="/css/base.css" rel="stylesheet">
 
     <!-- Google web fonts -->
-    <link href='http://fonts.useso.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.useso.com/css?family=Gochi+Hand' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.useso.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
-
 
     <!--[if lt IE 9]>
     <script src="/js/html5shiv.min.js"></script>
