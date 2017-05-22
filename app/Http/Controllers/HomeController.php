@@ -28,8 +28,8 @@ class HomeController extends Controller
         $trustsCount = Partner::where("iswork",1)->count();
         $allUrl=$this->url();
         $banners = \App\Models\Banner::join('nz_category', 'nz_banner.catid', '=', 'nz_category.id')->where('name','首页')->orderBy('nz_banner.displayorder', 'desc')->get();
-        $hotpropertys = Partner::orderBy('displayorder', 'asc')->where("iswork", 4)->take(3)->get();
-        $HouseCount = Partner::where("iswork", 4)->count();
+        $hotpropertys = Partner::orderBy('displayorder', 'asc')->where("iswork", 3)->take(3)->get();
+        $HouseCount = Partner::where("iswork", 3)->count();
         return view('home.index')->with(compact('hotpropertys','HouseCount','travels','travelsCount','allUrl','trusts','trustsCount','banners'));
     }
 
