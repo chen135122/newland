@@ -32,8 +32,15 @@ Route::group([ 'middleware' => ['web']], function () {
     Route::get('/',   '\App\Http\Controllers\HomeController@index');
     Route::get('partner', '\App\Http\Controllers\PartnerController@index');
     Route::get('partner/{id}', '\App\Http\Controllers\PartnerController@show');
-    Route::get('trust', '\App\Http\Controllers\FamilyTrustController@index');
-    Route::get('trust/{id}', '\App\Http\Controllers\FamilyTrustController@show');
+
+    Route::get('hotel', '\App\Http\Controllers\EntityController@hotel');
+    Route::get('hotel/{id}', '\App\Http\Controllers\EntityController@show');
+
+    Route::get('good', '\App\Http\Controllers\EntityController@good');
+    Route::get('good/{id}', '\App\Http\Controllers\EntityController@show');
+
+    Route::get('newzealand', '\App\Http\Controllers\EntityController@newzealand');
+    Route::get('newzealand/{id}', '\App\Http\Controllers\EntityController@show');
 
     Route::get('immigrant', '\App\Http\Controllers\ImmigrantController@index');
     Route::get('immigrant/{id}', '\App\Http\Controllers\ImmigrantController@show');

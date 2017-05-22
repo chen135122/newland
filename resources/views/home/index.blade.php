@@ -115,7 +115,7 @@
 <div class="white_bg">
     <div class="container margin_60">
         <div class="row">
-            <div class="col-md-3 col-sm-6 col-xs-6  text-center"  style="cursor: pointer;" onclick="window.location='/trust'">
+            <div class="col-md-3 col-sm-6 col-xs-6  text-center"  style="cursor: pointer;" onclick="window.location='/hotel'">
                 <p>
                     <img src="/img/icon_car.png" class="icon">
                 </p>
@@ -124,7 +124,7 @@
                     我们为你提供专业的连锁汽车旅馆加盟和管理
                 </p>
             </div>
-            <div class="col-md-3 col-sm-6 col-xs-6 text-center" style="cursor: pointer;" onclick="window.location='/property'">
+            <div class="col-md-3 col-sm-6 col-xs-6 text-center" style="cursor: pointer;" onclick="window.location='/good'">
                 <p>
                  <img src="/img/icon_good.png" class="icon">
                 </p>
@@ -181,33 +181,33 @@
         @endforeach
     </div><!-- End row -->
     <p class="text-center nopadding">
-        <a href="/trust" class="btn_1 medium"><i class="icon-eye-7"></i>查看所有旅馆加盟&管理 ({{$trustsCount}}) </a>
+        <a href="/hotel" class="btn_1 medium"><i class="icon-eye-7"></i>查看所有旅馆加盟&管理 ({{$trustsCount}}) </a>
     </p>
 
     <hr>
     <div class="main_title">
         <h2>进口商品代理</h2>
-        <p>我们提供的不仅是房屋买卖交易的桥梁，更加注重创建一个公平开放的合作平台</p>
+        <p>为您提供新西兰全境最优质的商品</p>
     </div>
     <div class="row">
         @foreach($hotpropertys as $hotproperty)
         <div class="col-md-4 col-sm-6 wow zoomIn">
             <div class="hotel_container">
                 <div class="img_container">
-                    <a href="/property/{{$hotproperty->id}}">
+                    <a href="/good/{{$hotproperty->id}}">
                         <img src="{{$hotproperty->picurl}}" class="img-responsive" alt="{{$hotproperty->title}}">
 
                     </a>
                 </div>
                 <div class="hotel_title">
-                    <h3>{!!str_limit($hotproperty->title,40) !!}</h3>
+                    <h3>{!!str_limit($hotproperty->title, 40) !!}</h3>
                 </div>
             </div><!-- End box -->
         </div>
         @endforeach
     </div><!-- End row -->
     <p class="text-center nopadding">
-        <a href="/property" class="btn_1 medium"><i class="icon-eye-7"></i>查看所有进口商品 ({{$HouseCount}}) </a>
+        <a href="/good" class="btn_1 medium"><i class="icon-eye-7"></i>查看所有进口商品 ({{$HouseCount}}) </a>
     </p>
     <hr>
     <div class="main_title">

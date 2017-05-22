@@ -1,13 +1,15 @@
 @extends('layouts.master')
-@section('title')旅馆加盟
-@stop
+@section('title')
+    {{$title}}
+@endsection
+
 @section('content')
 
 <!-- Mobile menu overlay mask -->
 <!-- Header================================================== -->
 <section class="parallax-window" data-parallax="scroll"
          <?php
-         $banner=\App\Models\Banner::join('nz_category', 'nz_banner.catid', '=', 'nz_category.id')->where('name','旅馆加盟')->first();
+         $banner=\App\Models\Banner::join('nz_category', 'nz_banner.catid', '=', 'nz_category.id')->where('name', $title)->first();
          if($banner)
              echo  'data-image-src='.$banner->picurl;
          else
@@ -16,7 +18,7 @@
          data-natural-width="1400" data-natural-height="470">
    <div class="parallax-content-1">
         <div class="animated fadeInDown">
-            <h1>旅馆加盟</h1>
+            <h1>{{$title}}</h1>
             <p></p>
             @include('layouts.partials.search')
         </div>
@@ -27,7 +29,7 @@
     <div class="container">
         <ul>
             <li><a href="/">首页</a></li>
-            <li>旅馆加盟</li>
+            <li>{{$title}}</li>
         </ul>
     </div>
 </div>
@@ -36,18 +38,18 @@
 
     <div class="row">
         <div class="col-lg-8 col-md-8">
-            <h2 class="page-header">旅馆加盟&管理</h2>
+            <h2 class="page-header">{{$title}}</h2>
              <div class="panel-cont">
                  @foreach($models as $model)
                  <div class="row">
                      <div class="col-lg-4 col-md-4 col-sm-4">
                          <div class="img_lists">
-                             <a href="/hotel/{{$model->id}}"> <img src="{{$model->picurl}}" class="img-thumbnail"></a>
+                             <a href="/{{$url}}/{{$model->id}}"> <img src="{{$model->picurl}}" class="img-thumbnail"></a>
                          </div>
                      </div>
                      <div class="col-lg-8 col-md-8 col-sm-8">
                          <div class="list_desc">
-                             <h3><a href="/hotel/{{$model->id}}">{{$model->title}}</a></h3>
+                             <h3><a href="/{{$url}}/{{$model->id}}">{{$model->title}}</a></h3>
                              <p> {!!str_limit($model->abstract,125) !!}</p>
                          </div>
                      </div>
@@ -67,34 +69,6 @@
                              @endfor
                          </ul>
                 </div>
-
-            </div>
-            <div class="box_style_4 expose hide">
-                <h3 class="inner">热门房产</h3>
-                @foreach($hotpropertys as $hotproperty)
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6 room">
-                            <div>
-                                <a href="/property/{{$hotproperty->id}}"><img src="{{$hotproperty->picurl}}" alt="{{$hotproperty->title}}" class="img-circle"></a>
-                            </div>
-                            <div class="hold_room">
-                                <h4><a href="/property/{{$hotproperty->id}}">{!!str_limit(strip_tags($hotproperty->title),45) !!}</a></h4>
-                                @if(isset($hotproperty->tagsid))
-                                    <p class="tags">
-                                        @foreach(App\Models\Tag::getTop2Tag($hotproperty->tagsid)->get() as $tag )
-                                            <span class="label label-info">{{$tag->name}}</span>
-                                        @endforeach
-                                    </p>
-                                @endif
-
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-
-                <br>
-
-                <a class="btn_full" href="/property">更多</a>
             </div>
             @include('layouts.partials.right_side')
         </aside>

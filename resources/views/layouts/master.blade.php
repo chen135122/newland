@@ -94,16 +94,16 @@
                                 <a href="/" class="show-submenu"> <!--<i class="icon_set_1_icon-64"></i>--> 首页 </a>
                             </li>
                             <li class=" megamenu submenu">
-                                <a href="/trust" class="show-submenu-mega"> <!--<i class="icon_set_1_icon-2"></i>--> 旅馆加盟 </a>
+                                <a href="/hotel" class="show-submenu-mega"> <!--<i class="icon_set_1_icon-2"></i>--> 旅馆加盟 </a>
                             </li>
                             <li class=" megamenu submenu">
-                                <a href="/property" class="show-submenu-mega"> <!--<i class="icon_set_1_icon-2"></i>--> 进口商品代理 </a>
+                                <a href="/good" class="show-submenu-mega"> <!--<i class="icon_set_1_icon-2"></i>--> 进口商品代理 </a>
                             </li>
                             <li class="submenu">
                                 <a href="/tour" class="show-submenu"><!--<i class="icon_set_1_icon-8"></i>--> 旅游 </a>
                             </li>
                             <li class="submenu">
-                                <a href="/tour" class="show-submenu"><!--<i class="icon_set_1_icon-8"></i>--> 新西兰业务 </a>
+                                <a href="/newzealand" class="show-submenu"><!--<i class="icon_set_1_icon-8"></i>--> 新西兰业务 </a>
                             </li>
 
                             <li class="submenu">
