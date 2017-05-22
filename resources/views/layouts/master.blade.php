@@ -103,7 +103,7 @@
                                 <a href="/tour" class="show-submenu"><!--<i class="icon_set_1_icon-8"></i>--> 旅游 </a>
                             </li>
                             <li class="submenu">
-                                <a href="/newzealand" class="show-submenu"><!--<i class="icon_set_1_icon-8"></i>--> 新西兰业务 </a>
+                                <a href="/study" class="show-submenu"><!--<i class="icon_set_1_icon-8"></i>--> 新西兰业务 </a>
                             </li>
 
                             <li class="submenu">
