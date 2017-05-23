@@ -102,19 +102,23 @@
                             <li class="submenu">
                                 <a href="/tour" class="show-submenu"><!--<i class="icon_set_1_icon-8"></i>--> 旅游 </a>
                             </li>
+                            
                             <li class="submenu">
-                                <a href="/study" class="show-submenu"><!--<i class="icon_set_1_icon-8"></i>--> 新西兰业务 </a>
+                                <a href="javascript:void(0);" class="show-submenu"><!--<i class="icon_set_1_icon-43"></i>--> 新西兰业务 <i class="icon-down-open-mini"></i></a>
+                                <ul>
+                                    <li  style="margin-left: 0px;"><a href="/immigrant">移民</a></li>
+                                    <li  style="margin-left: 0px;"><a href="/study">大学</a></li>
+                                    <li  style="margin-left: 0px;"><a href="/study-sp">中小学</a></li>
+                                </ul>
                             </li>
-
+                            
                             <li class="submenu">
                                 <a href="/news" class="show-submenu"><!--<i class="icon_set_1_icon-7"></i>--> 资讯 <i class="icon-down-open-mini"></i></a>
                                 <ul>
                                     @foreach(\App\Models\ArticleCategory::where('parent_id',4)->select('id','name')->get() as $category)
                                       <li  style="margin-left: 0px;"><a href="/news-{{$category->id}}">{{$category->name}}</a></li>
                                     @endforeach
-
                                 </ul>
-
                             </li>
                             <li class="submenu">
                                 <a href="/about" class="show-submenu">关于我们 <i class="icon-down-open-mini"></i></a>
