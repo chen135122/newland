@@ -65,6 +65,25 @@
             margin-top: 0 !important;
         }
 
+        p.darken {
+            display: inline-block;
+            padding: 0;
+        }
+
+        p.darken img {
+            opacity: 0.6;
+            display: block;
+            -webkit-transition: all 0.2s linear;
+            -moz-transition: all 0.2s linear;
+            -ms-transition: all 0.2s linear;
+            -o-transition: all 0.2s linear;
+            transition: all 0.2s linear;
+        }
+
+        p.darken:hover img {
+            opacity: 1;
+        }
+
     </style>
 
 @endpush
@@ -86,19 +105,15 @@
                             <!-- MAIN IMAGE -->
                     <img src="{{$banner->picurl}}" alt="{{$banner->description}}" data-lazyload="{{$banner->picurl}}" data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
                     <!-- LAYER NR. 1 -->
-                    <div class="tp-caption white_heavy_40 customin customout text-center text-uppercase" data-x="center" data-y="center" data-hoffset="0" data-voffset="-20" data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;" data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-speed="1000" data-start="1700" data-easing="Back.easeInOut" data-endspeed="300" style="z-index: 5; max-width: auto; max-height: auto; white-space: nowrap;">新西兰一站式服务</div>
+                    <div class="tp-caption white_heavy_40 customin customout text-center text-uppercase" data-x="center" data-y="center" data-hoffset="0" data-voffset="-20" data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;" data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-speed="1000" data-start="100" data-easing="Back.easeInOut" data-endspeed="300" style="z-index: 5; max-width: auto; max-height: auto; white-space: nowrap;">新西兰一站式服务</div>
                     <!-- LAYER NR. 2 -->
-                    <div class="tp-caption customin tp-resizeme rs-parallaxlevel-0 text-center" data-x="center" data-y="center" data-hoffset="0" data-voffset="15" data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-speed="500" data-start="2600" data-easing="Power3.easeInOut" data-splitin="none" data-splitout="none" data-elementdelay="0.05" data-endelementdelay="0.1" style="z-index: 9; max-width: auto; max-height: auto; white-space: nowrap;">
+                    <div class="tp-caption customin tp-resizeme rs-parallaxlevel-0 text-center" data-x="center" data-y="center" data-hoffset="0" data-voffset="15" data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-speed="500" data-start="1000" data-easing="Power3.easeInOut" data-splitin="none" data-splitout="none" data-elementdelay="0.05" data-endelementdelay="0.1" style="z-index: 9; max-width: auto; max-height: auto; white-space: nowrap;">
 
                         <div class="tp_d">
                             <br>
                             <br>
                             旅馆加盟、商品代理、旅游、全线业务
                         </div>
-                    </div>
-                    <!-- LAYER NR. 3 -->
-                    <div class="tp-caption customin tp-resizeme rs-parallaxlevel-0" data-x="center" data-y="center" data-hoffset="0" data-voffset="70" data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-speed="500" data-start="2900" data-easing="Power3.easeInOut" data-splitin="none" data-splitout="none" data-elementdelay="0.1" data-endelementdelay="0.1" data-linktoslide="next" style="z-index: 12;">
-
                     </div>
                 </li>
                 @endforeach
@@ -116,7 +131,7 @@
     <div class="container margin_60">
         <div class="row">
             <div class="col-md-3 col-sm-6 col-xs-6  text-center"  style="cursor: pointer;" onclick="window.location='/hotel'">
-                <p>
+                <p class="darken">
                     <img src="/img/icon_car.png" class="icon">
                 </p>
                 <h4><span>连锁汽车旅馆加盟&管理</span></h4>
@@ -125,7 +140,7 @@
                 </p>
             </div>
             <div class="col-md-3 col-sm-6 col-xs-6 text-center" style="cursor: pointer;" onclick="window.location='/good'">
-                <p>
+                <p class="darken">
                  <img src="/img/icon_good.png" class="icon">
                 </p>
                 <h4><span>进口商品代理</span></h4>
@@ -134,7 +149,7 @@
                 </p>
             </div>
             <div class="col-md-3 col-sm-6 col-xs-6  text-center"  style="cursor: pointer;" onclick="window.location='/tour'">
-                <p>
+                <p class="darken">
                     <img src="/img/icon_plane.png" class="icon">
 
                 </p>
@@ -144,7 +159,7 @@
                 </p>
             </div>
             <div class="col-md-3 col-sm-6 col-xs-6 text-center"  style="cursor: pointer;" onclick="window.location='/immigrant'">
-                <p>
+                <p class="darken">
                     <img src="/img/icon_newzealand.png" class="icon">
                 </p>
                 <h4><span>新西兰全线业务</span></h4>

@@ -11,7 +11,8 @@ class FamilyTrustController extends Controller
 {
     public function index()
     {
-        $models = Partner::orderBy('displayorder', 'asc')->where("iswork", 3)->paginate(10);
+
+        $models = Partner::orderBy('displayorder', 'asc')->where("iswork",1)->paginate(10);
         $allUrl= $this->qrcode();
         $hotpropertys=$this->HotProperty(4);
         return view('trust.index')->with(compact('models','allUrl','hotpropertys'));

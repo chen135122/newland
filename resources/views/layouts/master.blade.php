@@ -107,8 +107,9 @@
                                 <a href="javascript:void(0);" class="show-submenu"><!--<i class="icon_set_1_icon-43"></i>--> 新西兰业务 <i class="icon-down-open-mini"></i></a>
                                 <ul>
                                     <li  style="margin-left: 0px;"><a href="/immigrant">移民</a></li>
-                                    <li  style="margin-left: 0px;"><a href="/study">大学</a></li>
-                                    <li  style="margin-left: 0px;"><a href="/study-sp">中小学</a></li>
+                                    <li  style="margin-left: 0px;"><a href="/study">留学—大学</a></li>
+                                    <li  style="margin-left: 0px;"><a href="/study-sp">留学—中小学</a></li>
+                                    <li  style="margin-left: 0px;"><a href="/trust">家庭信托</a></li>
                                 </ul>
                             </li>
                             

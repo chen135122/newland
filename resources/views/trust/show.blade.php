@@ -7,7 +7,7 @@
 <!-- Header================================================== -->
 <section class="parallax-window" data-parallax="scroll"
          <?php
-         $banner=\App\Models\Banner::join('nz_category', 'nz_banner.catid', '=', 'nz_category.id')->where('name','旅馆加盟')->first();
+         $banner=\App\Models\Banner::join('nz_category', 'nz_banner.catid', '=', 'nz_category.id')->where('name','家庭信托')->first();
          if($banner)
              echo  'data-image-src='.$banner->picurl;
          else
@@ -16,7 +16,7 @@
          data-natural-width="1400" data-natural-height="470">
    <div class="parallax-content-1">
         <div class="animated fadeInDown">
-            <h1>旅馆加盟</h1>
+            <h1>家庭信托</h1>
             <p></p>
             @include('layouts.partials.search')
         </div>
@@ -26,7 +26,7 @@
     <div class="container">
         <ul>
             <li><a href="/">首页</a></li>
-            <li><a href="/trust">旅馆加盟</a></li>
+            <li><a href="/trust">家庭信托</a></li>
         </ul>
     </div>
 </div>
@@ -54,7 +54,7 @@
                 </div>
 
             </div>
-            <div class="box_style_4 expose hide">
+            <div class="box_style_4 expose">
                 <h3 class="inner">热门房产</h3>
                 @foreach($hotpropertys as $hotproperty)
                     <div class="row">

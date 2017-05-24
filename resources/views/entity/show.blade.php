@@ -19,7 +19,11 @@
    <div class="parallax-content-1">
         <div class="animated fadeInDown">
             <h1>{{$title}}</h1>
-            <p></p>
+            <p>
+                @if(isset($sub_title))
+                    {{$sub_title}}
+                @endif
+            </p>
             @include('layouts.partials.search')
         </div>
     </div>
