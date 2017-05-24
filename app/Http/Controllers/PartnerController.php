@@ -10,7 +10,6 @@ class PartnerController extends Controller
 {
     public function index()
     {
-
         $models = Partner::orderBy('displayorder', 'asc')->where("iswork", 0)->paginate(10);
         $allUrl= $this->qrcode();
         return view('partner.index')->with(compact('models','allUrl'));
