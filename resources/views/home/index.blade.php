@@ -84,6 +84,13 @@
             opacity: 1;
         }
 
+        .img_container img {
+            display: block;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+        }
+
     </style>
 
 @endpush
