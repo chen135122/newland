@@ -69,33 +69,6 @@
                 </div>
 
             </div>
-            <div class="box_style_4 expose">
-                <h3 class="inner">热门房产</h3>
-                @foreach($hotpropertys as $hotproperty)
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6 room">
-                            <div>
-                                <a href="/property/{{$hotproperty->id}}"><img src="{{$hotproperty->picurl}}" alt="{{$hotproperty->title}}" class="img-circle"></a>
-                            </div>
-                            <div class="hold_room">
-                                <h4><a href="/property/{{$hotproperty->id}}">{!!str_limit(strip_tags($hotproperty->title),45) !!}</a></h4>
-                                @if(isset($hotproperty->tagsid))
-                                    <p class="tags">
-                                        @foreach(App\Models\Tag::getTop2Tag($hotproperty->tagsid)->get() as $tag )
-                                            <span class="label label-info">{{$tag->name}}</span>
-                                        @endforeach
-                                    </p>
-                                @endif
-
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-
-                <br>
-
-                <a class="btn_full" href="/property">更多</a>
-            </div>
             @include('layouts.partials.right_side')
         </aside>
     </div><!-- End row -->
